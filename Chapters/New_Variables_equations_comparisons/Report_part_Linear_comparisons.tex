@@ -1,0 +1,948 @@
+%\documentclass[a4paper,12pt]{article}
+%%% My standard included packages
+%%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+%%             % images in pdf, png or jpg format)
+%%\usepackage{jcappub} % for details on the use of the package, please
+%%                     % see the JCAP-author-manual
+%%\usepackage[T1]{fontenc} % if needed
+%
+%\usepackage{setspace}           % Allows easy changes to line spacing 
+%\usepackage{graphicx}           % Allows including of graphics files
+%\usepackage{amsmath}            % Additional math capabilities
+%\usepackage{marginnote}         % Used with todonotes package
+%\usepackage{datetime}           % Allows formatting of date and time
+%\newcommand {\be}{\begin{equation}}
+%\newcommand {\ee}{\end{equation}}
+%
+%\usepackage{empheq}
+%\usepackage{cancel}
+%\usepackage{etoolbox}
+%
+%
+%\usepackage{enumitem} 
+%\usepackage{color}
+%%Mathematica colors
+%\definecolor{identifiercolor}{rgb}{.4,.6,.56}
+%\definecolor{stringcolor}{gray}{0.5}
+%\definecolor{inactivecolor}{rgb}{0.15,0.15,0.5}
+%\usepackage{listings}
+%%Mathematica
+%\usepackage{listings}
+%\lstset{basicstyle={\footnotesize\def\fvm@Scale{.85}\fontfamily{fvm}\selectfont},
+%  breaklines=true,
+%  escapeinside={\%*}{*)},
+%  keywordstyle={\bfseries\color{inactivecolor}},
+%  stringstyle={\bfseries\color{stringcolor}},
+%  identifierstyle={\bfseries\color{identifiercolor}},
+%  language=Mathematica,
+%  otherkeywords={DiscretizeRegion},
+%  showstringspaces=false}
+%\renewcommand{\lstlistingname}{Listing}
+%
+%
+%
+%
+%\usepackage{amsmath}
+%\usepackage{graphicx}% Use pdf, png, jpg, or epså¤ with pdflatex; use eps in DVI mode
+%\usepackage{caption}
+%\usepackage{subcaption}
+%          % List formatting commands
+%\setlist{noitemsep}             % Remove space between list items 
+%%\usepackage{subfigure}          % Create numbered and captioned subfigures
+%\usepackage{rotating}           % Create landscape tables and figures
+%\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+%\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Orange,citecolor=RedViolet]{hyperref}           % URLS and hyperlinks
+%%\usepackage{hyperref}           % URLS and hyperlinks
+%\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[numbers]{natbib}
+%\usepackage{versionPO}          % Include text conditionally
+%\usepackage{caption}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[nottoc]{tocbibind}
+%\lstset{basicstyle=\ttfamily,
+%  showstringspaces=false,
+%  commentstyle=\color{red},
+%  keywordstyle=\color{blue}
+%}
+%% These next lines allow including or excluding different versions of text
+%% using versionPO.sty
+%\includeversion{notes}		% Include notes?
+%%\excludeversion{notes}
+%\excludeversion{comment}
+%\includeversion{links}          % Turn hyperlinks on?
+%\excludeversion{submit}		% Format for conference submission?
+%\includeversion{toc}		% Include table of contents?
+%%\graphicspath{{./Results1-Perihelionadvance}}
+%
+%% Turn off hyperlinking if links is excluded
+%\iflinks{}{\hypersetup{draft=true}}
+%
+%% Notes options
+%\ifnotes{%
+%\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+%\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+%}{%
+%\usepackage[margin=1in]{geometry}%
+%\usepackage[disable]{todonotes}%
+%}
+%
+%% Allow todonotes inside footnotes without blowing up LaTeX
+%% Next command works but now notes can overlap. Instead, we'll define 
+%% a special footnote note command that performs this redefinition.
+%%\renewcommand{\marginpar}{\marginnote}%
+%
+%% Save original definition of \marginpar
+%\let\oldmarginpar\marginpar
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+%% Packages included specifically for this document.
+%\usepackage{texintro}           % Document-specific definitions
+%\usepackage{tocvsec2}           % More flexible formatting of table of contents
+%\usepackage{bibentry}           % Print full citation in text
+%\nobibliography*                                % Allow use of \bibentry command
+%\usepackage{tikz}             % Already included by todonotes
+%\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+%                                           % allow enumitem to work.
+%
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%% If you're including tocvsec2, do so before this command.
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+%
+%% Number paragraphs and subparagraphs and include them in TOC
+%%\setcounter{tocdepth}{2}
+%
+%\usepackage[affil-it]{authblk} 
+%\usepackage{etoolbox}
+%\usepackage{titlesec}
+%
+%\setcounter{secnumdepth}{4}
+%
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%
+%
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+%\def\bean{\begin{eqnarray*}}
+%\def\eean{\end{eqnarray*}}
+%\def\cd{\cdot}
+%\def\vp{\varphi}
+%\def\l {\langle}
+%\def\re {\rangle}
+%\def \dd {\partial}
+%\def \ra {\rightarrow}
+%\def \la {\lambda}
+%\def \La {\Lambda}
+%\def \De {\Delta}
+%\def \DH {\Delta_{\rm HI}}
+%\newcommand{\de}{\delta}
+%\def \b {\beta}
+%\def \al {\alpha}
+%\def \ka {\kappa}
+%\def \Ga {\Gamma}
+%\def \ga {\gamma}
+%\def \si {\sigma}
+%\def \Si {\Sigma}
+%\def \ep {\epsilon}
+%\def \om {\omega}
+%\def \Om {\Omega}
+%\def \lap {\triangle}
+%\def \ep {\epsilon}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Special definitions for this paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newcommand{\MyRed}{\color [rgb]{0.8,0,0}}
+%\newcommand{\MyGreen}{\color [rgb]{0,0.7,0}}
+%\newcommand{\MyBlue}{\color [rgb]{0,0,0.8}}
+%\newcommand{\MyBrown}{\color [rgb]{0.8,0.4,0.1}}
+%\newcommand{\MyPurple}{\color [rgb]{0.6,0.0,0.6}}
+%\def\GV#1{{\MyRed [GV: #1]}}
+%\def\RD#1{{\MyGreen [RD:  {\tt #1}]}} 
+%\def\RDt#1{{\MyGreen #1}}   
+%\def\GM#1{{\MyBlue [GM: #1]}}  
+%\def\GF#1{{\MyPurple [GF: #1]}}    
+%
+%
+%
+%\newcommand{\ie}{\emph{i. e.}}
+%\newcommand{\cf}{\emph{cf.}}
+%\newcommand{\etal}{\emph{et al.}\xspace}
+%\newcommand{\eg}{\emph{e. g.}}
+%
+%\newcommand{\Scal}{\mathcal S}
+%\newcommand{\DD}{\mathcal D}
+%\newcommand{\EE}{\mathcal E}
+%\newcommand{\MM}{\mathcal M}
+%\newcommand{\HH}{\mathcal H}
+%
+%\newcommand{\Real}{\mathbb{R}}
+%\newcommand{\bn}{\boldsymbol{n}}
+%\newcommand{\bv}{\boldsymbol{v}}
+%\newcommand{\bx}{\boldsymbol{x}}
+%\newcommand{\bnabla}{\boldsymbol{\nabla}}
+%\newcommand{\bell}{\boldsymbol{\ell}}
+%\newcommand{\bal}{\boldsymbol{\alpha}}
+%
+%
+%
+%
+%
+%%\usepackage{lmodern}
+%%\renewcommand\Authfont{\fontsize{12}{14.4}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%%\renewcommand\Authfont{\fontsize{12}{15}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{11}\itshape}
+%\definecolor{astral}{RGB}{46,116,181}
+%%\subsectionfont{\color{astral}}
+%%\sectionfont{\color{astral}}
+%%\usdate{17 May}                         % Use usual LaTeX date layout
+%
+%%\title{\color{BlueViolet}\Huge{On the accuracy of approximated geodesic equations and different potentials with different numerical methods } }
+%\title{\color{BlueViolet}\Huge{Just part of projects which should be added to the original version}}
+%%\vskip 2em
+%\author{Farbod Hassani}
+%%\thanks{Email:\href{mailto:farbod.hassani@unige.ch}{{farbod.hassani@unige.ch}}}  \thanks{Homepage: \href{http://www.farbod-hassani.com}{farbod-hassani.com}}}
+%%\affil{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%
+%%{farbod-hassani.com}} }
+%%\newcommand*{\TitleFont}{%     \usefont{\encodingdefault}{\rmdefault}{b}'%     \fontsize{18}{16}%    \selectfont}
+%%\title{\TitleFont Halo finder}
+%%\author[1]{{Farbod Hassani} \thanks{ \url{farbod.hassani@gmail.com}
+%%}
+%%\thanks{farbod-hassani.com}}
+%%\author[2]{Author E\thanks{E.E@university.edu}}
+%%\affil[1]{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%%\emailAdd{farbod.hassani@gmail.com}
+%%\affil[2]{Department of Mechanical Engineering, \LaTeX\ University}
+%      %\begin{abstract}
+%%This is abstract text: This simple document shows very basic features of \LaTeX{}.
+%%\lstset { %
+%%    language=C++,
+%%    %backgroundcolor=\color{black!5}, % set backgroundcolor
+%%    basicstyle=\footnotesize,% basic font settings
+%%}
+%\begin{document}
+\section{Initial condition in class and Gevolution}
+\paragraph{ Comparing the initial condition from class and what is implemented in Gevolution}
+To make sure that the Gevolution  realizes the file from class, we turn off the main loop of the Gevolution and just realize the fields $\pi$ and $\zeta$ and compare the output transfer function from Gevolution with the one from class
+ \begin{lstlisting}[language=python,
+  basicstyle=\tiny]
+# Parameters for converting to dimensionless power.
+As=2.19*10**-9;
+h=0.67556
+kp=0.05/h; 
+ns=0.96;
+cs2=1.e-6;
+#################################
+#Making power of class field to compare with Gev
+Class_power_z100=np.zeros((np.shape(piGev_z_100)[0],8))
+# Making interpolation!
+interp_pi_class_100 =interp1d(class_newt_z100[:,0],class_newt_z100[:,1])
+interp_zeta_class_100 =interp1d(class_newt_z100[:,0],class_newt_z100[:,2])
+#Making dimensionless power!
+i=1;
+Class_power_z100[:,i]=As*((interp_pi_class_100(piGev_z_100[:,0]))**2)*((piGev_z_100[:,0]/kp)**(ns-1.));
+i=2;
+Class_power_z100[:,i]=As*((interp_zeta_class_100(zetaGev_z_100[:,0]))**2)*((zetaGev_z_100[:,0]/kp)**(ns-1.));
+plt.figure(figsize=(20,20))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+#Plot setting
+#################################
+#SubplotI Check the pi in class and Gevolution
+# Hconf*pi comparison
+plt.subplot(211)
+plt.loglog(piGev_z_100[:,0],  piGev_z_100[:,0]**2*(H_conf_class_z100)**2*Class_power_z100[:,1],color="blue",linestyle='dashed',lw=1.5,label=r"class, z=100 ")
+plt.loglog(piGev_z_100[:,0],piGev_z_100[:,0]**2*piGev_z_100[:,1],color="red",linestyle='solid',lw=1.5,label=r"Gevolution, z=100 ")
+#####################
+plt.legend(bbox_to_anchor=(0.0, 0.25, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$k^2\mathcal{P} \; (\mathcal{H}\pi)$",fontsize=14)
+plt.xlim(0.01,5.e-1)
+plt.ylim(1.e-14,2.e-13)
+plt.grid(True)
+# # plt.show()
+# #################################
+# zeta comparison class and Gevolution
+plt.subplot(212)
+plt.legend(bbox_to_anchor=(0.0, 0.10, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+plt.loglog(piGev_z_100[:,0], Class_power_z100[:,2],color="blue",linestyle='dashed',lw=1.5,label=r"class, z=100 ")
+plt.loglog(piGev_z_100[:,0], zetaGev_z_100[:,1],color="red",linestyle='solid',lw=1.5,label=r"Gevolution, z=100 ")
+#####################
+plt.legend(bbox_to_anchor=(0.0, 0.25, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\mathcal{P} \; (\zeta)$",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+plt.ylim(1.e-22,2.e-16)
+plt.grid(True)
+plt.savefig('IC_test.jpg', format='jpg', dpi=300)
+plt.show()
+\end{lstlisting}
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{IC_test.jpg} 
+ \end{figure}
+
+\paragraph{By corrector methods check the errors on variables}
+This is an important part which should be done to have the errors propagation under the control! \\
+For example we need to check if $\zeta$ at step n is computed correctly? 
+The best way to do it is first to check that $\zeta_n$ from the next order corrector is  near to original one (like the relative error $2\frac{\zeta_1-\zeta_2}{\zeta_1+\zeta_2}<0.01$, which gives less than 1$\%$ error).  So what we are doing to do is using the $\zeta_n$  from the one of the following formulas (or the average maybe?)
+ \be
+    \zeta_{n} = \zeta_{n-\frac{1}{2}}+ \zeta'_{n} \Delta \tau/2 + \mathcal{O}(\Delta \tau^2)
+    \ee 
+    or
+ \be
+    \zeta_{n} = \zeta_{n+\frac{1}{2}} - \zeta'_{n} \Delta \tau/2+ \mathcal{O}(\Delta \tau^2)
+    \ee 
+    or 
+     \be
+    \zeta_{n} =\frac{ \zeta_{n+\frac{1}{2}} + \zeta_{n-\frac{1}{2}}  }{2}+ \mathcal{O}(\Delta \tau^2)
+    \ee 
+    The last one is also at the same order because it is obtained by sum of the first two formulas.\\ 
+    So by using  $ \zeta'_{n} $ and  $\zeta_{n-}$ we compute  $\zeta_{n-\frac{1}{2}}$ from the below formula
+ \be
+     \zeta_{n-\frac{1}{2}} = \zeta_{n} - \zeta'_{n} \Delta \tau/2
+ \ee
+  then from the new $ \zeta_{n-\frac{1}{2}}$ we use the differential equation to get new $ \zeta_{n+\frac{1}{2}}$ according to ,
+      \be
+   \zeta_{n+\frac{1}{2}}= \frac{1}{1-  3   \mathcal{H}_{n} w \Delta \tau/2 } \Bigg[ \zeta_{n-\frac{1}{2}} +  \Delta \tau \Bigg( 3 \mathcal{H}_{n}\Big( \frac{ w\zeta_{n-\frac{1}{2}} }{2} +c_s^2 \Psi_{n} \Big)  -c_s^2(   3 \mathcal{H}^2_{n} 
+  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n} \Bigg) \Bigg]
+  \ee
+  Then again we compute $\zeta_n$ by new $\zeta_{n+\frac{1}{2}}$ and $\zeta_{n-\frac{1}{2}}$ and check the error, then we continue the loop until we get the desired precision on the variable. \\
+  The code for predictor corrector method in C++ is written as follwing, note that all the lines have comments make the code easier to follow,
+   \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+	template <class FieldType>
+			void update_zeta(double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi,Field<FieldType> & chi_old, Field<FieldType> & pi_k, Field<FieldType> & zeta_half , Field<FieldType> & zeta_integer, double Omega_fld ,double w, double cs2, double Hcon, double & Hcon_old)
+			{
+			  double CoeffI, CoeffII, H_prime, psi, psi_old, psi_prime, phi_prime, Laplacian_pi, zeta_old_half, zeta_prime_int_n0, zeta_check ;
+        //Predictor-corrector variables
+        double zeta_predictor_int_n0, zeta_predictor_half_n0, zeta_predictor_half_n1;
+        int numerator=1, n_correcor_steps=10;
+        H_prime= (Hcon-Hcon_old)/dtau; //H_prime(n) at step n
+        CoeffI = 1./(1. - dtau * 3. * w * Hcon/2. );
+        CoeffII = cs2 * (3. * Hcon * Hcon - 3. * H_prime );
+
+				Site x(phi.lattice());
+				for (x.first(); x.test(); x.next())
+					{
+            //Everything here is at step n except zeta which is at half steps! zeta is like pi_v
+						Laplacian_pi=pi_k(x-0) + pi_k(x+0) - 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+1) + pi_k(x-1)- 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+2) + pi_k(x-2)- 2. * pi_k(x);
+            Laplacian_pi=Laplacian_pi/(dx*dx);
+						psi=phi(x) - chi(x);
+						psi_prime= ((phi(x) - chi(x))-(phi_old(x) - chi_old(x)))/dtau; //psi_prime(n)
+					  phi_prime= (phi(x) - phi_old(x))/dtau; //phi_prime(n)
+						//Full Linear terms, zeta at step n+1/2
+            zeta_old_half=zeta_half(x); // zeta(n-1/2)
+            zeta_half(x)= CoeffI * ( zeta_half(x) + dtau * ( 3. * Hcon * ( w * zeta_half(x)/2. + cs2 * psi ) - CoeffII * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi) ); // zeta(n+1/2) from zeta(n-1/2) and zeta'(n)
+            // computing zeta (n) by taking average ove zeta(n+1/2) and zeta(n-1/2)
+            //Zeta Check!
+            zeta_integer(x)= (zeta_half(x) + zeta_old_half)/2.; //zeta(n)
+
+            //Predictor-Corrector method:
+
+            for (int i=1; i<n_correcor_steps+1; i++)
+            {
+            // Initiation of the method from the last loop
+            zeta_predictor_int_n0 = zeta_integer(x);  //zeta (n+0) = (zeta(n-1/2)+zeta(n+1/2)) /2
+            // claculating zeta'(n) from the new values after correction
+            zeta_prime_int_n0=( 3. * Hcon * ( w * zeta_predictor_int_n0 + cs2 * psi ) - CoeffII * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi); // zeta'(n), Having zeta' at step (n), so all the variables are at step (n)
+            zeta_predictor_half_n0 =  zeta_predictor_int_n0 -  zeta_prime_int_n0 * dtau/2.;    //zeta(n-1/2) = zeta(n) - zeta'(n) * Delta tau/2
+            // Now from the new values at steps (n-1/2) and n we compute the new value at n+1/2
+            zeta_predictor_half_n1= CoeffI * ( zeta_predictor_half_n0 + dtau * ( 3. * Hcon * ( w * zeta_predictor_half_n0/2. + cs2 * psi ) - CoeffII * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi) ); // zeta_corrected(n+1/2) from zeta(n-1/2) and zeta'(n)
+            zeta_predictor_int_n0= (zeta_predictor_half_n1 + zeta_predictor_half_n0)/2.; //zeta(n) =[zeta(n+1/2)+zeta(n-1/2)]/2
+            // Now we must check the relative error between the new zeta_half(x)=zeta_predictor_half_n1, zeta_integer(x)=zeta_predictor_int_n0 and the previous step: zeta_half(x), zeta_integer(x)
+            if (2.* abs(zeta_integer(x)-zeta_predictor_int_n0)/(zeta_integer(x)+zeta_predictor_int_n0)<1.e-6 &&  2.* abs(zeta_half(x)-zeta_predictor_half_n1)/(zeta_half(x)+zeta_predictor_half_n1) < 1.e-6)break;
+             // If the relative error between the values between two successive steps are less than 1% the method is stopped
+             // Since the new variables are more precise we use them as a new value of the fields on the lattice
+             zeta_old_half=zeta_predictor_half_n0; // zeta(n-1/2) after correction
+             zeta_half(x)=zeta_predictor_half_n1; // zeta(n+1/2) after correction
+             zeta_integer(x)= (zeta_half(x) + zeta_old_half)/2.; //zeta(n) after correction
+             numerator++;
+            }
+            if (numerator==n_correcor_steps) cout << "\033[1;31mbold WARNING: PRECISION ERROR ON KESSENCE FIELD ZETA, More than 1% Error\033[0m\n" << '\n';
+            // computing zeta (n) by zeta(n)=zeta(n-1/2)+ zeta'(n) dtau/2.
+            // cout<< abs((zeta_integer(x)-zeta_check)/(zeta_integer(x))) << '\n';
+            // if (numerator>1) cout<<"The number of steps to converge: "<<numerator<<endl;
+
+          }
+          //Since we have n_kess updates we must put Hcon_old=Hcon;
+          Hcon_old=Hcon;
+        }
+
+\end{lstlisting}
+The result for $\zeta$ is that  after one iteration the next corrected $\zeta_n$  just make $10^{-16}$ difference, but as it is clear the code is intelligent and after converging about $0.01\%$ stop the loop and if it does not stop after some tries we get precision error! \\
+For the $\pi$ since we do not have any inter/extrarpolation we do not need to use predictor corrector method, moreover we cannot do anything about $\Psi$ and $\Phi$ which are updated somewhere else after the kessence loop, if we need better precision for $\Psi$ and $\Phi$ we need to use corrector method in the particles loop to get more precise $\Psi$...\\
+We update the fields in the main file as following ({\color{red} {Not a good way, since fields and particles are not synched for example at first loop. Instead we can use the  reasoning in the paragraph after the code to make it better and synched with particles!}})
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+  //**********************
+//Kessence - LeapFrog:START
+//**********************
+double a_kess=a;
+double Hconf_old= Hconf(a_kess, fourpiG, cosmo);
+// In the first cycle we update zeta to get zeta at 1/2 to use it for leapfrog.
+if(cycle==0)
+{
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+
+     update_zeta(0.5 * dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+		 zeta_half.updateHalo();
+     zeta_integer.updateHalo();
+     
+	}
+}
+
+// For other cycles we just update accoring to leapfrog, zeta at half steps and pi at integet steps
+else
+{
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+    //First we update zeta to have it at n+1/2
+    update_zeta(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+    zeta_half.updateHalo();
+    zeta_integer.updateHalo();
+    rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0 );
+    //Now we update pi_k
+		update_pi_k(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+		pi_k.updateHalo();
+		rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0);
+	}
+}
+//**********************
+//Kessence - LeapFrog: End
+//**********************
+  \end{lstlisting}
+  It is super important to know how update the fields in the first loop to be consistent! \\ of course the last main loop which updates the $\zeta$ for half step in the first loop does not seem to work. Instead we use the following procedure at the first loop. We just assume that $\zeta^{-1/2} \approx \zeta^{(0)}$ which is more or less true if we start from high enough redshift, but we use corrector method to get the correct $\zeta^{(1/2)}$ ,
+    \be
+  \zeta^{(1/2)} = \zeta^{(-1/2)} - \zeta'^{(0)} d \tau
+  \ee
+  So before starting the loop over the scalar field we update the $\zeta$ to have the value at step $1/2$ and now we can put them into the loop and get all the values which are synched with particles! This is the same as just updating $\zeta$ and $\pi$ without caring about first loop!! Before we updated $\pi'$ first by half step then we updated $\pi$ in next loops we have updated the $\pi$ so these two fields were not synched with particles! But now instead we just make an assumption which is very well under control by corrector method and instead we get the values of the fields at integer steps synched with particles even at first loop! But it is clear that we might make a mistake at first loop because of the fact that we don't have $\Phi'$...
+ \\
+ At the end we have the following main part,
+ \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+  //**********************
+//Kessence - LeapFrog:START
+//**********************
+double a_kess=a;
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+	
+	    if(cycle==0)
+    {
+      for (x.first(); x.test(); x.next()) // Since int he first loop zeta_half is taken zero to not make a lot of mistake we take it equal to the half next step of it i.e zeta^0 but just for the first loop!
+      {
+        zeta_half(x) =zeta_integer(x);
+      }
+    }
+
+    //First we update zeta to have it at n+1/2
+    update_zeta(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo), Hconf_prime(a_kess, fourpiG, cosmo));
+    // By assuming that we have zeta^{-1/2} which is equal to \zeta^0 we get zeta^{1/2} by updating it by dtau and using zeta' (0)
+    // In sum: zeta(1/2) = zeta(-1/2)=zeta(0) + zeta'(0) dtau for the first loop
+    //Then we use Corrector method to correct the zeta(0) by using new values ... to make sure that we dont make alot of mistakes.
+    //After this update we have zeta(1/2) and zeta(1)
+    zeta_half.updateHalo();
+    zeta_integer.updateHalo();
+    rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0 );
+    //Now we update pi_k
+		update_pi_k(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_prime(a_kess, fourpiG, cosmo)); // H_old is updated here in the function
+		pi_k.updateHalo();
+		rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0);
+	}
+}
+#ifdef BENCHMARK
+    kessence_update_time += MPI_Wtime() - ref_time;
+    ref_time = MPI_Wtime();
+#endif
+//**********************
+//Kessence - LeapFrog: End
+//**********************
+  \end{lstlisting}
+  One more thing is that we need to use $update.halo$ just when we want to take derivatives or want to know the value of the field in some neighbourhoods at one loop, which means that the cpu's must share their information in the boundaries!
+  
+\subsubsection{Mathematica solution from class initial condition and comparing with class}
+We solve the two linear differential equations in mathematica from class initial condition and then we compare with the class results at different redshifts. The below code solve the two ODE numerically,\
+
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{mathem_new_1} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.4]{mathem_new_2} 
+ \end{figure}
+   \begin{figure}[H]
+ \includegraphics[scale=0.4]{mathem_new_3} 
+ \end{figure}
+ \paragraph{The results}
+ Comparing the initial conditions from class file and what is given to mathematica just for consistency, gives the same shape..
+    \begin{figure}[H]
+ \includegraphics[scale=0.4]{math_new_plt1} 
+ \end{figure}
+ Comparing at lower redshift (z=10) gives,
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{math_new_plt2} 
+ \end{figure}
+ We see a difference at low wavenumbers for $\zeta$ but we are not worried about it because of two reasons, first we know that the effect of $\Phi'$ which is neglected in our calculation at large scales is much more than smaller scales, so we guess that it is because of running of $\Pi$, second at the end we will check the differential equation with Gevolution initial conditions for two near redshifts to weaken the effect of $\Psi'$, then we can decide if this difference is physical or just because of approximation we made. \\
+  Also we can check if at higher redshifts like (z=50) this effect decreases?! If it is really the effect of $\Phi'$ the difference must decrease actually because of the below plot which is the comparison between $\Phi'$ at two different redshifts, which shows that it is because of radiation (which at higher redshift is more important of course)
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{phi_prim_new_1} 
+ \end{figure}
+ {\color{red} Todo: We need to make sure that in low wavenumber actually nothing is wrong, either by turnin off $\Phi$ and. $\Phi'$ inc lass or by comparing at two near redshifts!}
+  \subsubsection{Mathematica solution from Gevolution initial condition and comparing with Gevolution}
+To compare mathematica results from Gevolution initial condition we need to notice about some difficulties like the output of Gevolution is dimensionless power so we need to make the transfer function from it. Part of the mathematica code which is related to Gevolution is a as following,
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{mathemat_gev_0} 
+ \end{figure}
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{mathemat_gev_1} 
+ \end{figure}
+After providing initial condition from Gevolution at z=50 and solving to z=10 and comparing with Gevolution at z=10 we get the below plots. The first plot show that the initial condition is really what is read by the mathematica and the second one is the comparison between the results at z=10, which shows something is taken differently! Just note that the $\Phi$ and $\Phi'$ are taken constant and the value at z=50! We had the same issue for $\pi$ and $\pi'$ before and we solved the problem just by showing that firstly $\Phi'$ and $\Phi$ are not constant and secondly we showed for two near redshifts that our solution and Gevolution result converge.\\
+Another test we can perform is that turning off $\Phi$ and $\Phi'$ to see if they exactly agree or not?! This is a good test of course which kind of shows that the differential equation is implemented correctly in Gevolution! 
+\paragraph{Initial conditions}
+To check that we have made a trivial mistake we check that the initial conditions of mathematica code and Gevolution are the same. The plot shows that we have taken the initial condition accurately,
+   \begin{figure}[H]
+ \includegraphics[scale=0.4]{math_IC_00} 
+ \end{figure}
+ \paragraph{The evolution comparison}
+  \paragraph{The evolution comparison, just the scalar fields}
+
+  \subsubsection{Comparing stress tensor and field solution from Gevolution with mathematica and class}
+  \paragraph{Comparing the class and Gevolution field and stress tensors at z=0 and z=10}
+\paragraph{Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density }
+  \paragraph{Comparing with mathematica solution}
+    \paragraph{Comparing with class }
+
+
+
+\subsection{To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? {\color{red}To do! }! }
+It is highly possible to just checking nothing/trivial realtion
+ %%%%%%%%%%%%%%%%%
+   %%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%
+\subsection{Check the equations  in class and Gevolution for $c_s^2 \to 0$ and$ w \to 0$ for new set of variables  to get the matter behaviour and cross check with class! {\color{red}To do! }}
+  \subsection{To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? }
+It is possible to get nothing! But it is good to solve in Gevolution and mathematica for some special cases like plane symmetric configuration!
+ %%%%%%%%%%%%%%%%%
+   %%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%
+
+
+  
+ \paragraph{The evolution comparisons and tests}
+The complete comparison at z=10 gives,
+   \begin{figure}[H]
+ \includegraphics[scale=0.4]{math_IC_01} 
+ \end{figure}
+ which shows something is wrong! either the assumption that $\Phi$ and $\Phi'$ are constants or the code in Gevolution has a typo.
+  \paragraph{The evolution comparison, just the scalar fields}
+The best test is just testing the scalar field in both mathematica and Gevolution while the particles' effect via $\Phi$ and $\Phi'$ are turns off in both codes, then we expect to get exactly the same solution! Also it is a good check of solver, if it implemented correctly and works well?\\
+When we turn off $\Phi$ and $\Phi'$ in Gevolution and mathematica we get the following plot which shows that something is wrong in Gevolution!
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{Solve_NonPhi} 
+ \end{figure}
+ To solve the problem, first we check that the solution changes with precision parameters like the number of kessence field update and $d \tau$ precision in Gevolution and number of grids. The following plot is the run for double number of grid (=128), $1/4$ $d \tau $ (=0.01) and 10 time kessence update (nKe$\_$numsteps=10 ),
+    \begin{figure}[H]
+ \includegraphics[scale=0.6]{Solve_NonPhi_2} 
+ \end{figure}
+ which is clear that we have made a mistake somewhere in the implementation, so we try to add each term separately to go step by step and check everything, while the effect of gravity via $\Phi$ and $\Phi'$ are turned off. So considering the full set of equations as following,
+  \begin{align} 
+ &{ \zeta'=  3 \mathcal{H}(w \zeta +c_s^2 \Psi) -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi + 3 c_s^2 \Phi'  +c_s^2 \nabla^2 \pi }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi +\Psi
+  \ee
+  we just consider the below two equations as a first test,
+ \begin{align} 
+ &{ \zeta'=  3 \mathcal{H} w \zeta   }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi 
+  \ee
+  For the two sets of the equations we compare Gevolution with Mathematica results, we also kind of check our method if we have done any mistake there. \\
+  Well I've found the mistake which was a typo in updating $\pi$ field, after comparing with mathematica solution we get,
+     \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_fixed_1} 
+ \end{figure}
+ {\color{red} update (22May2018):Up to now we have solved different problems in the code, it seems the result here is acceptable, since the relative error might come from different $\mathcal{H}$ and etc. So we really do not need to be worries at this stage!} 
+ 
+  We see that they agree, but to be sure that they are exactly the same we increase the number of grids and check the results again we get,
+    \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_fixed_2} 
+ \end{figure}
+  {\color{red} update (22May2018): The relative error here is computed wrong!}
+  Its clear according to the relative errors on $\pi$ and $\zeta$ one or some approximations in Gevolution are not valid and we need to check everything again or starting from easier differential equation! \\
+  Lets first increase the nKe$\_$numsteps=20 to see if this is the problem of the fact that we have the two below approximations on Hubble constant and its derivative?
+  \begin{lstlisting}[language=C++, basicstyle=\tiny]
+  double H_half= Hcon + H_prime *  dtau/2. ; // H(n+1/2) = H(n) + H'(n) dtau/2
+   double Coeff1 = 1./(1. + H_half * dtau/2.);
+     \end{lstlisting}
+     The answer is NO! It does not get better, so it means that we have a systematic error, like Hubble constant or its derivative is calculating incorrectly or it can be the solver which is not implemented properly! \\
+     What if we increase $d\tau$ of the code instead of nKe$\_$numsteps=20, since increasing nKe$\_$numsteps doeas not help to precision of the cosmological quantities if there is any numerical error from there! We get the below result from a more precise run,
+         \begin{figure}[H]
+ \includegraphics[scale=0.6]{Check_de_2} 
+ \end{figure}
+ where $\zeta$ gets better but still there is something wrong about $\mathcal{H} \pi$ which we get about $10\%$ errors specially at large scales. \\
+ The next try might be nKe$\_$numsteps=1 and more precise time steps,  $d\tau=0.005$, the answer is again "NO", so for sure we have a problem in the implementation of the equation! \\
+ Lets forget about the leap frog at the moment and try to solve with the Euler solver just to make sure the problem is not about the Leap frog implementation. For the Euler we have,
+  \begin{align} 
+ &{ \zeta^{(n+1)}= \zeta^{(n)} +  3 \mathcal{H}^{n} w \zeta^{n} d\tau   }
+  \end{align} 
+  \be
+   \pi^{(n+1)}= \pi^{(n)} + d\tau (\zeta- \mathcal{H}^{(n)} \pi^{(n)} )
+  \ee
+ After implementation and testing for a normal run in terms of number of grid but very precise time stepping and kessence field update ($d\tau=0.001$,  nKe$\_$numsteps=10) which takes a lot to run we get the following plot,
+          \begin{figure}[H]
+ \includegraphics[scale=0.6]{Check_de_3} 
+ \end{figure}
+ Again we see the systematics error clearly, since the solution converges to $10\%$ error in the Euler solver! To just start from the easier problem to have everything under control we just try to solve two decoupled equations as following by Euler method to see that we have made a mistake in mathematica or trivial mistake in the Gevolution,
+   \\ {\color{red} update (22May2018): Here we have made a mistake in the code so, we got wrong behaviour , sign typo!}
+   \begin{align} 
+ &{ \zeta^{(n+1)}= \zeta^{(n)} +  3 \mathcal{H}^{n} w \zeta^{n} d\tau   }
+  \end{align} 
+  \be
+   \pi^{(n+1)}= \pi^{(n)} - d\tau  \mathcal{H}^{(n)} \pi^{(n)} 
+  \ee
+  With the Euler method and for normal run $d\tau=0.04$ and $n_{kess}=5$ we get the same results which again we cannot find the problem! What should we do to understand?
+\\
+Lets just solve the most trivial one,
+\be
+\zeta'=0, \pi'=0
+\ee
+which means that nothing should change, so it is a good check to see where we have made a mistake! We get the below result which makes clear what is happening,
+          \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_3} 
+ \end{figure}
+  {\color{red} update (22May2018): This is acceptable, the mean relative $1\%$ error for sure comes from $\mathcal{H}$ difference, since we have checked in next pages that if we print out $\pi$ the relative error is suppressed. Moreover the scattering is of order $\approx 10^{-5}$  which is because of writing precision in Gevolution! We need to be more pedantic for the main differential equation and the relative error higher than 0.1$\%$ to try to decrease it!  }
+while the error on $\zeta $ which is not shown is zero! So it is clear that we are making a mistake in mathematica not in Gevolution, so we need to check our solution again!
+  \\
+  Solution: \\
+  1- The reason that we got a lot of error in the first plots was that we were subtracting the two different indices for relative error, so we did a mistake and it is solved! \\
+  2-  {\color{red}{And now we get the exact solution for $\zeta$ and about $1\%$ error on $\pi$! The reason of error on $\pi$ is strongly guessed to be because of $\mathcal{H}$ difference, while the question is why does it depend on scale? while we do not expect? }} Answer: well, because it is a precision error because of writing only 6 digits of the number. but to check the behaviour of this scattering let's increase some precision parameters to see how it changes? 
+      \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_4} 
+ \end{figure}
+  Finally a good result! We see that by increasing the precision the relative error is very suppressed. I still do not know why different wavenumbers have slightly different behaviour, but increasing number of grid would also solve this issue. Moreover notice that the error here is just because we are reporting $\mathcal{H} \pi$ and the error is completely because of $\mathcal{H}$ which is suppressed by increasing the precision $d \tau$ we can check it by putting kessence update number to 1! By increasing the grid number and decreasing $d \tau$ we lose precision ({\color{red} Supre strange!}), why? So it seems that the relative error is sensitive to number of kessence update!!! which I do not upderstand at all!
+        \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_5} 
+ \end{figure}
+ {\color{red} update (22May2018): The 1$\%$ is not because of writing precision, the scatters around the mean relative error is of course because of that error, but the average 1$\%$ error must be because of $\mathcal{H}$ difference or the fact that we get at different redshift than 50 in Gevolution!}
+ Just increasing the number of kessence update and for the most trivial set of equations we get the following result,
+     \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_6} 
+ \end{figure}
+ That is super interesting because by increasing the number of kessence field update we also updating the background in each sub steps as well, so we can decrease the error of $\mathcal{H} \pi$ just by increasing the number of kessence update and not other cosmological quantities like $d\tau$ and number of grid!! {\color{red} It is not completely true because we report $\mathcal{H}(a) \pi$ not  $\mathcal{H}(a_{kess}) \pi$. So I still do not understand why number of kessence fiekd updating would affect the precision on $\mathcal{H} \pi$ for constant $\pi$?! } \\
+ Just another important check is that for the output of Gevolution it self we have $\mathcal{H} (z=50) \pi(z=50) = \mathcal{H} (z=100) \pi(z=100) $, let check this in mathematica also we can check it in the Gevolution internally,
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_7} 
+ \end{figure}
+ This is also a super intresting observation, which is just using the Gevolution results! We expect that for each wavenumber have $\frac{\mathcal{H} \pi (z=100)}{\mathcal{H} \pi (z=50)} = \frac{\mathcal{H} (z=100)}{\mathcal{H} (z=50)} \approx 1.43871$ which must be a constant and we checked that it s the same as mathematica background solution! But it is not, like what got differently from mathematica solution! We need to note that we are assiging the field in real space while here we are plotting in the Fourier space and of course solving the equation in Fourier space in Gevolution is different than solving in real space which the first one is exact while the second way is affected by different kinds of errors!
+\\
+ {\color{Magenta} The conclusion (?): The Gevolution is solving correctly the relative error here we see is just because of the fact that $\mathcal{H} \pi$ internally is different than $\mathcal{H} \pi$ here  which partly comes from different $\mathcal{H}$ and we are sure that if we increase the precision in Gevolution we get the exact solution! \\
+ The reason that we get the exact solution for $\zeta$ is that it is a dimensionless quantity and we report it directly not multiplied to a time dependent function!  }
+ \paragraph{more tests}
+ To end this discussion we need to test two more things and then trying to solve the original set of equations. The two more tests are, first again compare Gevolution results for higher number of kessence update and by looking at the main loop try to understand why it is affected by number of keessence update?
+    \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_8} 
+ \end{figure}
+ Hust to know that we expect that the division of these two powers be,
+     \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_9} 
+ \end{figure}
+ \paragraph{Better test:} 
+ Maybe a better test is to solve the equations
+ \be
+ (\mathcal{H} \pi)' =0 \; \; \zeta'=0
+ \ee
+ which in the case of the first equation we can easily check that how much this relation holds! Hopefully we get a very result,
+ \begin{figure}[H]
+ \includegraphics[scale=0.6]{Bug_non_fixed_10} 
+ \end{figure}
+
+ 
+ 
+   {\color{red} The only part which we do not understand is that why by increasing number of kessence update the relative error is suppressed?! Answer (update 22May2018): because of writing precision in Gevolution!
+   }
+        In sum from all the tests, we can say that we should not care about the tiny relative errors which comes from different fact, like the fact that the Gevolution output is not exactly at the redshift which must be, while the initial condition is set for the asked redshift. Second, we solve the equation with a low resolution on real space and comparing with Fourier space solution. Third, we see the same error even in the Gevolution solution with itself in Fourier space. At the end what we really need is some consistency checks and make sure that at least the Gevolution and mathematica solutions are near to each other!  
+        
+        {\color{Magenta} The problem was because of the fact that in Gevolution the output data is written by 6 meaningful digits, so we have $10^{-6}$ relative error on all situations, which scatters around mean value and the reason is because the number is cut, so we just chose up to 6th. digit not rounding it! } 
+%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Solving the equation and comparison with mathematica}
+Now after solving a lot of issues in the code and understanding the problem well, lets solve the original problem
+\begin{align} 
+ &{ \zeta'=  3 \mathcal{H}(w \zeta +c_s^2 \Psi) -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi + 3 c_s^2 \Phi'  +c_s^2 \nabla^2 \pi }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi +\Psi
+  \ee
+  Again we set the Gevolution related fields to zero and just try to solve the only scalar field equation and comparing the results with mathematica and also check that the solver and predictor corrector method works well?\\
+  So we start by the below sets of equations,
+  \begin{align} 
+ &{ \zeta'=  3 \mathcal{H} w \zeta  -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi  +c_s^2 \nabla^2 \pi }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi 
+  \ee
+  By the way, this is just a check that the solver and Gevolution implementation work well, since the equations are checked by using class data and comparing them!
+  \paragraph{Euler method: Scalar field only equation}
+For the Euler we have the following relations in the loops for the scalar field only equation (setting gravity related quantities to zero except background ones!)
+\be
+\zeta^{(n+1)} = \zeta^{(n)} + d \tau ( 3 \mathcal{H} w \zeta^{(n)}  -c_s^2  ( 3 \mathcal{H}^2 - 3 \mathcal{H}' ) \pi^{(n)}  +c_s^2 \nabla^2 \pi^{(n)})
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} + d \tau ( \zeta^{(n)} -\mathcal{H} \pi^{(n)}    )
+\ee
+So we compare the relative error between mathematica solution and Gevolution for Euler solver, for different precision parameters!\\ 
+Here we first update $\pi$ then $\zeta$ and finally the abckground part is updated. But it does not make any differences, since we have the values of the fields at step "0". \\
+Implementing in the Gevolution as following,
+ \begin{lstlisting}[language=C++, basicstyle=\tiny]
+ 	template <class FieldType>
+			void update_zeta(double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi,Field<FieldType> & chi_old, Field<FieldType> & pi_k, Field<FieldType> & zeta_half , Field<FieldType> & zeta_integer, double Omega_fld ,double w, double cs2, double Hcon, double H_prime )
+			{
+			  
+				Site x(phi.lattice());
+				for (x.first(); x.test(); x.next())
+					{
+            //Everything here is at step n except zeta which is at half steps! zeta is like pi_v
+						Laplacian_pi= pi_k(x-0) + pi_k(x+0) - 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+1) + pi_k(x-1) - 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+2) + pi_k(x-2) - 2. * pi_k(x);
+            Laplacian_pi= Laplacian_pi/(dx*dx);
+            //*****
+            //EULER
+            zeta_integer(x)= zeta_integer(x) + dtau * (3. * Hcon *  w * zeta_integer(x) - cs2 * (3. * Hcon * Hcon - 3. * H_prime ) * pi_k(x) + cs2 *  Laplacian_pi)  ; //zeta(n+1) = zeta(n)  + dtau * (zeta')
+
+          }
+        }
+        void update_pi_k( double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi, Field<FieldType> & chi_old, Field<FieldType> & pi_k, Field<FieldType> & zeta_half,  Field<FieldType> & zeta_integer , double Omega_fld ,double w, double cs2, double Hcon, double  H_prime)
+			{
+			  Site x(phi.lattice());
+			  for (x.first(); x.test(); x.next())
+			    {
+            pi_k(x)=pi_k(x) + dtau * (- Hcon * pi_k(x) + zeta(x) ) ;// pi_k(n+1) = pi_k(n) + pi_k' dtau
+			    }
+			}
+//Main loop:
+        //**********************
+        //Kessence - EULER:START
+        //**********************
+          a_kess=a;
+        	for (i=0;i<sim.nKe_numsteps;i++)
+        	{
+            update_pi_k(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_prime(a_kess, fourpiG, cosmo));
+            update_zeta(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo), Hconf_prime(a_kess, fourpiG, cosmo));
+            zeta_integer.updateHalo();
+        		rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps );
+        	}
+
+        #ifdef BENCHMARK
+            kessence_update_time += MPI_Wtime() - ref_time;
+            ref_time = MPI_Wtime();
+        #endif
+        //**********************
+        //Kessence - EULER:  End
+        //**********************
+      \end{lstlisting}
+After solving the differential equation we get about 100$\%$ error which shows something is wrongly implemented!
+\subparagraph{Easiest equation}
+Again lets break the differential equation and just consider part of the equation and then add the terms one by one!
+We start off by the below differential equation,
+\be
+\zeta^{(n+1)} = \zeta^{(n)} 
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} 
+\ee
+which is simply the constant fields over time. So lets compare this easiest equation.
+ After running the Gevolution at initial condition z=100 and comparing the result at z=10 with Mathematica solution we get the following results,
+ \begin{figure}[H]
+ \includegraphics[scale=0.6]{First_test_01} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{First_test_02} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{First_test_03} 
+ \end{figure}
+ The result is interesting! So we get zero error on $\zeta$ while we get about $10^{-5}$ relative error on $\mathcal{H} \pi$ which is because of writing $\mathcal{H}$ on the Gevolution and it would be more clear when we zoom over that region which randomly distributed!
+ \subparagraph{Second equation }
+Now lets solve the below equation and check the solutions,
+\begin{align} 
+ &{ \zeta'=  3 \mathcal{H} w \zeta  }
+  \end{align} 
+  \be
+  \pi'=-\mathcal{H} \pi 
+  \ee
+  Or in Gevolution,
+  \be
+\zeta^{(n+1)} = \zeta^{(n)} + d \tau ( 3 \mathcal{H} w \zeta^{(n)} )
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} + d \tau (  -\mathcal{H} \pi^{(n)}    )
+\ee
+Well we get consistent results as following, which the error foes down by increasing the number of kessence field update which is what we expect from the Euler method! So by doubling the number of kessence field update we get double precised results, and the error is constant, but not for $\mathcal{H} \pi$ which we saw before! \\
+{\color{red} Note that in the figures d$\tau$ time step limit is written wrongly, it is actually 0.04}
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{second_test_01} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{second_test_02} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{second_test_03} 
+ \end{figure}
+ The reason why the relative error on $\zeta$ is more than $\mathcal{H} \pi$ , I guess it is because of them is updated first and the other next! Lets change the place of updating and see if anything changes?! {\color{red} No it does not change! So it is because of the fact that $\zeta$ is very small and is affected by the error more than $\mathcal{H} \pi$}?!
+ But the situation looks fine, since $\zeta $ is really small and it is a slightly change on $\zeta$ which decreases with increasing the precision parameters!
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{second_test_04} 
+ \end{figure}
+ \subparagraph{Third equation:} We now add more terms to the equation,
+ \begin{align} 
+ &{ \zeta'=  3 \mathcal{H} w \zeta  -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi  }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi 
+  \ee
+which numerically by Euler solver is,
+ \be
+\zeta^{(n+1)} = \zeta^{(n)} + d \tau ( 3 \mathcal{H} w \zeta^{(n)}  -c_s^2  ( 3 \mathcal{H}^2 - 3 \mathcal{H}' ) \pi^{(n)} )
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} + d \tau ( \zeta^{(n)} -\mathcal{H} \pi^{(n)}  )
+\ee
+Well after comparing with Gevolution we see a feature which does not improve by increasing precision parameters! {color{red} Note that although in the figures it is written $\Psi$ and $\Psi'$ are considered but they are set to zero!}
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{third_test_001} 
+ \end{figure}
+Actually the main concern is just the different behaviour of Gevolution and mathematica at low wavenumbers, which need to be considered! Of course we do not expect increasing number of grid make differences, since there is nothing we do by number of grid, like derivative ...\\
+So we just increase the kessence field update to see if we get better agreement? {\color{red} After setting number of kessence update to 20 nothing has changed!} just the error decreased but the anomaly at low wavenumbers is still there!\\
+Lets first update $\pi$ field then $\zeta$ to see if the error goes away?
+{\color{red} Again NO!} but as it is clear in the figure the relative error really decreases, especially for $\mathcal{H} \pi$ but we still do not know why $\zeta$ behaves crazy at small k?! {\color{green} Comment: I was using the wrong main file, but nothing changes still!}
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{third_test_002} 
+ \end{figure}
+Lets for the last check run for number of kessence update $=40$ : The answer is still NO! We could not solve the low wavenumbers anomaly!
+  \begin{figure}[H]
+ \includegraphics[scale=0.6]{third_test_003} 
+ \end{figure}
+ {\color{red} Just note that this strange behaviour at low k looks like the same thing we had when we compared with Class results?!}
+ \\
+  Or does it come from the error from Euler solver? I do not think so, since it does not improve by increasing precision!
+
+ \subparagraph{Fourth equation:} We know that the strange behaviour comes from $ -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi $, so lets just study the below equation carefully,\\
+ {\color{red} Well I found a mistake: I was using with the main file of different directory and some of changes were not applied, like changing the order of updating fields in the main, or putting update halo!} but it does not seem the errors come from there!
+\begin{align} 
+ &{ \zeta'=    - 3 c_s^2  \mathcal{H}^2  \pi  }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi 
+  \ee
+  The result for a relatively big run is as following, we still see the strange behaviour! Now I'm pretty sure that $\mathcal{H}$ is different between these two codes! To do so I check $\mathcal{H} (a)/\mathcal{H}(a=1)$ in Gevolution and here to see what is wrong!
+    \begin{figure}[H]
+ \includegraphics[scale=0.6]{forth_test_001} 
+ \end{figure}
+ \subparagraph{Checking $\mathcal{H}$ and $\mathcal{H}'$}
+   Well we have checked the Hubble factor for some different scale factor! we get exactly the same answer for dimensionless quantity $\mathcal{H} (a)/\mathcal{H}_0$. But for the $\mathcal{H}'/\mathcal{H}'_0$ we get the same answer but different at last digit sometimes, like in the below mathematica script is $35.8243$, while in the Gevolution is -35.8244!
+     \begin{figure}[H]
+ \includegraphics[scale=0.6]{Hubb_01} 
+ \end{figure}
+      \begin{figure}[H]
+ \includegraphics[scale=0.6]{Hubb_02} 
+ \end{figure}
+ After making sure that $\mathcal{H}$ and $\mathcal{H}'$ are correct. No we are changing the output situations which we guess the error comes from there! So instead of printing $\mathcal{H}(a) \pi$ as an output we print $\mathcal{H}_0 \pi$ which now does not change so much, since $\mathcal{H}_0$ is constant and we might be affected by error on $\mathcal{H}$. {\color{red} The answer is no! nothing changes!}\\
+ Lets increase the precision in mathematica! {\color{red} The answer is no! nothing changes! still the relative error remains the same!}
+\\
+Lets play with some precision quantities in Gevolution, to see if we can decrease the blue line in relative error in low wavenumbers?! we have increased number of kessence update to 30 and decreased the $d\tau$ to $1/20$ of default value ie $=0.005$ . {\color{red} The answer is No !}
+\\
+{\color{ Purple} I think finally I found the problem!!!! In the mathematica we are using the power of $\zeta$ and $\pi$ at initial condition to make the field itself but it is absolutely wrong if the field changes the sign or it has negative value! since power spectrum does not contain the sign information! 
+What we are doing now is to set the initial condition in terms of k from class which has the sign information as well! Lets do it! But now of course we cannot make the relative error easily since the number of rows are different and we need to do some interpolation which we are not interested since it takes a lot of time ! or the other way is making the initial condition from Gevolution! \\
+Lets try to make the initial condition of the field in Gevolution which is useful for precise check of equations!}
+So up to now we have got a wrong results because we were solving with different initial condition in mathematica and Gevolution!
+\paragraph{making initial condition for the scalar fields in the Gevolution}
+We try to make an initial condition for the Gevolution to compare the results directly without caring about the conversion between powers and fields! {\color{red} It is not super easy to do it in Gevolution, so instead of that we make unreal positive initial condition for the $\zeta$ to just compare Gevolution with mathematica and check the solvers, Eulers and Leap frog methods.}\\
+\\
+ {\color{Brown}{\Large{Notice that the file which is used in the Gevolution as the initial condition is wrong, first because the cosmology is not set the same in class and Gevolution, second because we made the $\zeta$ columns positive by hand! }} }
+
+ 
+%in order to be sure that the error comes exactly from Hubble factor which might be different in two codes (but we could not find why?) we just check the differential equations without $\mathcal{H}$ coefficients as consistency check!
+%So lets solve the below equation in both codes,
+%\begin{align} 
+%&{ \zeta'=    - 3 c_s^2   \pi  }
+%\end{align} 
+%\be
+%\pi'=\zeta- \pi 
+%\ee
+   \subsubsection{Lets reconsider the equations again}
+   Now we know why in the low wavenumbers we got different results, because the sign of $\zeta$ in the class initial condition file changes sign in that wavenumbers, so that is why we got different solution there!\\ Now after this important discovery, we can reconsider the first equation which we were not satisfied as following, so we try to solve this equation in mathematica and Gevolution by wrong initial condition which $\zeta$ is positive in all k and the reason is because we want to use the Gevolution output as an initial condition of mathematica code to have control of the error!\\
+   This is the field equation without the effect of gravity (the effect of particles are set to zero) so we expect to get exact result!
+  \begin{align} 
+ &{ \zeta'=  3 \mathcal{H}w \zeta  -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi   +c_s^2 \nabla^2 \pi }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi 
+  \ee
+\subparagraph{fifth equation:}
+Now lets consider more terms in the equation as following. The reason we first consider this equation is that our guess is that the error does not come from $\nabla^2 \pi$ term but the term which has $\mathcal{H}'$!
+ \be
+\zeta^{(n+1)} = \zeta^{(n)} + d \tau ( 3 \mathcal{H} w \zeta^{(n)}  + c_s^2 \nabla^2 \pi^{(n)})
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} + d \tau ( \zeta^{(n)} -\mathcal{H} \pi^{(n)}    )
+\ee
+We know that the error from $\nabla^2$ is so much for small number of grids, so we want to see also how much it improves if we take larger number of grids!\\
+{\color{red} NOTE: when we have  spatial derivatives we need to halo update after evolving the field, otherwise everything is messed up! Since I forgot to halo update, I got wrong answers!}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Leap-frog method: Scalar field only equation}
+  \paragraph{Euler method: Full equation}
+For the Euler we have the following relations in the loops,
+\be
+\zeta^{(n+1)} = \zeta^{(n)} + d \tau ( c_s^2 \nabla^2 \pi^{(n)})
+\ee
+\be
+\pi^{(n+1)} = \pi^{(n)} + d \tau ( \zeta^{(n)} -\mathcal{H} \pi^{(n)}    )
+\ee
+ 
+So we compare the relative error between mathematica solution and Gevolution for Euler solver, for different precision parameters! To do so, we have made a separate Gevolution file which Euler method is implemented
+\paragraph{Leap-frog method: Full equation}
+
+\subsection{Comparing class, mathematica and Gevolution with initial condition from class for mathematica}
+
+  \subsubsection{Comparing stress tensor and field solution from Gevolution with mathematica and class}
+  \paragraph{Comparing the class and Gevolution field and stress tensors at z=0 and z=10}
+  -If there is a tension we need to solve in mathematica and comparing with our solution! \\
+\paragraph{Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density }
+-For the limit $c_s^2 \to 0$ check we get matter power from Gevolution compared with class!
+  \paragraph{Comparing with mathematica solution}
+  comparing the stress tensor and field and $\zeta$
+    \paragraph{Comparing with class }
+  comparing the stress tensor and field and $\zeta$
+
+
+% \flushbottom
+%
+%%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+%
+%\end{document}
+ 

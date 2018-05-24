@@ -1,0 +1,545 @@
+ \section{Stress tensor {\color{red}check again and make sure everything is ok, need to check the calculation again!  Also add some Filippo's calculation} }
+ \subsection{\color{red}{Do all the calculations in mathematica to make sure!}}
+The most general action for a scalar field coupled to Einstein gravity is;
+\be
+S=\frac{1}{16 \pi G} \int \sqrt{-g} R d^4 x + \int \sqrt{-g} P (X, \varphi) d^4 x
+\ee
+The metric convention is $(-,+,+,+)$ and $X=- \frac{1}{2}  g^{\mu \nu}\partial _\mu \phi \partial_\nu \phi$. We  assume the scalar action as a matter sector which contributes to stress energy tensor,
+\be
+T^{\mu\nu}\equiv \dfrac {+2}{\sqrt {-g}}\dfrac {\delta \mathcal{ L}}{\delta g_{\mu\nu}}=\dfrac {2}{\sqrt {-g}}\dfrac {\delta \left[ \sqrt {-g}P\left( X,\varphi \right) \right] }{\delta g_{\mu\nu}}
+=
+\dfrac {2}{\sqrt {-g}}[- \dfrac {1 }{2 \sqrt{-g}} \frac{\delta g}{\delta g_{\mu\nu}}P\left( X,\varphi\right) +\dfrac {\delta P\left( X,\varphi\right) }{\delta g_{\mu\nu}}\sqrt {-g}]
+\ee
+According to appendix \ref{A1},
+\be
+\dfrac {\delta \sqrt {-g}}{\delta g_{\mu\nu}}=\dfrac {-1}{2\sqrt {-g}}\dfrac {\delta g}{\delta g_{\mu\nu}}=\dfrac {-1}{2\sqrt {-g}}\dfrac {g\delta g_{\mu\nu}g^{\mu\nu}}{\delta g_{\mu\nu}}=\dfrac {\sqrt {-g}}{2}g^{\mu\nu}
+\ee
+\be
+T^{\mu\nu}=2\dfrac {\delta P\left( X,\varphi\right) }{\delta g_{\mu\nu}} + g^{\mu\nu}P\left( X,\varphi\right)
+\ee
+\be
+T_{\rho \sigma}=g_{\mu \rho} g_{\nu \sigma} T^{\mu \nu}= \Big[ 2 g_{\mu \rho} g_{\nu \sigma}  \dfrac {\delta P\left( X,\varphi\right) }{-g_{\mu \rho'} g_{\nu \sigma'}  \delta g ^{\sigma' \rho'}} + g_{\mu \rho} g_{\nu \sigma}  g^{\mu\nu}P\left( X,\varphi\right) \Big]= -2\dfrac {\delta P \left( X,\varphi\right) }{\delta g^{\rho \sigma}}+g_{\rho \sigma}P\left( X,\varphi\right)
+\ee
+Where we have used $\delta g_{\mu \nu}= - g_{\mu \rho} g_{\nu \sigma} \delta g^{\rho \sigma}$.
+\begin{align}
+X=-\dfrac {1}{2}g^{\mu\nu}\partial_{\mu}\varphi\partial_{\nu}\varphi \longrightarrow  \delta X=-\dfrac {1}{2}\delta g^{\mu\nu}\partial_{\mu}\varphi\partial_{\nu}\varphi-\dfrac {1}{2}g^{\mu\nu}\partial_{\mu}\delta \varphi\partial_{\nu}\varphi-\dfrac {1}{2}g^{\mu\nu}\partial_{\mu}\varphi\partial_{\nu}\delta\varphi
+\end{align}
+so,
+\be
+\dfrac {\partial X}{\partial g^{\mu\nu}}=-\dfrac {\partial_{\mu}\varphi\partial_{\nu}\varphi}{2}
+\ee
+\be
+\dfrac {\delta P}{\delta g^{\mu\nu}}=\dfrac {\partial P}{\partial X}\dfrac {\partial X}{\partial g^{\mu\nu}}+ \cancel{\dfrac {\partial P}{\partial\varphi}\dfrac {\partial\varphi}{\partial g^{\mu\nu}}}=\dfrac {\partial P}{\partial X}\dfrac {\partial X}{\partial g^{\mu\nu}}=-\dfrac {\partial_{\mu}\varphi\partial_{\nu}\varphi}{2}P_{,X}
+\ee
+\be
+T_{\mu\nu}=g_{\mu\nu}P\left( X,\varphi\right) +P_{,X}\partial_{\mu}\varphi\partial_{v}\varphi \; , \;
+T_{\mu\nu}=\left( \rho+p\right) u_{\mu}u_{\nu}+p g_{\mu\nu}
+\ee
+\be
+u_{\mu}=\dfrac {\partial_{\mu}\varphi}{\sqrt {-\partial_{\mu}\varphi\partial^{\mu}\varphi}}\rightarrow u_{\mu}=\dfrac {\partial_{\mu}\varphi}{\sqrt {2X}} , \rho=2XP_{,X}-P \; , \; p=P  \label{eq10}
+\ee
+We assume that field is a monotonic function of time in background which is perturbed in each constant physical time hypersurfaces. \\
+It is important to notice that in the previous chapter $\pi$ was the perturbation in constant physical time hypersurfaces, so to be consistent,  although at the we want to express everything in terms of conformal time in Gevolution but we keep $\pi$ as perturbation in physical time.
+\be
+\varphi_{0}\left( \tau+\pi\left( \tau,\overrightarrow {x}\right) \right) =\varphi_{0}\left( \tau \right) +\dfrac {\partial\varphi_{0}}{\partial  \tau }\pi+\dfrac {\partial^{2}\varphi_{0}}{2\partial^{2} \tau}\pi^{2}+\ldots
+\ee
+We can choose $\varphi_0(\tau)=\tau$ for simplicity, using the following ansatz for the metric,
+\be
+g_{\mu\nu}=a(\tau)^2 \Big [-e^{2\Psi}d\tau^{2}+ e^{-2\Phi}dr^{2} \Big]
+\ee
+where $\tau$ is the conformal time.
+\be
+\delta g^{(1)}_ { 00}=-2\, a^2 \Psi \, \; \; , 
+\delta g^{(1)}_{ij}= -2 a^{2} \Phi \delta_{ij}
+\ee
+Where $\delta g^{(1)}_ { 00}$ means the first order metric in pertubations.  The inverse of metric is defined as following,
+\be
+g^{\mu\nu}=\frac{1}{a^2} \Big [-e^{-2\Psi}d\tau^{2}+e^{2\Phi}dr^{2}  \Big ]
+\ee
+\be
+\delta g_{(1)}^{00}=+\frac{2\Psi}{a^2} \, \; \; , 
+\delta g_{(1)}^{ij}= + \frac{2\Phi \delta^{ij} }{a^2}
+\ee
+We have,
+\be
+X=\dfrac {-1}{2}g^{\mu\nu} (\tau + \pi,x)\partial_{\mu}\left( \tau+\pi\right) \partial_{\nu}\left( \tau+\pi\right) 
+\ee
+We expand X perturbatively,
+\be
+X=\overline {X}+\delta X_{1}+ \delta X_{2}+\ldots
+\ee
+\be
+\overline {X}=-\dfrac {1}{2}\bar{g}^{00}\partial_{0} \tau \partial_{0} \tau=+\dfrac {1}{2 a^2}\\
+\ee
+\be
+\delta X_{1}={\bar{X}'} \pi-\dfrac {1}{2}\delta g_{(1)}^{00}\partial_{0} \tau \partial_{0} \tau-\dfrac {1}{2} \bar{g}^{00}\partial_{0} \tau \partial_{0}\pi-\dfrac {1}{2} \bar{g}^{00}\partial_{0}\pi\partial_{0} \tau-\dfrac {1}{2}\bar{g}^{ij}\partial_{i}\pi\partial_{j}\pi
+\ee
+where ${\bar{X}'} \pi =-\dfrac {1}{2}\bar{g}^{00'} \pi \partial_{0} \tau \partial_{0} \tau = -\frac{\mathcal{H}}{a^2} \pi $.
+\be
+ \delta X_{1}=\frac{1}{a^2} \Big [- \mathcal{H} \pi-\Psi+{\pi'}- \frac{(\vec{\nabla} \pi)^2}{2 }  +O\left( \varepsilon^{2}\right) \Big]
+\ee
+We do not need to calculate $X_2$ since the energy momentum constraint adds at most one spatial derivative which does not add the second order terms to first order. So
+\bea
+ & P\left(\varphi_0( \tau+\pi) ={\varphi_0}+ {{\varphi_0}}' \pi,\overline{X}+ \delta X_1+\delta X_2 \right)  = \overline{P}\left( \varphi( \tau),\overline {X}\right) 
++ {\dfrac {\partial\overline {P}}{\partial \varphi_0}} \pi+\dfrac {1}{2} {\dfrac {\partial^{2}\overline {P}}{\partial \varphi_0^2}}\pi^{2}
++
+\nonumber \\ &
+\dfrac {\partial\overline {P}}{\partial\overline {X}}\delta X_1+\dfrac {1}{2}\dfrac {\partial P}{\partial X^{2}}\delta X_1^{2}+\dfrac {\partial^2 P}{\partial X \partial \varphi_0}\delta X_1 \pi +\dfrac {1}{2}\dfrac {\partial P}{\partial X^{2}}\delta X_2 + \mathcal{O}(\epsilon^3).
+\eea
+\\
+ Note that here $\pi$ is perturbation in $\tau$ conformal time.%The term $\dfrac {\partial\overline {P}}{\partial \tau}$ becomes  $\dfrac {\partial\overline {P}}{\partial \tau}=\dfrac {\partial\overline {P}}{\partial  {\varphi}} \dfrac{\partial {\varphi}}{\partial \tau}+ \dfrac {\partial\overline {P}}{\partial  {X}} \dfrac{\partial {X}}{\partial \tau} =P_{,\varphi} \dot{\bar{\varphi}} + \bar{P}_{\bar{X}}$. Because $\varphi$ and $\partial_{\mu} \varphi$ are independent variables not function of $\tau$. \\
+The adiabatic sound speed ({\color{red}why?!}) is defined as below,
+\be
+%c^{2}_{s}\equiv \frac{\delta P}{\delta \rho} =\dfrac {\bar{P}_{,X} \delta X + \bar{P}_{,\varphi} \delta \varphi}{\bar{\rho}_{,X} \delta X  +\bar{\rho}_{,\varphi} \delta  \varphi}=\dfrac {\bar{P}_{,X}}{\bar{\rho}_{,X}}=\dfrac {\bar{P}_{,X}}{\bar{P}_{,X}+2\bar{X}\bar{P}_{,XX}} 
+c^{2}_{s}\equiv \dfrac {\bar{P}_{,X}}{\bar{\rho}_{,X}}=\dfrac {\bar{P}_{,X}}{\bar{P}_{,X}+2\bar{X}\bar{P}_{,XX}} 
+\ee
+and $\Omega$
+\be
+\Omega= \frac{\bar{\rho}}{3 M_{pl}^2 H^2}= \frac{ a^2 \bar{\rho}}{3 M_{pl}^2 \mathcal{H}^2}=\frac{{2\bar{X} \bar{P}_{,X}-\bar{P}}}{3 M_{pl}^2 H^2} \label{22}
+\ee
+Where we have used $ \rho=2XP_{,X}-P$
+\be
+\omega=\dfrac {\overline {P}}{\overline {\rho}}=\dfrac {\overline {P}}{2\overline {X} \, \overline{P}_{,X}-\overline {P}} \label{23}
+\ee
+Moreover we have,
+\be
+\rho'=2X' P_{,X} + 2 X P_{,X \varphi} \varphi' +2 X P_{,X X} X' - P_{,\varphi} \varphi' - P_{,X} X'= (2 X P_{,X \varphi} - P_{,\varphi}) \varphi' + (P_{,X} + 2 X P_{,XX})X'
+\ee
+In the background level and using $\bar{X}=\frac{1}{2 a^2}$, $\bar{X}'=-\frac{\mathcal{H}}{a^2}$, $\varphi'=1$
+\be
+\rho' =\frac{P_{,X}'}{a^2} - P'  - (P_{,X} + \frac{ P_{,XX}}{a^2}) \frac{\mathcal{H}}{a^2}
+\ee
+So we can write the function $P$ and it derivative in terms of $\Omega$, $\omega$ and $c_s^2$,
+\be
+\bar{P}_{X}= a^2 \bar{P} (1+\frac{1}{\omega}) \; \; \; \; \;  \; \bar{P} _{,XX}=a^2  \bar{P}_{,X} \frac{1-c_s^2}{c_s^2} =a^4  \bar{P} (1+\frac{1}{\omega}) (\frac{1}{c_s^2} -1 )
+\label{Pbarder}
+\ee
+So according to \ref{22} and \ref{23}\\
+\be
+\bar{P}=  3 M_{pl}^2 H^2 \Omega \, \omega = \frac{ 3 M_{pl}^2 \mathcal{H}^2 \Omega\, \omega }{a^2} \label{Pbar}
+\ee
+Moreover,
+\be
+\frac{\bar{P}'}{\bar{P}}=\frac{2 \mathcal{H}' }{\mathcal{H}} + \frac{\Omega'}{\Omega} + \cancel{\frac{w'}{w} }- 2\mathcal{H}
+\ee
+%Where according to continuity equation \ref{Conteqgg}, we can write,
+%\be
+%\frac{\bar{P}'}{\bar{P}}=-3 (1+w) \mathcal{H}- \mathcal{H}
+%\ee
+%where we have assumed that $w'=0$ and we have used the below relation,
+%\be
+% \frac{\Omega'}{\Omega}=- \frac{(1+3  w)}{2} \mathcal{H}- \frac{ \mathcal{H'}}{\mathcal{H}}
+%\ee
+Also we have the relation for $\bar{P}'_{,X}$ as following,
+\be
+\frac{\bar{P}'_{,X}}{\bar{P}_{,X}}=\frac{\bar{P}'}{\bar{P}}+2 \mathcal{H}
+\ee
+So we have,
+\begin{align}
+ -a^2 \bar{P}'  + \bar{P}'_{,X}&=-a^2 \bar{P}' + a^2 \bar{P} (1+\frac{1}{w}) (\frac{\bar{P}'}{\bar{P}}+2 \mathcal{H}) = a^2 \frac{\bar{P}'}{w} + 2 \mathcal{H} a^2 \bar{P} (1+\frac{1}{w})
+ \\ \nonumber&
+ = \frac{a^2 \bar{P}}{w} \Big[ 2 \frac{\mathcal{H}'}{\mathcal{H}}+ \frac{\Omega'}{\Omega} + 2 \mathcal{H} w\Big]
+\end{align}
+It is very important to note that by $\bar{P}(\varphi,X)'$ we mean $\bar{P}(\varphi,X)_{,\varphi}$ and $\bar{P}_{,\tau}=\bar{P}_{,\varphi} \varphi' + \bar{P}_{,X} X' $
+The relation between Hubble and conformal Hubble is;
+\be
+\mathcal{H} (\tau)=\frac{1}{a(\tau) }\frac{d a(\tau)}{d \tau }= \frac{1}{a(t) } \frac{d a (t) }{d t} \frac{d t }{ d\tau}= a H(t)
+\ee
+and for the derivative,
+\begin{align}
+& \dot{H}= \frac{-\mathcal{H}^2+ \mathcal{H}'}{a^2} \nonumber \\ &
+\mathcal{H}'=a^2 \Big[ H^2 + \dot{H}\Big ]
+\end{align}
+Now we can construct stress tensor up to first order in Gevolution's perturbation scheme,
+\begin{align} \label{eqTmunuI}
+T_{\mu \nu} &= P g_{\mu \nu} + P_{,X} \partial_{\mu} \varphi \partial_{\nu} \varphi
+ \\
+  \nonumber
+   & =(\bar{g}_{\mu \nu} + \delta g^{(1)}_{\mu \nu}) (\bar{P}+\bar{P}' \pi+\bar{P}_{,X} \delta X_1) + (\bar{P}_{,X}+\bar{P}'_{,X} \pi+\bar{P}_{,XX} \delta X_1) \partial_{\mu} (\tau+ \pi) \partial_\nu (\tau+\pi)+ \ldots
+\\ \nonumber & 
+= \Big[ \bar{g}_{\mu \nu} \bar{P} 
++
+ \bar{P}_{,X} \partial_{\mu} \tau \partial_{\nu} \tau \Big] \epsilon ^0 
++
+\Big[( \bar{g}_{\mu \nu} \bar{P}'+ \bar{P}'_{,X} )\pi+\bar{g}_{\mu \nu}  \bar{P}_{,X} \delta X_1 
++
+ \delta g^{(1)}_{\mu \nu} \bar{P} 
+ +
+  \bar{P}_{,X}  \left ( \partial_{\mu} \pi \partial_{\nu} \tau  
+  +
+  \partial_{\mu} \tau \partial_{\nu} \pi  \right ) 
+    \nonumber \\ &
+  +
+   \delta X_1 \bar{P}_{,XX}   \partial_{\mu} \tau \partial_{\nu} \tau  
+      +
+    \bar{P}_{,X}   \partial_{\mu} \pi \partial_{\nu} \pi
+    +  \delta X_1 { \bar{P}_{,XX}  \big(  \partial_{\mu} \tau \partial_{\nu} \pi  +   \partial_{\mu} \pi \partial_{\nu} \tau  \big) }
+    + \cancelto{\mathcal {O}(\epsilon^{2})}{\delta X_1 \bar{P}_{,XX}   \partial_{\mu} \pi \partial_{\nu} \pi  
+   } \Big ] 
+ \; \; \;+ \mathcal {O}(\epsilon^{2}) 
+\end{align}
+It is important to know that $\bar{g}_{\mu \nu}' \bar{P}=0$ since the metric is not a function of scalar field, so it is no affected by changing the scalar field which is a dynamical variable. 
+%{\color{red}The red color is the one I have tension with Filippo's calculation.}
+%\newpage
+\subsection{Derivative of determinant} 
+Assume an invertible matrix M,
+\be
+\det\left( M+\delta M \right) =\det \left( M\left( 1+M^{-1}\delta M\right) \right)
+\ee
+where $\delta M$ is a small change in the matrix M. According to the properties of determinant $\det\left( AB\right) =\det\left( A\right) \det\left( B\right) 
+$ we have,
+\be
+\det\left( M\left( 1+\delta M\right) \right) =\det M\det\left( I+\delta M\right) 
+\ee
+%According to Cayley-Hamilton theorem: \\
+For a $n \times n$ matrix M, the characteristic polynomial is defined by p($\lambda$)=$\det (A- \lambda I)$=$(-1)^n \Big[ \lambda ^n +c _1 \lambda ^{n-1} + c _2 \lambda ^{n-2}  +...+c_n \Big]$  where $c_n=(-1)^n \det( A)$, $c_1=tr (A)$. So,
+\be
+\det\left( I+\delta M\right) =p(\lambda=1)=1^{n}+1^{n-1}tr\left( \delta M\right) +O\left( \delta M^{2} \right) 
+\ee
+On the other hand,
+\begin{align}
+\delta\det M&=\det\left( M+\delta M\right) -\det\left( M\right) =\det M\det\left( I+\delta M\right) -\det\left( M\right) \nonumber \\ &
+=\det M (1+ tr(\delta M)) -\det\left( M\right)= \det M  \, tr (\delta M)
+\end{align}
+So for the metric we can write the same statement to get the result,
+\be
+\delta g =\delta \det g_{\mu \nu}=  \det (g_{\mu \nu}+ \delta g_{\mu \nu}) - \det (g_{\mu \nu}) = \det (g_{\mu \nu}) tr (\delta g_{\mu \nu}) = g \, \delta g_{\mu\nu}g^{\mu\nu}
+\ee
+Pay attention to the relation between $\delta g^{\mu \nu}$ and $\delta g_ {\mu \nu}$ which shows that $\delta g_{\mu \nu}$ is not a tensor!
+\be
+g_{\mu\nu}g^{\nu\rho}=\delta^{\rho}_{\mu} \rightarrow
+\delta g_{\mu\nu}g^{\nu\rho}+g_{\mu\nu}\delta g^{\nu\rho}=0 
+\ee
+\be
+\delta g^{\nu\rho}=-g^{\nu\sigma}\delta g_{\sigma\mu}g^{\mu\rho}
+\ee
+
+\subsection{$T_{00}$ component of energy momentum tensor}
+According to previous equation $T_{00} $ component is,
+\begin{align} \label{T00}
+T_{00} &=
+   \Big[ \bar{g}_{0 0} \bar{P} 
++
+ \bar{P}_{,X} \partial_{0} \tau \partial_{0} \tau \Big] \epsilon ^0 
++
+\Big[( -a^2 \bar{P}' +\bar{P}'_{,X} )\pi+\bar{g}_{0 0}  \bar{P}_{,X} \delta X_1 
++
+ \delta g^{(1)}_{0 0} \bar{P} 
+ +
+  \bar{P}_{,X}  \left ( \partial_{0} \pi \partial_{0} \tau  
+  +
+  \partial_{0} \tau \partial_{0} \pi  \right ) 
+    \nonumber
+ \\
+  &
+  +
+   \delta X_1 \bar{P}_{,XX}   \partial_{0} \tau \partial_{0} \tau 
+   +
+    \cancelto{\mathcal {O}(\epsilon^{2}) 
+} { \bar{P}_{,X}  } \partial_{0} \pi \partial_{0} \pi  +   \cancelto{\mathcal {O}(\epsilon^{2})}  {2 \pi'   } \delta X_1  \bar{P}_{,XX}  \Big ]
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  \nonumber
+ \\
+  &
+  =
+  [-a^2  \bar{P} 
++
+ \bar{P}_{,X}  ] \epsilon ^0 
++
+\Big[a^2 (- \bar{P}' +\frac{\bar{P}'_{,X}}{a^2} )\pi- a^2 \bar{P}_{,X} \delta X_1 
+-
+ 2 a^2 \Psi \bar{P} 
+ +
+ 2 \bar{P}_{,X}   {\pi'}
+  +
+    {\color{red}
+   \delta X_1 \bar{P}_{,XX} }
+  \Big ] 
++ \mathcal {O}(\epsilon^{2}) 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  \nonumber
+ \\
+  &
+  =
+  [-a^2 \bar{P} 
++
+a^2 \bar{P}  (1+\frac{1}{w}) ] \epsilon ^0 
++
+\Big[a^2 \rho' \pi
+-
+ 2 a^2  \Psi \bar{P} 
+ +
+ 2  a^2 \bar{P}  (1+\frac{1}{w})  {\pi'}
+  +
+  a^4 \bar{P}  (1+\frac{1}{w}) (\frac{1}{c_s^2}-1) \,   (\delta X_1 )
+   \Big ] 
++ \mathcal {O}(2) 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  \nonumber
+ \\
+  &
+  =
+ \frac{ a^2 \bar{P}}{w} \,\epsilon ^0 
++
+\frac{ a^2\bar{ P}}{w}   \Big[ -3 \mathcal{H} (1+w) \pi
+-
+ 2   w \Psi
+ +
+ 2  (1+w)  {\pi'}
+  +
+  a^2 (1+w) (\frac{1}{c_s^2}-1) \, \Big(  -\Psi+{\pi'}-  \frac{(\vec{\nabla} \pi)^2}{2} \Big)
+   \Big ] \epsilon^1
+%+ \mathcal {O}(\epsilon^{3/2}) 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%  \nonumber
+% \\
+%  &
+%  =
+%\frac{a^2 \bar{ P}}{w} \,\epsilon ^0 
+%+
+%\frac{a^2 \bar{ P}}{w}   \Big[ (2 \frac{\mathcal{H}'}{\mathcal{H}}+ \frac{\Omega'}{\Omega}  ) \pi+  a^2 (1+w) (\frac{1}{c_s^2}- 2)  \delta X_1 
+%-
+% 2 w \Psi
+% +
+% 2  (1+w)  {\pi'}
+% \Big ] 
+%+ \mathcal {O}(\epsilon^{2}) 
+%%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%  \nonumber
+% \\
+%  &  
+%  =
+%3 M_{pl}^2 \mathcal{H}^2 \Omega  \,\epsilon ^0 
+%+
+%3 M_{pl}^2  \mathcal{H}^2 \Omega    \Bigg[ (2 \frac{\mathcal{H}'}{\mathcal{H}}+ \frac{\Omega'}{\Omega}  ) \pi+ (1+w) (\frac{1}{c_s^2}- 2)  \Big[\mathcal{H} \pi -\Psi+{\pi'}-  \frac{(\vec{\nabla} \pi)^2}{2} \Big ]
+%-
+%  \nonumber
+% \\
+%  &
+% 2 w \Psi
+% +
+% 2  (1+w)  {\pi'}
+% \Bigg ]
+%+ \mathcal {O}(\epsilon^{2})  
+%%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%  \nonumber
+% \\
+%  &
+%  =
+%3 M_{pl}^2  \mathcal{H}^2 \Omega \Bigg[  1 +(2 \frac{\mathcal{H}'}{\mathcal{H}}+ \frac{\Omega'}{\Omega}  ) \pi+ \Psi \Big (- (1+w) (\frac{1}{c_s^2}- 2)-2 w  \Big ) + {\pi'} \Big ( (1+w) (\frac{1}{c_s^2}- 2 )+2 (1+w)   \Big) 
+%   \nonumber
+% \\
+%  & - \frac{(\vec{\nabla} \pi)^2}{2}  \Big ( (1+w) (\frac{1}{c_s^2}- 2 )  \Big )
+% \Bigg]
+ %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   \nonumber
+ \\
+  &
+  =
+3 M_{pl}^2  \mathcal{H}^2 \Omega \Bigg[  1-3\mathcal{H} (1+w)  \pi+ \Psi \Big (2 - \frac{1+w}{c_s^2}  \Big ) + {\pi'} \Big ( \frac{1+w}{c_s^2}   \Big)  - \frac{(\vec{\nabla} \pi)^2}{2}   (1+w) (\frac{1}{c_s^2}- 2 ) 
+ \Bigg]+  \mathcal {O}(\epsilon^{2}) 
+\end{align}
+Where we have used \ref{Pbarder} and \ref{Pbar}.
+Finaly the $T_{00}$ component is;
+%\begin{empheq}[box=\mymath ]{equation*}
+%If we convert the $\pi$ to be the perturbation in constant physical time hypersurfaces (not constant conformal time) we get,
+%$\pi_{phys}= \pi_{conf}$
+%\begin{empheq}[box=\mymath ]{equation*}
+\begin{align}
+T_{00}=  
+3 M_{pl}^2   \mathcal{H}^2\Omega \Bigg[  1-3\mathcal{H} (1+w)  \pi+  \Psi \Big (2 - \frac{1+w}{c_s^2}  \Big ) + {\color{blue} ({\pi'}+ \mathcal{H} \pi) } \Big ( \frac{1+w}{c_s^2}   \Big)  -   \frac{(\vec{\nabla} \pi)^2}{2}    (1+w) (\frac{1}{c_s^2}- 2 ) 
+ \Bigg]+  \mathcal {O}(\epsilon^{2}) 
+\end{align}
+%\end{empheq}
+Now we compare the result with equation 147 of https://arxiv.org/pdf/1411.3712.pdf:\\
+It is clear that the coefficient of $\pi$ is the same, but we should remember that we changed a sign to get this result ($\rho'$) and also $H \pi_{phys}$ = $\mathcal{H} \pi_{\text{conf}}$. \\
+${\color{blue} \dot{\pi_{phys}} = \partial_t(a \pi_{conf})=(a \dot{\pi_{con}} + aH \pi_{con} -\Psi)= \pi_{con}'+\mathcal{H} \pi_{con} -\Psi}$ \\
+The other terms in the paper are:
+\be
+ H^2 \alpha_k \mathcal{P}= \frac{\bar{\rho } (1+w)}{c_s^2}(\dot{\pi}- \Psi)=  \frac{\bar{\rho } (1+w)}{c_s^2}({\pi'}_{\text{conf}}- \Psi)
+\ee
+$\Psi$ here means $\Phi$ in the paper. Moreover $\dot{\pi}_{phys}=\pi_{conf}'$. The extra $2 \Psi$ term here comes from the fact that $T_{00}=g_{00} T^0_0$. \\
+In sum, up to first order we get the same equatuin as the references. Moreover the extra $a^2$ factor is in $\Omega =  \frac{a^2 \bar{\rho}}{3 M_{pl}^2 \mathcal{H}^2}$
+\subsection{$T_{0i}$ component of energy momentum tensor}
+According to the equation \ref{eqTmunuI} we can calculate $T_{0i}$ component of energy momentum tensor
+\begin{align}
+T_{\mu \nu}    & =(\bar{g}_{\mu \nu} + \delta g^{(1)}_{\mu \nu}) (\bar{P}+\bar{P}' \pi+\bar{P}_{,X} \delta X_1) + (\bar{P}_{,X}+\bar{P}'_{,X} \pi+\bar{P}_{,XX} \delta X_1) \partial_{\mu} (\tau+ \pi) \partial_\nu (\tau+\pi)+ \ldots
+%\label{eqTmunu}
+\end{align}
+So $T_{0i}$ reads;
+\begin{align} \label{T0i}
+T_{0 i} &
+= \Big[\cancel{\bar{g}_{0 i}} \bar{P} 
++
+ \bar{P}_{,X} \partial_{0} \tau \partial_{i} \tau \Big] \epsilon ^0 
++
+\Big[ \cancel{\bar{g}_{0 i}} \bar{P}' \pi+ \cancel{\bar{g}_{0 i}}  \bar{P}_{,X} \delta X_1 
++
+ \delta g^{(1)}_{0 i} \bar{P} 
+ +
+  \bar{P}_{,X}  \Big( \partial_{0} \pi \cancel{ \partial_{i} \tau  }
+  +
+  \partial_{0} \tau \partial_{i} \pi  \Big ) 
+      \nonumber  \\&
+  +
+   \delta X_1 \bar{P}_{,XX}   \partial_{0} \tau  \cancel{\partial_{i} \tau  }
+   +
+     \delta X_1 \bar{P}_{,XX}   \partial_{0} \tau  \partial_{i} \pi
+  +
+    {\bar{P}_{,X} } \partial_{0} \pi \partial_{i} \pi \; \;   \Big ]
++ \mathcal {O}(\epsilon^{2}) 
+\nonumber 
+\\ 
+&
+= [0] \epsilon ^0 
++
+\Big[
+ \delta g^{(1)}_{0 i} \bar{P} 
+ +
+  \bar{P}_{,X}   \partial_{0} \tau \partial_{i} \pi +  {\bar{P}_{,X} } \partial_{0} \pi \partial_{i} \pi + \delta X_1 \bar{P}_{,XX}    \partial_{i} \pi
+  \Big ] 
++ \mathcal {O}(\epsilon^{2}) 
+\nonumber 
+\\ 
+&
+= 
+3 M_{pl}^2 \mathcal{H}^2 \Omega \Bigg[
+ w \, \frac{\delta g^{(1)}_{0 i} }{a^2}
+ +
+   (1+w )\,  \partial_{i} \pi + (1+w) \, \pi' \partial_{i} \pi  -(1+ w)(\frac{1}{c_s^2}-1)  \frac{(\vec{\nabla} \pi)^2}{2} \partial_{i} \pi 
+   \Bigg ]
++ \mathcal {O}(\epsilon^{2}) 
+%\label{eqTmunu}
+\end{align}
+If we neglect vector perturbation and keeping only short wave correction in first order we have,
+%\begin{empheq}[box=\mymath]{equation*}
+\begin{align}
+T_{0i}= 
+3 M_{pl}^2 \mathcal{H}^2 \Omega \Bigg[
+    (1+w )\,  \partial_{i} \pi -(1+ w)(\frac{1}{c_s^2}-1)   \frac{(\vec{\nabla} \pi)^2}{2} \partial_{i} \pi 
+   \Bigg ]
++ \mathcal {O}(\epsilon^{2}) 
+\end{align}
+%\end{empheq}
+Note that $T_{0i}=T_{i0}$. To first order the followed expression is the same as equation 148 which is $q_D=-\bar{\rho} (1+w) \pi$, which means $T_{0i} = -\bar{\rho} (1+w) \partial_i \pi/a = -\bar{\rho} (1+w) \partial_i \pi_{\text{conf}} $, since $T_{0i}=g_{00}T^0_i=- T^0_i$ and $g_{00}$ in the paper is "-1".
+\subsection{$T_{ij}$ component of energy momentum tensor}
+It is noteworthy to mention that by $P'$ we mean $P_{\varphi}$ while the expression for $P_{\tau}= P_{\varphi} \varphi' + P_{X} X'$ since P is a function of $\varphi$ and $X$.
+Again using the equation \ref{eqTmunuI}
+\begin{align}
+T_{\mu \nu} &
+= \Big[ \bar{g}_{\mu \nu} \bar{P} 
++
+ \bar{P}_{,X} \partial_{\mu} \tau \partial_{\nu} \tau \Big] \epsilon ^0 
++
+\Big[ ({\bar{g}_{\mu \nu}} \bar{P}' +\bar{P}'_{, X})\pi+ \bar{g}_{\mu \nu}  \bar{P}_{,X} \delta X_1 
++
+ \delta g^{(1)}_{\mu \nu} \bar{P} 
+ +
+  \bar{P}_{,X}  \left ( \partial_{\mu} \pi \partial_{\nu} \tau 
+  +
+  \partial_{\mu} \tau \partial_{\nu} \pi  \right ) 
+       \nonumber \\ &
+  +
+   \delta X_1 \bar{P}_{,XX}   \partial_{\mu} \tau \partial_{\nu} \tau  
+   +
+    \bar{P}_{,X}   \partial_{\mu} \pi \partial_{\nu} \pi  + 
+    +  \delta X_1 \bar{P}_{,XX}  \big(  \partial_{\mu} \tau \partial_{\nu} \pi  +   \partial_{\mu} \pi \partial_{\nu} \tau \big ) \Big]
++ \mathcal {O}(\epsilon^{3/2}) 
+%\label{eqTmunu}
+\end{align}.
+So $T_{ij}$ is;
+\begin{align} \label{Tij}
+T_{i j} &
+= \Big[ \bar{g}_{i j} \bar{P} 
++
+ \bar{P}_{,X} \cancel{ \partial_{i} \tau}\partial_{j} \tau \Big] \epsilon ^0 
++
+\Big[ ({\bar{g}_{i j}} \bar{P}' \pi+\cancel{\bar{P}'_{, X}} \partial_{i} (\tau+\pi) \partial_{j}(\tau+\pi))\pi+ \bar{g}_{i j}  \bar{P}_{,X} \delta X_1 
++
+ \delta g^{(1)}_{i j} \bar{P} 
+        \nonumber \\ &
+ +
+  \bar{P}_{,X}  \left ( \partial_{i} \pi \cancel{\partial_{j} \tau  }
+  +
+\cancel{  \partial_{i} \tau }\partial_{j} \pi  \right ) 
+  +
+   \delta X_1 \bar{P}_{,XX}   \cancel{ \partial_{i} \tau }\partial_{j} \tau  
+   +
+    \bar{P}_{,X}   \partial_{i} \pi \partial_{j} \pi \Big ]
++ \mathcal {O}(\epsilon^{2}) 
+\nonumber \\ & 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+= \Big[ a^2 \delta_{ij} \bar{P} 
+ \Big] \epsilon ^0 
++
+\Big[ a^2   (\delta_{ij}  \bar{P}' + P_{,X} \bar{X}' )\pi+ a^2  \delta_{ij}   \bar{P}_{,X} \delta X_1 
+-
+ 2 a^2 \Phi \delta_{ij} \bar{P} 
+     +
+    \bar{P}_{,X}   \partial_{i} \pi \partial_{j} \pi \Big ] 
++ \mathcal {O}(\epsilon^{2}) 
+\nonumber \\ & 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+= \frac{ a^2 \bar{P}}{w}   \Big[ w \delta_{ij} 
+\Big] \epsilon ^0 
++
+\frac{ a^2  \bar{P}}{w} \Big[ w   \delta_{ij}  \bar{P}_{,\tau}  /\bar{P} \pi+  \delta_{ij}   (1+w)  \Big (-{\mathcal{H}} \pi-\Psi+{\pi'}- \frac{ (\vec{\nabla} \pi)^2 }{2 } \Big ) 
+-
+ 2  w \Phi \delta_{ij} 
+        \nonumber \\ &
+     +
+   (1+w)  \partial_{i} \pi \partial_{j} \pi \Big ] 
++ \mathcal {O}(\epsilon^{2}) 
+\nonumber \\ & 
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+=3 M_{pl}^2 \mathcal{H}^2 \Omega    \Bigg[w \delta_{ij} -3 \mathcal{H} w (1+w)\pi \delta_{ij} 
++
+ \delta_{ij}   (1+w)  \Big (-\Psi+{\pi'}- \frac{(\vec{\nabla} \pi)^2  }{2 }  \Big )
+-
+ 2 w \Phi \delta_{ij} 
+     +
+   {(1+w)}  \partial_{i} \pi \partial_{j} \pi \Bigg ]
+          \nonumber \\ & 
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+\end{align}
+As a result we can write;
+%\begin{empheq}[box=\mymath]{equation*}
+\begin{align}
+T_{ij}=&3 M_{pl}^2 \mathcal{H}^2 \Omega  \Bigg[  w \delta_{ij}  -3 \mathcal{H} w (1+w)\pi \delta_{ij}
+-
+ 2 w \Phi \,  \delta_{ij} + (1+w) ( {\color{blue} ({\pi'}+ \mathcal{H} \pi) }-\Psi)  \, \delta_{ij}
+ \nonumber  \\ &
+ - \frac{1+w}{2 }   (\vec{\nabla} \pi)^2 \, \delta_{ij} +({1+w}  )\partial_{i} \pi \partial_{j} \pi    \Bigg ] 
+     + \mathcal {O}(\epsilon^{2}) 
+\end{align}
+%\end{empheq}
+Comparing with equation 150 of https://arxiv.org/pdf/1411.3712.pdf:
+\be
+T_{ij}^{(paper)}= g_{ii} T^i_{j} =a^2 \Big(\dot{p} \pi + \frac{\rho_D + p_D}{M^2} \times M^2( \dot{\pi} -\Psi) \Big) \delta_{ij} = \delta_{ij} a^2[-3 \frac{\mathcal{H}}{a} \bar{\rho} (1+w) a \pi_{\text{conf}} + \bar{\rho} (1+w) ( {\pi}'_{\text{conf}} -\Psi))]
+\ee
+Which is the same  and extra $a^2$ coefficient in their paper  is in the definition of $\Omega$ which is defined by physical Hubble constant! Moreover extra term -2$w \Phi$ comes from $\delta g_{ik} T^{k}_j$
+The diagonal components read; 
+\be
+T_{ii}=3 M_{pl}^2 \mathcal{H}^2 \Omega   \Bigg[   w -3 \mathcal{H} w (1+w) \pi
+-
+ 2 w  \, \Phi  - (1+w)  \, \Psi +  (1+w) \,  {\pi'} 
+ + \frac{1+w}{2 }    (\vec{\nabla} \pi)^2    \Bigg ] 
+     + \mathcal {O}(\epsilon^{3/2}) 
+\ee
+The off diagonal components are; 
+\be
+T_{ij}=3 M_{pl}^2 \mathcal{H}^2 \Omega (1+w)   \,   \partial_{i} \pi \partial_{j} \pi   
+     + \mathcal {O}(\epsilon^{3/2}) 
+\ee
+ 

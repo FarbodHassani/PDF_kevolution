@@ -1,0 +1,130 @@
+
+
+\section{Checking the effect of discrete lattice which Julian suggested? {\color{red}  Try to derive the result!}}
+According to the email of Julian on 26April2018, he suggested 
+      \begin{figure} [H]
+ \includegraphics [scale=0.8]{Julian_discussion}
+ \end{figure}
+ Now I'm trying to do what he suggested! By using our $\Phi$ and $\Phi'$ obtained from big simulations. The result for a relatively good run is as following,
+      \begin{figure} [H]
+ \includegraphics [scale=0.5]{BigRun_Juliantest}
+ \end{figure}
+      \begin{figure} [H]
+ \includegraphics [scale=0.8]{Julian_email}
+ \end{figure}
+       \begin{figure} [H]
+ \includegraphics [scale=0.8]{Julian_discuss_01}
+ \end{figure}
+        \begin{figure} [H]
+ \includegraphics [scale=0.8]{Julian_discuss_02}
+ \end{figure}
+        \begin{figure} [H]
+ \includegraphics [scale=0.8]{Julian_discuss_03}
+ \end{figure}
+
+ 
+%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+
+   
+\section{Comparing some important quantities in class and Gevolution for the same initial condition, like Hubble factor, matter power, potential power and ...} {\color{red} Todo}
+Using the following python script for comparing Hubble factor in Gevolution and Class,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+# H in unit Mpc!
+h=0.67556;
+c=2.99*1.e5;
+H0=100*h/c;
+print("H0[1/Mpc]=100h/c: ",H0);
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-0.9;h=0.7;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=0.3; Omega_Lambda=0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_kessence*(a**(-3*(1+w))))*a
+Hclass_cs_e3=Bg_class_cs_e3[:,3]
+aclass_cs_e3=1./(1+Bg_class_cs_e3[:,0])
+Hclass_cs_e0=Bg_class_cs_e0[:,3]
+aclass_cs_e0=1./(1+Bg_class_cs_e0[:,0])
+a=np.arange(0.001,2,0.0001)
+# plt.loglog(aclass_cs_e3,Hclass_cs_e3[:]*aclass_cs_e3,color="red",label="Class_cs3")
+# plt.loglog(aclass_cs_e0,Hclass_cs_e0[:]*aclass_cs_e0,color="purple",label="Class_cs0")
+# plt.loglog(aclass_cs_e3,Hubble_conf_Mpc(aclass_cs_e3),color="blue",label="Formlua")
+plt.loglog(aclass_cs_e3,np.abs(Hclass_cs_e3[:]*aclass_cs_e3-Hubble_conf_Mpc(aclass_cs_e3)),color="green",label="Difference")
+plt.loglog(aclass_cs_e0,np.abs(Hclass_cs_e0[:]*aclass_cs_e0-Hubble_conf_Mpc(aclass_cs_e0)),color="khaki",label="Difference2")
+
+# plt.loglog(a,H0*myHa,color="green",label="FormluaII")
+
+Hubble_conf_Mpc(a)
+plt.xlim(1e-3,2)
+# plt.ylim(1e-4,2e1)
+plt.legend()
+plt.show()
+\end{lstlisting}
+    \begin{figure} [H]
+ \includegraphics [scale=0.5]{Hubble_comp.jpg}
+ \end{figure}
+ {\color{red} Why the error increases in time? what is neglected?}
+
+ 
+ \section{Kessence run-time}
+  The run time after the increasing of precision the run time at first glance it comes to be ,
+ \be
+ T ^{(\text{Run2})}= \Bigg[\frac{N_{\text{grid}} ^{(\text{Run2})}}   {N_{\text{grid} }^{(\text{Run1})}      }  \Bigg]^3 \times
+  \frac{d \tau ^{ (\text{Run1})} 	} {d \tau ^{ (\text{Run2})} 	} \times
+   \frac{n_ \text{kessence} ^{(\text{Run2})} 		 }{n_ \text{kessence}^{(\text{Run1})}	}  \times T ^{(\text{Run1})}
+ \ee
+ so $T$ is the run time in any unit, and the reason $N_{\text{grid}}^3$  is important is that the number of particles which actually are the degrees of freedom scales with $N_{\text{grid}}^3$.  But in the top formula it is assumed that the kessence is as slow as the main loop which is of course wrong! Since the loop over kessence field updating is much faster than updating the particles, so basically kessence updating time is more or less negligible! \\
+Now we want to check that we have accounted the terms important for run time correctly, for the first run with $N_{\text{grid}}=64, d \tau=0.04, n_ \text{kessence}=1$ we get $T= 0:01:32.7 $CPU-hour, so we expect for the new one we get $T ^{(\text{Run2})} = 2^3 \times 4 \times 10 \times  T ^{(\text{Run1})}  \approx 320 \times  0:01:32.7 \approx  08:14:24 \approx 29664$ sec, while the real time is $1 : 04 : 14.5 \approx 3854.5 $  sec, which is about $1/8$ of the time! \\
+To measure the kessence updating time we add time measuring part to the loop of updating kessence and stress tensor part,
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+#ifdef BENCHMARK
+		kessence_update_time += MPI_Wtime() - ref_time;
+		ref_time = MPI_Wtime();
+#endif
+\end{lstlisting}
+where we have defined a ref time before the intrested part and then by subtracting the real time we measure the is spent on the part,\\
+So after measuring the kessence updating time for a small run up to redshift 0,  $N_g=64, n_{\text{kessence}}=1, d\tau=0.04$ we get $\text{Kessence-update=}     : 0:00:17.6 ; \;  8.38213\%.$.\\
+ If we increase the number of kessence updating steps like  $N_g=64, n_{\text{kessence}}=5, d\tau=0.04$ we get $\text{Kessence-update=}     0:00:58.6 ; \; 23.6751\%$.
+  \\
+  $N_g=64, n_{\text{kessence}}=10, d\tau=0.04$ we get $\text{Kessence-update=}     0:01:37.2; \; 36.5973\%$.
+  \\
+   $N_g=64, n_{\text{kessence}}=20, d\tau=0.04$ we get $\text{Kessence-update=}     0:03:07.8 ; \; 52.2486\%$. \\ 
+  $N_g=64, n_{\text{kessence}}=40, d\tau=0.04$ we get $\text{Kessence-update=}      0:06:18.1 ; 68.9647\%$. \\ 
+ We can easily obtain the following formula for run-time of kessence updating field (without taking the predictor-corrector method into account). \\
+ Writing down each runtime versus the number of kessence field updating in mathematica we can easily fit the function,
+   \begin{figure}[H]
+ \includegraphics[scale=0.6]{Mathematica_fitting} 
+ \end{figure}
+ According to the fitting we see that the curve is linear up to a good approximation and the coefficient of higher order terms are negligible, so we have the following formula for the run-time for $N_{\text{grid}}=64$
+ \be
+ T (\text{kess}) \sim 9.57029 + 9.34898 \; n_{\text{kessence}}  \; \; \;   \text{seconds}
+ \ee
+Of course we have also dependence on number of grid, since we calculate the fields on the grid  and we also calculate the quantities like $\nabla^2 \pi, \nabla^2 \Psi..$ so we also expect a dependence on number of grids which by some test runs we get the following results, \\
+  $N_g=128, n_{\text{kessence}}=1, d\tau=0.04$ we get $\text{Kessence-update=}      0:01:20.0 ; 5.34408\%$. \\ 
+  $N_g=256, n_{\text{kessence}}=1, d\tau=0.04$ we get $\text{Kessence-update=}              0:13:07.5 ; 4.21904\%$. \\ 
+Now we want to fit a function for kessence run time  as a function of number of grids for a constant kessence update $=1$,
+ \begin{figure}[H]
+ \includegraphics[scale=0.6]{Mathematica_fitting_2} 
+ \end{figure}
+So as we can see linear fit  is not enough and the reason may be the fact that we have fields on the lattice which the number of calling the fields on the lattice is related to $\sim N_{\text{grids}}^3$.  \\
+The formula is,
+ \be
+ T (\text{kess}) \sim 55.5076 - 1.00906 \;  n_{\text{kessence}}  + 0.00364543 \;  n_{\text{kessence}} ^2 + 0.0000447873 \;  n_{\text{kessence}} ^3  \; \; \; \;   \text{seconds}
+ \ee
+We expect that these formulas approximately work for any number of grids and kessence number of updating combination!\\
+Lets just for a check try the below combination\\
+   $N_g=128, n_{\text{kessence}}=8, d\tau=0.04$ , according to the formulas since  we have $n_{\text{kessence}}  \neq 1$ and $N_{\text{grids}} \neq 64 $, first the time for extra  $n_{\text{kessence}}$ is obtained as following,
+   \be
+   T_1( n_{\text{kessence}})= 9.57029 + 9.34898 \times 8 = 84.3621 \text{  seconds}
+   \ee
+   so the run for 8 number of updating is about $ 84.3621/17.6 \approx 4.79 $ times the $ n_{\text{kessence}} =1$. \\   
+   and for the number of grids we have,
+   \be
+     T_2( n_{\text{grids}})= 55.5076 - 1.00906 \times 128 + 0.00364543 \times 128 ^2 + 0.0000447873 \times 128^3 = 80.0 \text{  seconds}
+   \ee
+   So we have $T_2 \times 84.3621/17.6 $ which is basically the run time for each step for the fixed number of grids times the number of updating which is $80.0 \times 4.79\approx 383.2$ seconds and what we get from the run is ,\\
+$N_g=128, n_{\text{kessence}}=8, d\tau=0.04$ we get $\text{Kessence-update=}      00:07:03.6 ; 22.5008\%$ . \\ 
+which is about 423 seconds, which shows that our approximations more or less work! At least it is good for guessing the run-time ...
+
+ 

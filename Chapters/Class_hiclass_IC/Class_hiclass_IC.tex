@@ -1,0 +1,1331 @@
+
+\section{Field transfer function}
+Before trying to get the field transfer function we try to do some tests on different results in order to catch all the physics we are dealing with.
+
+\section{Gevolution implementation  {\color{red} Need to be checked and use the corrected stress tensor and check with other references!} }
+In Gevolution we should use $ M^2_{pl}= 1/8 \pi G$.\\
+%And it seems the normalization factor is $-3 \mathcal{H}_0^2T_0^0/8\pi G$ \\
+So we have:
+%\begin{empheq}[box=\mymath]{equation}
+%\begin{align}
+%T_{0i}= 
+%3 M_{pl}^2 \mathcal{H}^2 \Omega \Bigg[
+%    (1+w )\,  \partial_{i} \pi -(1+ w)(\frac{1}{c_s^2}-1)   \frac{(\vec{\nabla} \pi)^2}{2} \partial_{i} \pi 
+%   \Bigg ]
+%+ \mathcal {O}(\epsilon^{2}) 
+%\end{align}
+
+\begin{align}
+ & T_0^0 (Gev)=-a^3 {T_{0}^{0}}=   {3 a M_{pl}^2   \mathcal{H}^2\Omega} \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+  {\pi'+ \mathcal{H} \pi}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Big )   \Bigg ]
+\nonumber \\ &
+T^{0}_{i}(Gev)=a^3 T^0_i = -a T_{0i} = -{3 a M_{pl}^2   \mathcal{H}^2\Omega}  (1+w)\Big[1 - (\frac{1}{c_s^2} -1)  \frac{(\vec{\nabla} \pi)^2}{2}  \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= a^3 T_j^i = {3 a M_{pl}^2   \mathcal{H}^2\Omega w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi + \pi' + \mathcal{H} \pi -  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+%\end{empheq}
+Note that $\dot{H}$ is determined by all the matter contents of the universe not by k-essence alone, the continuity equation for k-essence or matter gives the dynamics of density. \\
+About the unit of $T^0_0$ note that it is $\bar{\rho}_{kessence} [1+\delta \rho/\bar{\rho} ]$ and since in Gevolution it is multiplied to $-a^3$ and since critical density at redshift zero is 1 so we have\\
+\be
+3 a M_{pl}^2   \mathcal{H}^2\Omega = a^3   \frac{\bar{\rho}_D}{\rho_{crit} ^{0}=1} = a^3   \frac{\bar{\rho}^0_D a ^{-3(1+w)}}{\rho_{crit} ^{0}}= \Omega^{0}_{kess} a^{-3w}
+\ee
+%\begin{empheq}[box=\mymath]{equation}
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+   {\color{blue} ({\pi'}+ \mathcal{H} \pi) }  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w) \Big[1 - (\frac{1}{c_s^2} -1)  \frac{(\vec{\nabla} \pi)^2}{2}  \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi +   {\color{blue} ({\pi'}+ \mathcal{H} \pi) } -  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+%\end{empheq}
+{\color{red} What is $\delta P/\delta\rho$ here and is it comparable with other papers?}
+In Gevolution we extract $\delta T_0^0/ \bar{T}_0^0$ which scales out the coefficient $\Omega^0_{kess} a^{-3 w} $. \\
+The field equation is:
+we take $d \tau=\tau_{n+1}-\tau_n $ and $x_{i,j,k} $ as lattice point. We solve the differential equation numerically as following;
+\be
+\pi_v= {\pi}'
+\ee
+\be
+\pi^{n}= \pi ^{n-1}+\pi_v ^{n-\frac{1}{2}} d \tau
+\ee
+\be \label{eq3}
+\pi_v ^{n+\frac{1}{2}}=\pi_v ^{n-\frac{1}{2}} + {\pi''} ^{(n)}  d \tau
+\ee
+
+We define the laplacian in code as following,
+\begin{align}
+& \nabla^2 \pi =-\frac{\pi^{n}_{i-1,j,k}+\pi^{n}_{i+1,j,k} +\pi^{n}_{i,j-1,k} +\pi^{n}_{i,j+1,k}+\pi^{n}_{i,j,k-1}+\pi^{n}_{i,j,k+1} -6 \pi^{n}_{i,j,k}  }{ a^2 dx^2}  
+\end{align}
+Moreover in order to get scalar in the vertices the derivatives like $\nabla \pi . \nabla \pi $ should be defined symmetric .
+So we can rewrite the equation \ref{eq3} as below;
+After some simplification we get,
+\begin{align} 
+%
+ &\pi_v ^{n+\frac{1}{2}}= \frac{1}{1+ d\tau   \mathcal{H}^{(n)}  (1-3w) /2 - d\tau (1-c_s^2) \nabla^2 \pi^{(n)}/2} \times \Bigg[ \pi_v ^{n-\frac{1}{2}} - d \tau \Big [(1- 3w)\mathcal{H}^{(n)}   \frac{\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} }{2}
+     \nonumber
+     \\
+      &
+  -3 { c_s^2 \mathcal{H}^{(n)}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi^{(n) }
+ - \, \frac{{\Psi}^{(n)}-{\Psi}^{(n-1)} }{d \tau}
+      - 3  c_s^2  \, \frac{{\Phi}^{(n)}-{\Phi}^{(n-1)} }{d \tau}    
+   +\Big( 3\mathcal{H}^2 (c_s^2 -w) + \mathcal{H}' (1-3c_s^2) \Big)\pi^{(n)}  
+             \nonumber
+     \\
+      &
+       - c_s^2 {\nabla^2 \pi ^{(n)}}  
+   %
+   + (1-c_s^2)\Psi^{(n)} {\nabla^{2} \pi^{(n)}  }    
+      %___________
+    - 2 c_s^2  \Phi ^{(n)}  {\nabla^2 \pi^{(n)}}
+          %___________
+     + {3 c_s^2  \mathcal{H}^{(n)} (1+w) }\pi^{(n)} {\nabla^2 \pi^{(n)} }   
+          \nonumber
+     \\
+      &
+               %___________
+     -  (1-c_s^2)
+ \Big( \frac{\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} }{2} +\mathcal{H}  \pi^{(n)}  \Big) {\nabla^2  \pi^{(n)}} 
+               %___________
+    - (2 c_s^2-1) {\nabla  \Psi^{(n)}  . \nabla \pi ^{(n)} }
+            %___________
+    + c_s^2 {\nabla  \Phi ^{(n)} . \nabla \pi^{(n)}  }  
+                              \nonumber
+     \\
+       & 
+            %___________
+              +\frac{\mathcal{H}^{(n)}} {2 } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi^{(n)} . \nabla \pi^{(n)} }  
+                      %___________                    
+         -2(1-c_s^2) \Big( \frac{{ \nabla  ( \pi_{v  \; {i,j,k}}^{n+\frac{1}{2}} +\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} ) }  } {2}  + \mathcal{H}  \nabla\pi^{(n)} \Big) 
+    \Big] \Bigg]
+\end{align}
+Since we have $\nabla \pi_v $ in the equation we use predictor corrector method as following,\\
+In the first step we predict that the term $\nabla \pi \nabla \pi_v$ is small so we approximate $\nabla \pi_v ^{(n)}$ with $\nabla \pi_v^{n-\frac{1}{2}}$ then we calculate $\pi_v^{n+\frac{1}{2}}$ according to the formula with the guess, then we use the new $\pi_v^{n+\frac{1}{2}}$ into the full equations to correct $\pi_v^{n+\frac{1}{2}}$ . \\
+ We have taken $\pi_{v  \; {i,j,k}}^{n} =\frac{(\pi_{v  \; {i,j,k}}^{n+\frac{1}{2}} +\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} )}{2} $. Then we need to calculate $\mathcal{H}'$, ${\Psi}'$ and  ${\Phi}'$ in each loop, to calculate ${\Psi}'$ we save two $\Psi$ in each loop. \\
+% \begin{align} 
+% &\pi'' - \mathcal{H} \Big (1+ 3w \Big)\pi' -3 {a c_s^2 \mathcal{H}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi -a \, {\Psi'}- 3 c_s^2 a \,{\Phi'} 
+%  +3  c_s^2 \Big({-\mathcal{H}^2 + \mathcal{H}'} \Big) \pi 
+% - c_s^2 {\nabla^2 \pi }
+%     + (1-c_s^2)\pi {\nabla^2 \Psi }
+%      - 2 c_s^2 \pi {\nabla^2 \Phi }
+%            \nonumber
+%   \\
+%    &
+%      + 3 c_s^2  H (1+w)\pi {\nabla^2 \pi }   
+%  -  (1-c_s^2)
+%   \pi \frac{\nabla^2\pi ' }{a}   
+%   - (2 c_s^2-1) {\nabla  \Psi . \nabla \pi }
+% + c_s^2 {\nabla  \Phi . \nabla \pi }  
+%   +\frac{\mathcal{H}} {2 a } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi . \nabla \pi }     =0 
+%%  -(\frac{1}{c_s^2}-1) \nabla^2 \Psi \pi+ 2 \nabla^2 \Phi \pi - 3 H (1+w) \pi \nabla^2 \pi  + (\frac{1}{c_s^2}-1) \pi \nabla^2 \dot{\pi}   \nonumber \\ &+ (2-\frac{1}{c_s^2})\nabla \Psi \nabla \pi - \nabla \Phi \nabla \pi -\frac{H} {2 c_s^2} \Big(2+3w+c_s^2  \Big) \nabla \pi \nabla \pi =0
+%  \end{align} 
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+
+
+\section{The constraints from stress energy tensor  {\color{red} Need to be checked and use the corrected stress tensor and check with other references!}}
+Here we use the stress tensor conservation to obtain the field evolution. Easy way of obtaining the equations (Euler and continuity) is to derive the equations for a general fluid  then calculate it for the special case of k-essence.
+We define the energy-momentum tensor as,
+\begin{align} \label{tmunu22}
+& T_{0}^{0}=-(\bar{\rho}^{d} + \delta \rho^{d} )\\ \nonumber &
+T_{i}^{0}=(\bar{\rho} + \bar{P}) v_i= - T^{i}_{0}\\ \nonumber &
+T_{j}^{i}=(\bar{P}^{d}+\delta P^{d}) \delta_{i}^{j} +\Sigma_{j}^{i}, \; \; \; \; \Sigma_{i}^{i}=0,
+\end{align}
+Note that all of the fluid quantities here are symbolic to simplify the equations. So the $\delta \rho^{d}$ here is not necessarily same as $\delta \rho $ in previous section, they are two different quantities in general. Moreover we have allowed anisotropic pressure part $\Sigma_{ij}$ since the perturbative scheme let second order contributions to first order equations. \\
+Now we calculate $T_{\mu \nu}$ for a general fluid to find k-essence correspondence. By $T_{\mu \nu}=g_{\mu \rho} T^{\rho}_{\nu}$ we get,
+\begin{align} 
+& T_{00}=a^2 \Big (\bar{\rho}^d + \delta \rho ^d + 2 \bar{\rho}^d \Psi \Big)\\ \nonumber &
+T_{i0}=- a^2(\bar{\rho}^d + \bar{P}^d) v_i=  T_{0i}\\ \nonumber &
+T_{ji}=a^2 (\bar{P}^{d}+\delta P^{d} - 2  \bar{P}^{d} \Phi) \delta_{ij} +a^2 \Sigma_{j i}, 
+\end{align}
+According to equation \ref{T00}, we have,
+\be \label{rhobar}
+\bar{\rho}^{d}= \frac{3 M_{pl}^2   \mathcal{H}^2\Omega}{a^2}, \; \; 
+\;  \; \; \;   \delta \rho^{d}=\frac{3 M_{pl}^2   \mathcal{H}^2\Omega (1+w)}{c_s^2 \, a^2} \Bigg[-  \mathcal{H}c_s^2 \pi- \Psi+   {\pi'}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2}   \Bigg]
+\ee 
+Using equation \ref{T0i} we have,
+\be
+u_{i}^{d}= -\Big[1+ \pi' +(\frac{1}{c_s^2} -1) \Big(-\Psi +\pi' - \frac{(\vec{\nabla} \pi)^2}{2}  \Big ) \Big ] \partial _i \pi  , \; \; 
+\;  \; \; \; \bar{P}^d= w  \bar{\rho}^d 
+\ee
+and from equation \ref{Tij}
+\be
+ \delta P ^{d} = \frac{3 M_{pl}^2   \mathcal{H}^2\Omega(1+ w)}{a^2}  \Big [ -3 \mathcal{H} w \pi- \Psi + \pi' +  \frac{(\vec{\nabla} \pi)^2}{2}   \Big], \; \; 
+\;  \; \; \; 
+\Sigma_{ij}=\frac{3 M_{pl}^2   \mathcal{H}^2\Omega (1+w) \partial_i \pi \partial_j \pi}{a^2}
+\ee
+Where we have used background continuity equation \ref{Conteqgg}.\\
+It is important to note that,
+\be
+  \delta P ^{d} -  c_s^2 \delta \rho^{d} =\frac{3 M_{pl}^2   \mathcal{H}^2\Omega (1+w)}{a^2} \Bigg ( (-3 w +c_s^2)\mathcal {H} \pi + (1-c_s^2) (\vec{\nabla} \pi)^2 \Bigg)
+\ee
+The top equations seem correct according to comparison with equations (147-150) of \url{https://arxiv.org/pdf/1411.3712.pdf}. \\
+According to energy-momentum conservation,
+\be
+T^{\mu}_{ \nu \, ; \mu }= \partial_{\mu} T_{ \nu} ^{\mu}+ \Gamma^{\mu}_{\rho \mu} T_{\nu}^{ \rho}-\Gamma^{\rho}_{\mu \nu} T_{\rho} ^{ \mu}  =0
+\ee
+The background constraint is,
+\be \label{conteq}
+\bar{\rho}'^{d}+3 \mathcal{H}(\bar{\rho}^{d} + \bar{P}^{d})=0
+\ee
+Defining the below variables;
+\be
+ \Sigma_{j}^{ i}=T_j^i - \delta_j^i T_k^k/3, \,\,\;\; (\bar{\rho} +\bar{P} )\theta = \partial _k  \delta ^{k j}\delta T_j^0.  \,\,\;\  (\bar{\rho} +\bar{P} ) \sigma=(\delta ^{kj} \partial_i \partial_k - \frac{1}{3} \delta_{i}^j) \Sigma_j^i
+\ee
+The Euler and continuity equations in Fourier space read,
+\begin{align}
+ & {\delta'}^{d} = -(1+w) (\theta^{d}  + 3 \Phi ') -3 \mathcal{H} \Big({\delta P^{d}/\delta \rho^{d}} -w \Big)\delta^{d}  
+     \\  \nonumber &
+ {\theta'}^{d} = -\mathcal{H} \Big( 1 - 3 w   \Big )  \theta^{d} - \frac{{w'}}{1+w} \theta ^{d}+ \frac{\delta P^{d} \delta \rho^{d}}{1+w} \, k^2 \delta^{d}  - k^2 \sigma +k^2 \Psi
+ \label{eqEul}
+\end{align}
+
+where  $\delta \rho^{d}= \rho^{d} -\bar{\rho}^{d}$, $\delta P^{d} =P ^{d}-\bar{P}^{d}$, $\theta= i \vec{k}. \vec{u}$. \\
+\subsection{Euler and continuity equations {\color{red} Need to be checked and use the corrected stress tensor and check with other references!}}
+We can write Euler and continuity equations for k-essence case easily just by substituting the below quantities into the general equations.
+\begin{align} 
+ & \delta^{d} =\frac{\rho^d -\bar{\rho }^d}{\bar{\rho}^d} =  \frac{1+w}{c_s^2} \Bigg[ -  \, c_s^2 \mathcal{H} \pi- \Psi+   {\pi'}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2}   \Bigg] 
+ \nonumber
+   \\ 
+   &
+ \theta^d=\vec{\nabla} .\vec{u}^d=\delta^{ij} \partial_j u_i ^d=- \Big[1+ \pi' +(\frac{1}{c_s^2} -1) \Big(-\Psi +\pi' - \frac{(\vec{\nabla} \pi)^2}{2}  \Big ) \Big ] \ \partial ^2 \pi  
+  \nonumber
+   \\ 
+   &
+   \frac{\delta P ^{d} }{ \delta \rho^{d} }=  c_s^2 \Bigg [1 +\frac{ (-3 w +c_s^2)\mathcal {H} \pi + (1-c_s^2) (\vec{\nabla} \pi)^2   }{ - 3c_s^2 \mathcal{H} \pi- \Psi+   {\pi'}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2}  }
+\Bigg ]
+   \nonumber
+   \\ 
+   &
+   \sigma=\frac{(\delta ^{kj} \partial_i \partial_k )\Sigma_j^i}{(\bar{\rho} +\bar{P} )} =\partial^2 \pi \partial^2 \pi
+ \end{align} \label{imp_2}
+ {\color{red} {Strange relation for $\delta P/\delta \rho?$}} \\
+ Background part of Continuity equation read \\
+ \begin{align} \label{Conteqgg}
+& \frac{\bar{\rho}' }{\rho}=- 3 \mathcal{H} (1+w) \\ \nonumber &
+ \frac{2\mathcal{H}'}{\mathcal{H}} + \frac{\Omega'}{\Omega}-2 \mathcal{H}=- 3 \mathcal{H} (1+w) \end{align}
+ It is easy to check that if we substitute the value of $\bar{\rho}$ eq.\ref{rhobar} in the continuity equation \ref{conteq} we get the result. \\
+ To get first order continuity equation we write $\delta^d$ as following,
+ \begin{align}
+ \delta'^{d}= \frac{1+w}{c_s^2} \pi''+ \delta'^{r} 
+ \end{align} 
+ where $\delta^ r$ is all other terms in $\delta^{d}$ except $\pi'$. We separate since this is the only second derivative in the constraint, so we can use Runge Kutta method and easily implement without having the equation completely. So we can write,
+ \be
+ \pi'' = \frac{c_s^2}{1+w} \Bigg[ -\delta'^r-(1+w) (\theta^{d}  + 3 \Phi ') -3 \mathcal{H} \Big({\delta P^{d}/\delta \rho^{d}} -w \Big)\delta^{d}     \Bigg]
+ \ee
+ Since we know the values of fluid quantities in terms of $\pi, \Psi...$ we can easily implement in the code without getting the equation explicitly. \\
+ {\color{red}{We should check that this equation gives the same constraint as field constraint in EFT form for k-essence case.}} \\
+ Moreover, we do not need to consider Euler equation since it does not give any extra equations.
+\section{Field transfer function}
+Before trying to get the field transfer function we try to do some tests on different results in order to catch all the physics we are dealing with.
+\subsection{Gauge transformation}
+Before going forward we introduce the gauge transformation for different quantities. \\
+Considering a general coordinate transformation from coordinate system $x^{\mu}$ to another $\hat{x} ^{\mu}$ 
+\be
+x^{\mu} \longrightarrow {\hat{x}}^{\mu}  = x^{\mu} + \epsilon^{\mu} (x)
+\ee
+The metric tensor will be transformed as,
+\be
+\hat{g}_{\mu \nu} (\hat{x})=  \frac{\partial x^{\lambda}}{\partial \hat{x}^{\mu} } \frac{\partial x^{\rho}}{\partial \hat{x}^{\nu} } g _{\rho \lambda} (x)
+\ee
+This is a pure coordinate transformation which changes background and perturbation quantities in general. It is more convenient to work with "gauge transformation" which affect only the perturbations. So after coordinate transformation we relabel coordinates by dropping the prime on the coordinate argument, which means that we are dealing with two different points, since $x$ in two coordinates are assigned with two different but near physical points. Moreover gauge transformation guarantees that the background quantities remain unchanged. Since it is built to consider the points in different coordinates which have the same background values.\\ 
+So the gauge transformation on the metric tensor gives 
+\begin{align}
+\Delta h_{\mu \nu} (x)   \equiv  &\hat{g}_{\mu \nu}(x) - g_{\mu \nu} (x) \\ \nonumber &
+=\hat{g}_{\mu \nu}(\hat{x}^{ \kappa} -\epsilon^{\kappa}) - g_{\mu \nu} (x) =\hat{g}_{\mu \nu}(\hat{x} ) - \partial_{\rho } g_{\mu \nu} (x^{}) \epsilon^{\rho}  - g_{\mu \nu} (x)
+ \\ \nonumber &
+ =   \frac{\partial x^{\lambda}}{\partial( x^{\mu} +\epsilon ^{\mu}) } \frac{\partial x^{\rho}}{\partial( x^{\nu} +\epsilon ^{\mu})} g_{\rho \lambda} (x) - g_{\mu \nu} (x) - \partial_{\rho } g_{\mu \nu} (x^{}) \epsilon^{\rho}  - g_{\mu \nu} (x)
+  \\ \nonumber &
+ = - \bar{g} _{\lambda \mu} (x) \frac{\partial \epsilon ^{\lambda} (x) }{\partial x^{\nu}} -  \bar{g} _{\lambda \nu} (x) \frac{\partial \epsilon ^{\lambda} (x) }{\partial x^{\mu}} - \frac{\partial \bar{g}_{\mu \nu} (x)  }{\partial x^{\lambda } } \epsilon^{\lambda} (x) 
+\end{align}
+We denote the gauge transformation with $\Delta$. It is obvious that the background metric under gauge transformation remains unchanged ({\color{red}{How?}}), but it may contribute in first order which is taken into account in the previous equation.
+\be
+\Delta \bar{g} _{\mu \nu}= \hat{\bar{g}}_{\mu \nu} (t) -  \bar{g} _{\mu \nu} (t) = 0 + \mathcal{O } (\epsilon)
+\ee 
+\\
+If we consider the coordinate transformation as following,
+\begin{align}
+& {\hat{x}}^0 = x^ 0 + \alpha ,  \nonumber \\ &
+{\hat{\vec{x}}} ={\vec{x}} +\vec{\nabla} \beta(\tau,x) + \vec{\epsilon } (\tau,x), \; \; \; \; \; \vec{\nabla} . \vec{\epsilon}=0
+\end{align}
+We get
+\be
+{\hat{g}_{\mu \nu }}  (x)=  g_{\mu \nu } (x) - g_{\mu \beta } (x) \partial _{\nu} \epsilon^{\beta} -  g_{\alpha \nu } (x) \partial _{\mu} \epsilon^{\alpha}-\epsilon^{\alpha} \partial _{\alpha} g_{\mu \nu } (x) 
+\ee
+We easily can obtain the transformed metric perturbations in the new gauge (synchronous),
+%\begin{empheq}[box=\tcbhighmath]{equation*}
+\begin{align}
+&\hat {\Psi} (\tau,\vec{x}) = \Psi(\tau,\vec{x}) - \alpha' (\tau,\vec{x})- \mathcal{H} \alpha(\tau,\vec{x}) \nonumber \\ &
+\hat {\Phi} (\tau,\vec{x}) = \Phi(\tau,\vec{x}) +\frac{1}{3} \nabla^2 \beta(\tau,\vec{x})  + \mathcal{H} \alpha(\tau,\vec{x}) 
+\end{align}
+%\end{empheq}
+
+Where $\Phi$ and $\Psi$ are metric perturbations in Newtonian gauge. To find the gauge transformation for fluid quantities, we use,
+\be
+T^{\mu} _ {\nu}(Sync) = \frac{\partial {\hat{x}} ^{\mu} }{\partial {x} ^{\sigma}} \frac{\partial {x} ^{\rho}}{\partial {\hat{x}} ^{\nu}} T^{\rho} _ {\sigma}(Newt) 
+\ee
+where ${\hat{x}}^{\mu}$ and $x^{\mu}$ denote he synchronous and Newtonian coordinates respectively. It follows to linear order that
+\begin{align}
+& T_0^0 (Sync) =T_0^0 (Newt),\\
+\nonumber &
+  T_0^j (Sync) =T_0^j (Newt) + i k_j \alpha (\bar{\rho} + \bar{P}) \\
+\nonumber &
+   T_i^j (Sync) =T_i^j (Newt)
+ \end{align}
+  where $\alpha = {\hat{x}}^0 - x^0=({h'} + 6 {\eta'})/2 k^2$ in terms of Synchronous gauge perturbations, it is useful since we want to use hi-class which is written in synchronous gauge. \\
+From the definition of the density contrast $\delta = \delta \rho /\bar{\rho} = - \delta T_0^0 /\bar{\rho} $ we obtain,
+%\begin{empheq}[box=\tcbhighmath]{equation*}
+\begin{align}
+& \delta (Sync) = \delta (Newt) -\alpha \frac{\dot{\bar{\rho}}}{\rho}
+ \\
+\nonumber & 
+\theta (Sync) = \theta (Newt) - \alpha k ^2 \\
+\nonumber &
+\delta P (Sync) = \delta P (Newt) - \alpha \dot{\bar{P}}  \\ 
+\nonumber &
+\sigma  (Sync) = \sigma  (Newt)
+\end{align}
+%\end{empheq}
+The obtain the gauge transformation for the scalar field and its derivative, we use the fact that it is a scalar under the general coordinate transformation $\hat{\varphi }({\hat{x}}^{\mu})=\varphi ({x}^{\mu})$ , where $\varphi  (x^{\mu} ) =t + \pi (x^{\mu})$ according to our time slicing.
+\begin{align}
+\Delta \varphi (x) \equiv &\hat{ \varphi}(x) - \varphi (x) = \hat{\varphi}(\hat{x} - \epsilon) -\varphi (x) \\ \nonumber &
+=  \hat{\varphi} (\hat{x}) - \partial _ {\mu} \varphi \, \epsilon ^{\mu} - \varphi (x)= - \partial _ {\mu} \varphi \, \epsilon ^{\mu}
+ \\ \nonumber &
+ =- \partial_{\mu} (t+ \pi (x)) \epsilon^{\mu} = \epsilon ^0 = -\alpha  
+\end{align}
+To gauge transform the derivative of scalar field we should notice first how it transforms under coordinate transformation and using the fact that $\varphi$ is a scalar.
+\begin{align}
+ \frac{ \partial \hat{\varphi} (\hat{x})}{ \partial \hat{x}^0} & = \frac{ \partial \varphi  (x)}{ \partial x ^{\mu}}   \frac{\partial x^{\mu}}{\partial \hat{x}^0}
+ = \frac{ \partial (t+ \pi (x))}{ \partial x ^{\mu}}   \frac{1}{\partial_{\mu} x^0 + \partial_{\mu} \alpha}
+ \\ \nonumber &
+ = (\delta_{\mu} ^0 + \partial_{\mu} \pi (x)) \left(\delta^{\mu}_0 - \partial_{\mu } \alpha \right)= 1+ \pi'(x) -  \alpha' (x)
+\end{align}
+\be
+\hat{\pi}'(\hat{x})= \pi '(x) -\alpha '  (x)
+\ee
+where " $'$ " means time derivative.
+So the gauge transformation on $\varphi '$ gives,
+\begin{align}
+\Delta { \varphi'(x)}\equiv & \hat{\varphi} ' (x)-  \varphi ' (x)=\hat{\varphi} ' (\hat{x}-\epsilon) -  \varphi ' (x) 
+ \\ \nonumber &
+ =\hat{\varphi'} (\hat{x}) - \partial _ {\mu} \varphi' \, \epsilon ^{\mu} - \varphi' (x)=- \alpha' - \cancel{\partial_{\mu} (1+ \pi '(x)) \epsilon^{\mu}}
+\end{align}
+\be
+\pi_{Sync}=\pi_{Newt} - \alpha
+\ee
+\be
+\pi'_{Sync}=\pi'_{Newt} -\alpha'
+\ee
+\subsection{Comparison the $\alpha$ from hi-class and density transfer function in the class  {\color{red} Get something consistent from below calculation!}}
+\subsubsection{$\delta \rho$ transfer function}
+According to equation \ref{eq10} we can write,
+\begin{align}
+\rho &=2 (\bar{X}+\delta X)(\bar{P}_{,X} +\bar{P}'_{,X} \pi + \bar{P}_{,XX} \delta X)- \bar{P} - \bar{P}_{,X} \delta X -  \bar{P}' \pi\\
+\nonumber &
+=(2 \bar{X}\bar{P}_{,X}- \bar{P} )+(2 \bar{X}  \bar{P}_{,XX} + \bar{P}_{,X}) \delta X + 2 \bar{X} \bar{P}'_{,X} \pi -\bar{P}' \pi
+\nonumber  \\&
+=\Big ( \frac{2}{ 2 a^2} a^2 \bar{P} (1+\frac{1}{w})-\bar{P} \Big)+ \Bigg(  \frac{1}{a^2}a^4 \bar{P} (1+\frac{1}{w} )(\frac{1}{c_s^2}-1) + a^2 \bar{P} (\frac{1}{w}+1) \Bigg) \delta X- \frac{\bar{P}}{w} (1+w)\mathcal{H} \pi
+\nonumber  \\&
+= \frac{\bar{P}}{w}+ \frac{\bar{P}}{w} \Big(  a^2  (1+w) (\frac{1}{c_s^2}-1) + a^2 (1+w) \Big) \delta X-\frac{\bar{P}}{w} (1+w)\mathcal{H} \pi
+\nonumber  \\&
+= \frac{\bar{P}}{w} \Bigg[1+  \Big( (1+w) (\frac{1}{c_s^2}-1) +  (1+w) \Big) \Big( -\Psi +\pi ' \Big) \Bigg] - \frac{\bar{P}}{w} (1+w)\mathcal{H} \pi
+\nonumber
+  \\&
+= \frac{\bar{P}}{w} \Bigg[1- \mathcal{H} (1+w) \pi+ \frac{1+w}{c_s^2} \Big( -\Psi +\pi ' \Big) \Bigg]
+\end{align}
+where we have used equation \ref{Pbarder}-\ref{Pbar} and we have neglected $(\nabla \pi)^2$ term.
+Finally we can get the density contrast  as following,
+\be
+\delta_{newt}=\frac{\rho- \bar{\rho}}{\bar{\rho}}=\frac{1+w}{c_s^2} \Big ( -c_s^2 \mathcal{H} \pi_{newt}-\Psi_{newt}+\pi' _{newt}\Big )
+\ee
+%Using the equation \ref{deltarho} we can get the density contrast as following,
+%\be
+%\delta=\frac{\rho- \bar{\rho}}{\bar{\rho}}=\frac{1+w}{c_s^2} \Big ( -\Psi+\pi' -  \frac{\vec{(\nabla} \pi)^2}{2} \Big )
+%\ee
+where $\bar{\rho}= \frac{\bar{P}}{w}$. The last relation shows that density contrast transfer function is obtained from time derivative of the field and the metric not the field . It is a good test to check that we can recover density contrast transfer function from field derivative and metric $\Psi$ transfer functions. The transfer function is defined as below:
+\be
+T_{kessence}(k,z_i)=\frac{\delta_{kessence} (k,z=z_i)}{\mathcal{R}(k,z=\infty)}
+\ee
+Note that the notation here is the same as class and hi-class and in the hi-class and class code the variables are normalized to the unity curvature perturbation so we do not need to normalize them. \\
+One good test of the obtained field transfer function from hi-class is comparing the density transfer function which calculated from the last formula with the one we get from class fluid description.\\
+The field equations are written in Synchronous gauge in the hi-class while we have calculated density contrast transfer function in the Newtonian gauge. So wee need to calculate density contrast transfer function in Newtonian gauge in terms of Synchronous gauge variable as following,
+\begin{align}
+\delta_{Newt}&=\frac{1+w}{c_s^2} \Big (  -\mathcal{H} (3c_s^2-1)  \pi_{newt}-\Psi_{newt}+\pi'_{newt} \Big )= \frac{1+w}{c_s^2} \Big (  -\mathcal{H} (3c_s^2-1) \mathcal{H} (\pi_{synch} + \alpha)-\alpha ' - \mathcal{H} \alpha+\pi'_{synch} +\alpha' \Big ) \\ \nonumber
+&
+= \frac{1+w}{c_s^2}\Big ( -\mathcal{H} (3c_s^2-1) \pi_{synch}- \mathcal{H} \alpha (1+c_s^2)+\pi'_{synch} \Big )
+\nonumber \\ 
+&
+\delta_{Synch}=\delta_{Syn} + \alpha \frac{{\bar{\rho'}}}{\bar{\rho}}
+\label{deltaeq}
+\end{align}
+where $\alpha=({h'} + 6 {\eta'})/2 k^2$, $\Psi=\frac{1}{2 k^2} \Big [ {h^{''}}+ 6 {\eta^{''}} + \frac{a'}{a}  (h'+6 \eta ') \Big]= {\alpha' + \mathcal{H}\alpha.}$  according to equation 18 of  {\color{blue}{https://arxiv.org/pdf/astro-ph/9506072.pdf}} \\
+Here we want to compare the calculated $\delta _{Newt}$ from the field and metric perturbations in the hi-class with the class output in both Newtonian and Synchronous gauge.\\ 
+According to the background equations ${\rho'} + 3 \mathcal{H} (\rho + w \rho)=0 $ for constant $w$ we have,
+\be
+\bar{\rho}_{kessence} (a) =a ^{-3(1+w)}
+\ee
+so we can write,
+\be
+ \frac{{\bar{\rho'}}}{\bar{\rho}}= -3 (1+w) \mathcal{H}
+ \ee
+First we compare  $\frac{(\delta_{Newt} - \delta_{Syn})}{-3 (1+w) \mathcal{H}}$ with $\alpha$ that we read from the hi-class. Note that according to the code units $\mathcal{H}(z=0)=H(z=0)=2.25 \times10^{-4} /Mpc $. 
+\\
+ In the below figure we have compared the $\alpha$ in hi-class with what we get from the calculation in the class. These two quantities agree well.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{alpha_class} 
+\caption{The  $\alpha$ is in hi-class and class is compared. As it is clear they agree well for the the limit $c_s^2 \to 1$. }
+%\label{f1}
+\end{center}
+\end{figure}
+%\begin{figure}[htbp!]
+%\begin{center}
+%\captionsetup{,margin=1cm}
+%\includegraphics[width=0.60\textwidth]{alphaerror} 
+%\caption{The  relative error of $\alpha$ in class and hi-class is shown. It is clear that  the relative error is very large in high wavenumbers.}
+%%\label{plt2}
+%\end{center}
+%\end{figure}
+So we have,
+\be
+\delta_{Newt}= \frac{1+w}{c_s^2} \Big ( -\mathcal{H} (3c_s^2-1)  (\pi_{synch} + \alpha)- \mathcal{H} \alpha+\pi'_{synch}  \Big )
+\ee
+\be
+\delta_{Synch}= \delta_{newt} + 3 \mathcal{H} (1+w) \alpha
+\ee
+\subsection{comparing the $\Psi$ function in Newtonian and synchronous gauge in class and hi-class}
+Here we compare the metric fluctuation $\Psi$  in Newtonian gauge with one we obtain from Synchronous gauge parameters in class and hi-class codes to make sure we are dealing with the same functions. The $\Psi$ in Synchronous gauge reads as following,
+\be
+\Psi=\frac{1}{k^2} \Big [ {h^{''}}+ 6 {\eta^{''}} + \frac{a'}{a}  (h'+6 \eta ') \Big]= \alpha' + \mathcal{H}\alpha
+\ee
+In the figure \ref{psicomp} we compare the $\Psi$ in Newtonian gauge from what we get in terms of Synchronous gauge quantities.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{psi_comp.jpg} 
+\caption{$\Psi$ in Newtonian gauge and synchronous gauge in class and hi-class are compared. They all agree. }
+\label{psicomp}
+\end{center}
+\end{figure}
+
+\subsection{Comparing the  ${\pi}$ transfer function directly from hi-class and what we get from class indirectly}
+From the equation for $\theta$, equation \ref{imp_2} we can obtain $\pi$ in Fourier space,
+\be
+\pi_{newt}=\frac{\theta_k\text{(newt)}}{k^2}  \; \; \; \text{(class)}
+\ee
+while in the hi-class we can easily obtain $\pi_{newt}$ by gauge transformation as following,
+\be
+\pi_{newt}= \pi_{synch}+ \alpha
+\ee
+An important key is that k in hi-class internally is in $1/Mpc$ unit while is class output is $h/Mpc$.\\
+We assume two different models, one with $w_0=-0.9, c_s^2=1$ and the other with $w_0=-0.9, c_s^2=10^{-6}$ and we compare the results in both gauges. %The normalization factor in EFTcamb is assumed $\mathcal{H}$ and in class and hi-class the transfer function is assumed to be normalized to curvature function $\mathcal{R}$. So in the figure we have multiplied the EFTcamb result to $\mathcal{H}$ , hi-class and class result to $\delta_{\mathcal{R}}(k)= \frac{\sqrt{2 \pi^2 A_s(\frac{k}{k_p})^{n_s-1}}}{k^{3/2}}$.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{pi_comp} 
+\caption{$\pi$ comparison in Newtonian gauge for $w_0=-0.9, c_s^2=1$. Note that here we have use wrong gauge transformation for $\pi$ with different sign}
+%\label{plt2}
+\end{center}
+\end{figure}
+
+
+\subsection{Test 2: Density transfer in the limit of $c_s^2 \rightarrow 0 , w \rightarrow -1$ which should be the same as matter density transfer function}
+In the limit of zero sound speed and $w_0 \rightarrow -1$ {\color{red}(must be $w \rightarrow 0$) }we expect that the k-essence field behave like dark matter. In the fluid description in the class it can be seen easily. In the below figure the density contrast transfer function for k-essence fluid and dark matter fluid is plotted. \\
+We expect the same behaviour for the obtained k-essence field from hi-class or EFTcamb. So a good criterion is checking the behaviour in the mentioned limit.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{cs0w1_fld.jpg} 
+\caption{The behaviour of fluid and dark matter transfer function in the zero sound speed and $w_0 =-1$ limit is shown.  }
+%\label{psicomp}
+\end{center}
+\end{figure}
+Now we want to compare the result of density contrast transfer function of k-essence field in EFTcamb and hi-class with density contrast transfer of  fluid in the class. \\
+I do not need to do this part, since I get good results in previous section.
+%The density constrast $\delta$ in the EFTcamb and hi-class is calculated,
+%\be
+%\delta=\frac{1+w_0}{c_s^2} (\pi'- \Psi) =10^4 (\pi'- \Psi)
+%\ee
+%As we have checked $\Psi$ is the same in Class and hi-class so we can use $\Psi$ to obtain the $\delta$ of EFTcamb as well.
+\subsection{Comparing the  ${\pi'}$ transfer function directly from hi-class and what we get from class indirectly}
+Here we use $\delta$ transfer function from the Class output to construct $\pi'$ in Newtonian gauge. We get help of equation \ref{deltaeq} to reconstruct $\pi'$ as following,
+\be
+\pi'_{newt}= \frac{c_s^2}{1+w} \delta_{newt} + c_s^2 \mathcal{H} \frac{\theta_{newt}}{k^2} +\Psi
+\ee
+The we compare the result with what we get from the hi-class after gauge transformation as following,
+\be
+\pi'_{Newt} =\pi'_{Sync}+\alpha'
+\ee
+\subsection{Comparison of field transfer functions in the hi-class and the EFTcamb}
+Now we want to use EFTcamb results for the k-essence which is straightforward to get the output , \\
+%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+The result of comparison is shown in the following plot which shows that the two plot do not agree.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{eft_hiclass.jpg} 
+\caption{EFTcamb and hi-class comparison.Here we compare the $\pi$ in Synchronous gauge. $1/\mathcal{H}$ is used as a  normalization factor for EFTcamb and k in hiclass is divided by h to be measures in $h/Mpc$.}
+%\label{psicomp}
+\end{center}
+\end{figure}
+
+\section{Gevolution}
+\subsection{Initial condition}
+All the transfer functions in the class and hi-class are normalized to one curvature perturbation. Curvature perturbation is obtained from powerspectrum as following,
+\be
+{\langle \mathcal{R} (k)  \mathcal{R} (k')\rangle} = (2 \pi )^3 \delta_D(k-k') P_{\mathcal{R}} (k)= (2 \pi )^3 \delta_D(k-k')  \frac{2 \pi^2}{k^3} \mathcal{P}_{\mathcal{R}}(k) =  (2 \pi )^3 \delta_D(k-k')   \frac{2 \pi^2}{k^3} A_s (\frac{k}{k_p})^{n_s-1}
+\ee
+So we can write
+\be
+\delta_{\mathcal{R}}(k)= \frac{\sqrt{2 \pi^2 A_s(\frac{k}{k_p})^{n_s-1}}}{k^{3/2}}
+\ee
+So $\delta_{\mathcal{R}}$, curvature perturbation transfer function, is the normalization factor which we should consider. Precisely we should multiply the field value from the class to $\delta_{\mathcal{R}}(k)$ to go in Gevolution units.\\
+On the other hand, in the Gevolution after realization of the field the power spectrum is calculated as following,
+\be
+\langle \pi(k,t)  \pi(k,t) \rangle =(2 \pi )^3  P_{\pi} ^{Gev}=(2 \pi )^3   \delta_{\mathcal{R}}(k) ^2 P_{\pi}^{\text{hiclass}} = \frac{2 \pi^2}{k^3} A_s (\frac{k}{k_p})^{n_s-1} P_{\pi}^{\text{hiclass}}
+\ee
+In the Gevolution the wavenumber is measured in $\frac{h}{Mpc}$ but for the purpose of working with normal numbers it is multiplied to Boxsize so;
+\be
+k  \, \left[\frac{h}{Mpc} \right] = {k \times \text{Boxsize }}\, \left [\frac{{h}}{ \text{Boxsize }Mpc} \right]
+\ee
+As the powerspectrum in Gevolution in in $Mpc^3$ so $P(k[\frac{h}{Mpc}]) [\frac{Mpc^3}{h^3}]=P(k \, h [\frac{1}{Mpc}]) \left [{Mpc^3} \right ] $
+%Plus in the gevolution $\frac{\text{Boxsize}}{Mpc}= \text{Number of grid points}$ 
+The dimensionless powerspectrum is calculated as following: {(\color{red}{arXiv:0712.3028v2}}) \\
+1- For the boxsize $L$, the field in Fourier space is discrete (no matter it is continuos or discrete in real space) and the k-modes are $\vec{k}= (\frac{2 \pi}{L}) (i,j,k)$. \\
+2- The discrete Fourier transform is obtained by placing $\delta (x)$ on a lattice of  $N^3$ grid points with spacing $\frac{L}{N}$ 
+\be
+\delta_k^{DFT}= \frac{1}{N^3} \sum_r e^{-i\vec{k}.{r}} \delta(\vec{r})
+\ee
+3- Note that,
+\be
+\delta_k \approx ( \frac{\Delta x}{2 \pi} )^3 N^3 \delta_k^{DFT} \approx \dfrac{1}{\Delta k} \delta_k^{DFT} 
+\ee
+3- The powerspectrum is;
+\be
+P(k) \approx \frac{\langle | \delta^{DFT} |^2 \rangle}{(\Delta k)^3}
+\ee
+ 4- The relation between dimensionless powerspectrum with the power with dimension is as following,
+ \be
+ \mathcal{P} (k)= \frac{k^3}{2 \pi ^2} P (k)
+ \ee
+ But factor $\frac{1}{N^6}$ should not be considered when we want to compare initial field transfer function with output powerspectrum! It is something internal in the Gevolution for calculating power from the realization. \\
+ 
+-{\color{red}{Question:}} Why we do not get the same field realization (or order of magnitude) after going forward and backward in Fourier space? \\
+- Is the below code right for realizing the field in Fourier and real space?
+\begin{lstlisting}
+generateRealization(*scalarFT_pi, 0., tk_d_kess, (unsigned int) ic.seed,
+ ic.flags & ICFLAG_KSPHERE); 
+plan_pi_k ->execute(FFT_BACKWARD);
+pi_k->updateHalo();	// pi_k now is realized in real space
+plan_pi_k->execute(FFT_FORWARD);}
+\end{lstlisting}
+If we turn off the following part we get completely different solution for the field in real space! As we expect the same order of magnitude of the $\pi (t,\vec{x})$ as other perturbations field $\phi$ so it seems we should turn off the below command! 
+\begin{lstlisting}
+plan_pi_k->execute(FFT_FORWARD); 
+\end{lstlisting}
+\subsection{Gevolution initial field factors from initial condition to output power }
+When we give the field transfer function as an initial condition in Gevolution, since in class it is normalized to $\mathcal{R}$ curvature perturbation, first we need to multiply to $\sqrt{P_{\mathcal{R}}}$. On the other hand we need to notice to the units of $k$ in input initial condition and what Gevolution work with internally. \\
+What happens in the $icbasic.hpp$,
+\be
+\pi_{gev} = -\sqrt{2} \times \pi_{numb} \; \; \;\frac{ \pi_{class} \sqrt{\mathcal{P}_{\mathcal{R}}(k/ \text{Boxsize})  }} {k[h/Mpc]^{3/2}}
+\ee
+Note that the factor $\sqrt{2}$ in the above definition is missed in Gevolution! Actually it is recovered in the output power for other variables. So we keep the convention and use the below formula,
+\be
+\pi_{gev} = - \pi_{numb} \; \; \;\frac{ \pi_{class} \sqrt{\mathcal{P}_{\mathcal{R}}(k/ \text{Boxsize})  }} {k[h/Mpc]^{3/2}}
+\ee
+{\color{red} What is the negative sign here?}
+\\
+Where $\mathcal{P}_{\mathcal{R}}=A_s (\frac{k}{k_p})^{n_s-1}$ in the code internally, $k_p$ is in the unit of $1/Mpc$ and $\mathcal{P}_{\mathcal{R}}$ is dimensionless.
+and $\pi_{numb}$ $\pi$ number. \\
+In order to know why we divide by $k[h/Mpc]^{3/2}$ we need to look at other part of the code to get what happens...\\
+Boxsize in gevolution is $Mpc/h$. So its better to give k in class in $h/Mpc$.
+\be
+k_{gev}= k_{class} [h/Mpc] \text{Boxsize}[Mpc/h]
+\ee
+So k when it is read out is dimensionless, equivalently it is in comoving box. \\
+Moreover the quantities in class and hiclass are normalized to dimensionful curvature perturbation so the coefficient in Gevolution is,
+\be
+\delta_{\mathcal{R}}(k)= \frac{\sqrt{2 \pi^2 A_s(\frac{k}{k_p})^{n_s-1}}}{k^{3/2}}
+\ee
+More over it is very important to note that since $\pi$ in class has dimension $Mpc$ is not enough to divide by Boxsize in Gevolution since it is actually in the unit of $1/H$ where in Gevolution it is divided by c light velocity. To make it consistent we do $\pi \mathcal{H}_{class}/\mathcal{H}_{Gev}$ since $\pi \mathcal{H}_{class}$ is dimensionless in class and we make it in time dimension in Gevolution by dividing to $\mathcal{H}_{Gev}$
+\\
+\subsection{writePowerSpectrum}
+Now we want to extract writePowerSpectrum function where the coefficients are very important. \\
+First of all  we have k which is in unit of boxsize must divided by boxsize to give $h/Mpc$ unit. Unit conversion for P (power) depends on the quantity but $\frac{1}{N_{points}^6 \times 2 \pi^2}$ is common. $N_{points}^6$ comes from FFT definition, $2 \pi^2$. \\
+{\color{red} Here everything is so confusing! I do not know why $\sqrt{2}$ in the definition of $\delta_{\mathcal{R}}$ is missed, I also do not know why at the end it is not multiplied to $\frac{k^3}{2 \pi ^2}$, also negative sign in the definitions!!! it seems that  something is done internally that I cannot track well!!!}. \\
+What I'm doing is following the same notation and then check what is going on and do some consistency checks!!
+
+
+ \subsection{Stress tensor}
+{ \color{red}{ Todo: How to add stress tensor?}} \\
+Should  
+{\begin{lstlisting}
+projection_init(&source); 
+\end{lstlisting}}
+contains the scalar field in it?\\
+- what is source and where it is calculated? \\
+- Is it $T_\mu^{\nu}$ or $T_{\mu \nu} $in Gevolution?\\
+-what is the meaning of below lines before the functions definitions.
+{\begin{lstlisting}
+-template<typename part, typename part_info, typename part_dataType>
+template <class FieldType>
+\end{lstlisting}}
+ \subsection{Field equation and transfer}
+ { \color{red}{ Todo: use the correct field equation and check the transfer function in time?}}
+ \subsection{Some tests on Gevolution:}
+ We want to test if the initial powerspectrum is the same as realized field powerspectrum in gevolution. \\
+ In the figure \ref{comparehi-gev} the powerspectrum of the field from Gevolution's output is compared with the one which is made by hand. We make the dimensionless powerspectrum by hand from the initial transfer function as following,
+ \be
+ \mathcal{P}_{\pi}^{Gevolution} (k) = \frac{k ^3}{2 \pi ^2} \; \delta_{\mathcal{R}}^2 \,  \delta_{\pi}
+^{\text{hiclass}} \times  \delta_{\pi}^{\text{hiclass}} =  \frac{k ^3}{2 \pi ^2} \;    \frac{2 \pi^2 A_s(\frac{k}{k_p})^{n_s-1}}{k^{3}}  \;  \delta_{\pi}
+^{\text{hiclass}} \times  \delta_{\pi}^{\text{hiclass}} =    { A_s(\frac{k}{k_p})^{n_s-1}} \;  \delta_{\pi}
+^{\text{hiclass}} \times  \delta_{\pi}^{\text{hiclass}} 
+ \ee
+ \begin{figure}[htbp!]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{Gev-hiclass} 
+\caption{The powerspectrum which is calculated by hand is compared with output power of Gevolution. Simulation setting is: Boxsize=200 $Mpc/h$,  N$\_$grid=64 .  There is a deviation between two plots in high wavenumbers { \color{Red}{why?}}. While the Nyqvist frequency approximately is $\frac{2 \pi }{\Delta x} \approx  \frac{2 \pi \times \text{num}-{\text{grids}} }{\text{Boxsize}} =2.01 \, \frac{h}{Mpc}$}
+\label{comparehi-gev}
+\end{center}
+\end{figure}
+ Note that to get $H0$ in class unit, we have $H0=\frac{100h \times 10^3}{3 \times 10^8} [1/Mpc]$ where the first $10^3$ is because of $km/s$ and is divided by c. \\
+ It is also important to note that, to obtain $\pi$ from $\delta $ and $\theta$ in class, because we have $H \pi_{phys}$ combination and since it is dimensionless we have $\mathcal{H} \pi_{conf} = H \pi_{phys}$. \\
+ Also $\theta=-\nabla^2 \pi_{conf}=-\nabla^2 \pi_{phy}/a^2$ and negative sign is the convention. \\
+ In Gevolution $H_{0}=\sqrt{8 \pi G/3}$ since $\rho_{crit}^0=1$ and also note that we have $4 \pi G= \frac{3 \text{Boxsize}^2}{2 c^2}$, in order for working with normal numbers internally, and $c[100km/s]$ in the code.
+ 
+% \begin{empheq}[box=\tcbhighmath]{equation}
+
+%\end{empheq}
+ \section{Numerical solution to the k-essence equation and stress tensors in Gevolution  ({\color{red} Must be checked!})}
+In Gevolution we should use $ M^2_{pl}= 1/8 \pi G$.\\
+%And it seems the normalization factor is $-3 \mathcal{H}_0^2T_0^0/8\pi G$ \\
+So we have:
+%\begin{empheq}[box=\mymath]{equation}
+\begin{align}
+ & T_0^0 (Gev)=-a^3 {T_{0}^{0}}=   {3 a M_{pl}^2   \mathcal{H}^2\Omega} \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi +\mathcal{H} \pi- \Psi+   {\pi'}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= {3 a M_{pl}^2   \mathcal{H}^2\Omega} \Big[1+ \pi' +(\frac{1}{c_s^2} -1) \Big(-\Psi +\pi' - \frac{(\vec{\nabla} \pi)^2}{2}  \Big ) \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= a^3 T_j^i = {3 a M_{pl}^2   \mathcal{H}^2\Omega w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi + \pi' +\mathcal{H} \pi+  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+%\end{empheq}
+Note that $\dot{H}$ is determined by all the matter contents of the universe not by k-essence alone, the continuity equation for k-essence or matter gives the dynamics of density. \\
+About the unit of $T^0_0$ note that it is $\bar{\rho}_{kessence} [1+\delta \rho/\bar{\rho} ]$ and since in Gevolution it is multiplied to $-a^3$ and since critical density at redshift zero is 1 so we have\\
+%\begin{empheq}[box=\mymath]{equation}
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(-  \mathcal{H}(3c_s^2-1) \pi- \Psi+   {\pi'}  -  \Big(1-2 c_s^2 \Big) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)=  \Omega^0_{kess} a^{-3 w} \Big[1+ \pi' +(\frac{1}{c_s^2} -1) \Big(-\Psi +  \pi' - \frac{(\vec{\nabla} \pi)^2}{2}  \Big ) \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)=  \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi +  \pi' +\mathcal{H} \pi +  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+%\end{empheq}
+In Gevolution we extract $\delta T_0^0/ \bar{T}_0^0$ which scales out the coefficient $\Omega^0_{kess} a^{-3 w} $.
+
+
+The field equation is:
+% \begin{align} 
+% &\pi'' - \mathcal{H} \Big (1+ 3w \Big)\pi' -3 {a c_s^2 \mathcal{H}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi -a \, {\Psi'}- 3 c_s^2 a \,{\Phi'} 
+%  +3  c_s^2 \Big({-\mathcal{H}^2 + \mathcal{H}'} \Big) \pi 
+% - c_s^2 {\nabla^2 \pi }
+%     + (1-c_s^2)\pi {\nabla^2 \Psi }
+%      - 2 c_s^2 \pi {\nabla^2 \Phi }
+%            \nonumber
+%   \\
+%    &
+%      + 3 c_s^2  H (1+w)\pi {\nabla^2 \pi }   
+%  -  (1-c_s^2)
+%   \pi \frac{\nabla^2\pi ' }{a}   
+%   - (2 c_s^2-1) {\nabla  \Psi . \nabla \pi }
+% + c_s^2 {\nabla  \Phi . \nabla \pi }  
+%   +\frac{\mathcal{H}} {2 a } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi . \nabla \pi }     =0 
+%%  -(\frac{1}{c_s^2}-1) \nabla^2 \Psi \pi+ 2 \nabla^2 \Phi \pi - 3 H (1+w) \pi \nabla^2 \pi  + (\frac{1}{c_s^2}-1) \pi \nabla^2 \dot{\pi}   \nonumber \\ &+ (2-\frac{1}{c_s^2})\nabla \Psi \nabla \pi - \nabla \Phi \nabla \pi -\frac{H} {2 c_s^2} \Big(2+3w+c_s^2  \Big) \nabla \pi \nabla \pi =0
+%  \end{align} 
+
+we take $d \tau=\tau_{n+1}-\tau_n $ and $x_{i,j,k} $ as lattice point. We solve the differential equation numerically as following;
+\be
+\pi_v= {\pi}'
+\ee
+\be
+\pi^{n}= \pi ^{n-1}+\pi_v ^{n-\frac{1}{2}} d \tau
+\ee
+\be \label{eq3}
+\pi_v ^{n+\frac{1}{2}}=\pi_v ^{n-\frac{1}{2}} + {\pi''} ^{(n)}  d \tau
+\ee
+
+We define the laplacian in code as following,
+\begin{align}
+& \nabla^2 \pi =-\frac{\pi^{n}_{i-1,j,k}+\pi^{n}_{i+1,j,k} +\pi^{n}_{i,j-1,k} +\pi^{n}_{i,j+1,k}+\pi^{n}_{i,j,k-1}+\pi^{n}_{i,j,k+1} -6 \pi^{n}_{i,j,k}  }{ a^2 dx^2}  
+\end{align}
+Moreover in order to get scalar in the vertices the derivatives like $\nabla \pi . \nabla \pi $ should be defined symmetric .
+So we can rewrite the equation \ref{eq3} as below;
+\begin{align} 
+ &\pi_v ^{n+\frac{1}{2}}=\pi_v ^{n-\frac{1}{2}} - d \tau \Big [- \mathcal{H}^{(n)} \Big (1+ 3w \Big)\frac{(\pi_{v  \; {i,j,k}}^{n+\frac{1}{2}} +\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} )}{2} -3 {a c_s^2 \mathcal{H}^{(n)}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi^{(n) }-a^{(n)} \, \frac{{\Psi}^{(n)}-{\Psi}^{(n-1)} }{d \tau}- 3 a^{(n)} c_s^2  \, \frac{{\Phi}^{(n)}-{\Phi}^{(n-1)} }{d \tau}    \nonumber
+     \\
+      &
+   +3  c_s^2 \Big({-\mathcal{H}^{2\, (n)}     + \mathcal{H}'}^{(n)} \Big) \pi^{(n)}   - c_s^2 {\nabla^2 \pi ^{(n)}}  + (1-c_s^2)\pi^{(n)} {\nabla^{2} \Psi^{n} }    
+    - 2 c_s^2 \pi^{(n)} {\nabla^2 \Phi ^{(n)}}
+     + 3 c_s^2  H (1+w)\pi^{(n)} {\nabla^2 \pi^{(n)} }   
+     -  (1-c_s^2)
+   \pi^{(n)} \frac{\nabla^2 {(\pi_{v  \; {i,j,k}}^{n+\frac{1}{2}} +\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} )}}{2a}
+   \nonumber
+     \\
+       &
+    - (2 c_s^2-1) {\nabla  \Psi^{(n)}  . \nabla \pi ^{(n)} }
+    + c_s^2 {\nabla  \Phi ^{(n)} . \nabla \pi^{(n)}  }      +\frac{\mathcal{H}^{(n)}} {2 a^{(n)} } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi^{(n)} . \nabla \pi^{(n)} }  
+    \Big]
+\end{align}
+The last equation cannot be solved in real space using the discrete lattice. So we try to solve it in Fourier space,
+\begin{align} 
+ &\pi_v ^{n+\frac{1}{2}} \Big (  1-  { (1+ 3w ) \mathcal{H}^{(n)} } \frac{d \tau }{2} +k^2  (1-c_s^2)
+   \pi^{(n)}  \frac{d \tau }{2 a^{(n)}}\Big )
+   =
+   \pi_v ^{n-\frac{1}{2}} \Big ( 1+{ (1+ 3w ) \mathcal{H}^{(n)} \frac{d \tau }{2}- k^2  (1-c_s^2)
+   \pi^{(n)}  \frac{d \tau }{2 a^{(n)}}}    \Big) 
+   - d \tau \Bigg [-3 {a c_s^2 \mathcal{H}^{(n)}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi^{(n) }
+     \nonumber
+     \\
+     &
+     -a^{(n)} \, \frac{{\Psi}^{(n)}-{\Psi}^{(n-1)} }{d \tau}
+ - 3 a^{(n)} c_s^2  \, \frac{{\Phi}^{(n)}-{\Phi}^{(n-1)} }{d \tau}         
+   +3  c_s^2 \Big({-\mathcal{H}^{2\, (n)}     + \mathcal{H}'}^{(n)} \Big) \pi^{(n)}   - c_s^2 {\nabla^2 \pi ^{(n)}}  + (1-c_s^2)\pi^{(n)} {\nabla^{2} \Psi^{n} }    
+    - 2 c_s^2 \pi^{(n)} {\nabla^2 \Phi ^{(n)}}
+        \nonumber
+     \\
+       &
+     + 3 c_s^2  H (1+w)\pi^{(n)} {\nabla^2 \pi^{(n)} }   
+         - (2 c_s^2-1) {\nabla  \Psi^{(n)}  . \nabla \pi ^{(n)} }
+    + c_s^2 {\nabla  \Phi ^{(n)} . \nabla \pi^{(n)}  }      +\frac{\mathcal{H}^{(n)}} {2 a^{(n)} } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi^{(n)} . \nabla \pi^{(n)} }  
+    \Bigg]
+\end{align}
+Simplifying the expression we get,
+\noindent
+%\begin{empheq}[box={\mymath [after=\vspace{0.5cm}]}]{equation}
+\begin{align} 
+  \pi_v ^{n+\frac{1}{2}} (k)
+   = &
+   \pi_v ^{n-\frac{1}{2}} (k) \Bigg [ 1+{ (1+ 3w ) \mathcal{H}^{(n)} {d \tau }- k^2  (1-c_s^2)
+   \pi^{(n)}  \frac{d \tau }{a^{(n)}}}    \Bigg]
+   - d \tau \Bigg ( 1+{ (1+ 3w ) \mathcal{H}^{(n)} \frac{d \tau }{2}- k^2  (1-c_s^2)
+   \pi^{(n)}  \frac{d \tau }{2 a^{(n)}}}    \Bigg)        \nonumber
+     \\
+       &
+       \Bigg [-3 {a c_s^2 \mathcal{H}^{(n)}}\Big( 1- \frac{w}{c_s^2} \Big )\Psi^{(n) }
+     -a^{(n)} \, \frac{{\Psi}^{(n)}-{\Psi}^{(n-1)} }{d \tau}
+ - 3 a^{(n)} c_s^2  \, \frac{{\Phi}^{(n)}-{\Phi}^{(n-1)} }{d \tau}         
+   +3  c_s^2 \Big({-\mathcal{H}^{2\, (n)}    
+    + \mathcal{H}'}^{(n)} \Big) \pi^{(n)}  
+          \nonumber
+     \\
+       &
+     - c_s^2 {\nabla^2 \pi ^{(n)}}  + (1-c_s^2)\pi^{(n)} {\nabla^{2} \Psi^{n} }    
+    - 2 c_s^2 \pi^{(n)} {\nabla^2 \Phi ^{(n)}}
+     + 3 c_s^2  H (1+w)\pi^{(n)} {\nabla^2 \pi^{(n)} }   
+         - (2 c_s^2-1) {\nabla  \Psi^{(n)}  . \nabla \pi ^{(n)} }
+              \nonumber
+     \\
+       &
+    + c_s^2 {\nabla  \Phi ^{(n)} . \nabla \pi^{(n)}  }      +\frac{\mathcal{H}^{(n)}} {2 a^{(n)} } \Big(2+3w+c_s^2  \Big) \,{\nabla  \pi^{(n)} . \nabla \pi^{(n)} }  
+    \Bigg]
+\end{align}
+\noindent
+%\end{empheq}
+Note that on discrete lattice $k^2$ is defined as,
+\begin{align} 
+& k^2=- \Big(\frac{4}{dx^2} \sin^2(\pi k_x/L)+\frac{4}{dx^2} \sin^2(\pi k_y/L)+\frac{4}{dx^2} \sin^2(\pi k_z/L) \Big ) \nonumber \\
+&
+2\sin^2x=1-\cos(2x)
+\end{align}
+ We have taken $\pi_{v  \; {i,j,k}}^{n} =\frac{(\pi_{v  \; {i,j,k}}^{n+\frac{1}{2}} +\pi_{v \; {i,j,k}}^{n-\frac{1}{2}} )}{2} $. Then we need to calculate $\mathcal{H}'$, ${\Psi}'$ and  ${\Phi}'$ in each loop, to calculate ${\Psi}'$ we save two $\Psi$ in each loop. \\
+ On the other hand we have $\mathcal{H}'$ according to the Friedman equation, where we try to save $\mathcal{H}'$ from $a''$  and $\mathcal{H}$
+%Gevolution works with conformal time $\tau$ and light velocity equal to one $c=1$, which imposes 
+\section{Programming issues}
+One the programming issue is related to the fact that we want to separate background updates of the particles with background updates of the k-essence field. We define another scale factor in the code "a-kess" which takes the value of the scale factor, then it updates the field. In order to match the two background scale factor, we should notice that we update the background after each updating the field and the velocity of the field. Now the only point is that the updated field using the background value in the last half step, so the question is whether this procedure is leap frog or not? {\color{red} To me is not clear enough so to update field by one step we use the value of the back ground in the half step while we must use the value in the last step (n-1)}  \\
+The procedure is explained as following,
+\begin{lstlisting}[language=C++, basicstyle=\tiny]
+if(cycle==0)
+{
+	update_pi_k_v( 0.5 * dtau);
+	rungekutta4bg(a_kess, fourpiG, cosmo,  0.5 * dtau  );
+	pi_k.updateHalo();
+	pi_v_k.updateHalo();
+}
+
+else
+{
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+		update_pi_k( dtau  / sim.nKe_numsteps);
+		rungekutta4bg(a_kess, fourpiG, cosmo,  0.5*dtau  / sim.nKe_numsteps)
+		update_pi_k_v( dtau  / sim.nKe_numsteps);
+		rungekutta4bg(a_kess, fourpiG, cosmo,  0.5*dtau  / sim.nKe_numsteps);
+		pi_k.updateHalo();
+		pi_v_k.updateHalo();
+	}
+}
+\section{Notes_Class}
+It is important that we need large bound of wavenumbers. So we set it by $k_scalar_k_per_decade_for_pk$ in the class to get more number of wavenumbers. \\
+Moreover notice that the initial file for inputing to Gevolution the wavenumber is in $1/Mpc$ unit, so in Gevolution we must notice this fact and take it into account actually in Gevolution we need to multiply to $h/Sizebox$ which is done already.
+%
+\end{lstlisting}
+ 
+ 
+\section{Do we obtain the same results for the $\pi$ and $\pi$ transfer function from class in synchronous gauge? Miguel question!}
+\be
+\delta_{newt}=\frac{\rho- \bar{\rho}}{\bar{\rho}}=\frac{1+w}{c_s^2} \Big ( -3 c_s^2 \mathcal{H} \pi_{newt}-\Psi_{newt}+\pi' _{newt} + \mathcal{H} \pi_{newt} \Big )
+\ee
+%Using the equation \ref{deltarho} we can get the density contrast as following,
+%\be
+%\delta=\frac{\rho- \bar{\rho}}{\bar{\rho}}=\frac{1+w}{c_s^2} \Big ( -\Psi+\pi' -  \frac{\vec{(\nabla} \pi)^2}{2} \Big )
+%\ee
+where $\bar{\rho}= \frac{\bar{P}}{w}$. The last relation shows that density contrast transfer function is obtained from time derivative of the field and the metric not the field . It is a good test to check that we can recover density contrast transfer function from field derivative and metric $\Psi$ transfer functions. The transfer function is defined as below:
+\be
+T_{kessence}(k,z_i)=\frac{\delta_{kessence} (k,z=z_i)}{\mathcal{R}(k,z=\infty)}
+\ee
+The field equations are written in Synchronous gauge in the hi-class while we have calculated density contrast transfer function in the Newtonian gauge. So wee need to calculate density contrast transfer function in Newtonian gauge in terms of Synchronous gauge variable as following,
+\begin{align}
+\delta_{Newt}&=\frac{1+w}{c_s^2} \Big (  -  (3c_s^2 -1)\mathcal{H} \pi_{newt}-\Psi_{newt}+\pi'_{newt} \Big )= \frac{1+w}{c_s^2} \Big ( -(3c_s^2 -1)\mathcal{H} (\pi_{synch} + \alpha)-\alpha ' - \mathcal{H} \alpha+\pi'_{synch} +\alpha' \Big ) \\ \nonumber
+&
+= \frac{1+w}{c_s^2}\Big (-(3c_s^2-1) \mathcal{H} \pi_{synch}- 3c_s^2 \mathcal{H} \alpha +\pi'_{synch} \Big )
+\nonumber \\ 
+&
+= \frac{1+w}{c_s^2}\Big (-(3c_s^2-1) \mathcal{H} \pi_{synch} +\pi'_{synch} \Big )- 3 (1+w) \mathcal{H} \alpha
+\nonumber \\ 
+&
+= \frac{1+w}{c_s^2}\Big (-(3c_s^2-1) \mathcal{H} \pi_{synch} +\pi'_{synch} \Big )+ \frac{{\bar{\rho'}}}{\bar{\rho}}\alpha
+\nonumber \\ 
+&
+=\delta_{Syn} + \alpha \frac{{\bar{\rho'}}}{\bar{\rho}}
+\label{deltaeq}
+\end{align}
+So we have,
+\be
+\delta_{Synch} =\frac{1+w}{c_s^2} \Big (  -  (3c_s^2 -1)\mathcal{H} \pi_{synch}+\pi'_{synch} \Big )
+\ee
+where $\alpha=({h'} + 6 {\eta'})/2 k^2$, $\Psi=\frac{1}{2 k^2} \Big [ {h^{''}}+ 6 {\eta^{''}} + \frac{a'}{a}  (h'+6 \eta ') \Big]= {\alpha' + \mathcal{H}\alpha.}$  according to equation 18 of  {\color{blue}{https://arxiv.org/pdf/astro-ph/9506072.pdf}} \\
+Here we want to compare the calculated $\pi_{Newt}$ from Synchoronous gauge of class with the one we get and validated from Newtonian gauge of class.\\ 
+According to the background equations ${\rho'} + 3 \mathcal{H} (\rho + w \rho)=0 $ for constant $w$ we have,
+\be
+\bar{\rho}_{kessence} (a) =a ^{-3(1+w)}
+\ee
+so we can write,
+\be
+ \frac{{\bar{\rho'}}}{\bar{\rho}}= -3 (1+w) \mathcal{H}
+ \ee
+
+%\begin{figure}[htbp!]
+%\begin{center}
+%\captionsetup{,margin=1cm}
+%\includegraphics[width=0.60\textwidth]{alphaerror} 
+%\caption{The  relative error of $\alpha$ in class and hi-class is shown. It is clear that  the relative error is very large in high wavenumbers.}
+%%\label{plt2}
+%\end{center}
+%\end{figure}
+%So we have,
+%\be
+%\delta_{Newt}= \frac{1+w}{c_s^2} \Big ( -c_s^2 \mathcal{H} (\pi_{synch} + \alpha)- \mathcal{H} \alpha+\pi'_{synch}  \Big )
+%\ee
+%\be
+%\delta_{Synch}= \delta_{newt} + 3 \mathcal{H} (1+w) \alpha
+%\ee
+%which results,
+%\be
+%\delta_{synch}= \frac{1+w}{c_s^2} \Big ( -c_s^2 \mathcal{H} (\pi_{synch} + \alpha)- \mathcal{H} \alpha+\pi'_{synch}  \Big )
+%\ee
+
+\subsection{Comparing the  ${\pi}$ transfer function directly from hi-class and what we get from class indirectly}
+From the equation for $\theta$, we can obtain $\pi$ in Fourier space,
+\be
+\pi_{newt}=\frac{\theta_k\text{(newt)}}{k^2}  \; \; \; \text{(class)}
+\ee
+while in the hi-class we can easily obtain $\pi_{newt}$ by gauge transformation as following,
+\be
+\pi_{newt}= \pi_{synch}+ \alpha
+\ee
+We can easily observe that according to the gauge transformation in Ma and Bertchinger,
+\be
+\theta_{synch}= \theta_{newt} -\alpha k^2
+\ee
+so we can write,
+\begin{align}
+\theta_{synch} & = \pi_{new} k^2 -\alpha k^2 \nonumber \\&
+=(\pi_{newt} - \alpha) k^2
+ \nonumber \\&
+= \pi_{synch} k^2
+\end{align}
+so we also have,
+\be
+\theta_{synch} = \pi_{synch} k^2
+\ee
+The we compare the result with what we get from the hi-class after gauge transformation as following,
+\be
+\pi'_{newt} =\pi'_{sync}+\alpha'
+\ee
+ According to all formulas we have the below relations for both class and hiclass codes to get $\pi$, $\pi'$  in both Newtonian and Synchoronous gauges.
+\[ \text{Hiclass(Synchronous)} :
+  \begin{cases}
+    \pi_{synch} = \text{output of the code} \\
+    \pi'_{synch}  = \text{output of the code} \\ 
+     \theta_{synch} = \pi_{synch} k^2 \\
+      \delta_{synch}  = \frac{1+w}{c_s^2} \Big (  -  (3c_s^2 -1)\mathcal{H} \pi_{synch}+\pi'_{synch} \Big )
+  \end{cases}
+\]
+\\
+\[ \text{Hiclass (Newtonian)}: 
+  \begin{cases}
+     \pi_{newt}=\pi_{synch}+ \alpha \\
+   \pi'_{newt}=\pi'_{synch}+ \alpha' \\
+    \theta_{newt} = \pi_{synch} k^2 + \alpha k^2 \\
+      \delta_{newt}  = \frac{1+w}{c_s^2} \Big (  -  (3c_s^2 -1)\mathcal{H} \pi_{synch}+\pi'_{synch} \Big ) - 3(1+w) \mathcal{H} \alpha
+  \end{cases}
+\]
+\\
+\[ \text{Class(Newtonian)}: 
+  \begin{cases}
+     \pi_{newt}= \theta_{newt}/k^2 \\
+   \pi'_{newt}= \frac{c_s^2}{1+w} \delta_{newt} + (3c_s^2 -1) \mathcal{H} \theta_{newt}/k^2 + \Psi_{newt}  \\
+    \theta_{newt} = \text{output of the code}  \\
+     \delta_{newt} = \text{output of the code} 
+  \end{cases}
+\]
+\\
+\[ \text{Class(Synchoronous)}: 
+  \begin{cases}
+     \pi_{synch}= \theta_{synch}/k^2 \\
+   \pi'_{synch}= \frac{c_s^2}{1+w} \delta_{synch} + (3c_s^2 -1) \mathcal{H} \theta_{synch}/k^2 \\
+    \theta_{synch} = \text{output of the code}  \\
+     \delta_{synch} = \text{output of the code} 
+  \end{cases}
+\]
+Now we are going to compare the results obtained from these codes. Just note that to get $\pi'_{newt}$ from class-Synchronous we need to have $\alpha'$ in terms of other quantities, but we did not do the calculation!
+\subsection{Comparison of the results}
+Note that the value of $\pi$ is negative, so in the plots we plot $-\pi$. To compare the class results in Newtonian gauge and Synchoronous gauge we need to have $\alpha$, which is accessible  from hi-class or class (Synchoronous gauge) internally. \\
+Where $\alpha=({h'} + 6 {\eta'})/2 k^2$, $\Psi=\frac{1}{2 k^2} \Big [ {h^{''}}+ 6 {\eta^{''}} + \frac{a'}{a}  (h'+6 \eta ') \Big]= {\alpha' + \mathcal{H}\alpha.}$  according to equation 18 of  {\color{blue}{https://arxiv.org/pdf/astro-ph/9506072.pdf}} \\
+Here we want to compare the calculated $\delta _{Newt}$ from the field and metric perturbations in the hi-class with the class output in both Newtonian and Synchronous gauge.\\ 
+According to the background equations ${\rho'} + 3 \mathcal{H} (\rho + w \rho)=0 $ for constant $w$ we have,
+\be
+\bar{\rho}_{kessence} (a) =a ^{-3(1+w)}
+\ee
+so we can write,
+\be
+ \frac{{\bar{\rho'}}}{\bar{\rho}}= -3 (1+w) \mathcal{H}
+ \ee
+First we compare  $\frac{(\delta_{Newt} - \delta_{Syn})}{-3 (1+w) \mathcal{H}}$ with $\alpha$ that we read from the hi-class. Note that according to the code units $\mathcal{H}(z=0)=H(z=0)=2.25 \times10^{-4} /Mpc $. 
+\\
+ In the below figure we have compared the $\alpha$ in hi-class with what we get from the calculation in the class. These two quantities agree well for the limit $c_s^2 \to 1$, while for non unity sound speed we get the second plot! \\
+ The python part to do the comparison is as following,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+# H_0 in Gevilution unit.
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-0.9;h=0.67556;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3*(1+w))))*a
+w=-0.9;
+#################################
+#z=100
+alpha_class_z100=(class_sync_z100[:,4]-class_newt_z100[:,4])/(3.*(1+w)*Hubble_conf_Mpc(1./(1.+100.)));
+alpha_hiclass_z100=hiclass_z100[:,3]
+#z=0
+alpha_class_z0=(class_sync_z0[:,4]-class_newt_z0[:,4])/(3.*(1+w)*Hubble_conf_Mpc(1./(1.+0.)));
+alpha_hiclass_z0=hiclass_z0[:,3]
+#################################
+plt.figure(figsize=(18,12))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 10)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 6)
+plt.figure(1)
+#################################
+plt.loglog(class_newt_z100[:,0], alpha_class_z100[:],color="blue",linestyle='dashed',lw=1.5,label=r"$\alpha = \frac{\delta_{kess}(Synch) -\delta_{kess}(Newt) }{3 \mathcal{H} (1+w)}$, z=100 ")
+plt.loglog(hiclass_z100[:,0]/h, alpha_hiclass_z100[:],color="red",linestyle='dashed',lw=1.5,label=r"$\alpha$ hiclass, z=100 ")
+plt.loglog(class_newt_z0[:,0], alpha_class_z0[:],color="Green",linestyle='dashed',lw=1.5,label=r"$\alpha = \frac{\delta_{kess}(Synch) -\delta_{kess}(Newt) }{3 \mathcal{H} (1+w)}$, z=0 ")
+plt.loglog(hiclass_z0[:,0]/h, alpha_hiclass_z0[:],color="Black",linestyle='dashed',lw=1.5,label=r"$\alpha$ hiclass, z=0 ")
+
+#####################
+plt.title(r"$w=-0.9$, $c_s^2=10^{-6}$")
+plt.legend(bbox_to_anchor=(0.7, 0.90, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\alpha$",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+# plt.ylim(1.e-13,1.e-9)
+plt.grid(True)
+#################################
+#Difference plot!
+
+plt.savefig('class-hiclass_alpha.jpg', format='jpg', dpi=500)
+plt.show()
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{alpha_class} 
+\caption{The  $\alpha$ is in hi-class and class is compared. As it is clear they agree well for the limit $c_s^2 \to 1$ . }
+%\label{f1}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{class-hiclass_alpha.jpg} 
+%\label{f1}
+\end{center}
+\end{figure}
+%\begin{figure}[htbp!]
+%\begin{center}
+%\captionsetup{,margin=1cm}
+%\includegraphics[width=0.60\textwidth]{alphaerror} 
+%\caption{The  relative error of $\alpha$ in class and hi-class is shown. It is clear that  the relative error is very large in high wavenumbers.}
+%%\label{plt2}
+%\end{center}
+%\end{figure}
+So we have,
+\be
+\delta_{Newt}= \frac{1+w}{c_s^2} \Big ( -\mathcal{H} (3c_s^2-1)  (\pi_{synch} + \alpha)- \mathcal{H} \alpha+\pi'_{synch}  \Big )
+\ee
+\be
+\delta_{Synch}= \delta_{newt} + 3 \mathcal{H} (1+w) \alpha
+\ee
+We  also compare the metric fluctuation $\Psi$  in Newtonian gauge with one we obtain from Synchronous gauge parameters in class and hi-class codes to make sure we are dealing with the same functions. The $\Psi$ in Synchronous gauge reads as following,
+\be
+\Psi=\frac{1}{k^2} \Big [ {h^{''}}+ 6 {\eta^{''}} + \frac{a'}{a}  (h'+6 \eta ') \Big]= \alpha' + \mathcal{H}\alpha
+\ee
+In the figure \ref{psicomp} we compare the $\Psi$ in Newtonian gauge from what we get in terms of Synchronous gauge quantities.
+\begin{figure}[H]
+\begin{center}
+\captionsetup{,margin=1cm}
+\includegraphics[width=0.60\textwidth]{psi_comp.jpg} 
+\caption{$\Psi$ in Newtonian gauge and synchronous gauge in class and hi-class are compared. They all agree for $c_s^2  \to 1$. }
+\label{psicomp}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{class-hiclass_psi.jpg} 
+%\label{f1}
+\end{center}
+\end{figure}
+The python code for $\Psi$ comparison is as following,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-0.9;h=0.67556;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3*(1+w))))*a
+w=-0.9;
+#################################
+#z=100
+Psi_newt_class_z100=class_newt_z100[:,8];
+Psi_synch_class_z100=class_sync_z100[:,8];
+Psi_hiclass_z100_direct=Hubble_conf_Mpc(1./(1.+100.))*hiclass_z100[:,3]+hiclass_z100[:,4]
+# Psi_hiclass_z100_indirect=hiclass_z100[:,3]
+#z=0
+Psi_newt_class_z0=class_newt_z0[:,8];
+Psi_synch_class_z0=class_sync_z0[:,8];
+Psi_hiclass_z0_direct=Hubble_conf_Mpc(1./(1.+0.))*hiclass_z0[:,3]+hiclass_z0[:,4]
+#z=100
+plt.loglog(class_newt_z100[:,0], Psi_newt_class_z100[:],color="blue",linestyle='dashed',lw=1.5,label=r"$\Psi$, Class, Newtonian, z=100 ")
+plt.loglog(class_sync_z100[:,0], Psi_synch_class_z100[:],color="red",linestyle='dashed',lw=1.5,label=r"$\Psi$ Class, Synchronous, z=100 ")
+plt.loglog(hiclass_z100[:,0]/h, Psi_hiclass_z100_direct[:],color="Green",linestyle='dashed',lw=1.5,label=r"$\Psi = \alpha' + \mathcal{H} \alpha$, hiclass, z=100 ")
+\end{lstlisting}
+At the end because of tensions between class and hiclass in $\alpha$ we get different $\pi$ and $\pi'$! Now we want to compare the results of class in Synchronous gauge and Newtonian gauge.
+\subsubsection{Class, comparison of two gauges}
+Here we compare class for two different gauges according to below python script,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+# H_0 in Gevilution unit.
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-0.9;h=0.67556;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3*(1+w))))*a
+#################################
+# pi_newt in class from Newtonian gauge according to: \theta_kess/k^2 in correct units which is negative!
+pi_classNewt_cs_e3_newt_z100=(class_newt_z100[:,4]/((class_newt_z100[:,0]*h)**2) );
+alpha_class_z100=alpha_class_z100=(class_sync_z100[:,4]-class_newt_z100[:,4])/(3.*(1+w)*Hubble_conf_Mpc(1./(1.+100.)));
+pi_classSynch_cs_e3_newt_z100=(class_sync_z100[:,4]/((class_sync_z100[:,0]*h)**2) )+alpha_class_z100[:];
+
+#z=0
+pi_classNewt_cs_e3_newt_z0=(class_newt_z0[:,4]/((class_newt_z0[:,0]*h)**2) );
+alpha_class_z0=alpha_class_z0=(class_sync_z0[:,4]-class_newt_z0[:,4])/(3.*(1+w)*Hubble_conf_Mpc(1./(1.+0.)));
+pi_classSynch_cs_e3_newt_z0=(class_sync_z0[:,4]/((class_sync_z0[:,0]*h)**2) )+alpha_class_z0[:];
+#pi_newt in hiclass is \pi_synch + \alpha; The columns in the hiclass file are k,\pi_synch,pi'_synch,alpha,alhpha',psi 
+# pi_hiclass_cs_e3_newt=hiclass_z100[:,1]-hiclass_z100[:,3];
+plt.loglog(class_newt_z100[:,0], np.abs(pi_classNewt_cs_e3_newt_z100[:]),color="blue",linestyle='dashed',lw=1.5,label=r"$\pi_{newt}=\frac{\theta_{newt}}{k^2}$, Class-Newtonian, z=100 ")
+plt.loglog(class_sync_z100[:,0], np.abs(pi_classSynch_cs_e3_newt_z100[:]),color="green",linestyle='dashed',lw=1.5,label=r"$\pi_{newt}=\frac{\theta_{synch}}{k^2} + \alpha$, $\alpha = \frac{\delta_{kess}(Synch) -\delta_{kess}(Newt) }{3 \mathcal{H} (1+w)}$ class-Synchronous, z=100 ")
+\end{lstlisting}
+which results,
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{comp_field_class.jpg} 
+%\label{f1}
+\end{center}
+\end{figure}
+Now the questions are:\\
+{\color{red} Why the IC of the two gauges are different?
+\\
+Why at high k we get different results?}
+Miguel suggestion: Just check the consistencies between Class, synch and hi-class! like if we get the same $\alpha$
+\paragraph{Miguel} {\color{red} Todo:}
+ Compare Synch class with hiclass on $\alpha$ \\
+ Look at the equations in hiclass, about factor "3". \\
+  \section{Report-05April2018}
+ - Today I've tried to get $P_{22}$ powerspectrum, for Riess Sciama effect.\\
+  I tried, mathematica (Matt mathematica) which did not work because of Nintegration,\\
+   I tried old version of class which loop correction to density power is implemented, but it seems the integration is not taken by high precision, so we dont get the right difference! \\
+ I also tried FnFast, which is not documented at all, so I could not use it! \\
+ Now I want to check Kumatsu's routines which seems good to me, well documented and etc. I can also check CAMB to see if they have implemented it ... \\
+ Then I need to calculated powaer of $\Psi'$ according to Riess Sciama effect and compare it with Gevolution! and report the result to all collaborators. \\
+ I also could match Class and my mathematica code result, which is intresting, so I need to report it as well! \\
+ -After believing the Gevolution and field equation, we need to agree on Matter powerspectrum and stress tensors in class, mathematica code and Gevolution! \\
+ - When everything is fixed we must add second order corrections! Compare them with first order terms and .... \\
+ - Check the error from predictor -corrector method!... \\
+ -Then we need to report about all the results and think for future works and results! \\
+ -Also we can think about the question: Is Riess Sciama effect is relevant for scalar field? how much? although it is subpercent in CMB, is it the same in field power?
+ -We know how the matter behaves:\\
+in $cs^2=w?>0$ the evolution should be the same as GEvolution matter!!!\\
+-http://www2.iap.fr/users/pitrou/cmbquick.htm\\
+-I check$ \Phi_dot$, if we add to$ \phi_old $we get$ \Phi_new$!\\
+-For limit $cs and w?>0$ check if it looks like matter? If the filed is differet, maybe class is written differently! but if$ \delta$ is the smae as matter or non-linear matter then it is ok otherwise there should be a problem.\\
+-Our at conversion from $\delta $and $\theta$ are linear, \\
+- Do the stupid phi test, get phi at redshift 100 and add $phi_dot$  and check we get at z=50\\
+-I must write what tests I did and what are the results! \\ 
+-Get the field equation, why at linear order for $w=cs^2=0$ \\
+eq.2 and 3 of Domenico paper and Martin, why we get 0 evolution when $\pi$ and $\pi_dot$ is zero but in Domenico it is generated!! \\
+- Just check that in matter case for kessence we get sinsible results! \\
+Check that also in $\delta T_00$ we get good behaviour in first order perturbation theory! \\
+\subsection{Martin meeting}
+How much is the $\Phi$ error in GEv and class ? Plot? \\
+-The error Poisson equation in class and GEvolution, fix the parameters?
+- Use Kumatsu code in two redshift and compute Poisson equation and get $\Phi$ power at two different redshift! and then see $\Phi'$ and cross check by Seljak formula. \\
+Use their model in the paper (8) $\\url{0809.4488.pdf} $ to do the same analysis!
+\\
+-If we assume $\Phi'$ in Gevolution correct! Solve the Euler and Continuity equation  in mathematica with and without $\Phi'$ from Gevolution and see if it is sensitive to it or not  and compare with $\delta_m$ from class at the same redsift and then put it into the Gevolution to check versus our result.
+
+
+% \begin{figure}[H]
+% \includegraphics[scale=0.3]{IMG_3589.jpg} 
+% \end{figure}
+-I've tried to get non linear $\dot{\Psi}$ from CMBquick but it seeems the integration is not provided. It only gives, the transfer function for the configuration ($k_1$, $k_2$ and $\mu$). \\
+As Cyril suggested I'm gonna try SONG (contact Christian Fidler), but if I could not get a good result, I'm gonna integrate myself or I'll use Joyce code! If nothing has worked I'm gonna try to compare $\dot{\Phi}$ in Gadget! and compare with Gevolution!
+
+\section{Check the equations  for $c_s^2 \to 0$ and $ w \to 0$  to get the matter behaviour and cross check with class!}
+Todo:  \\
+-Writing down the equaton in this limit, and compare with fluid approximated equations, if we get the same thing? \\
+-Plot $\delta_m$ in class versus $\delta_{kess}$ to check if we get the same behaviour! \\
+-Plot $\delta_m$ in the Gev versus $\delta_{kee}$ to check again! Run Gev with the relevant IC!\\
+- Add $\dot{\Phi}$ to $\Phi$ in redshift $z=100$ in class and check if we get the same in the redshift $z=50$ and the same thing in Gevolution as a check! \\
+-Get the field equation, why at linear order for w = $cs_2$ = 0 eq.2 and 3 of Domenico paper and Martin, why we get 0 evolution when $\pi$ and $\dot{\pi}$ is zero but in Domenico it is generated!! \\
+- Just check that in matter case for kessence we get sinsible results! Check that also in $\delta T_{0}^0$ we get good behaviour in first order perturbation theory!\\
+-Use Riess Sciama formula to get $P_{\dot{\Phi}}$ and compare it with class and Class! \\
+In the Gevolution for IC, we use $\pi_{class} \frac{H_{class}}{H_{gev}}$, so as an input we need to give $\pi$ and $\pi'$ from the class!  which is obtained by the output file!
+\subsection{Class and Gevolution. results, $w \longrightarrow0$, $c_s^2 \longrightarrow0$: in theory,  both equations and $T_{\mu \nu}$ } 
+%\end{empheq}
+ \begin{align} 
+ &{ \pi''+\mathcal{H}(1- 3w) \pi' } +3 {  \mathcal{H}}\Big( -c_s^2+ {w} \Big )\Psi - \, {\Psi'}- 3 c_s^2  \,{\Phi'} + {
+ \Big( 3\mathcal{H}^2 (c_s^2 -w) + \mathcal{H}' (1-3c_s^2)\Big) \pi }
+           \nonumber
+   \\
+    &
+ - c_s^2 {\nabla^2 \pi} =0
+    % Second order terms==0
+  \end{align} 
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+   {({\pi'}+ \mathcal{H} \pi) }    \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w) \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi +   {({\pi'}+ \mathcal{H} \pi) }\Big] \delta_{j}^{i}   \Bigg) 
+\end{align}
+Just to observe, its interesting to notice the relation between $c_s^2$ with $\delta P/\delta \rho$ for scalar field, {\color{red} derive it? Is there any inconsistency? why dont get simply $c_s^2$?}
+\be
+\frac{\delta P}{\delta \rho}= \frac{1+w) \Big [ -3 \mathcal{H} w \pi- \Psi +   {({\pi'}+ \mathcal{H} \pi) }\Big] } { \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+   {({\pi'}+ \mathcal{H} \pi) }    \Big ) } = 
+\ee
+In the limit  $w = c_s^2 \rightarrow 0$, we end up with,
+\be
+\pi''+\mathcal{H}\pi'     -  {\Psi'} 
+ + \mathcal{H}'  \pi  = 0 \label{fieldeq}
+\ee
+Comparing with other results: like eq. B.22 of {\url{arXiv:1611.07966v2}} we see that in the limit of $w \rightarrow 0$ we have (according to the equation in the paper):
+\be
+\ddot{\pi}_{phys} - \dot{\Phi} =0
+\ee
+we know that in their notation $\Phi$ is our $\Psi$, moreover our equation is written for $\pi$ in constant conformal time hypersurfaces and the derivatives are taken based on conformal time! \\Applying the relation for $\pi_{phys}$ we have:
+\be
+\ddot{\pi}_{phys} = \frac{\mathcal{H} \pi_{c}' +\mathcal{H}' \pi_{c} + \pi_{c}'' }{a}
+\ee
+index "c" refers to conformal time! More over we have:
+\be
+\dot{\Phi}=\Phi'/a
+\ee
+So we recover our equation for this limit! \\
+It is noteworthy that we have checked the complete linear equation versus the result obtained by Filippo's paper and Iggi et. al paper!
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess}  \Bigg[1+ \frac{1}{c_s^2} \Big( -\Psi+   { ({\pi'}+ \mathcal{H} \pi) }\Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)=   \, \Omega^0_{kess}  \Bigg ( - \Psi +    ({\pi'}+ \mathcal{H} \pi)   \Bigg) 
+\end{align}
+According to the stress tensor in this limit we have,
+\be
+\delta= \frac{1}{c_s^2} \Big( -\Psi+   { ({\pi'}+ \mathcal{H} \pi) }\Big ) 
+\ee
+\be
+u_i=\partial _i \pi 
+\ee
+Which is basically the same as eq.3.12 of  {\url{arXiv:1611.07966v2}}! \\
+\subsection{Solving the equation:}
+Before solving the equation we can observe that:
+\be
+\pi'+\mathcal{H} \pi -\Psi \sim c_s^2 \partial^2 \Psi/ \mathcal{H}^2 
+\label{eqsenatore}
+\ee
+or equivalently,
+\be
+\dot{\pi}_{phys} - \Psi  \sim c_s^2 \partial^2 \Psi/ {H}
+\ee
+To observe this relation it is better to look at the equation in terms of physical time which according to eq.3.9 of  {\url{arXiv:1611.07966v2}} is as following,
+\be
+\frac{1}{a^3 M_2^3} \frac{d}{dt} \Big[a^3 M_2^4 (\dot{\pi} -\Psi)\Big] = c_s^2 a^{-2} \partial^2 \pi 
+\ee
+Since we are in the limit $c_s^2 \rightarrow 0$ we expand the scalar field in terms of sound speed $\pi= \pi_0 + \pi_{,c_s^2} c_s^2$. Plugging into the equation we get,
+\be
+\dot{\pi}_0 = \Psi
+\ee
+and 
+\be
+\frac{1}{a^3 M_2^3} \frac{d}{dt} \Big[a^3 M_2^4 (\dot{\pi_{,c_s^2}} )\Big]   a^{-2} \partial^2 \pi_0 \sim a^{-2} H ^{-1} \partial^2 \Psi
+\ee
+Where we have taken that time derivatives to be of order $H$ . So we have used $\pi_0 \sim H^{-1} \Psi$ and finally we have $ \pi_{,c_s^2} \sim  H ^{-1} \partial^2 \Psi $ which result in:
+\be
+\dot{\pi} -\Psi \sim c_s^2 \partial^2 \Psi /H^2
+\ee
+ \begin{figure}[H]
+ \includegraphics[scale=0.5]{cancellation_stress_tensor.jpg} 
+ \end{figure}
+
+\subsection{How is it related to fluid language?}
+First of all according to our observation we saw that $\dot{\pi} -\Psi \sim c_s^2 \partial^2 \Psi /H^2$, so actually the $\dot{\pi}$ plays the role of gravitational potential for us! But to confirm the relation we look at the fluid equations according to eq. 2 or eq. 9 of {\url{https://arxiv.org/abs/0909.0007v2}}. We start off continuity equation from Ma and Bertschinger paper {\url{https://arxiv.org/pdf/astro-ph/9506072.pdf}}
+\be
+\delta' = -(1+w) (\theta - 3 \Phi') - 3 \mathcal{H} \Big( \frac{\delta P}{\delta \rho} -w \Big ) \delta
+\ee
+which $'$ denotes the derivative with respect to conformal time! In the limit $w=0$ and also $c_s^2 \rightarrow 0$ we can rewrite the equation as following,
+\be
+\delta' = - (\theta - 3 \Phi')
+\ee
+Just using the the values of quantities for kessence case $\delta= \frac{1}{c_s^2} \Big( -\Psi+   { ({\pi'}+ \mathcal{H} \pi) } \Big ) $ and 
+$\theta = - \partial^2 \pi $. It is easy to see that we get $c_s^2 (\theta - 3 \Phi')$ in righthand side which goes away for small sound speeds and left hand side is actually what we are looking for,
+\be
+\delta'=\pi''+\mathcal{H}' \pi + \mathcal{H} \pi' - \Psi'=0
+\ee
+\subsubsection{Euler equation:}
+According to the equation 30 of  {\url{https://arxiv.org/pdf/astro-ph/9506072.pdf}}, the Euler equation is (for the limit we are interested in):
+\be
+\theta'= -\mathcal{H} \theta  - \nabla^2 \Psi
+\ee
+Using the relation for $\theta= - \partial^2 \pi  $ we get,
+\be
+ - \partial^2 \pi' - \mathcal{H}  \partial^2 \pi  + \nabla^2 \Psi = 0
+\ee
+which easily gives just the derivative of continuity equation 
+\be
+ - \partial^2 \Big( \pi' + \mathcal{H} \pi - \Psi  \Big )=0
+\ee
+\subsection{Solution of the equation in the matter dominated universe }
+According to the FRW equation in matter dominated universe we know that,
+\be
+H^2=8 \pi G \rho_m/3 \longrightarrow \rho_m \sim 1/a^3  \longrightarrow H \sim a^{-3/2}  \longrightarrow \mathcal{H} = a {H}\sim a^{-1/2}
+\ee
+and 
+\be
+a(\tau) = (\tau/\tau_0)^2 \; \; \; \; a(t) = (t/t_0)^{2/3}
+\ee
+First of all for $\Psi$ we use the Poisson equation which is (Poisson equation for physical length derivative, while for conformal length derivative we do not have $a^2$ contribution which is absorbed in $\nabla^2$!) 
+\be
+- k^2 \Psi = 4 \pi G \rho \delta a^2
+\ee
+On the other hand according to Einsteins equations  we have,
+\be
+k^2 (\Phi -\Psi) = -32 \pi G a^2 \rho_r \Theta_{r,2} \; \;  \text{and}\; \;  k^2 \Phi + 3 H (\dot{\Phi} - \Psi H ) = 4 \pi G a^2 (\rho_m \delta_m + 4 \rho_r \Theta_{r,0})
+\ee
+which $\Theta_{r,2}$ is the quadrupole moment of radiation which in our case is zero, but in general  the l'th moment is defined as,
+\be
+\Theta_l=\frac{1}{(-i)^l} \int _{-1}^1 \frac{d \mu}{2} \mathcal{P}_l(\mu) \Theta(\mu)
+\ee
+At the end for matter dominating universe we have,
+\be
+k^2 (\Phi -\Psi) = 0 \; \;  \text{and}\; \;  k^2 \Phi + 3 H (\dot{\Phi} - \Psi H ) = 4 \pi G a^2 \rho_m \delta_m 
+\ee
+which end-up with,
+\be
+k^2 \Phi + 3 H (\dot{\Phi} - \Phi H ) = 4 \pi G a^2 \rho_m \delta_m 
+\ee
+which is equivalent to Poisson equation!  $\Theta(\mu)$ is temperature and $ \mathcal{P}_l$ Legendre polynomial of order l,
+And form the Euler and Continuity equation we can write,
+\be
+\delta' = - (\theta - 3 \Phi') \;\;\;\; \theta'= -\mathcal{H} \theta  + k^2 \Psi
+\ee
+Combining the two equation we get,
+\be
+\delta'' + \theta '+ 3 \Phi''=0  \longrightarrow  \delta'' -\mathcal{H}  (-\delta' +3 \Phi' )  -4 \pi G \rho \delta a^2+ 3 \Phi''=0 \;   
+\ee
+Just using the observation that in Matter dominated universe $\Phi$ is constant and putting $a(\tau) = (\tau/\tau_0)^2$, $ \mathcal{H} = \frac{a'}{a} = 2/\tau $ and $4 \pi G  \rho_m a^2 =( 3/2) \mathcal{H}^2 =6/\tau ^2$
+\be
+ \delta'' + 2  \delta' /\tau -6 \delta/\tau^2=0 \;   
+\ee
+The solution to this second order equation is,
+\begin{figure}[H]
+ \includegraphics[scale=0.6]{Soveld2} 
+ \end{figure}
+ which one is growing $\delta \sim a$ and the other is decaying!
+\subsection{Checking the consistency!}
+To check the consistency we need to prove that the solution of field equation (\ref{fieldeq}) gives the same answer! we use $\delta_{kess}$ and show that the time solution for each mode is like matter! \\
+The filed equation for $\Psi' \approx 0$, $\mathcal{H}= 2/\tau$  and $\mathcal{H}'= -2/\tau^2$ is written,
+\be
+\pi''+ 2\pi'  /\tau      -2  \pi /\tau^2 = 0 
+\ee
+The solution is,
+\begin{figure}[H]
+ \includegraphics[scale=0.6]{eq3} 
+ \end{figure}
+ We don't get the consistent result if we just naively assume that for the behaviour of $\delta$ with $\mathcal{H}\pi \sim const$ and other terms are also constants so $\delta$ is constant in time which is contradiction!\\
+ The contradiction comes from the fact that we have $c_s^2$ in the denominator of expression for $\delta$ which becomes so large in our naive calculation. If we use the result which we have obtained according to \ref{eqsenatore}, we observe that 
+\be
+\delta_{kess} \sim (\pi'+\mathcal{H} \pi -\Psi)/c_s^2 \sim  (c_s^2 \partial^2 \Psi/ \mathcal{H}^2)/c_s^2 \sim -k^2 \Psi/ \mathcal{H}^2 \sim 1/\mathcal{H}^2 \sim \tau^2 \sim a
+\ee
+which we have assumed that $\Psi$ is constant in time. So we get consistent results!
+
+\subsection{Class and Gevolution. results, $w=10^{-8}$, $c_s^2=10^{-16}$: results from the code} 
+We cannot set $w=0$ in the class, it should be negative! so we put it $10^{-16}$ and $c_s=10^{-8}$. \\
+The linear equation  is as following;
+\begin{figure}[H]
+ \includegraphics[scale=0.5]{class} 
+ \end{figure}
+ For the Gevolution, when we set the small parameters, the particles speedup and go outside of CPUs. So it seems that the relation we need to be satisfied $ (\pi'+\mathcal{H} \pi -\Psi)/c_s^2 \sim  (c_s^2 \partial^2 \Psi/ \mathcal{H}^2)/c_s^2 $ is not satisfied so we get a large contribution from $1/c_s^2$. \\
+ Now lets turn off the $T_{\mu \nu}$ of kessence and just using the obtained value of $\pi$ and $\pi'$ and $\Psi$ from class to make $\delta_{kess}$ ourselves! Or we can increase the value of sound speed to $c_s^2=10^{-6}$ and keep the small value of $w=10^{-8}$, since we only want to need if $\delta_{matt}$ and $\delta_{kess}$ match?!
+  \begin{figure}[H]
+ \includegraphics[scale=0.5]{class_10_e6.jpg} 
+ \end{figure}
+ \begin{figure}[H]
+ \includegraphics[scale=0.5]{class_10_e8.jpg} 
+ \end{figure}
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+ 

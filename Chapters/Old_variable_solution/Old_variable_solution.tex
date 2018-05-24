@@ -1,0 +1,155 @@
+
+ \section{Solving the linear field equation in mathematica and comparing with Gevolution and checking that if we use $\Phi'$ of Gevolution we get the same result as Gevolution, just consistency check!}
+ Firstly we show that if we neglect $\Phi'$ in mathematica, which is a good approximation for matter dominated universe, we get the same result as class (how much error?) and Gevolution if we just add linear field equation and turn off $\Phi'$ by hand. According to the field equation and Stress energy tensor as following,
+\begin{align} 
+ &{ \pi''+\mathcal{H}(1- 3w) \pi' } +3 {  \mathcal{H}}\Big( -c_s^2+ {w} \Big )\Psi - \, {\Psi'}- 3 c_s^2  \,{\Phi'} + {
+ \Big( 3\mathcal{H}^2 (c_s^2 -w) + \mathcal{H}' (1-3c_s^2)\Big) \pi }
+           \nonumber
+   \\
+    &
+ - c_s^2 {\nabla^2 \pi} =0
+    % Second order terms==0
+  \end{align} 
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+   {({\pi'}+ \mathcal{H} \pi) }    \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w) \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi +   {({\pi'}+ \mathcal{H} \pi) }\Big] \delta_{j}^{i}   \Bigg) 
+\end{align}
+In mathematica (Equation$\_$TestSolve.nb), the background part is defined:
+ \begin{figure}[H]
+ \includegraphics[scale=0.7]{math1} 
+ \end{figure}
+ The full equation where $\Psi'$ neglected is written and then we have changed the variable to $a(\tau)$ and all the functions of $\tau$ as well.
+  \begin{figure}[H]
+ \includegraphics[scale=0.7]{math2} 
+ \end{figure}
+ Importing the file made in the class for the initial condition of the field and its derivative and also $\Psi$ value as a function of k which is assumed remains constant in time (in CDM universe),
+   \begin{figure}[H]
+ \includegraphics[scale=0.7]{math3} 
+ \end{figure}
+Now for each k we need to solve the differential equation and obtain the solution in time, in the below mathematica code, we have use constan $\Psi$ from class and it is important to note that since in the new ODE which is in terms of $a$ and not $\tau$ we need to rescale the initial condition from the class (which is appropriate for $\pi'$) to get the IC for $d\pi/da$. \\At the to be able to compare with Class and Gevolution results we need to rescale the obtained solution and also make dimensionless quantity to compare simply (which is done in the below code),
+   \begin{figure}[H]
+ \includegraphics[scale=0.7]{math4} 
+ \end{figure}
+ Now the way that we can have access to the information  of the solved equation is shown in the mathematica code below, moreover the way which class  and Gevolution output should be scaled to be comparable with mathematica solution is shown,\begin{figure} [h]
+ \includegraphics [scale=0.6]{math5}
+ \end{figure}
+ The comparison result of Gevolution, class and our solution in mathematica for the case which $\Phi'$ is turned off is as following. \\
+ Neglecting the $\Phi'$ and $\Psi'$ in Gevolution and out direct calculation we get the below result! After starting to solve at redshift $z=100$ from initial condition in class and getting result at $z=10$, the relative error of $\pi'$ between class and our solution is not very good because we assumed $\Phi'$ and $\Psi'$ exactly zero. The relative error in terms of $k$ in $1/Mpc$ is as following. As it is shown up to $k=0.5 [1/Mpc]$ we have less than 7 $\%$ error in $\pi'$.
+ \begin{figure} [H]
+ \includegraphics [scale=0.6]{math_relerror_piv}
+ \end{figure}
+While the relative error on $\pi$ is negligible as it is clear in the below plot,
+ \begin{figure} [H]
+ \includegraphics [scale=0.6]{math_relerror_pi}
+ \end{figure}
+ At the end if we compare the $\pi$ result from Mathematica and class we get,
+  \begin{figure} [H]
+ \includegraphics [scale=0.6]{math_relerror_pi}
+ \end{figure}
+ It is important to note that neglecting the potential decay $\Phi'$ and $\Psi'$ causes about 7$\%$ error on $\pi'$ while it does not affect $\pi$ solution. \\
+ For a reasonable run we get a realatively good match between Gevolution (when $\Phi'$ and $\Psi'$ term is not included in Gevolution) and class and our solution. It is clear from the plot that in Class the potential decay causes that $\pi'$ decays in Class relative to out mathematica solution. It is also important to note that the result in Gevolution is sensitive to number of grid and number of kessence field update, it is sensitive to number of grid because otherwise we get wrong potential from the particles which causes large error in the results and number of kessence field update is important to insure that we get the right solution from Leap frog method.
+  \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_gev_class_1}
+ \end{figure}
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_gev_class_1}
+ \end{figure}
+ the difference between Gevolution and our solution at high wavenumbers absolutely comes from potential $\Psi$ term!
+\subsection{How much the result in Gevolution is sensitive to precision parameters?}
+To check how much other parameters are important in solution to scalar field, we plot the same figure but with different precisions! \\
+To see the effect of the number of kessence field update, we dearcease the number of updates to . It is clear that we get less match in comparison with 10 number of updates.
+ \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_1_1}
+ \end{figure}
+  \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_1_1}
+ \end{figure}
+To see the effect of Number of grids we decrease the number of grids to 128. It is clear that we do not get the same behaviour as we got before.
+ \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_gev_class_1_128grid}
+ \end{figure}
+ \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_gev_class_1_128grid}
+ \end{figure}
+ For the 64 number of grids,
+  \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_gev_class_1_64grid}
+ \end{figure}
+ \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_gev_class_1_64grid}
+ \end{figure}
+ To measure the effect of number of kessence field update and number of grid for part of the differential equations we also have,
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_1}
+ \end{figure}
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_v_1}
+ \end{figure}
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_2}
+ \end{figure}
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_v_2}
+ \end{figure}
+ And for the highest possible number of grid on the local computer,
+    \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_3}
+ \end{figure}
+    \begin{figure} [H]
+ \includegraphics [scale=0.4]{wave_pi_v_3}
+ \end{figure}
+ \subsection{What happens if we turn on $\Phi'$ term in Gevolution? }
+ As we have shown that the behaviour of $\Phi'$ and $\Psi'$ is different in class and Gevolution and since these potentials directly source $\pi'$ and $\pi$ we get different result when we turn on these terms in the Gevolutoin specially in high wavenumbers.
+  \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_phi_prime_comp}
+ \end{figure}
+   \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_phi_prime_comp}
+ \end{figure}
+ The difference between the linear theory in Gevolution and our solution is completely because of $\Phi'$ and $\Psi'$ terms and we have checked for different precisions $\Phi'$ is different than class solution. We have checked the results for lower number of steps, higher number of grids and higher number of kessence field updates and the result is the same! We also have checked in previous sections that $\Phi'$ is what it should be in Gevolution...
+ \subsubsection{Consistency check: If we get $\Phi$ and $\Phi'$ from Gevolution as an initial condition and solve it in mathematica}
+ There is technical point here about how we use the initial condition from Gevolution to solve the ODE. Since the output of Gevolution is $\mathcal{P}_{\mathcal{H} \pi}$ we need to first get $\mathcal{H} \pi$ from the below and then dividing by $\mathcal{H}$ to put as an initial condition and then multiplying to each $\mathcal{H}$ to compare with Gevolution results in other redshifts! Moreover $\Phi'$ in Gevolution output is multiplied t $1/\mathcal{H}$ to make it dimensionless, so we need to multiply it to $\mathcal {H}$ to input as an initial condition.
+    \begin{figure} [H]
+ \includegraphics [scale=0.6]{mathematica_23april_1}
+ \end{figure}
+ Providing the initial condition at z=100 and putting $\Phi$ and $\Phi'$ values from $z=100$ or $z=10$ we get bad results, which shows that the redshift difference between initial condition and final state is so much. 
+ \\ So setting the initial condition from Gevolution as following. From the figure we see that the initial condition of ODE and Gevolution result exactly overlap!
+    \begin{figure} [H]
+ \includegraphics [scale=0.4]{IC_newplot_1}
+ \end{figure}
+The result  for setting $\Phi$ and $\Phi'$ constant from z=10, which is not satisfying is as following,
+     \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_solve_23april}
+ \end{figure}
+     \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_solve_23april}
+ \end{figure}
+ It is clear why our solution here is higher than Gevolution output, since we put the value of $\Phi$ and $\Phi'$ from redshift z=10 as the initial condition, so we are overstimating the value! \\
+ To get a good result we use IC and final redshift near to each other...  \\
+ Even providing the IC at z=20 and solving for z=10 is not good enough! (why?!) maybe $\Phi'$ changes so much at these redshift? 
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{z20z10_pi_1}
+ \end{figure}
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{z20z10_pi_v_1}
+ \end{figure}
+ Providing the initial condition at z=21 and getting output at z=19 and comparing with Gevolution output we get the following plots. We see that we get better match than before but still we don't expect mismatch for these two  near redshifts?!
+     \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_com_z1921}
+ \end{figure}
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_com_z1921}
+ \end{figure}
+ If we provide the IC at z=50 and getting result at z=48 we get the below results. Is it consistent?!
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_com_z5048}
+ \end{figure}
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{pi_v_com_z5048}
+ \end{figure}
+ The results show that we have non negligible effect of $\Phi''$  which is very interesting on its own.
+
+ 

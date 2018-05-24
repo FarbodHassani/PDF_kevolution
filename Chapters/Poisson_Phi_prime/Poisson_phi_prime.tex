@@ -1,0 +1,703 @@
+%\documentclass[a4paper,12pt]{article}
+%%% My standard included packages
+%%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+%%             % images in pdf, png or jpg format)
+%%\usepackage{jcappub} % for details on the use of the package, please
+%%                     % see the JCAP-author-manual
+%%\usepackage[T1]{fontenc} % if needed
+%
+%\usepackage{setspace}           % Allows easy changes to line spacing 
+%\usepackage{graphicx}           % Allows including of graphics files
+%\usepackage{amsmath}            % Additional math capabilities
+%\usepackage{marginnote}         % Used with todonotes package
+%\usepackage{datetime}           % Allows formatting of date and time
+%\newcommand {\be}{\begin{equation}}
+%\newcommand {\ee}{\end{equation}}
+%
+%\usepackage{empheq}
+%\usepackage{cancel}
+%\usepackage{etoolbox}
+%
+%
+%\usepackage{enumitem} 
+%\usepackage{color}
+%%Mathematica colors
+%\definecolor{identifiercolor}{rgb}{.4,.6,.56}
+%\definecolor{stringcolor}{gray}{0.5}
+%\definecolor{inactivecolor}{rgb}{0.15,0.15,0.5}
+%\usepackage{listings}
+%%Mathematica
+%\usepackage{listings}
+%\lstset{basicstyle={\footnotesize\def\fvm@Scale{.85}\fontfamily{fvm}\selectfont},
+%  breaklines=true,
+%  escapeinside={\%*}{*)},
+%  keywordstyle={\bfseries\color{inactivecolor}},
+%  stringstyle={\bfseries\color{stringcolor}},
+%  identifierstyle={\bfseries\color{identifiercolor}},
+%  language=Mathematica,
+%  otherkeywords={DiscretizeRegion},
+%  showstringspaces=false}
+%\renewcommand{\lstlistingname}{Listing}
+%
+%
+%
+%
+%\usepackage{amsmath}
+%\usepackage{graphicx}% Use pdf, png, jpg, or epså¤ with pdflatex; use eps in DVI mode
+%\usepackage{caption}
+%\usepackage{subcaption}
+%          % List formatting commands
+%\setlist{noitemsep}             % Remove space between list items 
+%%\usepackage{subfigure}          % Create numbered and captioned subfigures
+%\usepackage{rotating}           % Create landscape tables and figures
+%\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+%\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Orange,citecolor=RedViolet]{hyperref}           % URLS and hyperlinks
+%%\usepackage{hyperref}           % URLS and hyperlinks
+%\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[numbers]{natbib}
+%\usepackage{versionPO}          % Include text conditionally
+%\usepackage{caption}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[nottoc]{tocbibind}
+%\lstset{basicstyle=\ttfamily,
+%  showstringspaces=false,
+%  commentstyle=\color{red},
+%  keywordstyle=\color{blue}
+%}
+%% These next lines allow including or excluding different versions of text
+%% using versionPO.sty
+%\includeversion{notes}		% Include notes?
+%%\excludeversion{notes}
+%\excludeversion{comment}
+%\includeversion{links}          % Turn hyperlinks on?
+%\excludeversion{submit}		% Format for conference submission?
+%\includeversion{toc}		% Include table of contents?
+%%\graphicspath{{./Results1-Perihelionadvance}}
+%
+%% Turn off hyperlinking if links is excluded
+%\iflinks{}{\hypersetup{draft=true}}
+%
+%% Notes options
+%\ifnotes{%
+%\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+%\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+%}{%
+%\usepackage[margin=1in]{geometry}%
+%\usepackage[disable]{todonotes}%
+%}
+%
+%% Allow todonotes inside footnotes without blowing up LaTeX
+%% Next command works but now notes can overlap. Instead, we'll define 
+%% a special footnote note command that performs this redefinition.
+%%\renewcommand{\marginpar}{\marginnote}%
+%
+%% Save original definition of \marginpar
+%\let\oldmarginpar\marginpar
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+%% Packages included specifically for this document.
+%\usepackage{texintro}           % Document-specific definitions
+%\usepackage{tocvsec2}           % More flexible formatting of table of contents
+%\usepackage{bibentry}           % Print full citation in text
+%\nobibliography*                                % Allow use of \bibentry command
+%\usepackage{tikz}             % Already included by todonotes
+%\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+%                                           % allow enumitem to work.
+%
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%% If you're including tocvsec2, do so before this command.
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+%
+%% Number paragraphs and subparagraphs and include them in TOC
+%%\setcounter{tocdepth}{2}
+%
+%\usepackage[affil-it]{authblk} 
+%\usepackage{etoolbox}
+%\usepackage{titlesec}
+%
+%\setcounter{secnumdepth}{4}
+%
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%
+%
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+%\def\bean{\begin{eqnarray*}}
+%\def\eean{\end{eqnarray*}}
+%\def\cd{\cdot}
+%\def\vp{\varphi}
+%\def\l {\langle}
+%\def\re {\rangle}
+%\def \dd {\partial}
+%\def \ra {\rightarrow}
+%\def \la {\lambda}
+%\def \La {\Lambda}
+%\def \De {\Delta}
+%\def \DH {\Delta_{\rm HI}}
+%\newcommand{\de}{\delta}
+%\def \b {\beta}
+%\def \al {\alpha}
+%\def \ka {\kappa}
+%\def \Ga {\Gamma}
+%\def \ga {\gamma}
+%\def \si {\sigma}
+%\def \Si {\Sigma}
+%\def \ep {\epsilon}
+%\def \om {\omega}
+%\def \Om {\Omega}
+%\def \lap {\triangle}
+%\def \ep {\epsilon}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Special definitions for this paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newcommand{\MyRed}{\color [rgb]{0.8,0,0}}
+%\newcommand{\MyGreen}{\color [rgb]{0,0.7,0}}
+%\newcommand{\MyBlue}{\color [rgb]{0,0,0.8}}
+%\newcommand{\MyBrown}{\color [rgb]{0.8,0.4,0.1}}
+%\newcommand{\MyPurple}{\color [rgb]{0.6,0.0,0.6}}
+%\def\GV#1{{\MyRed [GV: #1]}}
+%\def\RD#1{{\MyGreen [RD:  {\tt #1}]}} 
+%\def\RDt#1{{\MyGreen #1}}   
+%\def\GM#1{{\MyBlue [GM: #1]}}  
+%\def\GF#1{{\MyPurple [GF: #1]}}    
+%
+%
+%
+%\newcommand{\ie}{\emph{i. e.}}
+%\newcommand{\cf}{\emph{cf.}}
+%\newcommand{\etal}{\emph{et al.}\xspace}
+%\newcommand{\eg}{\emph{e. g.}}
+%
+%\newcommand{\Scal}{\mathcal S}
+%\newcommand{\DD}{\mathcal D}
+%\newcommand{\EE}{\mathcal E}
+%\newcommand{\MM}{\mathcal M}
+%\newcommand{\HH}{\mathcal H}
+%
+%\newcommand{\Real}{\mathbb{R}}
+%\newcommand{\bn}{\boldsymbol{n}}
+%\newcommand{\bv}{\boldsymbol{v}}
+%\newcommand{\bx}{\boldsymbol{x}}
+%\newcommand{\bnabla}{\boldsymbol{\nabla}}
+%\newcommand{\bell}{\boldsymbol{\ell}}
+%\newcommand{\bal}{\boldsymbol{\alpha}}
+%
+%
+%
+%
+%
+%%\usepackage{lmodern}
+%%\renewcommand\Authfont{\fontsize{12}{14.4}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%%\renewcommand\Authfont{\fontsize{12}{15}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{11}\itshape}
+%\definecolor{astral}{RGB}{46,116,181}
+%%\subsectionfont{\color{astral}}
+%%\sectionfont{\color{astral}}
+%%\usdate{17 May}                         % Use usual LaTeX date layout
+%
+%%\title{\color{BlueViolet}\Huge{On the accuracy of approximated geodesic equations and different potentials with different numerical methods } }
+%\title{\color{BlueViolet}\Huge{Just part of Report which should be added to the original version-Poisson and $\Phi'$}}
+%%%\vskip 2em
+%\author{Farbod Hassani}
+%%\thanks{Email:\href{mailto:farbod.hassani@unige.ch}{{farbod.hassani@unige.ch}}}  \thanks{Homepage: \href{http://www.farbod-hassani.com}{farbod-hassani.com}}}
+%%\affil{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%
+%%{farbod-hassani.com}} }
+%%\newcommand*{\TitleFont}{%     \usefont{\encodingdefault}{\rmdefault}{b}'%     \fontsize{18}{16}%    \selectfont}
+%%\title{\TitleFont Halo finder}
+%%\author[1]{{Farbod Hassani} \thanks{ \url{farbod.hassani@gmail.com}
+%%}
+%%\thanks{farbod-hassani.com}}
+%%\author[2]{Author E\thanks{E.E@university.edu}}
+%%\affil[1]{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%%\emailAdd{farbod.hassani@gmail.com}
+%%\affil[2]{Department of Mechanical Engineering, \LaTeX\ University}
+%      %\begin{abstract}
+%%This is abstract text: This simple document shows very basic features of \LaTeX{}.
+%%\lstset { %
+%%    language=C++,
+%%    %backgroundcolor=\color{black!5}, % set backgroundcolor
+%%    basicstyle=\footnotesize,% basic font settings
+%%}
+%\begin{document}
+%  \maketitle
+%  
+%  
+%
+%
+
+
+\section{$\Psi'$ comparison in Gevolution and other codes}
+\subsection{Equation for $\Phi'$ in class} In Class 
+we want to add a new equation for $\Phi'$ since Gevolution does not give the right solution in high k, which is maybe because of noises ?!..\\
+We add the below equation which is $0i$ Einstein equation in conformal Newtonian gauge, eq 23.b of \url{https://arxiv.org/pdf/astro-ph/9506072.pdf}
+\be
+\Phi'=-\mathcal{H} \Psi+ \sum _i\frac{4 \pi G a^2 (\bar{\rho_i} + \bar{P_i}) \theta_i}{k^2}
+\ee
+How to implement it in Gevolution?!\\
+We have,
+\be
+ (\bar{\rho} + \bar{P}) \theta =  \nabla_i T_0^i = i k^j T_j^0
+\ee
+But again we need the derivative of $T_0^i$ which is the same issue as $\Phi'$ instead we use $(00)$ Einstein equation, eq. 23a of \url{https://arxiv.org/pdf/astro-ph/9506072.pdf}
+\be
+\Phi'=-\mathcal{H} \Psi - \sum _i\frac{3 \delta_i} {2}
+\ee
+Actually in matter dominated universe the first order term vanishes, so class and Gevolution mismatch even in high redshift! so we need to check $\dot{\Psi}$ in Gevolution compared with second order perturbation theory.
+Actually in class it is non-zero because of the effect of radiation while in Gevolution its because of Riess Sciama effect (probably), so implementing the class formula is of course useless since we need to calculate $\Phi$ and $\Phi'$ from stress tensor.
+
+
+\subsection{Comparing the $\Psi'$ in Gevolution with Riess Sciama effect at redshift 50.}
+In matter dominated universe ${\Phi'}$ vanishes in linear order. Next order contribution would be,
+\be
+{\Phi'} = -\frac{3 H_0^2 }{2 k^2} {a'} \delta_2
+\ee
+where $\delta= a \delta_1 +a^2 \delta_2 $.
+\be
+\delta_2 (\vec{k}) = \int d^3 {q_1} \int d^3{q_2 } \;  \delta_D(\vec{k}-\vec{q_1}-\vec{q_2}) \;  F_2(\vec{q}_1 , \vec{q}_2)  \; \delta_1 (|\vec{q}_1|) \, \delta_1(|\vec{q}_2|)
+\ee
+\be
+F_2(\vec{q}_1,\vec{q}_2)= \frac{5}{7} + \frac{1}{2} \frac{\vec{q}_1 . \vec{q}_2}{q_1 q_2} \Big ( \frac{q_1}{q_2} + \frac{q_2}{q_1} \Big) + \frac{2}{7} \frac{(\vec{q}_1 .\vec{q}_2)}{q_1^2 q_2^2}
+\ee
+So we obtain,
+\be
+P_{{\Phi'} }=  \frac{9}{4} (\frac{H_0}{k} )^4 {a'}^2 \; P_{22}
+\ee
+\be
+P_{22} (k) = \int d^3 {q} P_{\delta} ({q}) P_{\delta} (|\vec{k}-\vec{q}|) \; F_2^2(\vec{q} , \vec{k} - \vec{q})
+\ee
+We  use the Growth factor,
+\be
+D^{+}= H(a) \frac{5 \Omega_m}{2} \int \frac{d \,a}{a^3 H(a)}
+\ee
+and physical Hubble ,
+\be
+H(a)=\sqrt{\Omega_m a^{-3} + (1-\Omega_m- \Omega_{\Lambda}-\Omega_{kess}) a^{-2}+ \Omega_{kess}^{-3(1+w)}+\Omega_{\Lambda}}
+\ee
+To make dimensionless quantity we have:
+\be
+P_{{\frac{\Phi'}{\mathcal{H}}} }=  \frac{9}{4} (\frac{H_0}{k} )^4 {a}^2 \; P_{22} (a)/a^4
+\ee
+Note that if the growth factor is included in the power we need to divide everything by $a^4$ since according to definition we have excluded time evolution of $\delta$ when we wrote $a\delta_1 + a^2 \delta_2$
+where $[  P_{{\frac{\Phi'}{\mathcal{H}}} }]=[P_{22}]= L^3$ and to make dimensionless powerspectrum we have $\mathcal{P}_{{\frac{\Phi'}{\mathcal{H}}} } =  k^3 P_{{\frac{\Phi'}{\mathcal{H}}}}/2 \pi^2 $. \\
+What we are going to compare:
+\be
+\mathcal{P}_{\frac{\Phi'}{\mathcal{H}(a)}} (class)= \mathcal{R} ^2 \Big( \frac{\Phi'_{class}}{\mathcal{H}(a) \mathcal{R}} \Big)^2= A_s  \Big( \frac{k}{k_p} \Big)^{n_s-1} \; (\frac{\Phi'}{\mathcal{H} \mathcal{R}})^2
+\ee
+\be
+\mathcal{P}_{\Phi'/\mathcal{H}} (Gevolution) = \text{output}
+\ee
+\be
+P_{{\frac{\Phi'}{\mathcal{H}}} } (\text{Riess-Sciama})=  \frac{9}{4} (\frac{H_0}{k h} )^4 {a}^2 \; P_{22}(a)/a^4
+\ee
+Since the unit of $P_{22}$ is $L^3/h^3$ to get dimensionless powerspectrum we have,
+\be
+\mathcal{P}_{{\frac{\Phi'}{\mathcal{H}}} } (\text{Riess-Sciama}) = k^3 P_{{\frac{\Phi'}{\mathcal{H}}} } (\text{Riess-Sciama}) /2 \pi^2
+\ee
+and $k=h/Mpc$ \\
+The pyhton code for the way we calculate it:
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+# Parameters for converting to dimensionless power.
+As=2.19*10**-9;
+h=0.67556
+kp=0.05/h; 
+ns=0.96;
+cs2=1.e-6;
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-1;h=0.67556;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3*(1+w))))*a
+a50=1./(1.+50.);
+pow_phi_prime_Riess_Sciama= a50**2 * ((P_22_power[:,0])**3/(2*np.pi**2))  * P_22_power[:,2]*(9./4.)*(Hubble_conf_Mpc(1.)/P_22_power[:,0]*h)**4
+
+# Class power!
+classpower_phi_prime_z50=As*((class_phi_z50[:,2])**2)*((class_phi_z50[:,0]/(kp*h))**(ns-1.));
+
+classpower_phi_z50=As*((class_phi_z50[:,3])**2)*((class_phi_z50[:,0]/(kp*h))**(ns-1.));
+plt.plot(Gev_power_phi_prime[:,0]*h,Gev_power_phi_prime[:,1] ,color="blue",linestyle='dashed',lw=1.5,label=r"$\Phi'$/H  Gev z=50")
+##############################
+plt.plot(class_phi_z50[:,0],classpower_phi_prime_z50[:] ,color="red",linestyle='dashed',lw=1.5,label=r"$\Phi'$/H class, z=50 ")
+
+\end{lstlisting}
+\begin{figure}[H]
+ \includegraphics[scale=0.5]{compI.jpg} 
+ \end{figure}
+ \subsubsection{Make the same plot at z=0 {\color{red} TODO:}} 
+ Since at high redshifts early ISW effect is dominated, the Riess sciama from second order perturbation theory does not agree with the Gevolution plot which probably because of radiation effect. So if we make the same plot at lower redshifts like 0 we can decide better!
+ %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\subsection{Comparing $P_{22}$ from different codes!}
+We are going to compare $P_{22}$ from Joyce code and Eichiro Kumatsu's. It seems they more or less agree! \\
+
+\begin{figure}[H]
+ \includegraphics[scale=0.5]{one_loop_comp} 
+ \end{figure}
+\subsection{Comparing $\dot{\Phi}$ in Gevolution with Gadjet code!}
+Gadget does not give nor $\Phi$ neither $\delta_m$ power as the output!
+\subsection{Test of Gevolution when we add $\Psi' d\tau$ to $\Psi_{ini}$ to get the final value in class and Gevolution  }
+What we are going to do is comparing $\Phi(z=50)$ with $\Phi(z=90) + \Phi'(z=90) \times d \tau = \Phi(z=90) + \Phi'(z=90) \times \frac{1}{da /d\tau} \frac{da}{dz} dz = \Phi(z=90) - \Phi'(z=90)/\mathcal{H} \times a \Delta z $ and $\Phi'/\mathcal{H}$ is defined in the Gevolution!
+\begin{figure}[H]
+ \includegraphics[scale=0.5]{compII.jpg} 
+ \end{figure}
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{comp_class_gev.jpg} 
+ \end{figure}
+ -arXiv:0809.4488v3 [astro-ph] Try to compare Gadjet and Gevolutiion and the plot in the paper! \\
+ -Check thet if we give $\Phi'$ from Gev we get the same solution in Gevolution and Mathematica!
+ \\
+  add the plots in mathematica which we get the same result in class and GEv and from solving myself when we turn off $\Phi'$ . \\
+- Use the small quantity $\pi'+ \mathcal{H} \pi -\Psi$ as a  new variable with $\pi$ or $\pi'$ which we know that works well, \\
+Maybe we need to switch bot $\pi$ and $\pi'$ to $\delta$ and $\theta$. Now we have accurate Stress tensor, and we can compare,
+\subsection{Trying to get $\Phi'$ from second order codes}
+Up to now I have tried to understand what is going on the Ramses and Gadget2 code, but although the documentations are good but is not so useful for cosmological applications like how to get powerspectrum of potential or even matter?! Even after searching the word power, nothing is mentioned in the documentation how to get power as an output!! \\ 
+Now I'm going to try other cosmological codes like L-PCola to see if I can obtain what I want? L-PCola was the same. Now I'm gonna try FastPM which seems better! Or I can try also Pcola not L-Pcola! Lets see!
+\subsubsection{FastPM}
+FastPM is a N-body code. From the docs: FastPM solves the gravity Possion equation with a boosted particle mesh. Arbitrary
+time steps can be used.  
+The code is indented to study the formation of large scale structure. \\In addition to the snapshots, FastPM calculates and writes
+the power-spectrum at each time step. \\
+I get some library errors when I make the makefile which after some tries I could not solve! Maybe it is better to try another code and if I could not use them come back to this code!
+
+\subsubsection{L-PICOLA}
+I could run it but it does not give the potential powerspectrum directly! So it is not useful for us! We can use it for fast N-body simulation...
+\subsubsection{Going to second order Boltzmann codes}
+As we realized that the radiation is not implemented in the N-body codes like RAMSES or Gadget-2 and also ISW effect is really relavant at high redshift ($z \sim 50$) as we see the effect in class, because $\Phi'$ is not zero and it is because of radiation! Moreover these N-body codes do not give matter power or $\Phi$ power to compare with Gevolution. \\
+It turn out that the best way is to catch all the ISW and Riess Sciama effect is that we obtain matter power in these codes in two near redshifts and compute $\Phi$ power from Poisson equation and then by subtracting them get $\Phi'$ and then compare with $\Phi'$ in class and the same way in  Gevolution. to see what happens! \\
+Moreover we need to change equation to two other variables which catch the smallness of $\pi'-\Psi$ well from the begining.
+ %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\subsection{Comparing $\Phi'$ in class and Gevolution in much larger scales!}
+Since the plot which shows tension between class and Gevolution is sketched for high wavenumbers which does not show if class and Gevolution agree on larger scales (more linear part), now we want to compare then in much larger scales (large boxsize)!
+As you can see from the three below plots, there is a big tension between class and Gevolution!! Although we cannot see the effect on the potential power, it is very clear in $\Phi'/H$ power!
+We have also checked that $\Phi'$ power is stable under change of time stepping, moreover in some previous chapters we also checked that it is really what it is by adding $\Phi'$ to $\Phi_{ini}$ and getting $\Phi_{f}$! {\color{red} Is it early ISW effect?!}
+So here we need to prove that Gevolution result is correct!?
+
+
+\begin{figure}[H]
+ \includegraphics[scale=0.35]{./phi_prime_results/comp_new.jpg} 
+ \end{figure}
+
+ \begin{figure}[H]
+ \includegraphics[scale=0.2]{./phi_prime_results/comp1.jpg} 
+ \end{figure}
+ \begin{figure}[H]
+ \includegraphics[scale=0.2]{./phi_prime_results/comp2.jpg} 
+ \end{figure}
+
+
+\subsection{Matter power and $\Phi$ power in Gevolution and class via Poisson equation: ({\color{red} Recheck!})}
+Now we want to first show that if we use Poisson equation we can relate $\delta$ power to $\Phi$ power in Gevolution and class,
+\be
+- k^2 \Psi = 4 \pi G \rho_m \delta_m a^2
+\ee
+where $m$ refers to the matter but everything which clusters should be considered in RHS of Poisson equation, \\
+which results,
+\be
+\mathcal{P}_{\Psi}=\frac{ 16 \pi^2 G^2  \rho_m^2 \mathcal{P}_{\delta}}{k^4 (1+z)^2}
+\ee
+Moreover we have $\rho_m=\rho_m(0) /a^3$ and $4 \pi G \rho_{cr} =(3/2) {H_0}^2 $, so we have  $4 \pi G  \rho_m a^2 = 4 \pi G  \frac{\rho_m (a)}{\rho_{cr} (0)} \rho_{cr} (0) a^2 = 4 \pi G  \frac{\Omega_m (0) a^{-3} \rho_{cr}}{\rho_{cr} (0)} \rho_{cr} (0) a^2= (3/2) {H_0}^2   {\Omega_m (0) a^{-3} }  a^2 = ( 3/2) \mathcal{H}_0^2 \Omega_m (0) /a $ which gives,
+\be
+\mathcal{P}_{\Psi}=\frac{ 9  \mathcal{H}_0 ^4  \Omega_{m,0}^2  \mathcal{P}_{\delta}}{ 4 a^2 k^4}
+\ee
+So we compare $\mathcal{P}_{\Psi}$ from Poisson equation obtained from $\mathcal{P}_{\delta}$ with $\mathcal{P}_{\Psi}$ directly from Gevolution. Note that $\mathcal{H}$ and k must be in the same unit.
+  
+Again we see the tension in the class as well.  but why?! {\color{red}{Strange?!}}
+So we compare $\mathcal{P}_{\Psi}$ from Poisson equation obtained from $\mathcal{P}_{\delta}$ with $\mathcal{P}_{\delta}$ directly from Gevolution. Note that $\mathcal{H}$ and k must be in the same unit.
+\\
+Comparing the class $\Phi$ directly from transfer function and what we get from Poisson equation  according to the below Python script,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-1.;h=0.7;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=0.30; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3.*(1.+w))))*a
+# Class power!
+h=0.7;
+Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+Omega_m=0.3;
+a100=1./(1.+100.)
+a10=1./(1.+10.)
+a1=1./(1.+1.)
+a0=1./(1.+0.)
+#phi from Poisson equation: 
+As=2.3e-9;
+w=-1.
+# h=0.67556
+kp=0.05/h; 
+ns=1.;
+# cs2_e3=1.e-6;
+#################################
+#Plotting
+plt.figure(figsize=(20,12))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+#Making power of class field to compare with Gev. dimensionless power of phi from matter power!
+phi_class_poisson_z100= (9./4.)* (Omega_m/a100)**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)* ((class_pow_z100[:,0])**3/(2.*np.pi**2)) * class_pow_z100[:,1]/((class_pow_z100[:,0]*h)**4)
+phi_class_poisson_z10= (9./4.)* (Omega_m*(a10**-1))**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)* ((class_pow_z10[:,0])**3/(2.*np.pi**2)) * class_pow_z10[:,1]/((class_pow_z10[:,0]*h)**4)
+phi_class_poisson_z1= (9./4.)* (Omega_m*(a1**-1))**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)* ((class_pow_z1[:,0])**3/(2.*np.pi**2)) * class_pow_z1[:,1]/((class_pow_z1[:,0]*h)**4)
+phi_class_poisson_z0= (9./4.)* (Omega_m*(a0**-1))**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)* ((class_pow_z0[:,0])**3/(2.*3.1415**2)) * class_pow_z0[:,1]/((class_pow_z0[:,0]*h)**4)
+
+power_class_z100_direct= As*(class_all_z100[:,6])**2*((class_all_z100[:,0]/kp)**(ns-1.));
+power_class_z10_direct= As*(class_all_z10[:,6])**2*((class_all_z10[:,0]/kp)**(ns-1.));
+power_class_z1_direct= As*(class_all_z1[:,6])**2*((class_all_z1[:,0]/kp)**(ns-1.));
+power_class_z0_direct= As*(class_all_z0[:,6])**2*((class_all_z0[:,0]/kp)**(ns-1.));
+
+power_class_z100_poisson= As*phi_class_poisson_z100*((class_pow_z100[:,0]/kp)**(ns-1.));
+power_class_z10_poisson= As*phi_class_poisson_z10*((class_all_z10[:,0]/kp)**(ns-1.));
+power_class_z1_poisson= As*phi_class_poisson_z1*((class_all_z1[:,0]/kp)**(ns-1.));
+power_class_z0_poisson= As*phi_class_poisson_z0*((class_all_z0[:,0]/kp)**(ns-1.));
+plt.loglog(class_all_z100[:,0],np.abs(phi_class_poisson_z100[:]-power_class_z100_direct[:])/(power_class_z100_direct[:]) ,color="red",linestyle='dashed',lw=1.5,label=r"$\Delta \mathcal{P}_\Phi/\mathcal{P}_\Phi$ class, z=100")
+plt.loglog(class_all_z100[:,0],np.abs(phi_class_poisson_z10[:]-power_class_z10_direct[:])/(power_class_z10_direct[:]) ,color="blue",linestyle='dashed',lw=1.5,label=r"$\Delta \mathcal{P}_\Phi/\mathcal{P}_\Phi$ class, z=10")
+plt.loglog(class_all_z100[:,0],np.abs(phi_class_poisson_z1[:]-power_class_z1_direct[:])/(power_class_z1_direct[:]) ,color="black",linestyle='dashed',lw=1.5,label=r"$\Delta \mathcal{P}_\Phi/\mathcal{P}_\Phi$ class, z=1")
+plt.loglog(class_all_z0[:,0],np.abs(phi_class_poisson_z0[:]-power_class_z0_direct[:]*1.2)/(power_class_z0_direct[:]*1.2) ,color="purple",linestyle='dashed',lw=1.5,label=r"$\Delta \mathcal{P}_\Phi/\mathcal{P}_\Phi$ class, z=0"
+\end{lstlisting}
+
+We get the below results which shows that something goes wrong.
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{Class_Poisson.jpg} 
+ \end{figure}
+  \begin{figure}[H]
+ \includegraphics[scale=0.2]{Class_Gev_Poisson.jpg} 
+ \end{figure}
+As it is clear in the figure in low redshifts in class and z=0 in Gevolution we have about $10\%$ error (?) and in $z=0$ {\color{red}{Strange?!}}
+In the Gevolution also according to below python script, we get the related plot,
+\begin{lstlisting}[language=Python, basicstyle=\tiny]
+def Hubble_conf_Mpc(a):
+#     H0=0.00022593979933110373
+    w=-1;h=0.67556;c=2.9992458*10**5;
+    H0=100.*h/c
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3.*(1.+w))))*a
+# Class power!
+# Formula= P_phi= 9 H0^4 Omega_0^2 P_delta /4a^2 k^4
+a50=1./(1.+49.333442);
+a0=1./(1-0.000995);
+Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+Omega_m=Omega_b+Omega_cdm;
+#phi from Poisson equation: 
+phi_poisson_z50= (9./4.) * (Omega_m*(a50**-1))**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)*deltam_gev_pow_z50[:,1]/((deltam_gev_pow_z50[:,0]*h)**4)
+phi_poisson_z0= (9./4.) * (Omega_m*(a0**-1))**2 * (Hubble_conf_Mpc(1./(1.+0.0))**4)*deltam_gev_pow_z0[:,1]/((deltam_gev_pow_z0[:,0]*h)**4)
+plt.loglog(phi_gev_pow_z50[:,0],np.abs(phi_poisson_z50[:]-phi_gev_pow_z50[:,1])/(phi_gev_pow_z50[:,1]) ,color="blue",linestyle='dashed',lw=1.5,label=r"$\Delta \mathctal{P}_\Phi/\mathcal{P}_\Phi (gev)  $ Gev, z=50")
+plt.loglog(phi_gev_pow_z0[:,0],np.abs(phi_poisson_z0[:]-phi_gev_pow_z0[:,1])/(phi_gev_pow_z0[:,1]) ,color="red",linestyle='dashed',lw=1.5,label=r"$\Delta \mathcal{P}_\Phi/\mathcal{P}_\Phi (gev)  $ Gev, z=0")
+#################################
+plt.legend(bbox_to_anchor=(0.0, 0.15, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+# plt.title('tiling factor=512, N_grid=2048, boxsize =1400.0, time step limit=0.04')
+plt.xlabel("k[1/Mpc]",fontsize=14)
+plt.ylabel(r"$|\Delta \Phi|/\Phi$",fontsize=23)
+plt.grid(True)
+plt.savefig('Gev_Poisson.jpg', format='jpg', dpi=500)
+plt.show()
+\end{lstlisting}
+\begin{figure}[H]
+ \includegraphics[scale=0.4]{Gev_Poisson_newrun.jpg} 
+ \end{figure}
+ \subsection{Results for the relatively big run and comparison between class and Gevolution vs plot in the arXiv:0809.4488v3 paper! }
+Now we are going to compare the result of the paper (in the below figure) with the one we get from class and Gevolution at the same redshifts. To make Class power at the desired redshift we need to first ask class for the mentioned redshifts as following in the C code in the source/perturbation.c in the Newtonian gauge part,
+\begin{figure}[H]
+ \includegraphics[scale=0.9]{Comp_paper.jpg} 
+ \end{figure}
+\begin{lstlisting}[language=C, basicstyle=\tiny]
+//*********************************
+      //Kessence field part is added here
+      //*********************************
+      // Printing the fields
+
+      if (fabs(a-1./(1+50.))<0.0008 || fabs(a-1./(1+10.))<0.005  || fabs(a-1./(1+6.))<0.008  || fabs(a-1./(1+4.))<0.008  || fabs(a-1./(1+2.))<0.008  || fabs(a-1./(1+1.))<0.008 || fabs(a-1./(1+0.))<0.008)
+      {
+      //  /**K is 1/Mpc */
+        if( k<15. )
+        {  
+           FILE * out1=fopen("./output/Kessence_field_class_phi_prime.dat","a");
+          fprintf(out1,"%e\t %e\t %e\t %e\t %e\t \n",k, a ,ppw->pvecmetric[ppw->index_mt_phi_prime]/a_prime_over_a, ppw->pvecmetric[ppw->index_mt_psi] ,a_prime_over_a/pba->H0 );
+          fclose(out1);
+          }
+       }
+      //*********************************
+      //Kessence field part is ended here
+      //*********************************
+
+\end{lstlisting}
+which we asked for couple of redshifts and by setting the parameters 
+\begin{lstlisting}[language=C, basicstyle=\tiny]
+P_k_max_1/Mpc = 10, 
+k_scalar_k_per_decade_for_pk=40
+\end{lstlisting}
+ we ask for more number of wavenumber sampling, then by compiling,
+ \begin{lstlisting}[language=bash, basicstyle=\tiny]
+make clean
+make
+./class filename.ini
+\end{lstlisting}
+Then we need to separate the different redshifts and make different files for them, to do we use the following python script,
+\begin{lstlisting}[language=C, basicstyle=\tiny]
+......
+\end{lstlisting}
+Before that we want to compare the Gevolution with Non-linear result of the paper. In the paper the following quantity is reported,
+\be
+\Delta ^2(k) = k^3 \mathcal{P}_{\dot{\Phi} \dot{\Phi}} /2 \pi^2 = \frac{ k^3 P_{\dot{\Phi} \dot{\Phi}} }{2 \pi^2 \times 9 (H_0/k)^4 \Omega_m(0)^2/4}  = \frac{ k^3 (2 \pi)^{-3}  \langle \dot{\Phi}  \dot{\Phi}^* \rangle }{2 \pi^2 \times 9 (H_0/k)^4 \Omega_m(0)^2/4}
+\ee
+They did not mention in the paper that by $.$ they mean physical time or conformal time, but we take physical which makes more sense according to the formulas. Also one or the author said it is physical time. while in the Gevolution we calculate the following quantity,
+\be
+\mathcal{P}_{\Phi'/\mathcal{H}} (Gevolution) 
+\ee
+So by doing the below operation we get something comparable to their paper,
+\be
+\frac{\mathcal{H}(a) ^2 \mathcal{P}_{\Phi'/\mathcal{H}}(Gev)}{ 9 (H_0/k)^4 \Omega_m(0)^2/4} \approx   \frac{\mathcal{P}_{\Phi'}(Gev) }{ (2\pi)^3 \times 9  (H_0/k)^4 \Omega_m(0)^2/4 }
+\ee
+Since the Gevolution output is dimensionless (for dimensionless fields not $\Phi'$ of course) which means has the conversion factors $k^3/2 \pi^2$ so we just need to play with the fact that their derivatives are physical? and the scaling factor which they have. The cosmology are taken to be the same (which some deviation does not affect too much), moreover note that the power defined in the top formula is not dimensionless any more.  \\The possible factors which can contribute here are, $a^2$ which is because of conformal to physical conversion since it is not completely clear which time they are using in the paper, moreover because of their definition of power  $P_{\dot{\Phi}\dot{\Phi}} = (2 \pi)^{-3}  \langle \dot{\Phi}  \dot{\Phi}^* \rangle $ they might have an extra factor $ (2 \pi)^{-3}$ which should be considered. In the Gevolution the dimensionless power is defined as,
+\be
+4 \pi k^3 \langle \Phi (k,z)\Phi^*(k',z) \rangle = (2 \pi)^3 \delta^{(3)}_D (\vec{k} - \vec{k'}) \mathcal{P}_{\Phi}(k)
+\ee
+while in their paper is,
+\be
+P_{{\Phi} }  (k,z) \delta^3_D(k-k') = (2\pi)^{-3}  \langle {\Phi} (k,z) {\Phi}^*(k',z) \rangle
+\ee
+and then,
+\be
+   \langle {\Phi} (k,z) {\Phi}^*(k',z) \rangle  =   (2 \pi)^3 \delta_D^{(3)} (\vec{k} - \vec{k'}) \mathcal{P}_{\Phi}(k) \times 2 \pi^2/k^3 
+   \ee
+   If we write it like the Gevolution paper,
+   \be
+     \frac{k^3}{2 \pi^2} \langle {\Phi} (k,z) {\Phi}^*(k',z) \rangle  =   (2 \pi)^3 \delta_D^{(3)} (\vec{k} - \vec{k'}) \mathcal{P}_{\Phi}(k)
+   \ee
+   To write it in a comprehensive way we have,
+     \be
+   \frac{\mathcal{P}_{\text{Gev}} }  {\mathcal{P}_{\text{paper} } } = \frac{4 \pi k^3 \langle \Phi (k,z)\Phi^*(k',z) \rangle / (2 \pi)^3 \delta^{(3)}_D (\vec{k} - \vec{k'}) }{ \frac{k^3}{2 \pi^2} \langle {\Phi} (k,z) {\Phi}^*(k',z)/ (2 \pi)^3 \delta_D^{(3)} (\vec{k} - \vec{k'})} = \frac{4 \pi }{ 1/{2 \pi^2} } =  8 \pi^3
+   \ee
+   The top relation is just the difference on the convections! \\
+ These definitions in the paper absolutely does not make sense, since the conversions no more make the power dimensionless! but anyway if we accept it just as a definition (which might be affected by the crazy units of their N-body code), we have
+\be
+\Delta_{Gev}^2=\frac{ \mathcal{P}_{\dot{\Phi}(Gev)}} { 8 \pi^3 \times 9 (H_0/k)^4 \Omega_m(0)^2/4}=   \frac{\mathcal{P}_{{\Phi'}}(Gev) }{8 \pi^3 \times 9  a^2 (H_0/k)^4 \Omega_m(0)^2/4} = \frac{\mathcal{H}(a) ^2 \mathcal{P}_{\Phi'/\mathcal{H}}(Gev)}{ 8 \pi^3 \times 9 a^2 (H_0/k)^4 \Omega_m(0)^2/4} 
+\ee
+We  believe that after these operations we get the same power as $\Delta^2$ in the paper. The result from the class and Gevolution which follows from the python script as following,
+\begin{lstlisting}[language=C, basicstyle=\tiny]
+# The Hubble factor is calculated by paper's parameters!
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-1.;h=0.7;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    c=299792.458 
+    Omega_m=0.25; Omega_Lambda=0.75;
+#     Omega_rad=9.16681e-05
+    Omega_Lambda=1.-Omega_m;
+    return 100.*h/c*np.sqrt(Omega_m*(a**-3)+Omega_Lambda)*a
+# H0=0.00022593979933110373;
+Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+Omega_m0=0.25;
+#Class z=6
+#########
+#########
+As=2.19*10**-9;
+h=0.67556
+kp=0.05/h; 
+ns=0.96;
+cs2=1.e-6;
+factor_convention=8. * np.pi**3; # 8 pi^3 comes from different definition of powers!
+Class_z6=class_phi_prime_z6[:,2]*Hubble_conf_Mpc(a6); #phi' which in class
+# Class power!
+factor_class=(9./4.)* (Omega_m0)**2 * (Hubble_conf_Mpc(1./(1.+0.0))/class_phi_prime_z6[:,0])**4;
+classpower_phi_prime_z6=As*((Class_z6[:])**2)*((class_phi_prime_z6[:,0]/(kp*h))**(ns-1.))/(factor_class)/factor_convention;
+#########
+#########
+#Class z=0
+#########
+#########
+As=2.19*10**-9;
+h=0.67556
+kp=0.05/h; 
+ns=0.96;
+cs2=1.e-6;
+Class_z0=class_phi_prime_z0[:,2]*Hubble_conf_Mpc(a0); #phi'
+# Class power!
+factor_class_z0=(9./4.)* (Omega_m0)**2 * (Hubble_conf_Mpc(1./(1.+0.0))/class_phi_prime_z0[:,0])**4;
+classpower_phi_prime_z0=As*((Class_z0[:])**2)*((class_phi_prime_z0[:,0]/(kp*h))**(ns-1.))/(factor_class_z0)/factor_convention;
+#########
+#########
+#Make the same quantity as their in the paper: we need to also multiply to a^2 to make it derivative wrt physical time!
+#Since in Gevolution we have Power_\Phi_prime/H
+# z=6
+a6=1./(1.+6.);
+# Gev power z=6 
+Phi_prime_Gev_z6_1=phi_prime_gev_pow_z6[:,1]*Hubble_conf_Mpc(a6)**2; # Gev \Phi_prime power!
+factor_I=(9./4.)* (Omega_m0)**2 * (Hubble_conf_Mpc(1./(1.+0.0))/phi_prime_gev_pow_z6[:,0]/h)**4; # Factor chosen in the paper
+Phi_prime_Gev_z6=Phi_prime_Gev_z6_1[:]/(factor_I)/factor_convention;
+#z=0
+a0=1./(1.+0.)
+Phi_prime_Gev_z0_1=phi_prime_gev_pow_z0[:,1]*Hubble_conf_Mpc(a0)**2;
+factor=(9./4.)* (Omega_m0)**2 * (Hubble_conf_Mpc(1./(1.+0.0))/phi_prime_gev_pow_z0[:,0]/h)**4;
+Phi_prime_Gev_z0=Phi_prime_Gev_z0_1/(factor)/factor_convention;
+#################################
+#Plotting
+plt.figure(figsize=(20,12))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+plt.plot(phi_prime_gev_pow_z6[:,0],Phi_prime_Gev_z6[:],color="red",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ Gev, z=6, Gevolution")
+# plt.plot(phi_prime_paper_z6[:,0],phi_prime_paper_z6[:,1],color="Purple",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ , z=6, Paper")
+plt.loglog(phi_prime_paper_z6_2[:,0],phi_prime_paper_z6_2[:,1],color="Purple",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ , z=6, Paper")
+plt.plot(class_phi_prime_z6[:,0]/h,classpower_phi_prime_z6[:] ,color="Blue",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ class, z=6")
+#We have multiplied to a^2 to make the power of phi_dot since it is the quantity in the paper!
+
+plt.loglog(phi_prime_gev_pow_z0[:,0],Phi_prime_Gev_z0[:],color="black",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ Gev, z=0, Gevolution")
+plt.loglog(class_phi_prime_z0[:,0]/h,classpower_phi_prime_z0[:] ,color="green",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ class, z=0")
+# plt.loglog(phi_prime_paper_z0[:,0],phi_prime_paper_z0[:,1] ,color="magenta",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ , z=0, Paper")
+plt.loglog(phi_prime_paper_z0_2[:,0],phi_prime_paper_z0_2[:,1] ,color="magenta",linestyle='dashed',lw=1.5,label=r"$\Delta^2$ , z=0, Paper")
+#################################
+#################################
+plt.legend(bbox_to_anchor=(0.7, 0.25, 0.3, .102), loc=1,ncol=1,fontsize=13, mode="expand", borderaxespad=0.)
+plt.xlim(5.e-3,10.e0)
+plt.yscale("log")
+plt.xscale("log")
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\Delta^2$ ",fontsize=23)
+plt.grid(True)
+plt.savefig('Comp_N_0.jpg', format='jpg', dpi=300)
+plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+ \includegraphics[scale=0.4]{Comp_N_0.jpg} 
+ \end{figure}
+ \begin{figure}[H]
+ \includegraphics[scale=0.4]{Comp_N_1.jpg} 
+ \end{figure}
+ Just some notes about the plot: The agreement between Gevolution and class in low k and agreement in shape of the figure (after multiplying to a redshift dependent constant) shows that our results are true! I could not find out why after the computations we do not get the same plot as theirs! Did we miss any coefficients? or they reading out a quantity from the N-body code which is not dimensionless so they are affected by the units of the code?! \\
+ The difference between class and Gevolution at low k comes from the different cosmology, which was the same thing in Poisson equation tests, which we got 8$\%$ differences o we are not worried about that part! \\
+ Plus the difference between our plot and their at high k (after matching by a constant) is absolutely because of the fact that their plot is near Nyquist frequency which they are contaminated by the error,
+ {\color{red} The behaviour of the curves are more or less the same but we do not get the right coefficients?}
+ %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\subsection{Comparing obtained $\Phi'$ from full second order matter and Poisson equation at two different redshifts with the one we have obtained from Riess Sciama effect {\color{red} To do!}}
+{\color{red}We still have problems in Poisson equation!}
+ 
+ \subsection{Comparing Riess Sciama from Kumatsu second order to compare $\Phi'$  with our $\Phi'$ {\color{red} To do!}}
+ 
+ 
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+
+%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+
+%\end{document}
+ 

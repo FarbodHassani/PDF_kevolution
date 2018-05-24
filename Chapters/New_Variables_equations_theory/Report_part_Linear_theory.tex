@@ -1,0 +1,1408 @@
+%\documentclass[a4paper,12pt]{article}
+%%% My standard included packages
+%%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+%%             % images in pdf, png or jpg format)
+%%\usepackage{jcappub} % for details on the use of the package, please
+%%                     % see the JCAP-author-manual
+%%\usepackage[T1]{fontenc} % if needed
+%
+%\usepackage{setspace}           % Allows easy changes to line spacing 
+%\usepackage{graphicx}           % Allows including of graphics files
+%\usepackage{amsmath}            % Additional math capabilities
+%\usepackage{marginnote}         % Used with todonotes package
+%\usepackage{datetime}           % Allows formatting of date and time
+%\newcommand {\be}{\begin{equation}}
+%\newcommand {\ee}{\end{equation}}
+%
+%\usepackage{empheq}
+%\usepackage{cancel}
+%\usepackage{etoolbox}
+%
+%
+%\usepackage{enumitem} 
+%\usepackage{color}
+%%Mathematica colors
+%\definecolor{identifiercolor}{rgb}{.4,.6,.56}
+%\definecolor{stringcolor}{gray}{0.5}
+%\definecolor{inactivecolor}{rgb}{0.15,0.15,0.5}
+%\usepackage{listings}
+%%Mathematica
+%\usepackage{listings}
+%\lstset{basicstyle={\footnotesize\def\fvm@Scale{.85}\fontfamily{fvm}\selectfont},
+%  breaklines=true,
+%  escapeinside={\%*}{*)},
+%  keywordstyle={\bfseries\color{inactivecolor}},
+%  stringstyle={\bfseries\color{stringcolor}},
+%  identifierstyle={\bfseries\color{identifiercolor}},
+%  language=Mathematica,
+%  otherkeywords={DiscretizeRegion},
+%  showstringspaces=false}
+%\renewcommand{\lstlistingname}{Listing}
+%
+%
+%
+%
+%\usepackage{amsmath}
+%\usepackage{graphicx}% Use pdf, png, jpg, or epså¤ with pdflatex; use eps in DVI mode
+%\usepackage{caption}
+%\usepackage{subcaption}
+%          % List formatting commands
+%\setlist{noitemsep}             % Remove space between list items 
+%%\usepackage{subfigure}          % Create numbered and captioned subfigures
+%\usepackage{rotating}           % Create landscape tables and figures
+%\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+%\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Orange,citecolor=RedViolet]{hyperref}           % URLS and hyperlinks
+%%\usepackage{hyperref}           % URLS and hyperlinks
+%\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[numbers]{natbib}
+%\usepackage{versionPO}          % Include text conditionally
+%\usepackage{caption}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[nottoc]{tocbibind}
+%\lstset{basicstyle=\ttfamily,
+%  showstringspaces=false,
+%  commentstyle=\color{red},
+%  keywordstyle=\color{blue}
+%}
+%% These next lines allow including or excluding different versions of text
+%% using versionPO.sty
+%\includeversion{notes}		% Include notes?
+%%\excludeversion{notes}
+%\excludeversion{comment}
+%\includeversion{links}          % Turn hyperlinks on?
+%\excludeversion{submit}		% Format for conference submission?
+%\includeversion{toc}		% Include table of contents?
+%%\graphicspath{{./Results1-Perihelionadvance}}
+%
+%% Turn off hyperlinking if links is excluded
+%\iflinks{}{\hypersetup{draft=true}}
+%
+%% Notes options
+%\ifnotes{%
+%\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+%\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+%}{%
+%\usepackage[margin=1in]{geometry}%
+%\usepackage[disable]{todonotes}%
+%}
+%
+%% Allow todonotes inside footnotes without blowing up LaTeX
+%% Next command works but now notes can overlap. Instead, we'll define 
+%% a special footnote note command that performs this redefinition.
+%%\renewcommand{\marginpar}{\marginnote}%
+%
+%% Save original definition of \marginpar
+%\let\oldmarginpar\marginpar
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+%% Packages included specifically for this document.
+%\usepackage{texintro}           % Document-specific definitions
+%\usepackage{tocvsec2}           % More flexible formatting of table of contents
+%\usepackage{bibentry}           % Print full citation in text
+%\nobibliography*                                % Allow use of \bibentry command
+%\usepackage{tikz}             % Already included by todonotes
+%\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+%                                           % allow enumitem to work.
+%
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%% If you're including tocvsec2, do so before this command.
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+%
+%% Number paragraphs and subparagraphs and include them in TOC
+%%\setcounter{tocdepth}{2}
+%
+%\usepackage[affil-it]{authblk} 
+%\usepackage{etoolbox}
+%\usepackage{titlesec}
+%
+%\setcounter{secnumdepth}{4}
+%
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%
+%
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+%\def\bean{\begin{eqnarray*}}
+%\def\eean{\end{eqnarray*}}
+%\def\cd{\cdot}
+%\def\vp{\varphi}
+%\def\l {\langle}
+%\def\re {\rangle}
+%\def \dd {\partial}
+%\def \ra {\rightarrow}
+%\def \la {\lambda}
+%\def \La {\Lambda}
+%\def \De {\Delta}
+%\def \DH {\Delta_{\rm HI}}
+%\newcommand{\de}{\delta}
+%\def \b {\beta}
+%\def \al {\alpha}
+%\def \ka {\kappa}
+%\def \Ga {\Gamma}
+%\def \ga {\gamma}
+%\def \si {\sigma}
+%\def \Si {\Sigma}
+%\def \ep {\epsilon}
+%\def \om {\omega}
+%\def \Om {\Omega}
+%\def \lap {\triangle}
+%\def \ep {\epsilon}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Special definitions for this paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newcommand{\MyRed}{\color [rgb]{0.8,0,0}}
+%\newcommand{\MyGreen}{\color [rgb]{0,0.7,0}}
+%\newcommand{\MyBlue}{\color [rgb]{0,0,0.8}}
+%\newcommand{\MyBrown}{\color [rgb]{0.8,0.4,0.1}}
+%\newcommand{\MyPurple}{\color [rgb]{0.6,0.0,0.6}}
+%\def\GV#1{{\MyRed [GV: #1]}}
+%\def\RD#1{{\MyGreen [RD:  {\tt #1}]}} 
+%\def\RDt#1{{\MyGreen #1}}   
+%\def\GM#1{{\MyBlue [GM: #1]}}  
+%\def\GF#1{{\MyPurple [GF: #1]}}    
+%
+%
+%
+%\newcommand{\ie}{\emph{i. e.}}
+%\newcommand{\cf}{\emph{cf.}}
+%\newcommand{\etal}{\emph{et al.}\xspace}
+%\newcommand{\eg}{\emph{e. g.}}
+%
+%\newcommand{\Scal}{\mathcal S}
+%\newcommand{\DD}{\mathcal D}
+%\newcommand{\EE}{\mathcal E}
+%\newcommand{\MM}{\mathcal M}
+%\newcommand{\HH}{\mathcal H}
+%
+%\newcommand{\Real}{\mathbb{R}}
+%\newcommand{\bn}{\boldsymbol{n}}
+%\newcommand{\bv}{\boldsymbol{v}}
+%\newcommand{\bx}{\boldsymbol{x}}
+%\newcommand{\bnabla}{\boldsymbol{\nabla}}
+%\newcommand{\bell}{\boldsymbol{\ell}}
+%\newcommand{\bal}{\boldsymbol{\alpha}}
+%
+%
+%
+%
+%
+%%\usepackage{lmodern}
+%%\renewcommand\Authfont{\fontsize{12}{14.4}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%%\renewcommand\Authfont{\fontsize{12}{15}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{11}\itshape}
+%\definecolor{astral}{RGB}{46,116,181}
+%%\subsectionfont{\color{astral}}
+%%\sectionfont{\color{astral}}
+%%\usdate{17 May}                         % Use usual LaTeX date layout
+%
+%%\title{\color{BlueViolet}\Huge{On the accuracy of approximated geodesic equations and different potentials with different numerical methods } }
+%\title{\color{BlueViolet}\Huge{Just part of projects which should be added to the original version}}
+%%\vskip 2em
+%\author{Farbod Hassani}
+%%\thanks{Email:\href{mailto:farbod.hassani@unige.ch}{{farbod.hassani@unige.ch}}}  \thanks{Homepage: \href{http://www.farbod-hassani.com}{farbod-hassani.com}}}
+%%\affil{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%
+%%{farbod-hassani.com}} }
+%%\newcommand*{\TitleFont}{%     \usefont{\encodingdefault}{\rmdefault}{b}'%     \fontsize{18}{16}%    \selectfont}
+%%\title{\TitleFont Halo finder}
+%%\author[1]{{Farbod Hassani} \thanks{ \url{farbod.hassani@gmail.com}
+%%}
+%%\thanks{farbod-hassani.com}}
+%%\author[2]{Author E\thanks{E.E@university.edu}}
+%%\affil[1]{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%%\emailAdd{farbod.hassani@gmail.com}
+%%\affil[2]{Department of Mechanical Engineering, \LaTeX\ University}
+%      %\begin{abstract}
+%%This is abstract text: This simple document shows very basic features of \LaTeX{}.
+%%\lstset { %
+%%    language=C++,
+%%    %backgroundcolor=\color{black!5}, % set backgroundcolor
+%%    basicstyle=\footnotesize,% basic font settings
+%%}
+%\begin{document}
+
+  \section{Rewriting the field equations in terms of two new variables}
+ Assuming that Gevolution calculates $\Phi$ and $\Phi'$ correctly, we rewrite the equations in terms of two new variables and implement in Gevolution to see what happens? Moreover we need to provide the appropriate initial conditions for the new variables! To rewriting the field equation we get help of Mathematica! \\
+ If we use $\delta$, $\theta$ instead of $\pi$ and $\pi'$ for linear terms we will have problem which means we need more from Boltzmann hierarchy $\Pi$ anisotropic pressure and for non-linear scalar field equation we need even more (It is absolutely wrong!) \\
+ But just for linear theory! and just for the stress tensor part which causes problem in Gevolution for $c_s^2 \to 0$, so we take  $\delta$ when $c_s^2 \to 0$ as a new variable which is the term that the cancelation happen and we set the cancelation as an initial condition from class and let the other variable be $\pi$ or $\pi'$ according to scalar field equation.  \\
+
+  \subsection{Linear calculation}
+ The linear part of ODE and stress tensor is written,
+ Just to observe, its interesting to notice the relation between $c_s^2$ with $\delta P/\delta \rho$ for scalar field, {derive it? Is there any inconsistency? why dont get simply $c_s^2$? (Done in previous parts)}
+  \begin{align} 
+ &{ \pi''+\mathcal{H}(1- 3w) \pi' } +3 {  \mathcal{H}}\Big( -c_s^2+ {w} \Big )\Psi - \, {\Psi'}- 3 c_s^2  \,{\Phi'} + {
+ \Big( 3\mathcal{H}^2 (c_s^2 -w) + \mathcal{H}' (1-3c_s^2)\Big) \pi }
+           \nonumber
+   \\
+    &
+ - c_s^2 {\nabla^2 \pi} =0
+    % Second order terms==0
+  \end{align} 
+  
+
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi- \Psi+   {({\pi'}+ \mathcal{H} \pi) }    \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w) \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi- \Psi +   {({\pi'}+ \mathcal{H} \pi) }\Big] \delta_{j}^{i}   \Bigg) 
+\end{align}
+we take $\pi$ and $\zeta$ defined as following  as new set of variables,
+\be
+\zeta \doteq	 -\Psi + \pi' + \mathcal{H} \pi,
+\ee
+After substitution in mathematica we get,
+\begin{figure} [H]
+ \includegraphics [scale=0.6]{mathem_270418}
+ \end{figure}
+so we get,
+%\begin{align} 
+%\text{cs}^2 (-\text{piC}(\tau )) \left(3 H'(\tau )-3 H(\tau )^2+\nabla 2\right)-3 H(\tau ) \left(\text{cs}^2 \Psi (\tau )+w \zeta (\tau )\right)-3 \text{cs}^2 \Phi '(\tau )+\zeta '(\tau )
+%  \end{align} 
+%  
+
+%  \begin{align} 
+% &{ \zeta' - (\mathcal{H} \pi)' +\Psi'+\mathcal{H}(1- 3w) ( \zeta- \mathcal{H} \pi+\Psi) } +3 {  \mathcal{H}}\Big( -c_s^2+ {w} \Big )\Psi - \, {\Psi'}- 3 c_s^2  \,{\Phi'} + {
+% \Big( 3\mathcal{H}^2 (c_s^2 -w) + \mathcal{H}' (1-3c_s^2)\Big) \pi }
+%           \nonumber
+%   \\
+%    &
+% - c_s^2 {\nabla^2 \pi }
+%    % Second order terms
+%     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+%  %//////////////// 
+%  +   (1-c_s^2)  \Psi {\nabla^2 \pi}
+%  %////////////////
+%  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+%      %////////////////
+%        -   (1-c_s^2)  { (\zeta + \Psi) } \nabla^2 {\pi }
+%                                       \nonumber
+%   \\
+%    &
+%        %//////////////// 
+%             +c_s^2 {\nabla  \Phi . \nabla \pi}
+%   %//////////////// 
+%        -(2 c_s^2-1) {\nabla  \Psi . \nabla \pi }  
+%   %//////////////// 
+% +\frac{\mathcal{H}} {2 } \Big(2+3w+c_s^2  \Big){\nabla  \pi . \nabla \pi} 
+%    %//////////////// 
+%     -2   (1-c_s^2){\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}     =0
+%    % Second order terms==0
+%  \end{align} 
+  which after simplifying,
+    \begin{align} 
+ &{ \zeta'  -3 \mathcal{H}(w \zeta +c_s^2 \Psi) +c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi-3 c_s^2 \Phi'  -c_s^2 \nabla^2 \pi }=0
+  \end{align} 
+  and equation for updating $\pi$ is as following,
+  \be
+  \pi'-\zeta+\mathcal{H} \pi -\Psi=0:
+  \ee
+  Lets look at the two equation for the limit $c_s^2, w \to 0$
+ \begin{align} 
+  \zeta' =0
+  \end{align} 
+  which shows that $\zeta =C$ is a constant,
+  and equation for updating $\pi$ is as following,
+  \be
+  \pi'-\zeta+\mathcal{H} \pi -\Psi=0
+  \ee
+  which is updated by $\Psi$ and $\mathcal{H} \pi$.\\
+  If we only assume $c_s^2 \to 0$ and not $w$ we have,
+   \begin{align} 
+  \zeta' -3\mathcal{H}w \zeta =0
+  \end{align} 
+The solution in matter dominated universe $\mathcal{H}=2/\tau$ is,
+\begin{figure} [H]
+ \includegraphics [scale=0.6]{mathem_270418_2}
+ \end{figure}
+ where for $w<-0$ which is the case for scalar field equation of state, we have decaying solution which decays more than matter! It is interesting since in the level of the equations of motion we know that the cancelation between $\pi'+ \mathcal{H} \pi$ and $\Psi$ decreases. So if we provide the right initial condition, we guarantee that at any redshift the stress tensor does not blow up!
+ \subsubsection{The new sets of equations and stress tensor}
+ At the end after changing the variables we get the following field equations and stress tensor,
+  \begin{align} 
+& \zeta'  -3 \mathcal{H}(w \zeta +c_s^2 \Psi) +c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi-3 c_s^2 \Phi'  -c_s^2 \nabla^2 \pi =0  \\ &
+  \pi'-\zeta+\mathcal{H} \pi -\Psi=0   
+  \end{align}
+the stress tensor is,
+\begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Big(- 3 \mathcal{H}c_s^2 \pi +\zeta     \Big )   \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w) \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg [ 1+  \frac{1+w}{w}\Big ( -3 \mathcal{H} w  \pi+ \zeta \Big) \delta_{j}^{i}   \Bigg]
+\end{align}
+
+\subsubsection{Numerical solver}
+
+ We choose Leap frog method to solve the two first order linear differential equations as following. The two equations for updating $\zeta$ and $\pi$ are,
+  \begin{align} 
+ &{ \zeta'=  3 \mathcal{H}(w \zeta +c_s^2 \Psi) -c_s^2  ({ 3 \mathcal{H}^2 - 3 \mathcal{H}' }) \pi + 3 c_s^2 \Phi'  +c_s^2 \nabla^2 \pi }
+  \end{align} 
+  \be
+  \pi'=\zeta-\mathcal{H} \pi +\Psi
+  \ee
+  So for the leapfrog method, it is to us to choose which equation want to update in half steps and which one in integer steps, but since we have most the variables at integer steps, it is better to update $\zeta$ in half steps which acts like  the velocity of the field !
+  \paragraph{$\zeta$ equation}
+  \be
+  \zeta_{n+\frac{1}{2}}=\zeta_{n-\frac{1}{2}} + \zeta'_{n} \Delta \tau
+  \ee
+  where $ \zeta'_{n}$ reads from the differential equation as following,
+  \be
+  \zeta'_{n}=3 \mathcal{H}_{n}(w \zeta_{n} +c_s^2 \Psi_{n}) -c_s^2(   3 \mathcal{H}^2_{n} 
+  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n}
+    \ee
+    Since we need to have $\zeta_n$ at $\zeta'_n$ so we write $\zeta_{n} = \frac{\zeta_{n+1} + \zeta_{n} }{2}$ \\
+    We get,
+      \be
+  \zeta_{n+\frac{1}{2}}=\zeta_{n-\frac{1}{2}} +  \Delta \tau \Bigg [3 \mathcal{H}_{n}(w\frac{\zeta_{n+\frac{1}{2}} + \zeta_{n-\frac{1}{2}} }{2} +c_s^2 \Psi_{n}) -c_s^2(   3 \mathcal{H}^2_{n} 
+  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n} \Bigg] 
+  \ee
+  Simplifying the expression gives,
+  \be
+   \zeta_{n+\frac{1}{2}}= \frac{1}{1-  3   \mathcal{H}_{n} w \Delta \tau/2 } \Bigg[ \zeta_{n-\frac{1}{2}} +  \Delta \tau \Bigg( 3 \mathcal{H}_{n}\Big( \frac{ w\zeta_{n-\frac{1}{2}} }{2} +c_s^2 \Psi_{n} \Big)  -c_s^2(   3 \mathcal{H}^2_{n} 
+  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n} \Bigg) \Bigg]
+  \ee
+    So we get $\zeta_{n+1/2}$ and to get $\zeta_n$ which is sychronized with $\pi_n$ and particles, we use the below  prediction,
+    \be
+    \zeta_{n} = \zeta_{n-\frac{1}{2}}+ \zeta'_{n} \Delta \tau/2
+    \ee 
+    or 
+    \be
+        \zeta_{n} = \zeta_{n+\frac{1}{2}}- \zeta'_{n} \Delta \tau/2
+    \ee
+    or taking the average which is a bad estimation,
+    \be
+       \zeta_{n} = \frac{   \zeta_{n+1/2}  +    \zeta_{n-1/2} }{2}
+    \ee
+    
+    To take control over the error we check that the difference between the two $\zeta_n$ is small enough at each loop, otherwise we get precision warning ({\color{red} { What is the precision  we need?}})! \\
+    It is important to note that we update $\zeta$ in half steps while we interpolate it in integer steps just to have it synchronized with other fields.
+    
+    \paragraph{$\pi$ equation}
+ for the $\pi$ equation we have,
+    \be
+      \pi_{n+1}=\pi_{n} + \pi'_{n+\frac{1}{2}} \Delta \tau
+    \ee
+     \be
+  \pi'_{n+\frac{1}{2}}=\zeta_{n+\frac{1}{2}}  -\mathcal{H}_{n+\frac{1}{2}}  \pi_{n+\frac{1}{2}}  +\Psi_{n+\frac{1}{2}} 
+      \ee
+      Just note that making $\zeta$ updating at half steps help us because we need all the terms at integer steps. \\
+      Since the scalar field Stress energy tensor must be synchronized with particles stress tensor, we need to have all the variables at the same step which is $n$, so we need to write all the terms at step ${n+\frac{1}{2}} $ in terms of the values at step $n$ and $n+1$ as following, of course except $\zeta$ which we have it at $n+1/2$. The easiest model to calculate $F_{{n+\frac{1}{2}} }$ is by taking average of the next and last step, so
+     \be
+     \pi_{n+\frac{1}{2}} = \frac{ \pi_{n+1} + \pi_{n} }{2 }
+     \ee
+     and the same for all the other variables at step ${n+\frac{1}{2}}$. 
+     
+     For $\pi$ we have,
+     \be
+      \pi_{n+1}= \pi_{n} + \Delta  \tau \Big [  \zeta_{n+\frac{1}{2}}   -\mathcal{H}_{n+\frac{1}{2}}  ( \frac{ \pi_{n+1} + \pi_{n} }{2 })  +\Psi_{n+\frac{1}{2}} \Big ]
+     \ee
+         \be
+      \pi_{n+1}=  \frac{1}{1+ \mathcal{H}_{n+\frac{1}{2}} \Delta \tau/2}\Bigg[ \pi_{n} + \Delta \tau \Big [  \zeta_{n+\frac{1}{2}}   -\mathcal{H}_{n+\frac{1}{2}}   \frac{  \pi_{n} }{2 } +\Psi_{n+\frac{1}{2}}  \Big ] \Bigg]
+     \ee
+   As it is clear from the formula we don't have access to the $\mathcal{H}_{n+\frac{1}{2}}$ and $\Psi_{n+\frac{1}{2}} $, so we use the linear predictor to predict them in next half steps,
+   \begin{align}
+   \mathcal{H}_{n+\frac{1}{2}} = \mathcal{H}_{n} + \mathcal{H}'_{n} \frac{d \tau}{2} \\
+      \Psi_{n+\frac{1}{2}} = \Psi_{n} + \Psi'_{n} \frac{d \tau}{2} 
+   \end{align} 
+   Or we need to write a new function for $\mathcal{H}$ to compute exactly at any step we need.
+   Moreover to have $\Psi'_{n}$ we must use the following formula by saving $\Psi$ at two different steps!
+   \be
+   \Psi'_{n} = \frac{\Psi_{n} - \Psi_{n-1} }{d \tau}
+   \ee
+   \\
+  In principle we need to use predictor corrector method in the control loop to have control of the errors but is not possible for all the variables like $\Psi$ which is updated somewhere else but for the fields $\pi$ and $\zeta$ we can use control loop! \\
+%  So we end up with the following updates,
+%    \be
+%  \zeta_{n+\frac{1}{2}}=\zeta_{n-\frac{1}{2}} + \Delta \tau \Big[3 \mathcal{H}_{n}(w \zeta_{n} +c_s^2 \Psi_{n}) -c_s^2(   3 \mathcal{H}^2_{n} 
+%  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n} \Big]
+%  \ee
+%  \be
+%  \zeta'_{n}=3 \mathcal{H}_{n}(w \zeta_{n} +c_s^2 \Psi_{n}) -c_s^2(   3 \mathcal{H}^2_{n} 
+%  - 3 \mathcal{H}' _{n}) \pi_{n}+ 3 c_s^2 \Phi'_{n}  +c_s^2 \nabla^2 \pi_{n}
+%    \ee
+%         \be
+%      \pi_{n+1}=  \frac{1}{1+ \mathcal{H}_{n+\frac{1}{2}} \Delta \tau/2}\Bigg[ \pi_{n} + \Delta \tau \Big [  \zeta_{n+\frac{1}{2}}   -\mathcal{H}_{n+\frac{1}{2}}   \frac{  \pi_{n} }{2 } +\Psi_{n+\frac{1}{2}}  \Big ] \Bigg]
+%     \ee
+  
+  \subsubsection{Initial conditions from class}
+  For the initial condition, we need to just make $\zeta$ from $\pi$, $\pi'$ and $\Psi$ from class. Since $\zeta$ is dimensionless we do not have any troubles with using it in two different codes.  \\
+  According to the formula and using the relations for $\pi$ and $\pi'$ from fluid language we can calculate $\zeta$ transfer function as following,
+    \be
+  \zeta = \pi'+\mathcal{H} \pi -\Psi
+  \ee
+  First we run the class for the below non default parameters,
+  \begin{lstlisting}[language=C,
+  basicstyle=\tiny]
+Omega_k = 0.
+Omega_Lambda = 0.0
+Omega_scf = 0.0
+w0_fld = -0.9
+wa_fld = 0
+cs2_fld = 0.000001
+use_ppf = no
+output = mPk ,mTk, vTk
+gauge = Newtonian
+P_k_ini type = analytic_Pk
+k_pivot = 0.05
+A_s = 2.215e-9
+n_s = 0.9619
+P_k_max_1/Mpc = 150.
+k_scalar_k_per_decade_for_pk = 20
+z_pk = 100,10,3,0
+\end{lstlisting}
+  We make the $\zeta$ from the below Python script and we need always to check that it is smaller than $c_s^2 k^2 \Psi/\mathcal{H}^2$ to cancelation happens!
+  \begin{lstlisting}[language=Python,
+  basicstyle=\tiny]
+import numpy as np
+import matplotlib.pylab as plt
+from scipy.interpolate import interp1d
+from pylab import rcParams
+#Class output  cs2=1.e-6, cs=10^-3, Reading file as a group
+Class_newt_cs_e3_z100=np.loadtxt("./Class_Newt/class_cs_e3_newt/class_kess_cs_e3_newt_z1_tk.dat")
+Class_newt_cs_e3_z10=np.loadtxt("./Class_Newt/class_cs_e3_newt/class_kess_cs_e3_newt_z2_tk.dat")
+Class_newt_cs_e3_z1=np.loadtxt("./Class_Newt/class_cs_e3_newt/class_kess_cs_e3_newt_z3_tk.dat")
+Class_newt_cs_e3_z0=np.loadtxt("./Class_Newt/class_cs_e3_newt/class_kess_cs_e3_newt_z4_tk.dat")
+Class_newt_cs_e3_zall=[Class_newt_cs_e3_z100,Class_newt_cs_e3_z10,Class_newt_cs_e3_z1,Class_newt_cs_e3_z0]
+#Making background and to check if it is true we need to compare with class background output,
+# H in unit Mpc!
+h=0.67556;
+c=2.99*1.e5;
+H0=100*h/c;
+print("H0[1/Mpc]=100h/c: ",H0);
+def Hubble_conf_Mpc(a):
+    H0=0.00022593979933110373;w=-0.9;h=0.67556;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_kessence*(a**(-3*(1+w))))*a
+Hclass_cs_e3=Bg_class_cs_e3[:,3]
+# to make IC file in an intelligent way for $c_s^2=10^{-6}$ we have.
+w=-0.9;
+h=0.67;
+As=2.215*10.e-9;
+ns=0.96;
+kp=0.05/h;
+cs2=0.000001;
+H_conf_z100_class=Hubble_conf_Mpc(1./(1.+100.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z10_class=Hubble_conf_Mpc(1./(1.+10.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z1_class=Hubble_conf_Mpc(1./(1.+1.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z0_class=Hubble_conf_Mpc(1./(1.+0.)); # Unit=1/Mpc Hconf=a*H
+#List of hubble constants for different redshift.
+H_conf_zall_list=[H_conf_z100_class,H_conf_z10_class,H_conf_z1_class,H_conf_z0_class];
+z=[100,10,1,0]
+# List of scale factor
+a100=(1./(1.+100.));a10=(1./(1.+10.));a1=(1./(1.+1.));a0=(1./(1.+0.));
+pi_Class_newt_cs_e3_zall=[]
+pi_prime_Class_newt_cs_e3_zall=[]
+# \pi_conf in Newtonian in class : -(-\theta/k^2) pi here is pi_conf! k unit should be in 1/Mpc.
+#K=1/Mpc and theta itself is in Mpc-1 so pi is in Mpc unit! and the conversion.
+#Note that in the definition of \theta in terms of \pi, it has a negative sign and in Fourier space becomes + sign!
+for i in range (4):
+    pi_Class_newt_cs_e3_zall.append(Class_newt_cs_e3_zall[i][:,12]/((Class_newt_cs_e3_zall[i][:,0]*h)**2));
+# pi_class_Newt_cs6_z0=Class_newt_cs6_z0[:,12]/((Class_newt_cs6_z0[:,0]*h)**2);
+
+#\pi_v in class
+# Psi is Class_newt_z100[:,7] and delta=Class_newt_z100[:,4]
+#pi'_conf in class according to the formula: \delta*(cs2/1+w) + \Psi + 3 H_conf cs2 \pi - H_conf \pi
+    pi_prime_Class_newt_cs_e3_zall.append(cs2*Class_newt_cs_e3_zall[i][:,4]/(1.+w) + H_conf_zall_list[i] * pi_Class_newt_cs_e3_zall[i]*(3.*cs2-1.) + Class_newt_cs_e3_zall[i][:,8]) ;
+#     print(np.sum(Class_newt_cs_e3_zall[0]-Class_newt_cs_e3_z100))
+#Making file k, \pi_newt, \pi'_newt, \delta_newt, \theta_newt, \Phi, delta_matter, Hubblez_conf
+    Class_z_cs_e3=np.zeros((np.shape(Class_newt_cs_e3_zall[i])[0],8))
+
+    Comments_columns="# Transfer functions T_i(k) for kessence field (normalized to initial curvature=1 at z= "+str(z[i])+" \
+         # for k=1.05469e-05 to 239.653 h/Mpc, \
+         #  number of wavenumbers equal to 199\
+         # kessence model with w=-0.9 , $cs^2$= "+str(cs2)+"     \
+         # d_i   stands for (delta rho_i/rho_i)(k,z) with above normalization \
+         # d_tot stands for (delta rho_tot/rho_tot)(k,z) with rho_Lambda NOT included in rho_tot\
+         # (note that this differs from the transfer function output from CAMB/CMBFAST, which gives the same\
+         #  quantities divided by -k^2 with k in Mpc^-1; use format=camb to match CAMB)\
+         # t_i   stands for theta_i(k,z) with above normalization \
+         # t_tot stands for (sum_i [rho_i+p_i] theta_i)/(sum_i [rho_i+p_i]))(k,z)) \
+         # k here is h/Mpc pi_conf (scalar field in conformal time) is in Mpc pi'_conf in dimensionless  \
+         # Hubble is conformal hubble which is normalized to H0 \
+         # d_kess_pi means \pi_conf  in Newtonian gauge and in unit [Mpc] and t_kess_zeta means \zeta = \pi'+H pi -\Psi which is dimensionless \
+\n   \n \
+1:k (h/Mpc)              2:d_kess_pi                    3:t_kess_zeta                    4:delta_fld                 5:theta_fld                  6:psi                   7:delta_cdm                 8:H_conf/H0                               "
+
+
+    Class_z_cs_e3[:,0]=Class_newt_cs_e3_zall[i][:,0]    #k [h/Mpc] in class output
+    Class_z_cs_e3[:,1]=pi_Class_newt_cs_e3_zall[i][:]    # pi_newt conformal
+    Class_z_cs_e3[:,2]=pi_prime_Class_newt_cs_e3_zall[i][:]+ H_conf_zall_list[i] * pi_Class_newt_cs_e3_zall[i]- Class_newt_cs_e3_zall[i][:,8]   #zeta_newt= \pi'_newt +\mathH \pi -\Psi 
+    Class_z_cs_e3[:,3]=Class_newt_cs_e3_zall[i][:,4]   #Delta_fld
+    Class_z_cs_e3[:,4]=Class_newt_cs_e3_zall[i][:,12]  #Theta_fld
+    Class_z_cs_e3[:,5]= Class_newt_cs_e3_zall[i][:,8]   #Psi
+    Class_z_cs_e3[:,6]=Class_newt_cs_e3_zall[i][:,3]    #delta_CDM
+    Class_z_cs_e3[:,7]=H_conf_zall_list[i]#Hubblez_conf
+    print(i,z[i])
+    np.savetxt('Class_kess_cs_e3_z'+str(z[i])+'_newt_Gev.dat',Class_z_cs_e3, fmt='%.12e', delimiter='\t', newline='\n',header=Comments_columns)\end{lstlisting}
+    After making the IC from class we get the below results which shows that $\zeta$ is small and remains small in all redshifts, we actually have shown in our calculation it decays, which these plots agree with our linear solution in matter dominated era.\\
+    It is a necessity for us that the red curve always lie below the blue curve, since it is a guarantee for small stress tensor!
+    
+     \begin{figure}[H]
+ \includegraphics[scale=0.4]{zeta_IC_check} 
+ \end{figure}
+    \begin{figure}[H]
+ \includegraphics[scale=0.4]{zeta_IC_check_z0} 
+ \end{figure}
+
+
+  \subsubsection{Gevolution}
+    To implement the new set of variables and equations in Gevolution we need to follow these steps,
+     \paragraph{background.hpp}
+     {\color{red} Todo: There is a tension between class and Gev $\mathcal{H}$! } \\
+     We also add a new function $\mathcal{H}'$ which simplifies the computations. The $\mathcal{H}'$ is obtained as following,
+     \be
+     \frac{d \mathcal{H}}{d \tau} = \frac{d \mathcal{H}}{d a}  \frac{d a}{d \tau} = a\mathcal{H}  \frac{d \mathcal{H}}{d a} 
+     \ee
+     since we have the below formula for $\mathcal{H}$,
+     \be
+     \mathcal{H} (a)= H_0 a \sqrt{\Omega_m a^{-3}+\Omega_r a^{-4}+ \Omega_{\Lambda} + \Omega_{kess} a^{-3(1+w)}}
+     \ee
+     So by taking the derivative we get,
+     \be
+      \frac{d \mathcal{H}}{d \tau}= \frac{H_0^2}{2 a^2} \Big[ 2 \, a^4 \Omega_{\Lambda} -a \, \Omega_m - 2  \, \Omega_r -  (1+3w) \, \Omega_{kess}  a^{1-3w} \Big]
+     \ee
+     Just note that in Gevolution $H_0^2=8 \pi G/3$ so we have,
+          \be
+      \frac{d \mathcal{H}}{d \tau}= \frac{8 \pi G}{6 a^2} \Big[ 2 \, a^4 \Omega_{\Lambda} -a \, \Omega_m - 2  \, \Omega_r -  (1+3w) \, \Omega_{kess}  a^{1-3w} \Big]
+     \ee
+     We also have checked if the formula is calculated/implemented correctly by computing the relative error between $\mathcal{H}$ calculated from the formula and the one $\frac{\mathcal{H}- \mathcal{H}_{old}}{d\tau} $ it is interesting that the relative error is of order $\approx d\tau/2$ and we have observed that by decreasing $d \tau$ we	decrease the error which shows it is implemented and calculated consistently.
+     
+     \begin{lstlisting}[language=C++,
+  	basicstyle=\tiny]
+    // Hconf normalized to critial density so we have H0^2= 8piG/3
+double Hconf(const double a, const double fourpiG, const cosmology cosmo)
+{
+	return sqrt((2. * fourpiG / 3.) * (((cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)) / a) + (cosmo.Omega_Lambda * a * a)
+	+ (cosmo.Omega_rad / a / a)+ (cosmo.Omega_kessence * pow(a,-3.-3. * cosmo.w_kessence)* a * a)));
+	// cout<<"Omega_rad: "<<cosmo.Omega_rad<<endl;
+	
+	
+}
+
+// Here the normalization factor is not \rho_crit=1, it is what it should be in th enormal unit.
+// So Omega_m is the matter density at arbitrary redshift and is not normalized, since we did not use Hconf in the fomrula
+// While Hconf is normalized to critical density 1 so H^2/H_0^2= H^2/(8piG/3) which is used in the last formula.
+double Omega_m(const double a, const cosmology cosmo) { return cosmo.Omega_m / (cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo) + cosmo.Omega_kessence * pow(a,-3.-3. * cosmo.w_kessence)* a * a * a + cosmo.Omega_Lambda * a * a * a + cosmo.Omega_rad / a); }
+//
+double Omega_rad(const double a, const cosmology cosmo) { return (cosmo.Omega_rad + (bg_ncdm(a, cosmo) + cosmo.Omega_cdm + cosmo.Omega_b - cosmo.Omega_m) * a) / ((cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)) * a + cosmo.Omega_kessence * pow(a,-3.-3. * cosmo.w_kessence)* a * a * a * a + cosmo.Omega_Lambda * a * a * a * a + cosmo.Omega_rad); }
+
+//Here Omega_Lambda is both kessence and Lambda
+double Omega_Lambda(const double a, const cosmology cosmo) { return (cosmo.Omega_Lambda+cosmo.Omega_kessence) / ((cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)) / a / a / a + cosmo.Omega_Lambda + cosmo.Omega_kessence * pow(a,-3.-3. * cosmo.w_kessence) + cosmo.Omega_rad / a / a / a / a);}
+
+double Hconf_class(const double a, const cosmology cosmo)
+{
+	double H0_class=0.00022593979933110373; // H0 in unit of 1/Mpc H0=100h/c;
+	// cout<<"Omega_rad: "<<cosmo.Omega_rad<<" cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)): "<<cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)<<"cosmo.Omega_kessence: "<<cosmo.Omega_kessence<<" cosmo.Omega_Lambda: "<<cosmo.Omega_Lambda<<endl;
+	return H0_class * sqrt( ((cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)) / a) + (cosmo.Omega_Lambda * a * a)
+	+ (cosmo.Omega_rad / a / a)+ (cosmo.Omega_kessence * pow(a,-3.-3. * cosmo.w_kessence)* a * a) );
+}
+
+/////////////////////////
+// Hconf_prime
+//////////////////////////
+// Description:
+//   computes the conformal Hubble rate derivative at given scale factor
+//
+// Arguments:
+//   a          scale factor
+//   fourpiG    "4 pi G"
+//   cosmo      structure containing the cosmological parameters
+//
+// Returns: conformal Hubble rate
+//
+//////////////////////////
+// Hconf normalized to critial density so we have H0^2= 8piG/3
+double Hconf_prime(const double a, const double fourpiG, const cosmology cosmo)
+{
+	return (2. * fourpiG / (6. * a * a)) * (  -(cosmo.Omega_cdm + cosmo.Omega_b + bg_ncdm(a, cosmo)) * a + 2. * cosmo.Omega_Lambda * a *  a * a * a - 2. * cosmo.Omega_rad - (1. + 3. * cosmo.w_kessence) * cosmo.Omega_kessence * pow( a, 1.-3.* cosmo.w_kessence));
+}
+
+\end{lstlisting}
+
+    
+            \paragraph{metadata.hpp}
+We define the follwing variables related to kessence in metadata,
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+//Kessence part
+#define MASK_PI_K   16384
+#define MASK_zeta 32768
+#define MASK_T_KESS 65536
+#define MASK_Delta_KESS 131072
+#define MASK_PHI_PRIME 262144
+//Kessence end
+struct metadata
+{
+.
+.
+//Kessence part
+int nKe_numsteps;
+int Kess_source_gravity;
+};
+struct icsettings
+{
+.
+.
+//Kessence
+char tk_kessence[PARAM_MAX_LENGTH];
+};
+struct cosmology
+{
+.
+.
+// Kessence part
+double Omega_kessence;
+  double w_kessence;
+double cs2_kessence;
+};
+\end{lstlisting}
+        \paragraph{parser.hpp}
+ \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+bool parseFieldSpecifiers(parameter * & params, const int numparam, const char * pname, int & pvalue)
+{
+.
+.
+	if (strcmp(item, "Phi") == 0 || strcmp(item, "phi") == 0)
+					pvalue |= MASK_PHI;
+       //Kessence part
+				else if (strcmp(item, "phi_prime") == 0 || strcmp(item, "Phi_prime") == 0)
+						pvalue |= MASK_PHI_PRIME;
+				else if (strcmp(item, "pi_k") == 0 || strcmp(item, "Pi_k") == 0)
+					pvalue |= MASK_PI_K;
+				else if (strcmp(item, "zeta") == 0 || strcmp(item, "zeta") == 0)
+					pvalue |= MASK_zeta;
+        //Kessence end
+	.
+	.
+	//kessence part
+				else if (strcmp(item, "T_Kess") == 0 || strcmp(item, "T_Kessence") == 0)
+					pvalue |= MASK_T_KESS;
+
+				else if (strcmp(item, "Delta_Kess") == 0 || strcmp(item, "delta_Kessence") == 0)
+					pvalue |= MASK_Delta_KESS;
+	//Kessence end
+	.
+	.
+	.
+				if (strcmp(start, "Phi") == 0 || strcmp(start, "phi") == 0)
+				pvalue |= MASK_PHI;
+      	//kessence part
+			else if (strcmp(start, "Phi_prime") == 0 || strcmp(start, "phi_prime") == 0)
+				pvalue |= MASK_PHI_PRIME;
+			else if (strcmp(start, "Pi_k") == 0 || strcmp(start, "pi_k") == 0)
+				pvalue |= MASK_PI_K;
+			else if (strcmp(start, "zeta") == 0 || strcmp(start, "zeta") == 0)
+				pvalue |= MASK_zeta;
+        	//Kessence end
+	//********************************************************
+	//********************************************************
+	int parseMetadata(parameter * & params, const int numparam, metadata & sim, cosmology & cosmo, icsettings & ic)
+.
+.
+	//kessence part
+	ic.tk_kessence[0]='\0';
+
+	//Kessence part
+	if (!parseParameter(params, numparam, "T_kessence file", ic.tk_kessence) && ic.generator != ICGEN_READ_FROM_DISK);
+	//********************************************************
+	//********************************************************
+	// parse metadata
+	sim.boxsize = -1.;
+	sim.wallclocklimit = -1.;
+	sim.z_in = 0.;
+	//kessence part
+	sim.nKe_numsteps = 1;
+	sim.Kess_source_gravity = 0;
+	//********************************************************
+	//********************************************************	
+	// parse cosmological parameters
+	// K-essence  paramteres
+	if (!parseParameter(params, numparam, "cs2_kessence",  cosmo.cs2_kessence))
+	{
+			cosmo.cs2_kessence=1;
+	}
+	if (!parseParameter(params, numparam, "Omega_kessence",  cosmo.Omega_kessence))
+	{
+			cosmo.Omega_kessence=0.7199;
+	}
+	if (!parseParameter(params, numparam, "w_kessence",  cosmo.w_kessence))
+	{
+			cosmo.w_kessence=-0.9;
+	}
+	parseParameter(params, numparam, "nKe_numsteps",  sim.nKe_numsteps);
+	parseParameter(params, numparam, "Kessence source gravity",  sim.Kess_source_gravity);
+	//kessence end
+	//********************************************************
+	//********************************************************
+	cosmo.Omega_m = cosmo.Omega_cdm + cosmo.Omega_b;
+	for (i = 0; i < cosmo.num_ncdm; i++) cosmo.Omega_m += cosmo.Omega_ncdm[i];
+
+	if (cosmo.Omega_m <= 0. || cosmo.Omega_m > 1.)
+	{
+		COUT << COLORTEXT_RED << " error" << COLORTEXT_RESET << ": total matter density out of range!" << endl;
+		parallel.abortForce();
+	}
+	else if (cosmo.Omega_rad < 0. || cosmo.Omega_rad > 1. - cosmo.Omega_m)
+	{
+		COUT << COLORTEXT_RED << " error" << COLORTEXT_RESET << ": total radiation energy density out of range!" << endl;
+		parallel.abortForce();
+	}
+	else
+	{
+		//Kessence part added
+		COUT << " cosmological parameters are: Omega_m0 = " << cosmo.Omega_m << ", Omega_rad0 = " << cosmo.Omega_rad << ", h = " << cosmo.h << ", Omega_kessence0= "<<cosmo.Omega_kessence<<", w_kessence= "<<cosmo.w_kessence<<endl;
+		cosmo.Omega_Lambda = 1. - cosmo.Omega_m - cosmo.Omega_kessence - cosmo.Omega_rad;
+	}
+
+\end{lstlisting}
+     \paragraph{hibernation.hpp}
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+ //////////////////////////
+// writeRestartSettings
+//////////////////////////
+// Description:
+//   writes a settings file containing all the relevant metadata for restarting
+//   a run from a hibernation point
+ void writeRestartSettings(metadata & sim, icsettings & ic, cosmology & cosmo, const double a, const double tau, const double dtau, const int cycle, const int restartcount = -1)
+	if (sim.gr_flag > 0)
+		{
+			fprintf(outfile, "metric file        = %s%s%s_phi.h5", sim.restart_path, sim.basename_restart, buffer);
+
+			//Kessence
+			fprintf(outfile, "k-essence field        = %s%s%s_pi_k.h5", sim.restart_path, sim.basename_restart, buffer);
+			fprintf(outfile, "k-essence field        = %s%s%s_zeta.h5", sim.restart_path, sim.basename_restart, buffer);
+			.
+			.
+			if (sim.out_snapshot)
+		{
+			fprintf(outfile, "snapshot outputs   = ");
+			if(sim.out_snapshot & MASK_PHI)
+			{
+				fprintf(outfile, "phi");
+				if (sim.out_snapshot > MASK_PI_K)
+					fprintf(outfile, ", ");
+			}
+			//Kessence
+			if(sim.out_snapshot & MASK_PI_K)
+			{
+				fprintf(outfile, "pi_k");
+				if (sim.out_snapshot > MASK_zeta)
+					fprintf(outfile, ", ");
+			}
+			if(sim.out_snapshot & MASK_zeta)
+			{
+				fprintf(outfile, "zeta_k");
+				if (sim.out_snapshot > MASK_CHI)
+					fprintf(outfile, ", ");
+			}
+			//kessence end
+			.
+			.
+			.
+			if (sim.out_pk)
+		{
+			fprintf(outfile, "Pk outputs         = ");
+			if(sim.out_pk & MASK_PHI)
+			{
+     			 //Kessence
+				fprintf(outfile, "phi");
+				if (sim.out_pk > MASK_PI_K)
+					fprintf(outfile, ", ");
+			}
+			//Kessence
+			if(sim.out_snapshot & MASK_PI_K)
+			{
+				fprintf(outfile, "pi_k");
+				if (sim.out_snapshot > MASK_zeta)
+					fprintf(outfile, ", ");
+			}
+			if(sim.out_snapshot & MASK_zeta)
+			{
+				fprintf(outfile, "zeta");
+				if (sim.out_snapshot > MASK_CHI)
+					fprintf(outfile, ", ");
+			}
+			//kessence end
+		}
+		
+ 
+//////////////////////////
+// hibernate
+//////////////////////////
+// Description:
+//   creates a hibernation point by writing snapshots of the simulation data and metadata
+void hibernate(metadata & sim, icsettings & ic, cosmology & cosmo, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_cdm, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_b, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_ncdm, Field<Real> & phi, Field<Real> & pi_k,Field<Real> &zeta, Field<Real> & chi, Field<Real> & Bi, const double a, const double tau, const double dtau, const int cycle, const int restartcount = -1)
+{
+	.
+	.
+	if (sim.gr_flag > 0)
+	{
+		phi.saveHDF5_server_open(h5filename + "_phi");
+		//kessence
+		pi_k.saveHDF5_server_open(h5filename + "_pi_k");
+		zeta.saveHDF5_server_open(h5filename + "_zeta");
+		chi.saveHDF5_server_open(h5filename + "_chi");
+	}
+	
+\end{lstlisting}
+
+        \paragraph{main.cpp}
+We need to define the new variable and its Fourier transformation on the Lattices, the main changes on main file are. Of course there might be some errors on the code below but it is useful for getting the idea and also future uses!
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+Field<Real> zeta_integer;
+Field<Real> zeta_half;
+Field<Cplx> scalarFT_zeta_integer;
+Field<Cplx> scalarFT_zeta_half;
+//zeta_k kessence
+zeta_integer.initialize(lat,1);
+scalarFT_zeta_integer.initialize(latFT,1);
+PlanFFT<Cplx> plan_zeta_integer(&zeta_integer, &scalarFT_zeta_integer);
+//zeta for estimator corrector method
+zeta_estimator.initialize(lat,1);
+scalarFT_zeta_half.initialize(latFT,1);
+PlanFFT<Cplx> plan_zeta_half(&zeta_half, &scalarFT_zeta_half);
+generateIC_basic(sim, ic, cosmo, fourpiG, &pcls_cdm, &pcls_b, pcls_ncdm, maxvel, &phi, &phi_old, &pi_k, &zeta_integer, &chi, &Bi, &source, &Sij, &scalarFT, &scalarFT_phi_old, &scalarFT_pi, &scalarFT_zeta_integer, &BiFT, &SijFT, &plan_phi,  &plan_phi_old, &plan_pi_k, &plan_zeta_integer, &plan_chi, &plan_Bi, &plan_source, &plan_Sij);
+//Testing:
+******************************************************************
+	Write spectra check!
+	Kessence projection Tmunu Test IC
+	******************************************************************
+	 	if (sim.vector_flag == VECTOR_ELLIPTIC)
+			{
+				projection_Tmunu_kessence( T00_Kess,T0i_Kess,Tij_Kess, dx, a, phi, phi_old, chi, pi_k, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a, fourpiG, cosmo), fourpiG, 1 );
+			}
+	 	else
+			{
+				projection_Tmunu_kessence( T00_Kess,T0i_Kess,Tij_Kess, dx, a, phi, phi_old, chi, pi_k, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a, fourpiG, cosmo), fourpiG, 0 );
+			}
+	
+	writeSpectra(sim, cosmo, fourpiG, a, pkcount, &pcls_cdm, &pcls_b, pcls_ncdm, &phi, &pi_k, &zeta_k, &chi, &Bi, &T00_Kess, &T0i_Kess, &Tij_Kess, &source, &Sij, &scalarFT, &scalarFT_pi, &scalarFT_zeta, &BiFT, &T00_KessFT, &T0i_KessFT, &Tij_KessFT, &SijFT, &plan_phi, &plan_pi_k, &plan_zeta_k, &plan_chi, &plan_Bi, &plan_T00_Kess, &plan_T0i_Kess, &plan_Tij_Kess, &plan_source, &plan_Sij);
+	cout<<"Hconf_class: "<<Hconf_class( a, cosmo)<<" a: "<<a<<" z: "<<1./(a)-1.<<endl;
+	for (kFT.first(); kFT.test(); kFT.next())
+	{
+			// cout<<"k: "<<kFT<<"pi_k: "<<pi_k(kFT)<<"  phi: "<<phi(kFT)<<" H: "<<Hconf(a, fourpiG, cosmo)<<" H pi: "<<Hconf(a, fourpiG, cosmo) *pi_k(kFT)<<" pi'-phi: " <<phi(kFT)-zeta_k(kFT)<<endl;
+	}
+	******************************************************************
+	End of testing
+	******************************************************************
+
+	for (x.first(); x.test(); x.next())
+		{
+			pi_k(x)=1./(Hconf(1./(1.+100.), fourpiG, cosmo));
+			zeta_k(x)=0.;
+		}
+//**********************************
+// Kessence projection Tmunu
+//**********************************
+if (sim.Kess_source_gravity==1)
+{
+// Kessence projection Tmunu
+ 	if (sim.vector_flag == VECTOR_ELLIPTIC)
+		{
+			projection_Tmunu_kessence( T00_Kess,T0i_Kess,Tij_Kess, dx, a, phi, phi_old, 	chi, pi_k, zeta_k, cosmo.Omega_kessence, cosmo.w_kessence, 	cosmo.cs2_kessence, Hconf(a, fourpiG, cosmo), fourpiG, 1 );
+		}
+ 	else
+		{
+		if (sim.Kess_source_gravity==1)
+{
+// Kessence projection Tmunu
+ 	if (sim.vector_flag == VECTOR_ELLIPTIC)
+		{
+			projection_Tmunu_kessence( T00_Kess,T0i_Kess,Tij_Kess, dx, a, phi, phi_old, 	chi, pi_k, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, 	cosmo.cs2_kessence, Hconf(a, fourpiG, cosmo), fourpiG, 1 );
+		}
+ 	else
+		{
+			projection_Tmunu_kessence( T00_Kess,T0i_Kess,Tij_Kess, dx, a, phi, phi_old, 	chi, pi_k, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, 	cosmo.cs2_kessence, Hconf(a, fourpiG, cosmo), fourpiG, 0 );
+		}
+
+		for (x.first(); x.test(); x.next())
+		{
+			// The coefficient is because it wanted to to be source according to eq C.2 of Gevolution paper
+			// Note that it is multiplied to dx^2 and is divived by -a^3 because of definition of T00 which is scaled by a^3
+			// We have T00 and Tij according to code's units, but source is important to calculate potentials and moving particles.
+			// There is coefficient between Tij and Sij as source.
+			source(x) += (fourpiG * dx * dx / a) * T00_Kess(x);
+			if (sim.vector_flag == VECTOR_ELLIPTIC)for(int 	c=0;c<3;c++)Bi(x,c)+= (2. * fourpiG * dx * dx / a) * T0i_Kess(x,c);
+			for(int c=0;c<6;c++)Sij(x,c)+=(2. * fourpiG * dx * dx / a) * Tij_Kess(x,c);
+		}
+}
+// Kessence projection Tmunu end
+#ifdef CHECK_B
+			//kessence included
+			writeSnapshots(sim, cosmo, fourpiG, hdr, a, snapcount, h5filename, &pcls_cdm, &pcls_b, pcls_ncdm, &phi, &pi_k, &zeta_integer, &chi, &Bi, &T00_Kess, &T0i_Kess, &Tij_Kess, &source, &Sij, &scalarFT, &BiFT, &SijFT, &plan_phi, &plan_chi, &plan_Bi, &plan_source, &plan_Sij, &Bi_check, &BiFT_check, &plan_Bi_check);
+
+#else
+			//kessence included
+			writeSnapshots(sim, cosmo, fourpiG, hdr, a, snapcount, h5filename, &pcls_cdm, &pcls_b, pcls_ncdm, &phi, &pi_k, &zeta_integer, &chi, &Bi, &T00_Kess, &T0i_Kess, &Tij_Kess, &source, &Sij, &scalarFT, &BiFT, &SijFT, &plan_phi, &plan_chi, &plan_Bi, &plan_source, &plan_Sij);
+	
+			#endif
+
+			snapcount++;
+		}
+		#ifdef CHECK_B
+#ifdef CHECK_B
+			//kessence included
+			writeSpectra(sim, cosmo, fourpiG, a, pkcount, &pcls_cdm, &pcls_b, pcls_ncdm, &phi_prime, &phi, &pi_k, &zeta_integer, &chi, &Bi, &T00_Kess, &T0i_Kess, &Tij_Kess, &source, &Sij, &scalarFT, &scalarFT_phi_prime ,&scalarFT_pi, &scalarFT_zeta_integer, &BiFT, &T00_KessFT, &T0i_KessFT, &Tij_KessFT, &SijFT, &plan_phi, &plan_phi_prime, &plan_pi_k, &plan_zeta_integer, &plan_chi, &plan_Bi, &plan_T00_Kess, &plan_T0i_Kess, &plan_Tij_Kess, &plan_source, &plan_Sij, &Bi_check, &BiFT_check, &plan_Bi_check);
+#else
+			//kessence included
+			writeSpectra(sim, cosmo, fourpiG, a, pkcount, &pcls_cdm, &pcls_b, pcls_ncdm, &phi_prime, &phi, &pi_k, &zeta_integer, &chi, &Bi, &T00_Kess, &T0i_Kess, &Tij_Kess, &source, &Sij, &scalarFT, &scalarFT_phi_prime ,&scalarFT_pi, &scalarFT_zeta_integer, &BiFT, &T00_KessFT, &T0i_KessFT, &Tij_KessFT, &SijFT, &plan_phi, &plan_phi_prime, &plan_pi_k, &plan_zeta_integer, &plan_chi, &plan_Bi, &plan_T00_Kess, &plan_T0i_Kess, &plan_Tij_Kess, &plan_source, &plan_Sij);
+#endif
+			pkcount++;
+		}
+
+		//Kessence
+		//Now phi_prime is calculated not based on phi difference in Gev but according to Class linear contribution is \phi_prime = - H_conf \Psi -3/2 \delta.
+        for (x.first(); x.test(); x.next())
+    		{
+    			phi_prime(x) =(phi(x)-phi_old(x))/(dtau);
+    		}
+
+//**********************
+//Kessence - LeapFrog:START
+//**********************
+double a_kess=a;
+double Hconf_old= Hconf(a_kess, fourpiG, cosmo);
+// In the first cycle we update zeta to get zeta at 1/2 to use it for leapfrog.
+if(cycle==0)
+{
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+
+     update_zeta(0.5 * dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+		 zeta_half.updateHalo();
+     zeta_integer.updateHalo();
+	}
+}
+
+// For other cycles we just update accoring to leapfrog, zeta at half steps and pi at integet steps
+else
+{
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+    //First we update zeta to have it at n+1/2
+    update_zeta(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+    zeta_half.updateHalo();
+    zeta_integer.updateHalo();
+    rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0 );
+    //Now we update pi_k
+		update_pi_k(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, zeta_integer, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo),Hconf_old);
+		pi_k.updateHalo();
+		rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0);
+	}
+}
+//**********************
+//Kessence - LeapFrog: End
+//**********************
+
+		for (j = 0; j < numsteps; j++) // particle update
+		{
+		.
+		.
+		.
+\end{lstlisting}
+    
+    \paragraph{IC$\_$basic.hpp}
+   Reading and extracting information from IC file (class). For this we have defined a new function which goes thorough the columns of IC file and assign the data to the variable. The most important part of the function which assigns the data to the code's variable is,
+  \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+void loadTransferFunctions_kessence(const char * filename, gsl_spline * & tk_pi_k, gsl_spline * & tk_zeta, const char * qname, const double boxsize, const double h, double Hconf_gev , double Hconf_class){
+
+if (sscanf(line, format, dummy, dummy+1, dummy+2) == 3 && !feof(tkfile) && !ferror(tkfile))
+{
+k[i] = dummy[kcol] * boxsize; // dummy[kcol] in unit [h/Mpc] from class, and k in Gev unit which is Boxsize/Mpc, note that boxsize is Mpc/h so we k in [Boxsize/Mpc] without h!
+				
+tk_d[i] = dummy[dcol] * Hconf_class / Hconf_gev; // dummy[dcol] is class pi, pi in class is [Mpc] and H pi is dimensionless.
+				// pi_kessence transfer. Since pi has dimension of 1/H we multiply to H_class/H_Gev
+tk_t[i] = dummy[tcol] ; // dummy[tcol] is \pi' in class which is dimensionless.
+i++;
+}
+\end{lstlisting}
+Just note the units which from Class to Gevolution we have used some tricks for  dimensionful quantities. \\ To use the  function for the keseence initial condition we have,
+  \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+void generateIC_basic(metadata & sim, icsettings & ic, cosmology & cosmo, const double fourpiG, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_cdm, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_b, Particles<part_simple,part_simple_info,part_simple_dataType> * pcls_ncdm, double * maxvel, Field<Real> * phi, Field<Real> * phi_old, Field<Real> * pi_k, Field<Real> * zeta, Field<Real> * chi, Field<Real> * Bi, Field<Real> * source, Field<Real> * Sij, Field<Cplx> * scalarFT, Field<Cplx> * scalarFT_phi_old, Field<Cplx> * scalarFT_pi, Field<Cplx> * scalarFT_zeta, Field<Cplx> * BiFT, Field<Cplx> * SijFT, PlanFFT<Cplx> * plan_phi,PlanFFT<Cplx> * plan_phi_old, PlanFFT<Cplx> * plan_pi_k, PlanFFT<Cplx> * plan_zeta, PlanFFT<Cplx> * plan_chi, PlanFFT<Cplx> * plan_Bi, PlanFFT<Cplx> * plan_source, PlanFFT<Cplx> * plan_Sij)
+.
+.
+.
+		//////////////////////////////////////////////////////
+		////K_essence IC part//////
+		//////////////////////////////////////////////////////
+		gsl_spline * tk_d_kess = NULL;
+		gsl_spline * tk_t_kess = NULL;
+		double * kess_field = NULL;
+		double * kess_field_prime = NULL;
+		double * k_ess = NULL;
+		int npts=0;
+		loadTransferFunctions_kessence(ic.tk_kessence, tk_d_kess, tk_t_kess, "kess", sim.boxsize, cosmo.h, Hconf(a, fourpiG, cosmo), 				Hconf_class( a, cosmo));	// get transfer functions for k_essence
+		// cout<<"z: "<<-1+1./(a)<<"Hconf_class: "<<Hconf_class( a, cosmo)<<"Hgev: "<<Hconf(a, fourpiG, cosmo)<<endl;
+
+		npts = tk_d_kess->size;
+		kess_field = (double *) malloc(npts * sizeof(double));
+		kess_field_prime = (double *) malloc(npts * sizeof(double));
+		k_ess = (double *) malloc(npts * sizeof(double));
+		// double H0conf_hiclass=0.000219998079; // In units of 1/Mpc
+		// cout<<"HconfGev: "<<Hconf(1, fourpiG, cosmo) <<endl;
+		for (i = 0; i < npts; i++)
+		{
+		//HGev=np.sqrt(Boxsize**2/c**2)
+		// Here we calculate \pi and zeta power spectrum from \pi and  zeta in hiclass, so the power is calculated in the
+		// in the same way and with the same coefficients, consider that time in Gev is 1/H_gev nad hi-class is Mpc, 1./H_class
+		// K here is in h/Mpc accroding to Pk_primordial(tk_d_kess->x[i] * cosmo.h / sim.boxsize which is multiplied to h and also we respective 			Class output notations which is h/Mpc!
+		// Since pi in Length unit in hiclass to make it consistent we multiply to H_hiclass and devide by H_Gevolution!
+		// We dont need to do the top command, instead we can convert Mpc to comoving box in Gevolution by multiplying to 1/Boxsize.
+		// Why "-" is here? and where is sqrt(2)?
+			kess_field[i] =  - M_PI * tk_d_kess->y[i] * sqrt(  Pk_primordial(tk_d_kess->x[i] * cosmo.h / sim.boxsize, ic)/ tk_d_kess->x[i])
+			 / tk_d_kess->x[i];
+			// zeta
+			kess_field_prime[i] = - M_PI * tk_t_kess->y[i] * sqrt( Pk_primordial(tk_t_kess->x[i] * cosmo.h / sim.boxsize, ic)/ tk_t_kess->x[i])
+			 / tk_t_kess->x[i];
+			k_ess[i] = tk_d_kess->x[i];
+		}
+		// Field realization
+		gsl_spline_free(tk_d_kess);
+		tk_d_kess = gsl_spline_alloc(gsl_interp_cspline, npts);
+		gsl_spline_init(tk_d_kess, k_ess, kess_field, npts);
+		generateRealization(*scalarFT_pi, 0., tk_d_kess, (unsigned int) ic.seed, ic.flags & ICFLAG_KSPHERE,0);
+		plan_pi_k->execute(FFT_BACKWARD);
+		pi_k->updateHalo();	// pi_k now is realized in real space
+		gsl_spline_free(tk_d_kess);
+		free(kess_field);
+		// Field derivative realization zeta
+		gsl_spline_free(tk_t_kess);
+		tk_t_kess = gsl_spline_alloc(gsl_interp_cspline, npts);
+		gsl_spline_init(tk_t_kess, k_ess, kess_field_prime, npts);
+		generateRealization(*scalarFT_zeta, 0., tk_t_kess, (unsigned int) ic.seed, ic.flags & ICFLAG_KSPHERE,0);
+		plan_zeta->execute(FFT_BACKWARD);
+		zeta->updateHalo();	// zeta now is realized in real space
+		gsl_spline_free(tk_t_kess);
+		free(k_ess);
+		//////////////////////////////////////////////////////
+		//// End of K_essence IC part/
+		//////////////////////////////////////////////////////
+\end{lstlisting}
+Just note that since $\zeta$ is dimensionless like $\pi'$ so we do not have any troubles working with it, and hopefully we have solve the issues related to $\pi$ before in the previous versions of the code!
+\paragraph{gevolution.hpp}
+In this routine we should write the Stress energy tensor as well as fields equations,
+  \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+ //////////////////////////
+//Kessence Stress tensor
+//////////////////////////
+// Description:
+//   Kessence field projection for Tmunu
+//
+// Arguments:
+//   T00        pointer to target field
+//   T0i        pointer to target field
+//   Tij        pointer to target field
+//   dtau				time step which should be the new one not the old one!
+//   dx         lattice unit (unused)
+//   phi        phi field
+//   phi_old    The value of phi in the last step
+//   a          scale factor at projection (needed in order to convert
+//              canonical momenta to energies)
+//   phi        pointer to Bardeen potential which characterizes the
+//              geometric corrections (volume distortion); can be set to
+//              NULL which will result in no corrections applied
+//   pi_k       scala field in units 1/H
+//  zeta_integer combination of \pi', \Psi and H \pi = \pi'+\mathcal{H} \pi -\Psi at integer steps!
+//   Omega_fld  The scalar field density
+//   w          scalar field equation of state,
+//   cs2        scalar field sound speed squared
+//   Hcon       conformal Hubble factor in Gevolution's units
+//   fourpig
+//   method     refers to the method for solving the equations, method=1 Turn on vector elliptic, method=0
+//               the default
+//
+// Returns:
+//
+//////////////////////////
+template <class FieldType>
+void projection_Tmunu_kessence( Field<FieldType> & T00, Field<FieldType> & T0i, Field<FieldType> & Tij,
+   double dx,double a, Field<FieldType> & phi,Field<FieldType> & phi_old, Field<FieldType> & chi, Field<FieldType> & pi_k, Field<FieldType> & zeta_integer, double Omega_fld , double w, double cs2, double Hcon, double fourpig, int method )
+{
+    Site xField(phi.lattice());
+    double coeff1, coeff2, coeff3, Hdot, psi;
+    Site x(phi.lattice());
+    double gradient_pi2;
+    coeff1=Omega_fld*pow(a,-3.*w)*(1.+w)/(cs2);
+    coeff2=Omega_fld*pow(a,-3.*w)*(1.+w);
+    coeff3=Omega_fld*pow(a,-3.*w)*(1.+w);
+    for (xField.first(); xField.test(); xField.next())
+      {
+
+    		gradient_pi2 =0.25*(pi_k(xField+0) - pi_k(xField-0))* (pi_k(xField+0) - pi_k(xField-0));
+        gradient_pi2+=0.25*(pi_k(xField+1) - pi_k(xField-1))* (pi_k(xField+1) - pi_k(xField-1));
+        gradient_pi2+=0.25*(pi_k(xField+1) - pi_k(xField-2))* (pi_k(xField+1) - pi_k(xField-2));
+				// Test:
+				// if(xField.coord(0)==2 && xField.coord(1)==2 && xField.coord(2)==2 )
+				// {
+				// cout<<"gradient_pi2: "<<- psi + (zeta(xField)+ Hcon * pi_k(xField))<<endl;
+				// }
+        psi= phi(xField) - chi(xField);
+        // 0-0-component:
+				T00(xField)       =  -  coeff1* ( -3.*cs2 * Hcon * pi_k(xField) + zeta_integer(xField));
+				// Second order
+			 	// - (1.-2.*cs2) * gradient_pi2/2. );
+        // 1-1-component:
+        Tij(xField, 0, 0) =  coeff2 * (-3.* w * Hcon* pi_k(xField) +   zeta_integer(xField) );
+				//second order
+				// +  gradient_pi2/2. ));
+
+        // 1-2-component:
+				//Second order
+        // Tij(xField, 0, 1) =  coeff3*(pi_k(xField+0)-pi_k(xField-0))*(pi_k(xField+1)-pi_k(xField-1))/4.;
+
+        // 1-3-component:
+				//Second order
+        // Tij(xField, 0, 2) =  coeff3*(pi_k(xField+0)-pi_k(xField-0))*(pi_k(xField+2)-pi_k(xField-2))/4.;
+
+        // 2-2-component:
+        Tij(xField, 1, 1) =  coeff2 * (-3.* w * Hcon* pi_k(xField) +   zeta_integer(xField) );
+				//Second order
+				// +  gradient_pi2/2. ));
+
+        // 2-3-component:
+				//Second order
+        // Tij(xField, 1, 2) =  coeff3*(pi_k(xField+1)-pi_k(xField-1))*(pi_k(xField+2)-pi_k(xField-2))/4.;
+
+        // 3-3-component:
+        Tij(xField, 2, 2) =  coeff2 * (-3.* w * Hcon* pi_k(xField) +   zeta_integer(xField) );
+				// Second order
+				// +  gradient_pi2/2. ));
+        // In the case of Vector parabolic
+        }
+        if(method==1) // method=1 Turn on vector elliptic
+        {
+					// T01:
+          T0i(xField, 0)  =  -coeff3  * (pi_k(xField+0)-pi_k(xField-0))/2.;
+          // Second order
+          // *(1 - (-1 + 1./cs2)* gradient_pi2/2.)
+					// T02:
+          T0i(xField, 1)  =  -coeff3 * (pi_k(xField+1)-pi_k(xField-1))/2.;
+          // Second order
+          // *(1 - (-1 + 1./cs2)* gradient_pi2/2.)
+          // T03 :
+          T0i(xField, 2)  =  -coeff3  * (pi_k(xField+2)-pi_k(xField-2))/2.;
+          // Second order
+          // *(1 - (-1 + 1./cs2)* gradient_pi2/2.)
+        }
+      }
+
+			//////////////////////////
+			// Update K-essence field (1)
+			//////////////////////////
+			// Description:
+			//   Updating K-essence pi_k field based on equation obtained by energy momentum conservation
+			//
+			// Arguments:
+			//   phi        reference to field configuration
+			//   pi_k       reference to k-essence field
+			//   piv_k      reference to first derivative of the field
+			//   zeta_half  reference to zeta at half steps which is useful for pi_k updating
+			// Returns:
+			//
+			//////////////////////////
+			template <class FieldType>
+			void update_pi_k( double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi,Field<FieldType> & chi_old, Field<FieldType> & pi_k, Field<FieldType> &,  Field<FieldType> & zeta_half , double Omega_fld ,double w, double cs2, double Hcon, double & Hcon_old)
+			{
+        double psi, psi_prime, psi_half;
+        double H_prime= (Hcon-Hcon_old)/dtau;
+        double H_half= Hcon + H_prime *  dtau/2. ;
+        double Coeff1 = 1./(1. + H_half * dtau/2.);
+
+			  Site x(phi.lattice());
+			  for (x.first(); x.test(); x.next())
+			    {
+            psi=phi(x) - chi(x);
+            psi_prime= ((phi(x) - chi(x))-(phi_old(x) - chi_old(x)))/dtau;
+            psi_half= psi + psi_prime * dtau/2.;
+            //pi_k(n+1) = Coeff1 * (pi_k(n) + \Delta T (zeta(n+1/2) + ... ))
+			      pi_k(x)=Coeff1 * (pi_k(x)  + dtau * zeta_half(x) - H_half * pi_k(x)/2. + psi_half ); //NOTE: zeta and psi must be at n+1/2 step according to the formula! So we need to update zeta first in the main loop.
+			    }
+			}
+
+			//////////////////////////
+			// Update K-essence velocity field (2)
+			//////////////////////////
+			// Description:
+			//   Updating K-essence zeta field based on equation obtained by energy momentum conservation
+			//
+			// Arguments:
+			//   phi        reference to field configuration
+			//   pi_k       reference to k-essence field
+			//   piv_k      reference to first derivative of the field
+    			//   zeta_half  reference to zeta at half steps which is useful for pi_k updating
+   			//   zeta_integer  reference to zeta at integer steps which is synchronized with other fields
+			// Returns:
+			//
+			//////////////////////////
+			// We use predictor corrector method to calculate \zeta precisely specially for non-linear case.
+			template <class FieldType>
+			void update_zeta(double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi,Field<FieldType> & chi_old, Field<FieldType> & pi_k, Field<FieldType> & zeta_half , Field<FieldType> & zeta_integer, double Omega_fld ,double w, double cs2, double Hcon, double & Hcon_old)
+			{
+			  double CoeffI, CoeffII, H_prime, psi, psi_old, psi_prime, phi_prime, Laplacian_pi, zeta_old_half, zeta_prime_integer, zeta_check ;
+        H_prime= (Hcon-Hcon_old)/dtau;
+        CoeffI = 1./(1. - dtau * 3. * w * Hcon/2. );
+        CoeffII = cs2 * (3. * Hcon * Hcon - 3. * H_prime );
+
+				Site x(phi.lattice());
+				for (x.first(); x.test(); x.next())
+					{
+            //Everything here is at step n except zeta which is at half steps! zeta is like pi_v
+						Laplacian_pi=pi_k(x-0) + pi_k(x+0) - 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+1) + pi_k(x-1)- 2. * pi_k(x);
+						Laplacian_pi+=pi_k(x+2) + pi_k(x-2)- 2. * pi_k(x);
+            Laplacian_pi=Laplacian_pi/(dx*dx);
+						psi=phi(x) - chi(x);
+						psi_prime= ((phi(x) - chi(x))-(phi_old(x) - chi_old(x)))/dtau;
+					  phi_prime= (phi(x) - phi_old(x))/dtau;
+						//Full Linear terms, zeta at step n+1/2
+            zeta_old_half=zeta_half(x);
+            zeta_half(x)= CoeffI * ( zeta_half(x) + dtau * ( 3. * Hcon * ( w * zeta_half(x)/2. + cs2 * psi ) - CoeffII * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi) );
+            //Since we have n_kess updates we must put Hcon_old=Hcon;
+            zeta_prime_integer=( 3. * Hcon * ( w * zeta_integer(x) + cs2 * psi ) - CoeffII * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi); //Having zeta' at step (n) we can compute \zeta at n+1 by two methods
+            // computing zeta (n) by taking average ove zeta(n+1/2) and zeta(n-1/2)
+            //Zeta Check!
+            zeta_integer(x)= (zeta_half(x) + zeta_old_half)/2.;
+            // computing zeta (n) by zeta(n)=zeta(n-1/2)+ zeta'(n) dtau/2.
+            zeta_check= zeta_half(x) + zeta_prime_integer * dtau/2.;
+            cout<< abs((zeta_integer(x)-zeta_check)/(zeta_integer(x))) << '\n';
+            // if (2.* abs(zeta_integer(x)-zeta_check)/(zeta_integer(x)+zeta_check) > 1) cout << "\033[1;31mbold WARNING: PRECISION ERROR ON KESSENCE FIELD ZETA, More than 1% Error\033[0m\n" << '\n';
+						Hcon_old=Hcon;
+          }
+        }
+  \end{lstlisting}
+\paragraph{output.hpp}
+This routine is important for setting the normalizations factors and units..
+  \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+  void writeSnapshots(metadata & sim, cosmology & cosmo, const double fourpiG, gadget2_header & hdr, const double a, const int snapcount, string h5filename, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_cdm, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_b, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_ncdm, Field<Real> * phi, Field<Real> * pi_k, Field<Real> * zeta, Field<Real> * chi, Field<Real> * Bi, Field<Real> * T00_Kess, Field<Real> * T0i_Kess, Field<Real> * Tij_Kess, Field<Real> * source, Field<Real> * Sij, Field<Cplx> * scalarFT, Field<Cplx> * BiFT, Field<Cplx> * SijFT, PlanFFT<Cplx> * plan_phi, PlanFFT<Cplx> * plan_chi, PlanFFT<Cplx> * plan_Bi, PlanFFT<Cplx> * plan_source, PlanFFT<Cplx> * plan_Sij, Field<Real> * Bi_check = NULL, Field<Cplx> * BiFT_check = NULL, PlanFFT<Cplx> * plan_Bi_check = NULL)
+{
+	.
+	.
+	.	
+	//Kessence
+	if (sim.out_snapshot & MASK_PI_K)
+			pi_k->saveHDF5_server_open(h5filename + filename + "_pi_k");
+
+	if (sim.out_snapshot & MASK_zeta)
+			zeta->saveHDF5_server_open(h5filename + filename + "_zeta");
+	//Kessence end
+	//Kessence
+if (sim.out_snapshot & MASK_PI_K)
+#ifdef EXTERNAL_IO
+		pi_k->saveHDF5_server_write(NUMBER_OF_IO_FILES);
+#else
+		if (sim.downgrade_factor > 1)
+			pi_k->saveHDF5_coarseGrain3D(h5filename + filename + "_pi_k.h5", sim.downgrade_factor);
+	else
+			pi_k->saveHDF5(h5filename + filename + "_pi_k.h5");
+#endif
+
+if (sim.out_snapshot & MASK_zeta)
+#ifdef EXTERNAL_IO
+		zeta->saveHDF5_server_write(NUMBER_OF_IO_FILES);
+#else
+		if (sim.downgrade_factor > 1)
+			zeta->saveHDF5_coarseGrain3D(h5filename + filename + "_zeta.h5", sim.downgrade_factor);
+	else
+			zeta->saveHDF5(h5filename + filename + "_zeta.h5");
+#endif
+//kessence end
+//Kessence
+if (sim.out_snapshot & MASK_T_KESS)
+{
+	// COUT<<"output kesssence energy"<<endl;
+	#ifdef EXTERNAL_IO
+			T00_Kess->saveHDF5_server_write(NUMBER_OF_IO_FILES);
+			T0i_Kess->saveHDF5_server_write(NUMBER_OF_IO_FILES);
+			Tij_Kess->saveHDF5_server_write(NUMBER_OF_IO_FILES);
+	#else
+			if (sim.downgrade_factor > 1)
+			{
+				T00_Kess->saveHDF5_coarseGrain3D(h5filename + filename + "_T00_Kess.h5", sim.downgrade_factor);
+				T0i_Kess->saveHDF5_coarseGrain3D(h5filename + filename + "_T0i_Kess.h5", sim.downgrade_factor);
+				Tij_Kess->saveHDF5_coarseGrain3D(h5filename + filename + "_Tij_Kess.h5", sim.downgrade_factor);
+			}
+			else
+			{
+				T00_Kess->saveHDF5(h5filename + filename + "_T00_Kess.h5");
+				T0i_Kess->saveHDF5(h5filename + filename + "_T0i_Kess.h5");
+				Tij_Kess->saveHDF5(h5filename + filename + "_Tij_Kess.h5");
+			}
+	#endif
+}
+//Kessence end
+//*************************************************************
+//*************************************************************
+void writeSpectra(metadata & sim, cosmology & cosmo, const double fourpiG, const double a, const int pkcount, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_cdm, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_b, Particles_gevolution<part_simple,part_simple_info,part_simple_dataType> * pcls_ncdm, Field<Real> * phi, Field<Real> * phi_prime , Field<Real> * pi_k, Field<Real> * zeta,  Field<Real> * chi, Field<Real> * Bi, Field<Real> * T00_Kess, Field<Real> * T0i_Kess, Field<Real> * Tij_Kess, Field<Real> * source, Field<Real> * Sij, Field<Cplx> * scalarFT, Field<Cplx> * scalarFT_phi_prime ,Field<Cplx> * scalarFT_pi, Field<Cplx> * scalarFT_zeta, Field<Cplx> * BiFT, Field<Cplx> * T00_KessFT, Field<Cplx> * T0i_KessFT, Field<Cplx> * Tij_KessFT, Field<Cplx> * SijFT, PlanFFT<Cplx> * plan_phi, PlanFFT<Cplx> * plan_phi_prime, PlanFFT<Cplx> * plan_pi_k, PlanFFT<Cplx> * plan_zeta, PlanFFT<Cplx> * plan_chi, PlanFFT<Cplx> * plan_Bi, PlanFFT<Cplx> * plan_T00_Kess, PlanFFT<Cplx> * plan_T0i_Kess, PlanFFT<Cplx> * plan_Tij_Kess, PlanFFT<Cplx> * plan_source, PlanFFT<Cplx> * plan_Sij, Field<Real> * Bi_check = NULL, Field<Cplx> * BiFT_check = NULL, PlanFFT<Cplx> * plan_Bi_check = NULL)
+	.
+	.
+		 //KESSENCE PART
+
+   // Note that according to definition and since pi is dimensionfull, so in the output we write \pi * H_conf which is dimensionless and can be compared to class and hiclass
+	  if (sim.out_pk & MASK_PI_K)
+		{
+			plan_pi_k->execute(FFT_FORWARD);
+			extractPowerSpectrum(*scalarFT_pi , kbin, power, kscatter, pscatter, occupation, sim.numbins, false, KTYPE_LINEAR);
+			sprintf(filename, "%s%s%03d_pi_k.dat", sim.output_path, sim.basename_pk, pkcount);
+			writePowerSpectrum(kbin, power, kscatter, pscatter, occupation, sim.numbins, sim.boxsize, (Real) numpts3d * (Real) numpts3d * 2. * M_PI * M_PI/(Hconf(a,fourpiG,cosmo) * Hconf(a,fourpiG,cosmo)), filename, "power spectrum of pi_k", a);
+		}
+
+		// Phi_prime is dimensionful so we divide  to Hconf to make dimensionless!
+		if (sim.out_pk & MASK_PHI_PRIME)
+			{
+				plan_phi_prime->execute(FFT_FORWARD);
+				extractPowerSpectrum(*scalarFT_phi_prime , kbin, power, kscatter, pscatter, occupation, sim.numbins, false, KTYPE_LINEAR);
+				sprintf(filename, "%s%s%03d_phi_prime.dat", sim.output_path, sim.basename_pk, pkcount);
+				writePowerSpectrum(kbin, power, kscatter, pscatter, occupation, sim.numbins, sim.boxsize, (Real) numpts3d * (Real) numpts3d * 2. * M_PI * M_PI * (Hconf(a,fourpiG,cosmo) * Hconf(a,fourpiG,cosmo)), filename, "power spectrum of phi_prime", a);
+			}
+
+
+	     if (sim.out_pk & MASK_zeta)
+		{
+			plan_zeta->execute(FFT_FORWARD);
+			extractPowerSpectrum(*scalarFT_zeta, kbin, power, kscatter, pscatter, occupation, sim.numbins, false, KTYPE_LINEAR);
+			sprintf(filename, "%s%s%03d_zeta.dat", sim.output_path, sim.basename_pk, pkcount);
+			writePowerSpectrum(kbin, power, kscatter, pscatter, occupation, sim.numbins, sim.boxsize, (Real) numpts3d * (Real) numpts3d * 2. * M_PI * M_PI, filename, "power spectrum of zeta", a);
+		}
+
+	   if (sim.out_pk & MASK_Delta_KESS)
+		{
+			// P (\delta)= deltarho_kess^2/ Omega_kess *a^(-3(1+w)) ) Omega_kess *a^(-3(1+w)) ) since in the defnition we have a^3 T00
+			// We already included a^(-3) in the denominator, so we only need take the rest into account.
+			plan_T00_Kess->execute(FFT_FORWARD);
+			extractPowerSpectrum(*T00_KessFT, kbin, power, kscatter, pscatter, occupation, sim.numbins, false, KTYPE_LINEAR);
+			sprintf(filename, "%s%s%03d_delta_kess.dat", sim.output_path, sim.basename_pk, pkcount);
+			writePowerSpectrum(kbin, power, kscatter, pscatter, occupation, sim.numbins, sim.boxsize, (Real) numpts3d * (Real) numpts3d * 2. * M_PI * M_PI* cosmo.Omega_kessence * cosmo.Omega_kessence * pow(a, -3.* cosmo.w_kessence) * pow(a, -3.* cosmo.w_kessence), filename, "power spectrum of delta_kessence", a);
+			// writePowerSpectrum(kbin, power, kscatter, pscatter, occupation, sim.numbins, sim.boxsize, (Real) numpts3d * (Real) numpts3d * 2. * M_PI * M_PI, filename, "power spectrum of delta_kessence", a);
+		 }
+	   //KESSENCE END
+
+
+  \end{lstlisting}
+% \flushbottom
+%
+%%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+%
+%\end{document}
+ 
