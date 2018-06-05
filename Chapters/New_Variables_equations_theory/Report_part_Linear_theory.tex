@@ -353,7 +353,7 @@ T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg [ 1+  \frac{1+w}{w}\Big ( -
   \pi'=\zeta-\mathcal{H} \pi +\Psi
   \ee
   So for the leapfrog method, it is to us to choose which equation want to update in half steps and which one in integer steps, but since we have most the variables at integer steps, it is better to update $\zeta$ in half steps which acts like  the velocity of the field !
-  \paragraph{$\zeta$ equation}
+  \simpleparagraph{$\zeta$ equation}
   \be
   \zeta_{n+\frac{1}{2}}=\zeta_{n-\frac{1}{2}} + \zeta'_{n} \Delta \tau
   \ee
@@ -389,7 +389,7 @@ T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg [ 1+  \frac{1+w}{w}\Big ( -
     To take control over the error we check that the difference between the two $\zeta_n$ is small enough at each loop, otherwise we get precision warning ({\color{red} { What is the precision  we need?}})! \\
     It is important to note that we update $\zeta$ in half steps while we interpolate it in integer steps just to have it synchronized with other fields.
     
-    \paragraph{$\pi$ equation}
+    \simpleparagraph{$\pi$ equation}
  for the $\pi$ equation we have,
     \be
       \pi_{n+1}=\pi_{n} + \pi'_{n+\frac{1}{2}} \Delta \tau
@@ -561,7 +561,7 @@ for i in range (4):
 
   \subsubsection{Gevolution}
     To implement the new set of variables and equations in Gevolution we need to follow these steps,
-     \paragraph{background.hpp}
+     \simpleparagraph{background.hpp}
      {\color{red} Todo: There is a tension between class and Gev $\mathcal{H}$! } \\
      We also add a new function $\mathcal{H}'$ which simplifies the computations. The $\mathcal{H}'$ is obtained as following,
      \be
@@ -634,7 +634,7 @@ double Hconf_prime(const double a, const double fourpiG, const cosmology cosmo)
 \end{lstlisting}
 
     
-            \paragraph{metadata.hpp}
+            \simpleparagraph{metadata.hpp}
 We define the follwing variables related to kessence in metadata,
 \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
@@ -670,7 +670,7 @@ double Omega_kessence;
 double cs2_kessence;
 };
 \end{lstlisting}
-        \paragraph{parser.hpp}
+        \simpleparagraph{parser.hpp}
  \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
 bool parseFieldSpecifiers(parameter * & params, const int numparam, const char * pname, int & pvalue)
@@ -770,7 +770,7 @@ bool parseFieldSpecifiers(parameter * & params, const int numparam, const char *
 	}
 
 \end{lstlisting}
-     \paragraph{hibernation.hpp}
+     \simpleparagraph{hibernation.hpp}
 \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
  //////////////////////////
@@ -862,7 +862,7 @@ void hibernate(metadata & sim, icsettings & ic, cosmology & cosmo, Particles<par
 	
 \end{lstlisting}
 
-        \paragraph{main.cpp}
+        \simpleparagraph{main.cpp}
 We need to define the new variable and its Fourier transformation on the Lattices, the main changes on main file are. Of course there might be some errors on the code below but it is useful for getting the idea and also future uses!
 \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
@@ -1018,7 +1018,7 @@ else
 		.
 \end{lstlisting}
     
-    \paragraph{IC$\_$basic.hpp}
+    \simpleparagraph{IC$\_$basic.hpp}
    Reading and extracting information from IC file (class). For this we have defined a new function which goes thorough the columns of IC file and assign the data to the variable. The most important part of the function which assigns the data to the code's variable is,
   \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
@@ -1098,7 +1098,7 @@ void generateIC_basic(metadata & sim, icsettings & ic, cosmology & cosmo, const 
 		//////////////////////////////////////////////////////
 \end{lstlisting}
 Just note that since $\zeta$ is dimensionless like $\pi'$ so we do not have any troubles working with it, and hopefully we have solve the issues related to $\pi$ before in the previous versions of the code!
-\paragraph{gevolution.hpp}
+\simpleparagraph{gevolution.hpp}
 In this routine we should write the Stress energy tensor as well as fields equations,
   \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
@@ -1290,7 +1290,7 @@ void projection_Tmunu_kessence( Field<FieldType> & T00, Field<FieldType> & T0i, 
           }
         }
   \end{lstlisting}
-\paragraph{output.hpp}
+\simpleparagraph{output.hpp}
 This routine is important for setting the normalizations factors and units..
   \begin{lstlisting}[language=C++,
   basicstyle=\tiny]
@@ -1399,7 +1399,6 @@ void writeSpectra(metadata & sim, cosmology & cosmo, const double fourpiG, const
 
 
   \end{lstlisting}
-% \flushbottom
 %
 %%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
 %%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.

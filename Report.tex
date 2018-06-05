@@ -93,14 +93,14 @@
 %\renewcommand{\marginpar}{\marginnote}%
 
 % Save original definition of \marginpar
-\let\oldmarginpar\marginpar
+%\let\oldmarginpar\marginpar
 % Workaround for todonotes problem with natbib (To Do list title comes out wrong)
-\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
 % Packages included specifically for this document.
 \usepackage{texintro}           % Document-specific definitions
 \usepackage{tocvsec2}           % More flexible formatting of table of contents
 \usepackage{bibentry}           % Print full citation in text
-\nobibliography*                                % Allow use of \bibentry command
+%\nobibliography*                                % Allow use of \bibentry command
 \usepackage{tikz}             % Already included by todonotes
 \usetikzlibrary{matrix}
 \usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
@@ -108,22 +108,25 @@
 
 % Workaround for todonotes problem with natbib (To Do list title comes out wrong)
 % If you're including tocvsec2, do so before this command.
-\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
 
 % Number paragraphs and subparagraphs and include them in TOC
-%\setcounter{tocdepth}{2}
-
+\setcounter{secnumdepth}{8}
+\setcounter{tocdepth}{8}
+\newcommand\simpleparagraph[1]{%
+  \stepcounter{paragraph}\paragraph*{\theparagraph\quad{}#1}}
+  
 \usepackage[affil-it]{authblk} 
 \usepackage{etoolbox}
 
 \usepackage{titlesec}
 
-\setcounter{secnumdepth}{4}
+%\setcounter{secnumdepth}{4}
 
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \graphicspath{Images/}
 
 
@@ -245,9 +248,14 @@
 \include{./Chapters/Class_hiclass_IC/Class_hiclass_IC}
 \include{./Chapters/Poisson_Phi_prime/Poisson_phi_prime}
 \include{./Chapters/Old_variable_solution/Old_variable_solution}
-\include{./Chapters/Errors_Runtime/Errors_Runtime}
 \include{./Chapters/New_Variables_equations_theory/Report_part_Linear_theory}
 \include{./Chapters/New_Variables_equations_comparisons/Report_part_Linear_comparisons}
+\include{./Chapters/New_Variables_stress_tensor_full_comparison/New_Variables_stress_tensor_full_comparison}
+\include{./Chapters/Non-Linear/Non-Linear}
+\include{./Chapters/FinalTests/FinalTests}
+\include{./Chapters/Errors_Runtime/Errors_Runtime}
+
+
 
 
 \end{document}
