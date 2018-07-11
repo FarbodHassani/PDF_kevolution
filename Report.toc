@@ -1,148 +1,161 @@
 
-\contentsline {section}{\numberline {1}Theory of EFT and the equations and Stress tensor}{6}{section.1}
-\contentsline {section}{\numberline {2}Questions:}{6}{section.2}
-\contentsline {section}{\numberline {3}Todo:}{6}{section.3}
-\contentsline {section}{\numberline {4}K-essence field equation from EFT action}{7}{section.4}
-\contentsline {section}{\numberline {5}Definitions}{7}{section.5}
-\contentsline {subsection}{\numberline {5.1}Stuckelberg trick}{8}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Friedmann equations}{14}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Checking the linear equations in mathematica}{16}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}The equation in terms of conformal time}{19}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Numeric olver}{22}{subsection.5.5}
-\contentsline {section}{\numberline {6}Stress tensor {\color {red}check again and make sure everything is ok, need to check the calculation again! Also add some Filippo's calculation} }{24}{section.6}
-\contentsline {subsection}{\numberline {6.1}\color {red}{Do all the calculations in mathematica to make sure!}}{24}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Derivative of determinant}{27}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}$T_{00}$ component of energy momentum tensor}{27}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}$T_{0i}$ component of energy momentum tensor}{28}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}$T_{ij}$ component of energy momentum tensor}{29}{subsection.6.5}
-\contentsline {section}{\numberline {7}Field transfer function}{30}{section.7}
-\contentsline {section}{\numberline {8}Gevolution implementation {\color {red} Need to be checked and use the corrected stress tensor and check with other references!} }{30}{section.8}
-\contentsline {section}{\numberline {9}The constraints from stress energy tensor {\color {red} Need to be checked and use the corrected stress tensor and check with other references!}}{31}{section.9}
-\contentsline {subsection}{\numberline {9.1}Euler and continuity equations {\color {red} Need to be checked and use the corrected stress tensor and check with other references!}}{33}{subsection.9.1}
-\contentsline {section}{\numberline {10}Field transfer function}{33}{section.10}
-\contentsline {subsection}{\numberline {10.1}Gauge transformation}{34}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}Comparison the $\alpha $ from hi-class and density transfer function in the class {\color {red} Get something consistent from below calculation!}}{36}{subsection.10.2}
-\contentsline {subsubsection}{\numberline {10.2.1}$\delta \rho $ transfer function}{36}{subsubsection.10.2.1}
-\contentsline {subsection}{\numberline {10.3}comparing the $\Psi $ function in Newtonian and synchronous gauge in class and hi-class}{37}{subsection.10.3}
-\contentsline {subsection}{\numberline {10.4}Comparing the ${\pi }$ transfer function directly from hi-class and what we get from class indirectly}{38}{subsection.10.4}
-\contentsline {subsection}{\numberline {10.5}Test 2: Density transfer in the limit of $c_s^2 \rightarrow 0 , w \rightarrow -1$ which should be the same as matter density transfer function}{39}{subsection.10.5}
-\contentsline {subsection}{\numberline {10.6}Comparing the ${\pi '}$ transfer function directly from hi-class and what we get from class indirectly}{40}{subsection.10.6}
-\contentsline {subsection}{\numberline {10.7}Comparison of field transfer functions in the hi-class and the EFTcamb}{40}{subsection.10.7}
-\contentsline {section}{\numberline {11}Gevolution}{41}{section.11}
-\contentsline {subsection}{\numberline {11.1}Initial condition}{41}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}Gevolution initial field factors from initial condition to output power }{42}{subsection.11.2}
-\contentsline {subsection}{\numberline {11.3}writePowerSpectrum}{43}{subsection.11.3}
-\contentsline {subsection}{\numberline {11.4}Stress tensor}{43}{subsection.11.4}
-\contentsline {subsection}{\numberline {11.5}Field equation and transfer}{43}{subsection.11.5}
-\contentsline {subsection}{\numberline {11.6}Some tests on Gevolution:}{43}{subsection.11.6}
-\contentsline {section}{\numberline {12}Numerical solution to the k-essence equation and stress tensors in Gevolution ({\color {red} Must be checked!})}{44}{section.12}
-\contentsline {section}{\numberline {13}Programming issues}{46}{section.13}
-\contentsline {section}{\numberline {14}Do we obtain the same results for the $\pi $ and $\pi $ transfer function from class in synchronous gauge? Miguel question!}{47}{section.14}
-\contentsline {subsection}{\numberline {14.1}Comparing the ${\pi }$ transfer function directly from hi-class and what we get from class indirectly}{48}{subsection.14.1}
-\contentsline {subsection}{\numberline {14.2}Comparison of the results}{49}{subsection.14.2}
-\contentsline {subsubsection}{\numberline {14.2.1}Class, comparison of two gauges}{53}{subsubsection.14.2.1}
-\contentsline {paragraph}{\numberline {14.2.1.1}Miguel}{54}{paragraph.14.2.1.1}
-\contentsline {section}{\numberline {15}Report-05April2018}{54}{section.15}
-\contentsline {subsection}{\numberline {15.1}Martin meeting}{55}{subsection.15.1}
-\contentsline {section}{\numberline {16}Check the equations for $c_s^2 \to 0$ and $ w \to 0$ to get the matter behaviour and cross check with class!}{56}{section.16}
-\contentsline {subsection}{\numberline {16.1}Class and Gevolution. results, $w \DOTSB \relbar \joinrel \rightarrow 0$, $c_s^2 \DOTSB \relbar \joinrel \rightarrow 0$: in theory, both equations and $T_{\mu \nu }$ }{56}{subsection.16.1}
-\contentsline {subsection}{\numberline {16.2}Solving the equation:}{57}{subsection.16.2}
-\contentsline {subsection}{\numberline {16.3}How is it related to fluid language?}{58}{subsection.16.3}
-\contentsline {subsubsection}{\numberline {16.3.1}Euler equation:}{59}{subsubsection.16.3.1}
-\contentsline {subsection}{\numberline {16.4}Solution of the equation in the matter dominated universe }{59}{subsection.16.4}
-\contentsline {subsection}{\numberline {16.5}Checking the consistency!}{60}{subsection.16.5}
-\contentsline {subsection}{\numberline {16.6}Class and Gevolution. results, $w=10^{-8}$, $c_s^2=10^{-16}$: results from the code}{61}{subsection.16.6}
-\contentsline {section}{\numberline {17}$\Psi '$ comparison in Gevolution and other codes}{64}{section.17}
-\contentsline {subsection}{\numberline {17.1}Equation for $\Phi '$ in class}{64}{subsection.17.1}
-\contentsline {subsection}{\numberline {17.2}Comparing the $\Psi '$ in Gevolution with Riess Sciama effect at redshift 50.}{64}{subsection.17.2}
-\contentsline {subsubsection}{\numberline {17.2.1}Make the same plot at z=0 {\color {red} TODO:}}{66}{subsubsection.17.2.1}
-\contentsline {subsection}{\numberline {17.3}Comparing $P_{22}$ from different codes!}{66}{subsection.17.3}
-\contentsline {subsection}{\numberline {17.4}Comparing $\mathaccentV {dot}05F{\Phi }$ in Gevolution with Gadjet code!}{67}{subsection.17.4}
-\contentsline {subsection}{\numberline {17.5}Test of Gevolution when we add $\Psi ' d\tau $ to $\Psi _{ini}$ to get the final value in class and Gevolution }{67}{subsection.17.5}
-\contentsline {subsection}{\numberline {17.6}Trying to get $\Phi '$ from second order codes}{70}{subsection.17.6}
-\contentsline {subsubsection}{\numberline {17.6.1}FastPM}{70}{subsubsection.17.6.1}
-\contentsline {subsubsection}{\numberline {17.6.2}L-PICOLA}{70}{subsubsection.17.6.2}
-\contentsline {subsubsection}{\numberline {17.6.3}Going to second order Boltzmann codes}{70}{subsubsection.17.6.3}
-\contentsline {subsection}{\numberline {17.7}Comparing $\Phi '$ in class and Gevolution in much larger scales!}{70}{subsection.17.7}
-\contentsline {subsection}{\numberline {17.8}Matter power and $\Phi $ power in Gevolution and class via Poisson equation: ({\color {red} Recheck!})}{73}{subsection.17.8}
-\contentsline {subsection}{\numberline {17.9}Results for the relatively big run and comparison between class and Gevolution vs plot in the arXiv:0809.4488v3 paper! }{79}{subsection.17.9}
-\contentsline {subsection}{\numberline {17.10}Comparing obtained $\Phi '$ from full second order matter and Poisson equation at two different redshifts with the one we have obtained from Riess Sciama effect {\color {red} To do!}}{83}{subsection.17.10}
-\contentsline {subsection}{\numberline {17.11}Comparing Riess Sciama from Kumatsu second order to compare $\Phi '$ with our $\Phi '$ {\color {red} To do!}}{83}{subsection.17.11}
-\contentsline {section}{\numberline {18}Solving the linear field equation in mathematica and comparing with Gevolution and checking that if we use $\Phi '$ of Gevolution we get the same result as Gevolution, just consistency check!}{84}{section.18}
-\contentsline {subsection}{\numberline {18.1}How much the result in Gevolution is sensitive to precision parameters?}{89}{subsection.18.1}
-\contentsline {subsection}{\numberline {18.2}What happens if we turn on $\Phi '$ term in Gevolution? }{95}{subsection.18.2}
-\contentsline {subsubsection}{\numberline {18.2.1}Consistency check: If we get $\Phi $ and $\Phi '$ from Gevolution as an initial condition and solve it in mathematica}{96}{subsubsection.18.2.1}
-\contentsline {section}{\numberline {19}Rewriting the field equations in terms of two new variables}{102}{section.19}
-\contentsline {subsection}{\numberline {19.1}Linear calculation}{102}{subsection.19.1}
-\contentsline {subsubsection}{\numberline {19.1.1}The new sets of equations and stress tensor}{103}{subsubsection.19.1.1}
-\contentsline {subsubsection}{\numberline {19.1.2}Numerical solver}{104}{subsubsection.19.1.2}
-\contentsline {subsubsection}{\numberline {19.1.3}Initial conditions from class}{105}{subsubsection.19.1.3}
-\contentsline {subsubsection}{\numberline {19.1.4}Gevolution}{109}{subsubsection.19.1.4}
-\contentsline {section}{\numberline {20}Initial condition in class and Gevolution}{121}{section.20}
-\contentsline {subsection}{\numberline {20.1} Comparing the initial condition from class and what is implemented in Gevolution}{121}{subsection.20.1}
-\contentsline {subsubsection}{\numberline {20.1.1}Mathematica solution from class initial condition and comparing with class}{122}{subsubsection.20.1.1}
-\contentsline {paragraph}{\numberline {20.1.1.1}The results}{124}{paragraph.20.1.1.1}
-\contentsline {subsubsection}{\numberline {20.1.2}Mathematica solution from Gevolution initial condition and comparing with Gevolution}{125}{subsubsection.20.1.2}
-\contentsline {paragraph}{\numberline {20.1.2.1}Initial conditions}{127}{paragraph.20.1.2.1}
-\contentsline {paragraph}{\numberline {20.1.2.2}The evolution comparison}{128}{paragraph.20.1.2.2}
-\contentsline {paragraph}{\numberline {20.1.2.3}The evolution comparison, just the scalar fields}{128}{paragraph.20.1.2.3}
-\contentsline {subsubsection}{\numberline {20.1.3}Comparing stress tensor and field solution from Gevolution with mathematica and class}{128}{subsubsection.20.1.3}
-\contentsline {paragraph}{\numberline {20.1.3.1}Comparing the class and Gevolution field and stress tensors at z=0 and z=10}{128}{paragraph.20.1.3.1}
-\contentsline {paragraph}{\numberline {20.1.3.2}Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density }{128}{paragraph.20.1.3.2}
-\contentsline {paragraph}{\numberline {20.1.3.3}Comparing with mathematica solution}{128}{paragraph.20.1.3.3}
-\contentsline {paragraph}{\numberline {20.1.3.4}Comparing with class }{128}{paragraph.20.1.3.4}
-\contentsline {subsection}{\numberline {20.2}To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? {\color {red}To do! }! }{128}{subsection.20.2}
-\contentsline {subsection}{\numberline {20.3}Check the equations in class and Gevolution for $c_s^2 \to 0$ and$ w \to 0$ for new set of variables to get the matter behaviour and cross check with class! {\color {red}To do! }}{129}{subsection.20.3}
-\contentsline {subsection}{\numberline {20.4}To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? }{129}{subsection.20.4}
-\contentsline {section}{\numberline {21}The evolution comparisons and tests}{129}{section.21}
-\contentsline {paragraph}{\numberline {21.0.0.1}The evolution comparison, just the scalar fields}{129}{paragraph.21.0.0.1}
-\contentsline {paragraph}{\numberline {21.0.0.2}more tests}{138}{paragraph.21.0.0.2}
-\contentsline {paragraph}{\numberline {21.0.0.3}Better test:}{138}{paragraph.21.0.0.3}
-\contentsline {subsubsection}{\numberline {21.0.1}Solving the equation and comparison with mathematica}{139}{subsubsection.21.0.1}
-\contentsline {paragraph}{\numberline {21.0.1.1}Euler method: Scalar field only equation}{140}{paragraph.21.0.1.1}
-\contentsline {subparagraph}{\numberline {21.0.1.1.1}Easiest equation}{140}{subparagraph.21.0.1.1.1}
-\contentsline {subparagraph}{\numberline {21.0.1.1.2}Second equation }{142}{subparagraph.21.0.1.1.2}
-\contentsline {subparagraph}{\numberline {21.0.1.1.3}Third equation:}{144}{subparagraph.21.0.1.1.3}
-\contentsline {subparagraph}{\numberline {21.0.1.1.4}Fourth equation:}{147}{subparagraph.21.0.1.1.4}
-\contentsline {subparagraph}{\numberline {21.0.1.1.5}Checking $\mathcal {H}$ and $\mathcal {H}'$}{148}{subparagraph.21.0.1.1.5}
-\contentsline {paragraph}{\numberline {21.0.1.2}making initial condition for the scalar fields in the Gevolution}{149}{paragraph.21.0.1.2}
-\contentsline {subsection}{\numberline {21.1}Euler method, equations without potentials}{150}{subsection.21.1}
-\contentsline {subsection}{\numberline {21.2}Leap-frog method, equations without potentials (First loop is tricky!)}{152}{subsection.21.2}
-\contentsline {paragraph}{\numberline {21.2.0.1}$\zeta $ equation}{152}{paragraph.21.2.0.1}
-\contentsline {paragraph}{\numberline {21.2.0.2}$\pi $ equation}{153}{paragraph.21.2.0.2}
-\contentsline {subsubsection}{\numberline {21.2.1}Results}{154}{subsubsection.21.2.1}
-\contentsline {subsubsection}{\numberline {21.2.2}By corrector methods check the errors on variables (\color {red} Does not work for linear equation)}{156}{subsubsection.21.2.2}
-\contentsline {subsubsection}{\numberline {21.2.3}Results, with corrector method!}{160}{subsubsection.21.2.3}
-\contentsline {section}{\numberline {22}$\delta $ comparison}{162}{section.22}
-\contentsline {subsection}{\numberline {22.1}Without sourcing total stress tensor }{162}{subsection.22.1}
-\contentsline {subsection}{\numberline {22.2}Kessence sourcing total stress tensor }{163}{subsection.22.2}
-\contentsline {section}{\numberline {23}Solving the full equation with potentials}{164}{section.23}
-\contentsline {subsection}{\numberline {23.1}Field dynamics, Kessence stress tensor is turned off }{164}{subsection.23.1}
-\contentsline {subsubsection}{\numberline {23.1.1}$\pi $ equation}{165}{subsubsection.23.1.1}
-\contentsline {subsubsection}{\numberline {23.1.2}$\zeta $ equation}{165}{subsubsection.23.1.2}
-\contentsline {section}{\numberline {24}Adding a function for getting field transfer function as the output }{175}{section.24}
-\contentsline {subsection}{\numberline {24.1}Field dynamics and stress tensor while kessence source gravity}{178}{subsection.24.1}
-\contentsline {section}{\numberline {25}The ratio of $\delta _{kess}$ in Gevolution and total stress tensor compared with class for different $c_s^2$ limits}{180}{section.25}
-\contentsline {subsection}{\numberline {25.1}Comparing class and Gevolution with initial condition from class {\color {red} Must be completed for more redshift ranges and also big runs!} {(\color {red} TODO:)} }{181}{subsection.25.1}
-\contentsline {subsection}{\numberline {25.2}Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density {(\color {red} TODO:)} }{182}{subsection.25.2}
-\contentsline {section}{\numberline {26}Non-linear contrubution}{184}{section.26}
-\contentsline {subsection}{\numberline {26.1}Solving the equation by leap-frog method}{187}{subsection.26.1}
-\contentsline {subsubsection}{\numberline {26.1.1}$\pi $ equation}{187}{subsubsection.26.1.1}
-\contentsline {subsubsection}{\numberline {26.1.2}$\zeta $ equation}{188}{subsubsection.26.1.2}
-\contentsline {paragraph}{\numberline {26.1.2.1}Predictor-corrector method}{193}{paragraph.26.1.2.1}
-\contentsline {section}{\numberline {27}Non-linear terms tests: {\color {red} How?}}{195}{section.27}
-\contentsline {subsection}{\numberline {27.1}Predictor-corrector method}{195}{subsection.27.1}
-\contentsline {section}{\numberline {28}Non-linear contribution in the code}{196}{section.28}
-\contentsline {section}{\numberline {29}Linear and non-linear comparisons with class results}{197}{section.29}
-\contentsline {section}{\numberline {30}Sensitivity to initial conditions}{197}{section.30}
-\contentsline {section}{\numberline {31}The effect of non linearities on gravitational potential at some different redshifts $\Psi $ and matter power spectrum}{198}{section.31}
-\contentsline {section}{\numberline {32}Solve the solution to non-linear terms in mathematica with Gevolution}{198}{section.32}
-\contentsline {section}{\numberline {33}Measuring the average of field in Gevolution to see the backreacktion}{198}{section.33}
-\contentsline {section}{\numberline {34}Sensitivity to initial conditions}{199}{section.34}
-\contentsline {section}{\numberline {35}The effect of non linearities on gravitational potential at some different redshifts $\Psi $ and matter power spectrum}{199}{section.35}
-\contentsline {section}{\numberline {36}Trace the average of the perturbation to be consistent}{199}{section.36}
-\contentsline {section}{\numberline {37}Vector elliptic and vector parabolic consistency check}{199}{section.37}
-\contentsline {section}{\numberline {38}Comparing fields and density of kessence in Gevolution versus class}{199}{section.38}
-\contentsline {section}{\numberline {39}Checking the effect of discrete lattice which Julian suggested? {\color {red} Try to derive the result!}}{200}{section.39}
-\contentsline {section}{\numberline {40}Comparing some important quantities in class and Gevolution for the same initial condition, like Hubble factor, matter power, potential power and ...}{203}{section.40}
-\contentsline {section}{\numberline {41}Kessence run-time}{204}{section.41}
+\contentsline {section}{\numberline {1}Theory of EFT and the equations and Stress tensor}{2}{section.1}
+\contentsline {section}{\numberline {2}Questions:}{2}{section.2}
+\contentsline {section}{\numberline {3}Todo:}{2}{section.3}
+\contentsline {section}{\numberline {4}K-essence field equation from EFT action}{3}{section.4}
+\contentsline {section}{\numberline {5}Definitions}{3}{section.5}
+\contentsline {subsection}{\numberline {5.1}Stuckelberg trick}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Friedmann equations}{10}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Checking the linear equations in mathematica}{12}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}The equation in terms of conformal time}{15}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Numeric olver}{18}{subsection.5.5}
+\contentsline {section}{\numberline {6}Stress tensor {\color {red}check again and make sure everything is ok, need to check the calculation again! Also add some Filippo's calculation} }{20}{section.6}
+\contentsline {subsection}{\numberline {6.1}\color {red}{Do all the calculations in mathematica to make sure!}}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Derivative of determinant}{23}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}$T_{00}$ component of energy momentum tensor}{23}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}$T_{0i}$ component of energy momentum tensor}{24}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}$T_{ij}$ component of energy momentum tensor}{25}{subsection.6.5}
+\contentsline {section}{\numberline {7}Field transfer function}{26}{section.7}
+\contentsline {section}{\numberline {8}Gevolution implementation {\color {red} Need to be checked and use the corrected stress tensor and check with other references!} }{26}{section.8}
+\contentsline {section}{\numberline {9}The constraints from stress energy tensor {\color {red} Need to be checked and use the corrected stress tensor and check with other references!}}{27}{section.9}
+\contentsline {subsection}{\numberline {9.1}Euler and continuity equations {\color {red} Need to be checked and use the corrected stress tensor and check with other references!}}{29}{subsection.9.1}
+\contentsline {section}{\numberline {10}Field transfer function}{29}{section.10}
+\contentsline {subsection}{\numberline {10.1}Gauge transformation}{30}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Comparison the $\alpha $ from hi-class and density transfer function in the class {\color {red} Get something consistent from below calculation!}}{32}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}$\delta \rho $ transfer function}{32}{subsubsection.10.2.1}
+\contentsline {subsection}{\numberline {10.3}comparing the $\Psi $ function in Newtonian and synchronous gauge in class and hi-class}{33}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}Comparing the ${\pi }$ transfer function directly from hi-class and what we get from class indirectly}{34}{subsection.10.4}
+\contentsline {subsection}{\numberline {10.5}Test 2: Density transfer in the limit of $c_s^2 \rightarrow 0 , w \rightarrow -1$ which should be the same as matter density transfer function}{35}{subsection.10.5}
+\contentsline {subsection}{\numberline {10.6}Comparing the ${\pi '}$ transfer function directly from hi-class and what we get from class indirectly}{36}{subsection.10.6}
+\contentsline {subsection}{\numberline {10.7}Comparison of field transfer functions in the hi-class and the EFTcamb}{36}{subsection.10.7}
+\contentsline {section}{\numberline {11}Gevolution}{37}{section.11}
+\contentsline {subsection}{\numberline {11.1}Initial condition}{37}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Gevolution initial field factors from initial condition to output power }{38}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}writePowerSpectrum}{39}{subsection.11.3}
+\contentsline {subsection}{\numberline {11.4}Stress tensor}{39}{subsection.11.4}
+\contentsline {subsection}{\numberline {11.5}Field equation and transfer}{39}{subsection.11.5}
+\contentsline {subsection}{\numberline {11.6}Some tests on Gevolution:}{39}{subsection.11.6}
+\contentsline {section}{\numberline {12}Numerical solution to the k-essence equation and stress tensors in Gevolution ({\color {red} Must be checked!})}{40}{section.12}
+\contentsline {section}{\numberline {13}Programming issues}{42}{section.13}
+\contentsline {section}{\numberline {14}Do we obtain the same results for the $\pi $ and $\pi $ transfer function from class in synchronous gauge? Miguel question!}{43}{section.14}
+\contentsline {subsection}{\numberline {14.1}Comparing the ${\pi }$ transfer function directly from hi-class and what we get from class indirectly}{44}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Comparison of the results}{45}{subsection.14.2}
+\contentsline {subsubsection}{\numberline {14.2.1}Class, comparison of two gauges}{49}{subsubsection.14.2.1}
+\contentsline {paragraph}{\numberline {14.2.1.1}Miguel}{50}{paragraph.14.2.1.1}
+\contentsline {section}{\numberline {15}Report-05April2018}{50}{section.15}
+\contentsline {subsection}{\numberline {15.1}Martin meeting}{51}{subsection.15.1}
+\contentsline {section}{\numberline {16}Check the equations for $c_s^2 \to 0$ and $ w \to 0$ to get the matter behaviour and cross check with class!}{52}{section.16}
+\contentsline {subsection}{\numberline {16.1}Class and Gevolution. results, $w \DOTSB \relbar \joinrel \rightarrow 0$, $c_s^2 \DOTSB \relbar \joinrel \rightarrow 0$: in theory, both equations and $T_{\mu \nu }$ }{52}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Solving the equation:}{53}{subsection.16.2}
+\contentsline {subsection}{\numberline {16.3}How is it related to fluid language?}{54}{subsection.16.3}
+\contentsline {subsubsection}{\numberline {16.3.1}Euler equation:}{55}{subsubsection.16.3.1}
+\contentsline {subsection}{\numberline {16.4}Solution of the equation in the matter dominated universe }{55}{subsection.16.4}
+\contentsline {subsection}{\numberline {16.5}Checking the consistency!}{56}{subsection.16.5}
+\contentsline {subsection}{\numberline {16.6}Class and Gevolution. results, $w=10^{-8}$, $c_s^2=10^{-16}$: results from the code}{57}{subsection.16.6}
+\contentsline {section}{\numberline {17}$\Psi '$ comparison in Gevolution and other codes}{60}{section.17}
+\contentsline {subsection}{\numberline {17.1}Equation for $\Phi '$ in class}{60}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Comparing the $\Psi '$ in Gevolution with Riess Sciama effect at redshift 50.}{60}{subsection.17.2}
+\contentsline {subsubsection}{\numberline {17.2.1}Make the same plot at z=0 {\color {red} TODO:}}{62}{subsubsection.17.2.1}
+\contentsline {subsection}{\numberline {17.3}Comparing $P_{22}$ from different codes!}{62}{subsection.17.3}
+\contentsline {subsection}{\numberline {17.4}Comparing $\mathaccentV {dot}05F{\Phi }$ in Gevolution with Gadjet code!}{63}{subsection.17.4}
+\contentsline {subsection}{\numberline {17.5}Test of Gevolution when we add $\Psi ' d\tau $ to $\Psi _{ini}$ to get the final value in class and Gevolution }{63}{subsection.17.5}
+\contentsline {subsection}{\numberline {17.6}Trying to get $\Phi '$ from second order codes}{66}{subsection.17.6}
+\contentsline {subsubsection}{\numberline {17.6.1}FastPM}{66}{subsubsection.17.6.1}
+\contentsline {subsubsection}{\numberline {17.6.2}L-PICOLA}{66}{subsubsection.17.6.2}
+\contentsline {subsubsection}{\numberline {17.6.3}Going to second order Boltzmann codes}{66}{subsubsection.17.6.3}
+\contentsline {subsection}{\numberline {17.7}Comparing $\Phi '$ in class and Gevolution in much larger scales!}{66}{subsection.17.7}
+\contentsline {subsection}{\numberline {17.8}Matter power and $\Phi $ power in Gevolution and class via Poisson equation: ({\color {red} Recheck!})}{69}{subsection.17.8}
+\contentsline {subsection}{\numberline {17.9}Results for the relatively big run and comparison between class and Gevolution vs plot in the arXiv:0809.4488v3 paper! }{75}{subsection.17.9}
+\contentsline {subsection}{\numberline {17.10}Comparing obtained $\Phi '$ from full second order matter and Poisson equation at two different redshifts with the one we have obtained from Riess Sciama effect {\color {red} To do!}}{79}{subsection.17.10}
+\contentsline {subsection}{\numberline {17.11}Comparing Riess Sciama from Kumatsu second order to compare $\Phi '$ with our $\Phi '$ {\color {red} To do!}}{79}{subsection.17.11}
+\contentsline {section}{\numberline {18}Solving the linear field equation in mathematica and comparing with Gevolution and checking that if we use $\Phi '$ of Gevolution we get the same result as Gevolution, just consistency check!}{80}{section.18}
+\contentsline {subsection}{\numberline {18.1}How much the result in Gevolution is sensitive to precision parameters?}{85}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}What happens if we turn on $\Phi '$ term in Gevolution? }{91}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Consistency check: If we get $\Phi $ and $\Phi '$ from Gevolution as an initial condition and solve it in mathematica}{92}{subsubsection.18.2.1}
+\contentsline {section}{\numberline {19}Rewriting the field equations in terms of two new variables}{98}{section.19}
+\contentsline {subsection}{\numberline {19.1}Linear calculation}{98}{subsection.19.1}
+\contentsline {subsubsection}{\numberline {19.1.1}The new sets of equations and stress tensor}{99}{subsubsection.19.1.1}
+\contentsline {subsubsection}{\numberline {19.1.2}Numerical solver}{100}{subsubsection.19.1.2}
+\contentsline {subsubsection}{\numberline {19.1.3}Initial conditions from class}{101}{subsubsection.19.1.3}
+\contentsline {subsubsection}{\numberline {19.1.4}Gevolution}{105}{subsubsection.19.1.4}
+\contentsline {section}{\numberline {20}Initial condition in class and Gevolution}{117}{section.20}
+\contentsline {subsection}{\numberline {20.1} Comparing the initial condition from class and what is implemented in Gevolution}{117}{subsection.20.1}
+\contentsline {subsubsection}{\numberline {20.1.1}Mathematica solution from class initial condition and comparing with class}{118}{subsubsection.20.1.1}
+\contentsline {paragraph}{\numberline {20.1.1.1}The results}{120}{paragraph.20.1.1.1}
+\contentsline {subsubsection}{\numberline {20.1.2}Mathematica solution from Gevolution initial condition and comparing with Gevolution}{121}{subsubsection.20.1.2}
+\contentsline {paragraph}{\numberline {20.1.2.1}Initial conditions}{123}{paragraph.20.1.2.1}
+\contentsline {paragraph}{\numberline {20.1.2.2}The evolution comparison}{124}{paragraph.20.1.2.2}
+\contentsline {paragraph}{\numberline {20.1.2.3}The evolution comparison, just the scalar fields}{124}{paragraph.20.1.2.3}
+\contentsline {subsubsection}{\numberline {20.1.3}Comparing stress tensor and field solution from Gevolution with mathematica and class}{124}{subsubsection.20.1.3}
+\contentsline {paragraph}{\numberline {20.1.3.1}Comparing the class and Gevolution field and stress tensors at z=0 and z=10}{124}{paragraph.20.1.3.1}
+\contentsline {paragraph}{\numberline {20.1.3.2}Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density }{124}{paragraph.20.1.3.2}
+\contentsline {paragraph}{\numberline {20.1.3.3}Comparing with mathematica solution}{124}{paragraph.20.1.3.3}
+\contentsline {paragraph}{\numberline {20.1.3.4}Comparing with class }{124}{paragraph.20.1.3.4}
+\contentsline {subsection}{\numberline {20.2}To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? {\color {red}To do! }! }{124}{subsection.20.2}
+\contentsline {subsection}{\numberline {20.3}Check the equations in class and Gevolution for $c_s^2 \to 0$ and$ w \to 0$ for new set of variables to get the matter behaviour and cross check with class! {\color {red}To do! }}{125}{subsection.20.3}
+\contentsline {subsection}{\numberline {20.4}To check non-linear part of field equation, use Maldacena's relation for long modes or look at some other limits? }{125}{subsection.20.4}
+\contentsline {section}{\numberline {21}The evolution comparisons and tests}{125}{section.21}
+\contentsline {paragraph}{\numberline {21.0.0.1}The evolution comparison, just the scalar fields}{125}{paragraph.21.0.0.1}
+\contentsline {paragraph}{\numberline {21.0.0.2}more tests}{134}{paragraph.21.0.0.2}
+\contentsline {paragraph}{\numberline {21.0.0.3}Better test:}{134}{paragraph.21.0.0.3}
+\contentsline {subsubsection}{\numberline {21.0.1}Solving the equation and comparison with mathematica}{135}{subsubsection.21.0.1}
+\contentsline {paragraph}{\numberline {21.0.1.1}Euler method: Scalar field only equation}{136}{paragraph.21.0.1.1}
+\contentsline {subparagraph}{\numberline {21.0.1.1.1}Easiest equation}{136}{subparagraph.21.0.1.1.1}
+\contentsline {subparagraph}{\numberline {21.0.1.1.2}Second equation }{138}{subparagraph.21.0.1.1.2}
+\contentsline {subparagraph}{\numberline {21.0.1.1.3}Third equation:}{140}{subparagraph.21.0.1.1.3}
+\contentsline {subparagraph}{\numberline {21.0.1.1.4}Fourth equation:}{143}{subparagraph.21.0.1.1.4}
+\contentsline {subparagraph}{\numberline {21.0.1.1.5}Checking $\mathcal {H}$ and $\mathcal {H}'$}{144}{subparagraph.21.0.1.1.5}
+\contentsline {paragraph}{\numberline {21.0.1.2}making initial condition for the scalar fields in the Gevolution}{145}{paragraph.21.0.1.2}
+\contentsline {subsection}{\numberline {21.1}Euler method, equations without potentials}{146}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Leap-frog method, equations without potentials (First loop is tricky!)}{148}{subsection.21.2}
+\contentsline {paragraph}{\numberline {21.2.0.1}$\zeta $ equation}{148}{paragraph.21.2.0.1}
+\contentsline {paragraph}{\numberline {21.2.0.2}$\pi $ equation}{149}{paragraph.21.2.0.2}
+\contentsline {subsubsection}{\numberline {21.2.1}Results}{150}{subsubsection.21.2.1}
+\contentsline {subsubsection}{\numberline {21.2.2}By corrector methods check the errors on variables (\color {red} Does not work for linear equation)}{152}{subsubsection.21.2.2}
+\contentsline {subsubsection}{\numberline {21.2.3}Results, with corrector method!}{156}{subsubsection.21.2.3}
+\contentsline {section}{\numberline {22}$\delta $ comparison}{158}{section.22}
+\contentsline {subsection}{\numberline {22.1}Without sourcing total stress tensor }{158}{subsection.22.1}
+\contentsline {subsection}{\numberline {22.2}Kessence sourcing total stress tensor }{159}{subsection.22.2}
+\contentsline {section}{\numberline {23}Solving the full equation with potentials}{160}{section.23}
+\contentsline {subsection}{\numberline {23.1}Field dynamics, Kessence stress tensor is turned off }{160}{subsection.23.1}
+\contentsline {subsubsection}{\numberline {23.1.1}$\pi $ equation}{161}{subsubsection.23.1.1}
+\contentsline {subsubsection}{\numberline {23.1.2}$\zeta $ equation}{161}{subsubsection.23.1.2}
+\contentsline {section}{\numberline {24}Adding a function for getting field transfer function as the output }{171}{section.24}
+\contentsline {subsection}{\numberline {24.1}Field dynamics and stress tensor while kessence source gravity}{174}{subsection.24.1}
+\contentsline {section}{\numberline {25}The ratio of $\delta _{kess}$ in Gevolution and total stress tensor compared with class for different $c_s^2$ limits}{176}{section.25}
+\contentsline {subsection}{\numberline {25.1}Comparing class and Gevolution with initial condition from class {\color {red} Must be completed for more redshift ranges and also big runs!} {(\color {red} TODO:)} }{177}{subsection.25.1}
+\contentsline {subsection}{\numberline {25.2}Checking the limit $c_s^2 \to 0$ that we get kessence density as matter density {(\color {red} TODO:)} }{178}{subsection.25.2}
+\contentsline {section}{\numberline {26}Checking the effect of discrete lattice which Julian suggested? {\color {red} Try to derive the result!}}{180}{section.26}
+\contentsline {section}{\numberline {27}Comparing some important quantities in class and Gevolution for the same initial condition, like Hubble factor, matter power, potential power and ...}{183}{section.27}
+\contentsline {section}{\numberline {28}Kessence run-time}{184}{section.28}
+\contentsline {section}{\numberline {29}Non-linear contrubution (Bad way to do it)}{188}{section.29}
+\contentsline {subsection}{\numberline {29.1}Solving the equation by leap-frog method}{191}{subsection.29.1}
+\contentsline {subsubsection}{\numberline {29.1.1}$\pi $ equation}{191}{subsubsection.29.1.1}
+\contentsline {subsubsection}{\numberline {29.1.2}$\zeta $ equation}{192}{subsubsection.29.1.2}
+\contentsline {paragraph}{\numberline {29.1.2.1}Predictor-corrector method}{197}{paragraph.29.1.2.1}
+\contentsline {subsection}{\numberline {29.2}Some important changes in the code and the way we solve equations {\color {red} This is completely wrong!}}{199}{subsection.29.2}
+\contentsline {subsection}{\numberline {29.3} Important changes}{200}{subsection.29.3}
+\contentsline {subsection}{\numberline {29.4}Non-linear terms tests: {\color {red} How?}}{204}{subsection.29.4}
+\contentsline {subsection}{\numberline {29.5}Predictor-corrector method}{205}{subsection.29.5}
+\contentsline {subsection}{\numberline {29.6}Non-linear contribution in the code}{206}{subsection.29.6}
+\contentsline {section}{\numberline {30}Non-linear contrubution}{208}{section.30}
+\contentsline {subsection}{\numberline {30.1}Solving the equation by leap-frog method}{210}{subsection.30.1}
+\contentsline {subsubsection}{\numberline {30.1.1}$\pi $ equation}{210}{subsubsection.30.1.1}
+\contentsline {subsubsection}{\numberline {30.1.2}$\zeta $ equation}{211}{subsubsection.30.1.2}
+\contentsline {paragraph}{\numberline {30.1.2.1}Predictor-corrector method}{213}{paragraph.30.1.2.1}
+\contentsline {subsubsection}{\numberline {30.1.3}The loop}{214}{subsubsection.30.1.3}
+\contentsline {subsection}{\numberline {30.2}Gevolution code}{217}{subsection.30.2}
+\contentsline {section}{\numberline {31}Turning off the potentials and compare the linear and non-linear equations versus mathematica and quantify the error}{222}{section.31}
+\contentsline {subsection}{\numberline {31.1}Linear equations comparison}{222}{subsection.31.1}
+\contentsline {subsection}{\numberline {31.2}Convergence tests, to see if by increasing precision in the Gevolution we get better results}{230}{subsection.31.2}
+\contentsline {paragraph}{\numberline {31.2.0.1}Adding Poisson equation as a check}{231}{paragraph.31.2.0.1}
+\contentsline {subsection}{\numberline {31.3}Non-Linear equations }{234}{subsection.31.3}
+\contentsline {subsubsection}{\numberline {31.3.1}First non-linear term }{237}{subsubsection.31.3.1}
+\contentsline {subsection}{\numberline {31.4}Studying Non-linear scalar field equation}{243}{subsection.31.4}
+\contentsline {subsection}{\numberline {31.5}Python script}{247}{subsection.31.5}
+\contentsline {section}{\numberline {32}Sensitivity to initial conditions}{253}{section.32}
+\contentsline {section}{\numberline {33}The effect of non linearities on gravitational potential at some different redshifts $\Psi $ and matter power spectrum}{253}{section.33}
+\contentsline {section}{\numberline {34}Sensitivity to initial conditions}{253}{section.34}
+\contentsline {section}{\numberline {35}The effect of non linearities on gravitational potential at some different redshifts $\Psi $ and matter power spectrum}{254}{section.35}
+\contentsline {section}{\numberline {36}Trace the average of the perturbation to be consistent}{254}{section.36}
+\contentsline {section}{\numberline {37}Vector elliptic and vector parabolic consistency check}{254}{section.37}

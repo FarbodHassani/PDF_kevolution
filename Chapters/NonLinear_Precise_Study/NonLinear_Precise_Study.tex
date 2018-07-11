@@ -1,0 +1,502 @@
+\documentclass[a4paper,12pt]{article}
+%% My standard included packages
+%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+%             % images in pdf, png or jpg format)
+%\usepackage{jcappub} % for details on the use of the package, please
+%                     % see the JCAP-author-manual
+%\usepackage[T1]{fontenc} % if needed
+
+\usepackage{setspace}           % Allows easy changes to line spacing 
+\usepackage{graphicx}           % Allows including of graphics files
+\usepackage{amsmath}            % Additional math capabilities
+\usepackage{marginnote}         % Used with todonotes package
+\usepackage{datetime}           % Allows formatting of date and time
+\newcommand {\be}{\begin{equation}}
+\newcommand {\ee}{\end{equation}}
+
+\usepackage{empheq}
+\usepackage{cancel}
+\usepackage{etoolbox}
+
+
+\usepackage{enumitem} 
+\usepackage{color}
+%Mathematica colors
+\definecolor{identifiercolor}{rgb}{.4,.6,.56}
+\definecolor{stringcolor}{gray}{0.5}
+\definecolor{inactivecolor}{rgb}{0.15,0.15,0.5}
+\usepackage{listings}
+%Mathematica
+\usepackage{listings}
+\lstset{basicstyle={\footnotesize\def\fvm@Scale{.85}\fontfamily{fvm}\selectfont},
+  breaklines=true,
+  escapeinside={\%*}{*)},
+  keywordstyle={\bfseries\color{inactivecolor}},
+  stringstyle={\bfseries\color{stringcolor}},
+  identifierstyle={\bfseries\color{identifiercolor}},
+  language=Mathematica,
+  otherkeywords={DiscretizeRegion},
+  showstringspaces=false}
+\renewcommand{\lstlistingname}{Listing}
+
+
+
+
+\usepackage{amsmath}
+\usepackage{graphicx}% Use pdf, png, jpg, or epså¤ with pdflatex; use eps in DVI mode
+\usepackage{caption}
+\usepackage{subcaption}
+          % List formatting commands
+\setlist{noitemsep}             % Remove space between list items 
+%\usepackage{subfigure}          % Create numbered and captioned subfigures
+\usepackage{rotating}           % Create landscape tables and figures
+\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Orange,citecolor=RedViolet]{hyperref}           % URLS and hyperlinks
+%\usepackage{hyperref}           % URLS and hyperlinks
+\usepackage{float}              % Activate [H] option to place figure HERE
+\usepackage[numbers]{natbib}
+\usepackage{versionPO}          % Include text conditionally
+\usepackage{caption}
+%\usepackage[utf8]{inputenc}
+%\usepackage[nottoc]{tocbibind}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+% These next lines allow including or excluding different versions of text
+% using versionPO.sty
+\includeversion{notes}		% Include notes?
+%\excludeversion{notes}
+\excludeversion{comment}
+\includeversion{links}          % Turn hyperlinks on?
+\excludeversion{submit}		% Format for conference submission?
+\includeversion{toc}		% Include table of contents?
+%\graphicspath{{./Results1-Perihelionadvance}}
+
+% Turn off hyperlinking if links is excluded
+\iflinks{}{\hypersetup{draft=true}}
+
+% Notes options
+\ifnotes{%
+\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+}{%
+\usepackage[margin=1in]{geometry}%
+\usepackage[disable]{todonotes}%
+}
+
+% Allow todonotes inside footnotes without blowing up LaTeX
+% Next command works but now notes can overlap. Instead, we'll define 
+% a special footnote note command that performs this redefinition.
+%\renewcommand{\marginpar}{\marginnote}%
+
+% Save original definition of \marginpar
+\let\oldmarginpar\marginpar
+% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+% Packages included specifically for this document.
+\usepackage{texintro}           % Document-specific definitions
+\usepackage{tocvsec2}           % More flexible formatting of table of contents
+\usepackage{bibentry}           % Print full citation in text
+\nobibliography*                                % Allow use of \bibentry command
+\usepackage{tikz}             % Already included by todonotes
+\usetikzlibrary{matrix}
+\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+                                           % allow enumitem to work.
+
+% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+% If you're including tocvsec2, do so before this command.
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+
+% Number paragraphs and subparagraphs and include them in TOC
+%\setcounter{tocdepth}{2}
+
+\usepackage[affil-it]{authblk} 
+\usepackage{etoolbox}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\bean{\begin{eqnarray*}}
+\def\eean{\end{eqnarray*}}
+\def\cd{\cdot}
+\def\vp{\varphi}
+\def\l {\langle}
+\def\re {\rangle}
+\def \dd {\partial}
+\def \ra {\rightarrow}
+\def \la {\lambda}
+\def \La {\Lambda}
+\def \De {\Delta}
+\def \DH {\Delta_{\rm HI}}
+\newcommand{\de}{\delta}
+\def \b {\beta}
+\def \al {\alpha}
+\def \ka {\kappa}
+\def \Ga {\Gamma}
+\def \ga {\gamma}
+\def \si {\sigma}
+\def \Si {\Sigma}
+\def \ep {\epsilon}
+\def \om {\omega}
+\def \Om {\Omega}
+\def \lap {\triangle}
+\def \ep {\epsilon}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Special definitions for this paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\MyRed}{\color [rgb]{0.8,0,0}}
+\newcommand{\MyGreen}{\color [rgb]{0,0.7,0}}
+\newcommand{\MyBlue}{\color [rgb]{0,0,0.8}}
+\newcommand{\MyBrown}{\color [rgb]{0.8,0.4,0.1}}
+\newcommand{\MyPurple}{\color [rgb]{0.6,0.0,0.6}}
+\def\GV#1{{\MyRed [GV: #1]}}
+\def\RD#1{{\MyGreen [RD:  {\tt #1}]}} 
+\def\RDt#1{{\MyGreen #1}}   
+\def\GM#1{{\MyBlue [GM: #1]}}  
+\def\GF#1{{\MyPurple [GF: #1]}}    
+
+
+
+\newcommand{\ie}{\emph{i. e.}}
+\newcommand{\cf}{\emph{cf.}}
+\newcommand{\etal}{\emph{et al.}\xspace}
+\newcommand{\eg}{\emph{e. g.}}
+
+\newcommand{\Scal}{\mathcal S}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\EE}{\mathcal E}
+\newcommand{\MM}{\mathcal M}
+\newcommand{\HH}{\mathcal H}
+
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\bn}{\boldsymbol{n}}
+\newcommand{\bv}{\boldsymbol{v}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\bnabla}{\boldsymbol{\nabla}}
+\newcommand{\bell}{\boldsymbol{\ell}}
+\newcommand{\bal}{\boldsymbol{\alpha}}
+
+
+
+
+
+%\usepackage{lmodern}
+%\renewcommand\Authfont{\fontsize{12}{14.4}\selectfont}
+%\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%\renewcommand\Authfont{\fontsize{12}{15}\selectfont}
+%\renewcommand\Affilfont{\fontsize{9}{11}\itshape}
+\definecolor{astral}{RGB}{46,116,181}
+%\subsectionfont{\color{astral}}
+%\sectionfont{\color{astral}}
+%\usdate{17 May}                         % Use usual LaTeX date layout
+
+%\title{\color{BlueViolet}\Huge{On the accuracy of approximated geodesic equations and different potentials with different numerical methods } }
+\title{\color{BlueViolet}\Huge{Just part of projects which should be added to the original version}}
+%\vskip 2em
+\author{Farbod Hassani}
+%\thanks{Email:\href{mailto:farbod.hassani@unige.ch}{{farbod.hassani@unige.ch}}}  \thanks{Homepage: \href{http://www.farbod-hassani.com}{farbod-hassani.com}}}
+%\affil{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+
+%{farbod-hassani.com}} }
+%\newcommand*{\TitleFont}{%     \usefont{\encodingdefault}{\rmdefault}{b}'%     \fontsize{18}{16}%    \selectfont}
+%\title{\TitleFont Halo finder}
+%\author[1]{{Farbod Hassani} \thanks{ \url{farbod.hassani@gmail.com}
+%}
+%\thanks{farbod-hassani.com}}
+%\author[2]{Author E\thanks{E.E@university.edu}}
+%\affil[1]{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%\emailAdd{farbod.hassani@gmail.com}
+%\affil[2]{Department of Mechanical Engineering, \LaTeX\ University}
+      %\begin{abstract}
+%This is abstract text: This simple document shows very basic features of \LaTeX{}.
+%\lstset { %
+%    language=C++,
+%    %backgroundcolor=\color{black!5}, % set backgroundcolor
+%    basicstyle=\footnotesize,% basic font settings
+%}
+\begin{document}
+\section{Non-Linear equation study  }
+{\color{red} TODO: \\
+-Why we get different power after realization in Gevolution for low k? this need to be checked and is so wierd.\\
+}
+{\color{red} TODO: \\
+ - Check non-linear term not suppressed by $c_s^2$ in stress tensor? why it should be there? \\
+- Write a Mathematica notebook for computing stress tensor in a systematic way,\\
+}
+Up to now we have studied some feature in Non-linear equation, but here we want to study the equation carefully,
+\\
+Changing from linear to non-linear equations is done with a number in Gevolution which in case 1, turns on the non-linearities. It seems that the non-linear terms make the equation unstable, to see that we plot our best non-linear run,
+\begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+           \nonumber
+   \\
+    &
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+  %//////////////// 
+  +   (1-c_s^2)  \Psi {\nabla^2 \pi}
+  %////////////////
+  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+      %////////////////
+        -   (1-c_s^2)  { (\zeta + \Psi) } \nabla^2 {\pi }
+                                       \nonumber
+   \\
+    &
+        %//////////////// 
+             +c_s^2 {\nabla  \Phi . \nabla \pi}
+   %//////////////// 
+        -(2 c_s^2-1) {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +\frac{\mathcal{H}} {2 } \Big(2+3w+c_s^2  \Big){\nabla  \pi . \nabla \pi} 
+    %//////////////// 
+     -2   (1-c_s^2){\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}     =0
+    % Second order terms==0
+  \end{align}
+   After simplification we have,
+   \begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+           \nonumber
+   \\
+    &
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+  %////////////////
+  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+      %////////////////
+        -   (1-c_s^2)  { \zeta  } \nabla^2 {\pi }
+        %//////////////// 
+             +c_s^2 {\nabla  \Phi . \nabla \pi}
+   %//////////////// 
+        - {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +\frac{\mathcal{H}} {2 } \Big(2+3w+c_s^2  \Big){\nabla  \pi . \nabla \pi} 
+                                        \nonumber
+   \\
+    &
+    %//////////////// 
+     -2   (1-c_s^2){\nabla  \pi . {  \nabla {  \zeta    }}}     =0
+    % Second order terms==0
+  \end{align}
+  The other equation is like before,
+  \be
+  \pi' = \zeta + \Psi - \mathcal{H} \pi
+  \ee
+  We actually did nothing except substituting the $\pi'$ and in non-linear part the substitution is very straightforward. 
+  \begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Bigg(\zeta - 3 \mathcal{H}c_s^2 \pi -  (1-2 c_s^2 ) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Bigg )      \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w)  \Big[1 - (\frac{1}{c_s^2} -1)  \frac{(\vec{\nabla} \pi)^2}{2}  \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi +\zeta -  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+Note that in Gevolution to compute ${\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}$  we use the symmetric derivative as follwoing,
+  \be
+  {\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}} = \frac{1}{4dx^2}\sum_{i=0}^2  \Big[{\pi(x_i+1) -\pi(x_i-1) } \Big]  \Big[ \big(\zeta(x_i+1) + \Psi (x_i+1) \big) -\big(\zeta(x_i-1) + \Psi (x_i-1) \big)  \Big]
+  \ee
+  where "1/4" coefficient appear since we are using symmetric derivative and using points with distance two. "$x_i$" is the lattice coordinate.\\
+  As we have seen before the equation grows in time and causes some problems in the stress tensor part. \\
+  Running the equation in Gevolution will result the following figures
+   \begin{figure} [H]
+ \includegraphics [scale=0.5]{Gev-ClassLin.jpg}
+ \end{figure}
+  which is just evolution up to redshift z=50, now lets look at the non-linear terms exactly, for different number of grids run we get the following plot,
+      \begin{figure} [H]
+ \includegraphics [scale=0.4]{NL_test_0003.jpg}
+ \end{figure}
+ As it is clear the non-linearities source long wavemodes and it is the case for different number of grids! So it means that in principle we can work with small runs and solve the issue if there is any,\\
+ Moreover we see that when we increase the number of grids the solution grows more! which is already observed when we the particles blowup at z=0 for Ngrid=128 which they do not for Ngrid=64! \\
+ Now lets decrease the time stepping for the fixed Ngrid=1296 and check the solver,
+       \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_test_000_solver.jpg}
+ \end{figure}
+       \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_test_001_solver.jpg}
+ \end{figure}
+So according to the figures the solution seems stable in both time and spatial resolution!\\
+Now what we can do?
+
+  For the start we consider just non-linear terms which are suppressed by $c_s^2$,
+   \begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+  %//////////////// 
+  -c_s^2  \Psi {\nabla^2 \pi}
+  %////////////////
+  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+      %////////////////
+        +c_s^2  { (\zeta + \Psi) } \nabla^2 {\pi }
+                                       \nonumber
+   \\
+    &
+        %//////////////// 
+             +c_s^2 {\nabla  \Phi . \nabla \pi}
+   %//////////////// 
+        -2 c_s^2 {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +c_s^2 \frac{\mathcal{H}} {2} {\nabla  \pi . \nabla \pi} 
+    %//////////////// 
+     +2   c_s^2{\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}     =0
+    % Second order terms==0
+  \end{align}
+  and,
+  \be
+  \pi' = \zeta + \Psi - \mathcal{H} \pi
+  \ee
+  At the moment we just look at the evolution up to z=50
+      \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_test_004_solver.jpg}
+ \end{figure}
+  As it is clear and we could guess the problem comes from the fact that all linear terms are suppressed by $c_s^2$ while some of the non-linear terms are not, so for some range of $c_s^2$ and according to the variation of the field $\zeta$ in space we could have a strong force from non-linear terms which push the spectrum to the very high numbers and causes growing in the differential equation. What we conclude is that either the differential equation is wrong and all the non-linear terms should be suppressed by $c_s^2$ or k-essence model is really unstable at non-linear level....\\
+  
+\subsection{Theoretical studies}
+{\color{red} TODO: \\
+Martin: \\
+  At the limit $c_s^2 \to 0$ why the model does not exist? \\
+  - Look at the scaling at the level of action, and check the same in the equation. \\
+- Look at the most important terms, and just solve them and  compare with explicit theoretical solution,
+\\  
+-Starting the linear paper!\\
+For $c_s^2 \to 1$ check you get what you expect. \\
+Check some terms vanish, and you forgot to vanish them, \\
+What is the dominant terms, take control over the terms. \\
+Send an email t Filipo and Martin, \\
+Study the terms in the differential equation in the continuum limit,
+\\
+-Study some features from action to the level of equations like scaling and make sure at some level we are dealing with the right solution.\\
+- Check the non-linear terms again, and make sure the equation is true,\\
+-Simplify the equation as much as possible, \\
+- Write a mathematica to calculate stress tensor and check everything at the level of stress tensor,\\
+- why we don't get higher order contributions to the stress tensor and equations of motion (like $\nabla^2 \pi \nabla^2 \pi \nabla^2 \pi $?
+}
+
+ \subsection{Studying the non-linear equation precisely: Just field equation}
+ As we know that the spatial resolution does not so much matter in the case of non-linearities we run with small number of grids, The full equation n is written as ,
+ After simplification we have,
+   \begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+           \nonumber
+   \\
+    &
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+  %////////////////
+  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+      %////////////////
+        -   (1-c_s^2)  { \zeta  } \nabla^2 {\pi }
+        %//////////////// 
+             +c_s^2 {\nabla  \Phi . \nabla \pi}
+   %//////////////// 
+        - {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +\frac{\mathcal{H}} {2 } \Big(2+3w+c_s^2  \Big){\nabla  \pi . \nabla \pi} 
+                                        \nonumber
+   \\
+    &
+    %//////////////// 
+     -2   (1-c_s^2){\nabla  \pi . {  \nabla {  \zeta    }}}     =0
+    % Second order terms==0
+  \end{align}
+
+  The other equation is like before,
+  \be
+  \pi' = \zeta + \Psi - \mathcal{H} \pi
+  \ee
+First lets print all the values related here in the code's unit to have an idea in mind what we are exactly dealing with, these are just the order of the terms
+ \begin{lstlisting}[language=Mathematica, basicstyle=\tiny]
+c_s^2 =10^-6
+w= -0.9
+Pi_k= -9.92475e-07
+zeta= -3.38927e-09
+Hcon= 0.950102
+psi=phi= -1.23213e-06 
+phi'= -4.27317e-05
+Laplacian_pi= -0.00794965 
+
+Gradphi_Gradpi= 4.02666e-08 
+
+Gradpsi_Gradpi= 4.02666e-08 
+
+Gradpi_Gradpi= 2.82606e-08 
+
+GradZeta_Gradpi= -1.03946e-11
+ \end{lstlisting}
+Comparing all the relevant terms, we can through out all the suppressed terms and just look at important terms,
+ \begin{lstlisting}[language=Mathematica, basicstyle=\tiny]
+The linear terms =  3. * Hcon * ( w * zeta/2. + cs2 * psi ) - C2 * pi_k(x)+ 3. * cs2 * phi_prime + cs2 * Laplacian_pi= 4.59506e-09 
+
+2. * cs2 * phi(x) * Laplacian_pi = -1.53897e-13
+
++(1. - cs2) * (zeta ) * Laplacian_pi=  1.43016e-11
+
+Hcon * (1. + w) * pi_k(x) * Laplacian_pi -5.21284e-09
+
+zeta_half(x) * Laplacian_pi =   1.43016e-11
+\end{lstlisting}
+Simplifying the equation gives,
+ \begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+           \nonumber
+   \\
+    &
+    % Second order terms
+    %////////////////
+      %////////////////
+         %//////////////// 
+   %//////////////// 
+        - {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +\frac{\mathcal{H}} {2 } \Big(2+3w \Big){\nabla  \pi . \nabla \pi}   =0
+    % Second order terms==0
+  \end{align}
+  Now lets again compare all the terms in the previous equation,
+  \begin{lstlisting}[language=Mathematica, basicstyle=\tiny]
+Linear terms= + 3. * Hcon * ( w * zeta_half(x)/2. + cs2 * psi ) - C2 * pi_k(x) + 3. * cs2 * phi_prime + cs2 * Laplacian_pi  =  5.55352e-09 
+
+Gradpsi_Gradpi = 1.51868e-08
+
+(2. + 3. * w  ) *  Hcon/2. * Gradpi_Gradpi= -1.47696e-08
+\end{lstlisting}
+Using  $  \pi' = \zeta + \Psi - \mathcal{H} \pi $ and taking $\Psi$ constant in time and just considering the non-linear terms,
+\be
+\pi'' + \mathcal{H}' \pi + \mathcal{H} \pi'   - {\nabla  \Psi . \nabla \pi }  
+  +\frac{\mathcal{H}} {2 } \Big(2+3w \Big){\nabla  \pi . \nabla \pi}    =0
+\ee
+Defining $c_1=\nabla  \Psi \approx  5 \times 10^{-5}$,  $c_2=\Big(2+3w \Big) = -0.7  $ and assuming matter dominated universe $\mathcal{H} =2/\tau$ and  $\mathcal{H}' =-2/\tau^2$ we get,
+\be
+\pi''(\tau,\vec{x}) -\frac{2 \pi (\tau,\vec{x}) }{\tau^2}+ \frac{2\pi' (\tau,\vec{x})} {\tau}   -  c_1 \, \nabla \pi (\tau,\vec{x}) 
+  +c_2\,  \frac{{\nabla  \pi(\tau,\vec{x}) . \nabla \pi(\tau,\vec{x})}} {\tau }   =0
+\ee
+The time solution would be,
+\subsection{Mathematica script for calculating stress tensor}
+\subsection{Check the non-linear terms in the ODE from the action}
+\subsection{Time solution to the full differential equation by matrix method}
+\subsection{Sensitivity to initial conditions}
+                  What would be error if we set the initial condition at z=100 to zero?
+\subsection{The effect of non linearities on gravitational potential at some different redshifts $\Psi$ and matter power spectrum}
+Just if we get bad results, try to solve the terms separately...
+\subsection{ Trace the average of the perturbation to be consistent}
+Lorenzo function
+\subsection{Vector elliptic and vector parabolic consistency check}
+Turn on the other equations, vector parabolic and see if we get the same results
+%{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+ \end{document}

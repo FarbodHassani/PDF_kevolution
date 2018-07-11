@@ -1,0 +1,1127 @@
+%\documentclass[a4paper,12pt]{article}
+%%% My standard included packages
+%%\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+%%             % images in pdf, png or jpg format)
+%%\usepackage{jcappub} % for details on the use of the package, please
+%%                     % see the JCAP-author-manual
+%%\usepackage[T1]{fontenc} % if needed
+%
+%\usepackage{setspace}           % Allows easy changes to line spacing 
+%\usepackage{graphicx}           % Allows including of graphics files
+%\usepackage{amsmath}            % Additional math capabilities
+%\usepackage{marginnote}         % Used with todonotes package
+%\usepackage{datetime}           % Allows formatting of date and time
+%\newcommand {\be}{\begin{equation}}
+%\newcommand {\ee}{\end{equation}}
+%
+%\usepackage{empheq}
+%\usepackage{cancel}
+%\usepackage{etoolbox}
+%
+%
+%\usepackage{enumitem} 
+%\usepackage{color}
+%%Mathematica colors
+%\definecolor{identifiercolor}{rgb}{.4,.6,.56}
+%\definecolor{stringcolor}{gray}{0.5}
+%\definecolor{inactivecolor}{rgb}{0.15,0.15,0.5}
+%\usepackage{listings}
+%%Mathematica
+%\usepackage{listings}
+%\lstset{basicstyle={\footnotesize\def\fvm@Scale{.85}\fontfamily{fvm}\selectfont},
+%  breaklines=true,
+%  escapeinside={\%*}{*)},
+%  keywordstyle={\bfseries\color{inactivecolor}},
+%  stringstyle={\bfseries\color{stringcolor}},
+%  identifierstyle={\bfseries\color{identifiercolor}},
+%  language=Mathematica,
+%  otherkeywords={DiscretizeRegion},
+%  showstringspaces=false}
+%\renewcommand{\lstlistingname}{Listing}
+%
+%
+%
+%
+%\usepackage{amsmath}
+%\usepackage{graphicx}% Use pdf, png, jpg, or epså¤ with pdflatex; use eps in DVI mode
+%\usepackage{caption}
+%\usepackage{subcaption}
+%          % List formatting commands
+%\setlist{noitemsep}             % Remove space between list items 
+%%\usepackage{subfigure}          % Create numbered and captioned subfigures
+%\usepackage{rotating}           % Create landscape tables and figures
+%\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+%\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Orange,citecolor=RedViolet]{hyperref}           % URLS and hyperlinks
+%%\usepackage{hyperref}           % URLS and hyperlinks
+%\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[numbers]{natbib}
+%\usepackage{versionPO}          % Include text conditionally
+%\usepackage{caption}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[nottoc]{tocbibind}
+%\lstset{basicstyle=\ttfamily,
+%  showstringspaces=false,
+%  commentstyle=\color{red},
+%  keywordstyle=\color{blue}
+%}
+%% These next lines allow including or excluding different versions of text
+%% using versionPO.sty
+%\includeversion{notes}		% Include notes?
+%%\excludeversion{notes}
+%\excludeversion{comment}
+%\includeversion{links}          % Turn hyperlinks on?
+%\excludeversion{submit}		% Format for conference submission?
+%\includeversion{toc}		% Include table of contents?
+%%\graphicspath{{./Results1-Perihelionadvance}}
+%
+%% Turn off hyperlinking if links is excluded
+%\iflinks{}{\hypersetup{draft=true}}
+%
+%% Notes options
+%\ifnotes{%
+%\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+%\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+%}{%
+%\usepackage[margin=1in]{geometry}%
+%\usepackage[disable]{todonotes}%
+%}
+%
+%% Allow todonotes inside footnotes without blowing up LaTeX
+%% Next command works but now notes can overlap. Instead, we'll define 
+%% a special footnote note command that performs this redefinition.
+%%\renewcommand{\marginpar}{\marginnote}%
+%
+%% Save original definition of \marginpar
+%\let\oldmarginpar\marginpar
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+%% Packages included specifically for this document.
+%\usepackage{texintro}           % Document-specific definitions
+%\usepackage{tocvsec2}           % More flexible formatting of table of contents
+%\usepackage{bibentry}           % Print full citation in text
+%\nobibliography*                                % Allow use of \bibentry command
+%\usepackage{tikz}             % Already included by todonotes
+%\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+%                                           % allow enumitem to work.
+%
+%% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+%% If you're including tocvsec2, do so before this command.
+%\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+%
+%% Number paragraphs and subparagraphs and include them in TOC
+%%\setcounter{tocdepth}{2}
+%
+%\usepackage[affil-it]{authblk} 
+%\usepackage{etoolbox}
+%\usepackage{titlesec}
+%
+%\setcounter{secnumdepth}{4}
+%
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%
+%
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+%\def\bean{\begin{eqnarray*}}
+%\def\eean{\end{eqnarray*}}
+%\def\cd{\cdot}
+%\def\vp{\varphi}
+%\def\l {\langle}
+%\def\re {\rangle}
+%\def \dd {\partial}
+%\def \ra {\rightarrow}
+%\def \la {\lambda}
+%\def \La {\Lambda}
+%\def \De {\Delta}
+%\def \DH {\Delta_{\rm HI}}
+%\newcommand{\de}{\delta}
+%\def \b {\beta}
+%\def \al {\alpha}
+%\def \ka {\kappa}
+%\def \Ga {\Gamma}
+%\def \ga {\gamma}
+%\def \si {\sigma}
+%\def \Si {\Sigma}
+%\def \ep {\epsilon}
+%\def \om {\omega}
+%\def \Om {\Omega}
+%\def \lap {\triangle}
+%\def \ep {\epsilon}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Special definitions for this paper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newcommand{\MyRed}{\color [rgb]{0.8,0,0}}
+%\newcommand{\MyGreen}{\color [rgb]{0,0.7,0}}
+%\newcommand{\MyBlue}{\color [rgb]{0,0,0.8}}
+%\newcommand{\MyBrown}{\color [rgb]{0.8,0.4,0.1}}
+%\newcommand{\MyPurple}{\color [rgb]{0.6,0.0,0.6}}
+%\def\GV#1{{\MyRed [GV: #1]}}
+%\def\RD#1{{\MyGreen [RD:  {\tt #1}]}} 
+%\def\RDt#1{{\MyGreen #1}}   
+%\def\GM#1{{\MyBlue [GM: #1]}}  
+%\def\GF#1{{\MyPurple [GF: #1]}}    
+%
+%
+%
+%\newcommand{\ie}{\emph{i. e.}}
+%\newcommand{\cf}{\emph{cf.}}
+%\newcommand{\etal}{\emph{et al.}\xspace}
+%\newcommand{\eg}{\emph{e. g.}}
+%
+%\newcommand{\Scal}{\mathcal S}
+%\newcommand{\DD}{\mathcal D}
+%\newcommand{\EE}{\mathcal E}
+%\newcommand{\MM}{\mathcal M}
+%\newcommand{\HH}{\mathcal H}
+%
+%\newcommand{\Real}{\mathbb{R}}
+%\newcommand{\bn}{\boldsymbol{n}}
+%\newcommand{\bv}{\boldsymbol{v}}
+%\newcommand{\bx}{\boldsymbol{x}}
+%\newcommand{\bnabla}{\boldsymbol{\nabla}}
+%\newcommand{\bell}{\boldsymbol{\ell}}
+%\newcommand{\bal}{\boldsymbol{\alpha}}
+%
+%
+%
+%
+%
+%%\usepackage{lmodern}
+%%\renewcommand\Authfont{\fontsize{12}{14.4}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%%\renewcommand\Authfont{\fontsize{12}{15}\selectfont}
+%%\renewcommand\Affilfont{\fontsize{9}{11}\itshape}
+%\definecolor{astral}{RGB}{46,116,181}
+%%\subsectionfont{\color{astral}}
+%%\sectionfont{\color{astral}}
+%%\usdate{17 May}                         % Use usual LaTeX date layout
+%
+%%\title{\color{BlueViolet}\Huge{On the accuracy of approximated geodesic equations and different potentials with different numerical methods } }
+%\title{\color{BlueViolet}\Huge{Just part of projects which should be added to the original version}}
+%%\vskip 2em
+%\author{Farbod Hassani}
+%%\thanks{Email:\href{mailto:farbod.hassani@unige.ch}{{farbod.hassani@unige.ch}}}  \thanks{Homepage: \href{http://www.farbod-hassani.com}{farbod-hassani.com}}}
+%%\affil{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%
+%%{farbod-hassani.com}} }
+%%\newcommand*{\TitleFont}{%     \usefont{\encodingdefault}{\rmdefault}{b}'%     \fontsize{18}{16}%    \selectfont}
+%%\title{\TitleFont Halo finder}
+%%\author[1]{{Farbod Hassani} \thanks{ \url{farbod.hassani@gmail.com}
+%%}
+%%\thanks{farbod-hassani.com}}
+%%\author[2]{Author E\thanks{E.E@university.edu}}
+%%\affil[1]{D\'epartement de Physique Th\'eorique and Center for Astroparticle Physics, Universit\'e de Gen\'eve,
+%%24 quai Ansermet, CH-1211 Gen\'eve 4, Switzerland}
+%%\emailAdd{farbod.hassani@gmail.com}
+%%\affil[2]{Department of Mechanical Engineering, \LaTeX\ University}
+%      %\begin{abstract}
+%%This is abstract text: This simple document shows very basic features of \LaTeX{}.
+%%\lstset { %
+%%    language=C++,
+%%    %backgroundcolor=\color{black!5}, % set backgroundcolor
+%%    basicstyle=\footnotesize,% basic font settings
+%%}
+%\begin{document}
+\section{Turning off the potentials and compare the linear and non-linear equations versus mathematica and quantify the error}
+\subsection{Linear equations comparison}
+{\color{red} TODO: \\
+-Why we get different power after realization in Gevolution for low k? this need to be checked and is so wierd.\\
+}
+First we make the files with the same setting as Gevolution containing fields and stress tensor information from standard output of class, as it is already explained we make $\pi$ and $\zeta$ field at different redshifts for comparing as well as providing the initial condition.
+We try to compare the linear result of Gevolution with class for different precision parameters and we also compare most interesting parameters.\\
+We see somehow good agreement between the results, lets do some convergence tests,
+  \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_16_Nkess_1.jpg}
+ \end{figure}
+ \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_16_Nkess_10.jpg}
+ \end{figure}
+  \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_32_Nkess_10.jpg}
+ \end{figure}
+  \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_256_Nkess_10.jpg}
+ \end{figure}
+Which basically shows that increasing $nkess$ doe not change the result so much at least fo this very small run.\\
+Some convergence tests on the Piz-Daint, give
+  \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_1024_Nkess_10_DT_04.jpg}
+ \end{figure}
+ decreasing the time step,
+   \begin{figure} [H]
+ \includegraphics [scale=0.3]{Run_compLinear_Gev_Ngrid_1024_Nkess_10_DT_01.jpg}
+ \end{figure}
+     \begin{figure} [H]
+ \includegraphics [scale=0.3]{Kessence_Linear_Ngrid_1920_DT_04.jpg}
+ \end{figure}
+ \subsection{Convergence tests, to see if by increasing precision in the Gevolution we get better results}
+    \begin{figure} [H]
+ \includegraphics [scale=0.3]{Convergence_test_errors.jpg}
+ \end{figure}
+ Apparently we have got some inconsistencies, the related email is found in the below,
+     \begin{figure} [H]
+ \includegraphics [scale=0.3]{Julian_email2562018}
+ \end{figure}
+ Now I try to solve all the issues:\\
+ - Fixing the redshift confusion, bu producing the same redshift as Gevolution in class\\
+ - Putting Poisson equation test \\
+ - Compute the relative error of class and Gevolution background by extrapolation \\
+ - Rechecking the solver consistency specially for the initial condition, maybe something is wrong there, because we get very different results at initial redshifts. \\
+ - Moreover according to the meeting with the group,\\
+ Note: All of the mentioned todos are done, 
+ \paragraph{Adding Poisson equation as a check}
+Now we want to first show that if we use Poisson equation we can relate $\delta$ power to $\Phi$ power in Gevolution and class,
+\be
+- k^2 \Psi = 4 \pi G \rho_m \delta_m a^2
+\ee
+where $m$ refers to the matter but everything which clusters should be considered in RHS of Poisson equation, so $\delta_m$ is 
+\be
+\delta_m = \frac{\rho_m - \bar{\rho}_m}{\bar{\rho}_m} =\frac{\rho_b  + \rho_{cdm}- \bar{\rho}_b - \bar{\rho}_{cdm}}{\bar{\rho}_m} =  \frac{\delta_{cdm} \bar{\rho}_{cdm} + \delta_{b} \bar{\rho}_{b}}{\bar{\rho}_{cdm} + \bar{\rho}_{b} }
+\ee
+which results,
+\be
+\mathcal{P}_{\Psi}=\frac{ 16 \pi^2 G^2  \rho_m^2 \mathcal{P}_{\delta_m}}{k^4 (1+z)^2}
+\ee
+Moreover we have $\rho_m=\rho_m(0) /a^3$ and $4 \pi G \rho_{cr} =(3/2) {H_0}^2 $, so we have  $4 \pi G  \rho_m a^2 = 4 \pi G  \frac{\rho_m (a)}{\rho_{cr} (0)} \rho_{cr} (0) a^2 = 4 \pi G  \frac{\Omega_m (0) a^{-3} \rho_{cr}}{\rho_{cr} (0)} \rho_{cr} (0) a^2= (3/2) {H_0}^2   {\Omega_m (0) a^{-3} }  a^2 = ( 3/2) \mathcal{H}_0^2 \Omega_m (0) /a $ which gives,
+\be
+\mathcal{P}_{\Psi}=\frac{ 9  \mathcal{H}_0 ^4  \Omega_{m,0}^2  \mathcal{P}_{\delta_m}}{ 4 a^2 k^4}
+\ee
+\be
+  \mathcal{P}_{\delta_m} =k^3 P_{\delta_m}/2 \pi^2
+\ee
+So we compare $\mathcal{P}_{\Psi}$ from Poisson equation obtained from $\mathcal{P}_{\delta}$ with $\mathcal{P}_{\Psi}$ directly from Gevolution. Note that $\mathcal{H}$ and k must be in the same unit. Moreover it is very important to note that $\delta_{tot}$ in the transfer function output of Class also has the perturbation of photons and other species, so we cannot use it to get matter powerspectrum, instead we use the direct output of matter power of class. \\
+So we basically compare the power of $\delta_m$ from Gevolution and class.\\
+apparently the Poisson equation does not improve the result, because of some main reasons, one is the fact that in the Poisson equation we need to include anything! Photon, k-essence and etc. Second is that the Poisson equation has a relativistic correction which is related to the velocity of components and we did not account for!
+So we have 10$\%$ discrepancy which comes from these reasons. \\
+Some plot by Julian,
+     \begin{figure} [H]
+ \includegraphics [scale=0.3]{Pk_comparison.pdf}
+ \end{figure}
+      \begin{figure} [H]
+ \includegraphics [scale=0.3]{Pk_initial.pdf}
+ \end{figure}
+We see a tension for low k which shows probably something is going wrong in my code!? we need to solve this part.
+So after fixing the issue about the excess of low ks which was because of $\phi'$ which was not initiated in the beginning and the 0 value causes every field goes up at high wavenumbers, which is super strange! But at the end I wrote a separate file for the $\Phi'$ output spectra and after comparing with Julian's matter spectra we get,
+      \begin{figure} [H]
+ \includegraphics [scale=0.5]{deltam_comp.jpg}
+ \end{figure}
+       \begin{figure} [H]
+ \includegraphics [scale=0.5]{phi_comp.jpg}
+ \end{figure}
+ which are interesting. But why our implementation gives lower power?\\
+ and why by increasing the resolution of the simulation we get different background solution?\\
+ what does Julian fluid implantation does exactly?
+%Some runs information,
+%For the linear run with tiling factor = 64, $Nkessence=10$, $Ngrid=256$ and Boxsize=500
+%\begin{lstlisting}[language=C++,
+%  basicstyle=\tiny]
+%BENCHMARK
+%total execution time  : 6:30:22.3
+%total number of cycles: 129
+%time consumption breakdown:
+%initialization   : 0:03:13.0 ; 0.824143%.
+%main loop        : 6:23:06.6 ; 98.1396%.
+%----------- main loop: components -----------
+%projections                : 0:40:48.0 ; 10.6497%.
+%Kessence_update                : 1:35:32.4 ; 24.9383%.
+%snapshot outputs           : 0:00:00.0 ; 8.14206e-07%.
+%power spectra outputs      : 0:04:29.1 ; 1.17082%.
+%update momenta (count: 129): 0:26:50.1 ; 7.0047%.
+%move particles (count: 129): 0:44:45.7 ; 11.6839%.
+%gravity solver             : 2:53:03.5 ; 45.1719%.
+%-- thereof Fast Fourier Transforms (count: 1558): 1:44:17.7 ; 60.266%.
+%\end{lstlisting}
+%And for the non-linear run with the same setting we have,
+%\begin{lstlisting}[language=C++,
+%  basicstyle=\tiny]
+%
+%  \end{lstlisting}
+  
+\subsection{Non-Linear equations  }
+{\color{red} TODO: \\
+ - Check non-linear term not suppressed by $c_s^2$ in stress tensor? why it should be there? \\
+- Resolution check, if increasing the resolution solve the tension of non-linearities. \\
+- Write a Mathematica notebook for computing stress tensor in a systematic way,\\
+}
+Changing from linear to non-linear equations is done with a number in Gevolution which in case 1, turns on the non-linearities. It seems that the non-linear terms make the equation unstable, to see that we plot our best non-linear run,
+\begin{align} 
+ & \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+           \nonumber
+   \\
+    &
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }  
+  %//////////////// 
+  +   (1-c_s^2)  \Psi {\nabla^2 \pi}
+  %////////////////
+  +3 c_s^2 \mathcal{H} (1+w)\pi {\nabla^2 \pi }
+      %////////////////
+        -   (1-c_s^2)  { (\zeta + \Psi) } \nabla^2 {\pi }
+                                       \nonumber
+   \\
+    &
+        %//////////////// 
+             +c_s^2 {\nabla  \Phi . \nabla \pi}
+   %//////////////// 
+        -(2 c_s^2-1) {\nabla  \Psi . \nabla \pi }  
+   %//////////////// 
+ +\frac{\mathcal{H}} {2 } \Big(2+3w+c_s^2  \Big){\nabla  \pi . \nabla \pi} 
+    %//////////////// 
+     -2   (1-c_s^2){\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}     =0
+    % Second order terms==0
+  \end{align}
+  The other equation is like before,
+  \be
+  \pi' = \zeta + \Psi - \mathcal{H} \pi
+  \ee
+  We actually did nothing except substituting the $\pi'$ and in non-linear part the substitution is very straightforward. 
+  \begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Bigg(\zeta - 3 \mathcal{H}c_s^2 \pi -  (1-2 c_s^2 ) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Bigg )      \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w)  \Big[1 - (\frac{1}{c_s^2} -1)  \frac{(\vec{\nabla} \pi)^2}{2}  \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi +\zeta -  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+Note that in Gevolution to compute ${\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}}$  we use the symmetric derivative as follwoing,
+  \be
+  {\nabla  \pi . {  \nabla {  (\zeta + \Psi)   }}} = \frac{1}{4dx^2}\sum_{i=0}^2  \Big[{\pi(x_i+1) -\pi(x_i-1) } \Big]  \Big[ \big(\zeta(x_i+1) + \Psi (x_i+1) \big) -\big(\zeta(x_i-1) + \Psi (x_i-1) \big)  \Big]
+  \ee
+  where "1/4" coefficient appear since we are using symmetric derivative and using points with distance two. "$x_i$" is the lattice coordinate.
+
+    \begin{figure} [H]
+ \includegraphics [scale=0.3]{Non-linear_BigRun_Ngrid_1024_dt_04.jpg}
+ \end{figure}
+ To see which term exactly causes the problem, we first start with linear part for the small run to see that we can more or less get converged result as following,
+    \begin{figure} [H]
+ \includegraphics [scale=0.2]{linear_Ngrid_64_dt_04.jpg}
+ \end{figure}
+ \subsubsection{First non-linear term }
+ \begin{align} 
+ \zeta' -3w \mathcal{H} \zeta + 3 c_s^2 \Big(  \mathcal{H}^2- \mathcal{H}' \Big) \pi   - 3 c_s^2 \Big ( \,{\Phi'}  +\mathcal{H} \Psi \Big)- c_s^2 {\nabla^2 \pi }
+    % Second order terms
+     -2 c_s^2  \Phi  {\nabla^2 \pi }   =0
+  \end{align}
+ \be
+  \pi' = \zeta + \Psi - \mathcal{H} \pi
+  \ee
+   \begin{align}
+ & T_0^0 (Gev)=  \Omega^0_{kess} a^{-3 w}  \Bigg[1+ \frac{1+w}{c_s^2} \Bigg(\zeta - 3 \mathcal{H}c_s^2 \pi -  (1-2 c_s^2 ) 
+ \frac{(\vec{\nabla} \pi)^2}{2} \Bigg )      \Bigg ]
+\nonumber \\ &
+T^{i}_{0}(Gev)= - \Omega^0_{kess} a^{-3 w} (1+w)  \Big[1 - (\frac{1}{c_s^2} -1)  \frac{(\vec{\nabla} \pi)^2}{2}  \Big ] \partial _i \pi 
+\nonumber \\ &
+T_{j}^{i}(Gev)= w  \, \Omega^0_{kess} a^{-3 w} \Bigg ( 1+  \frac{1+w}{w}\Big [ -3 \mathcal{H} w \pi +\zeta -  \frac{(\vec{\nabla} \pi)^2}{2}   \Big] \delta_{j}^{i}  + \frac{1+w}{w} \delta^{i k} \partial_k \pi \partial_j \pi  \Bigg) 
+\end{align}
+    \begin{figure} [H]
+ \includegraphics [scale=0.25]{NL_Ngrid_64_dt_04_term1.jpg}
+ \end{figure}
+ Increasing the number of grids,
+    \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_Ngrid_128_dt_04_term1.jpg}
+ \end{figure}
+ It seems that the reason is in stress tensor, so lets neglect $-   
+ \frac{(\vec{\nabla} \pi)^2}{2}$, which seems to be large,
+     \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_Ngrid_128_dt_04_term1_stresstensoroff.jpg}
+ \end{figure}
+ Now lets turn on all the terms but keep the problematic term in stress tensor off,
+      \begin{figure} [H]
+ \includegraphics [scale=0.3]{NL_Ngrid_128_dt_04_termAll_stresstensoroff.jpg}
+ \end{figure}
+ \subsection{Studying Non-linear scalar field equation}
+  Lets turn off the kessence source gravity and just look at the scalar field equation if we can improve the plot and study the solution carefully! \\
+ Lets first check if we can improve the solution by increasing the resolution, so we run the code just up to z=50 probable to see when we get a very good solution, especially since we observe that the solution is wrong after the first update.\\
+After some runs we have,
+    \begin{figure} [H]
+ \includegraphics [scale=0.5]{NL_test_0001.jpg}
+ \end{figure}
+ Increasing number of kessece update to see the effect of solver (leap frog) or making mistake in providing initial conditions,
+     \begin{figure} [H]
+ \includegraphics [scale=0.5]{NL_test_0002.jpg}
+ \end{figure}
+ {\large{{\color{red} Attention}}}:\\
+ 
+ According to the top plots, I found a strange part in the coding! It seems that for the linear part I was using the code with the typo! So what happened was that that typo made a correct initial condition,  but whenever I try to make $\zeta$ at -1/2 and try to start updating from that it seems we are making a mistake in the initial condition, so not only we are wasting memory but also we do not get a better results, and for any initial condition (even very wrong) the solution goes to the right value at redshift 50 for example that why we see such a behaviour in the top figures.\\
+ To manage and simplify everything we have used simple Leap-frog and have use $\zeta(half)$ in the stress tensor and updating, of course we need to completely check the results at the end! But after this change it seems we get the right initial condition at least. But do we get everything correctly?\\
+ So the part of the code in gevolution.hpp and main as following is changed,
+ \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+  //**********************
+//Kessence - LeapFrog:START
+//**********************
+  double a_kess=a;
+  //First we update zeta_half to have it at -1/2 just in the first loop
+  if(cycle==0)
+  {
+    for (i=0;i<sim.nKe_numsteps;i++)
+    {
+      //computing zeta_half(-1/2) and zeta_int(-1) but we do not work with zeta(-1)
+      update_zeta(-dtau/ (2. * sim.nKe_numsteps) , dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo), Hconf_prime(a_kess, fourpiG, cosmo), sim.NL_kessence);
+      // zeta_integer.updateHalo();
+      zeta_half.updateHalo();
+    }
+  }
+
+ //Then fwe start the main loop zeta is updated to get zeta(n+1/2) from pi(n) and zeta(n-1/2)
+	for (i=0;i<sim.nKe_numsteps;i++)
+	{
+
+    //********************************************************************************
+    //Updating zeta_integer to get zeta_integer(n+1/2) and zeta_integer(n+1), in the first loop is getting zeta_integer(1/2) and zeta_integer(1)
+    // In sum: zeta_integer(n+1/2) = zeta_integer(n-1/2)+ zeta_integer'(n)dtau which needs background to be at n with then
+    //Note that here for zeta_integer'(n) we need background to be at n and no need to update it.
+    //\zeta_integer(n+1/2) = \zeta_integer(n-1/2) + \zeta_integer'(n)  dtau
+    //We also update zeta_int from n to n+1
+    //********************************************************************************
+    update_zeta(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo), Hconf_prime(a_kess, fourpiG, cosmo), sim.NL_kessence);
+    // zeta_integer.updateHalo();
+    zeta_half.updateHalo();
+    //********************************************************************************
+    //Since we have pi(n+1)=pi(n) + pi'(n+1/2), and in pi'(n+1/2) we have H(n+1/2) we update the background before updating the pi to have H(n+1/2), Moreover zeta(n+1) = zeta(n+1/2) + zeta'(n+1/2), so we put zeta_int updating in the pi updating!
+    //********************************************************************************
+    rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0);
+    //********************************************************************************
+    //we update pi to have it at n+1 (at first loop from the value at (0) and the value of zeta_integer at 1/2 and H(n+1/2) we update pi at (1))
+    //In the pi update we also update zeta_int because we need the values of a_kess and H_kess at step n+1/2
+    //By the below update we get pi(n+1) and zeta(n+1)
+    //********************************************************************************
+    update_pi_k(dtau/ sim.nKe_numsteps, dx, a_kess, phi, phi_old, chi, chi_old, pi_k, zeta_half, cosmo.Omega_kessence, cosmo.w_kessence, cosmo.cs2_kessence, Hconf(a_kess, fourpiG, cosmo), Hconf_prime(a_kess, fourpiG, cosmo), sim.NL_kessence); // H_old is updated here in the function
+		pi_k.updateHalo();
+
+    //********************************************************************************
+    // Now we have pi(n+1) and a_kess(n+1/2) so we update background by halfstep to have a_kess(n+1)
+    //********************************************************************************
+    rungekutta4bg(a_kess, fourpiG, cosmo,  dtau  / sim.nKe_numsteps / 2.0 );
+
+	}
+#ifdef BENCHMARK
+    kessence_update_time += MPI_Wtime() - ref_time;
+    ref_time = MPI_Wtime();
+#endif
+//**********************
+//Kessence - LeapFrog: End
+//**********************
+  \end{lstlisting}
+ So in the Gevolution.hpp instead of $zeta(int)$ in the stress tensor we use simply zeta(half) although it is not completely synched with the particles but we can alwayse check if it is a good approximation and in the zeta$\_$update we have only zeta(half) as following,
+  \begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+  template <class FieldType>
+			void update_zeta(double dtau, double dx,double a, Field<FieldType> & phi, Field<FieldType> & phi_old, Field<FieldType> & chi, Field<FieldType> & chi_old, Field<FieldType> & pi_k , Field<FieldType> & zeta_half, double Omega_fld ,double w, double cs2, double Hcon, double H_prime, int non_linearity )
+			  {
+        double Gradphi_Gradpi, Gradpsi_Gradpi, Gradpi_Gradpi, GradPsiZeta_Gradpi, Dx_psi, Dy_psi, Dz_psi;
+			  double C1, C2, C3, psi, psi_old, psi_prime, phi_prime, Laplacian_pi, zeta_old_integer, zeta_old_half ;
+        //Since a_kess is at n so H_prime is at n which is needed to calculate zeta(n+1/2)
+        //**************************************************************
+        //Coefficient two, H(n), H_prime(n) since BG already updated
+        //**************************************************************
+        C2 = cs2 * (3. * Hcon * Hcon - 3. * H_prime );
+        //**************************************************************
+        //Coefficient three, H(n), H_prime(n)
+        //**************************************************************
+        C3 = (2. + 3. * w + cs2 ) *  Hcon/2.;
+
+        //**************************************************************
+        //When non-linearities are turned off we put non-linear temrs zero
+        //**************************************************************
+        Gradphi_Gradpi=0.;
+        Gradpsi_Gradpi=0.;
+        Gradpi_Gradpi=0.;
+        GradPsiZeta_Gradpi=0.;
+				Site x(phi.lattice());
+				for (x.first(); x.test(); x.next())
+					{
+          //****************************************************************
+          //Laplace pi, pi(n) since pi is not updated yet
+          //****************************************************************
+					Laplacian_pi= pi_k(x-0) + pi_k(x+0) - 2. * pi_k(x);
+					Laplacian_pi+=pi_k(x+1) + pi_k(x-1) - 2. * pi_k(x);
+					Laplacian_pi+=pi_k(x+2) + pi_k(x-2) - 2. * pi_k(x);
+          Laplacian_pi= Laplacian_pi/(dx*dx);
+          //********************************************
+          //psi(n)
+          //*********************************************
+					psi = phi(x) - chi(x);
+          //***************************
+          //Coefficient one, H( at n)
+          //***************************
+          C1 = 1./(1. -  3. * Hcon * w  * dtau/2. -  non_linearity * (1. - cs2) *  Laplacian_pi * dtau/2.);
+          //**********************************************
+          //phi'(n)
+          //**********************************************
+				  phi_prime= (phi(x) - phi_old(x))/dtau; //phi_prime(n) since we want to use it to compute zeta (n+1/2)
+          //********************************
+          //psi'(n)
+          //psi(n)
+          //********************************
+          psi_prime= ((phi(x) - chi(x)) - (phi_old(x) - chi_old(x)))/dtau;
+          if (non_linearity ==1)
+            {
+            //**********
+            //Grad_i Psi
+            //**********
+            Dx_psi = ((phi(x + 0) - chi(x + 0)) - (phi(x - 0) - chi(x - 0)));
+            Dy_psi = ((phi(x + 1) - chi(x + 1)) - (phi(x - 1) - chi(x - 1)));
+            Dz_psi = ((phi(x + 2) - chi(x + 2)) - (phi(x - 2) - chi(x - 2)));
+            //*******************
+            //Grad_phi . Grad_pi
+            //******************
+            Gradphi_Gradpi= 0.25 * (phi(x + 0)  - phi(x - 0)) * (pi_k(x + 0) - pi_k(x - 0)) / (dx * dx);
+            Gradphi_Gradpi+=0.25 * (phi(x + 1)  - phi(x - 1)) * (pi_k(x + 1) - pi_k(x - 1)) / (dx * dx);
+            Gradphi_Gradpi+=0.25 * (phi(x + 2)  - phi(x - 2)) * (pi_k(x + 2) - pi_k(x - 2)) / (dx * dx);
+            //*******************
+            //Grad_psi . Grad_pi
+            //******************
+            Gradpsi_Gradpi= 0.25 * (Dx_psi) * (pi_k(x+0) - pi_k(x-0)) / (dx * dx);
+    			  Gradpsi_Gradpi+=0.25 * (Dy_psi) * (pi_k(x+1) - pi_k(x-1)) / (dx * dx);
+    			  Gradpsi_Gradpi+=0.25 * (Dz_psi) * (pi_k(x+2) - pi_k(x-2)) / (dx * dx);
+            //*************
+            //Gradpi_Gradpi
+            //*************
+            Gradpi_Gradpi= 0.25 * (pi_k(x + 0)  - pi_k(x - 0)) * (pi_k(x + 0) - pi_k(x - 0)) / (dx * dx);
+            Gradpi_Gradpi+=0.25 * (pi_k(x + 1)  - pi_k(x - 1)) * (pi_k(x + 1) - pi_k(x - 1)) / (dx * dx);
+            Gradpi_Gradpi+=0.25 * (pi_k(x + 2)  - pi_k(x - 2)) * (pi_k(x + 2) - pi_k(x - 2)) / (dx * dx);
+            //*************************************************************
+            //GradPsiZeta_Gradpi = Grad_pi . Grad_ (zeta + psi)
+            //Grad_pi . Grad_ (zeta + psi) = Grad_pi (Grad_zeta + Grad_Psi)
+            //zeta_integer from previous step is at n
+            //*************************************************************
+            GradPsiZeta_Gradpi= 0.25* (zeta_half(x+0) - zeta_half(x-0) + Dx_psi) * (pi_k(x+0) - pi_k(x-0)) / (dx * dx);
+            GradPsiZeta_Gradpi+=0.25* (zeta_half(x+1) - zeta_half(x-1) + Dy_psi) * (pi_k(x+1) - pi_k(x-1)) / (dx * dx);
+            GradPsiZeta_Gradpi+=0.25* (zeta_half(x+2) - zeta_half(x-2) + Dz_psi) * (pi_k(x+2) - pi_k(x-2)) / (dx * dx);
+          }
+          //***********************************
+          // Having the values at previous steps
+          //***********************************
+          // zeta_old_integer = zeta_integer(x); //zeta(n)
+          //***********************
+          // FULL Updating equation
+          //***********************
+          //***************************************
+          // zeta(n+1/2) = zeta(n-1/2) + zeta'(n)
+          //***************************************
+          zeta_half(x) =         C1 * ( zeta_half(x) + dtau * (
+          /*Linear(1,2,3)*/      + 3. * Hcon * ( w * zeta_half(x)/2. + cs2 * psi ) - C2 * pi_k(x)
+          /*Linear(4,5)*/        + 3. * cs2 * phi_prime + cs2 * Laplacian_pi
+          /*Non-linear terms*/   + non_linearity * (
+          /*Non-linear(1,2)*/    + 2. * cs2 * phi(x) * Laplacian_pi - (1. - cs2) * psi * Laplacian_pi
+          /*Non-linear(3)  */    - 3. * cs2 * Hcon * (1. + w) * pi_k(x) * Laplacian_pi
+          /*Non-linear(3)  */    +(1. - cs2) * (zeta_half(x) + psi) * Laplacian_pi
+           /*Non-linear(5,6,7)*/  - cs2 * Gradphi_Gradpi + (2. * cs2 -1.) * Gradpsi_Gradpi - C3 * Gradpi_Gradpi
+          /*Non-linear(8)  */    + 2. * (1. - cs2) * GradPsiZeta_Gradpi
+                                                    )
+                                                      )
+                                      );
+  \end{lstlisting}
+  which we simply approximated the zeta(int) in the non-linear terms by zeta(half) lets see if it is a good one! If it is not we always can use predictor corrector method. \\
+ \subsection{Python script}
+ Apparently for the linear case we were using the wrong initial condition for the LCDM case, now we have changed it. Moreover in order to go forward consistently we have written a python script to compare every important variable for consistency!
+\\
+We also have produced  $\Phi'$ for all the interested redshifts in order to completely compare everything with class! The part in class to produce $\Phi'$ in /source/perturbation.c is as following,
+\begin{lstlisting}[language=C++,
+  basicstyle=\tiny]
+    //*********************************
+      //Kessence field part is added here
+      //*********************************
+      // Printing the fields
+      // if (fabs(a-1./(1+100.))<0.0002 || fabs(a-1./(1+50.))<0.0002 || fabs(a-1./(1+10.))<0.0002 || fabs(a-1./(1+6.))<0.0002 || fabs(a-1./(1+1.))<0.0002 || fabs(a-1./(1+0.))<0.0002 )
+        if (fabs(a-1./(1+0.))<0.01 )
+      {
+      //  /**K is 1/Mpc */
+        if( k<10. )
+        {            // double pi_newton = ppw->pvecmetric[ppw->index_mt_vx_smg] + ppw->pvecmetric[ppw->index_mt_alpha]; // scalar field in Newtonian gauge --> Gauge transformation: pi(Newt)=pi(Sync)+ alpha
+      //     // double pi_prime_newton=ppw->pvecmetric[ppw->index_mt_vx_prime_smg] + ppw->pvecmetric[ppw->index_mt_alpha_prime];
+      //     // double pi_synch=ppw->pvecmetric[ppw->index_mt_vx_smg];
+      //     // double psi_Sync = ppw->pvecmetric[ppw->index_mt_alpha_prime] + H*ppw->pvecmetric[ppw->index_mt_alpha];
+           FILE * out1=fopen("./output/Kessence_field_class_phi_prime.dat","a");
+          fprintf(out1,"%e\t %e\t %e\t %e\t %e\t \n",k, a ,ppw->pvecmetric[ppw->index_mt_phi_prime]/a_prime_over_a, ppw->pvecmetric[ppw->index_mt_psi] ,a_prime_over_a/pba->H0 );
+          fclose(out1);
+          }
+      }
+      //*********************************
+      //Kessence field part is ended here
+      //*********************************
+  \end{lstlisting}
+  The python script for checking the background,
+  \begin{lstlisting}[language=python,
+  basicstyle=\tiny]
+  # params for makin power dimensionless
+# H_0 in Gevolution unit.
+h=0.67556
+# Boxsize=320.;
+c_gev=2997.92458; #[100km/s]
+c=2.99792458*1.e5; #Km/s
+# H0_conf_Gev=np.sqrt(Boxsize**2/c**2); #0.10677 rho_crit in Gev=1
+H0=100*h/c; #H0 in 1/Mpc unit. 0.00022593979933110373
+# print("H0[1/Mpc]=100h/c: ",H0);
+#################################
+#Class Hubble_conformal factor, H in unit 1/Mpc!
+# H in unit Mpc!
+def Hubble_conf_Mpc(a):
+    w=-0.9;h=0.67556;c=2.99792458*1.e5;H0=100.*h/c;
+    Omega_b=0.022032/h/h; Omega_cdm=0.12038/h/h;
+    Omega_m=Omega_b+Omega_cdm; Omega_Lambda=0.0;
+    Omega_rad=9.16681e-05; Omega_kessence=1.-Omega_m-Omega_rad;
+    return H0*np.sqrt(Omega_m*(a**-3)+Omega_rad*(a**-4)+Omega_Lambda+Omega_kessence*(a**(-3*(1+w))))*a
+a=bg_Gevolution[:,2];
+# Gevolution background output : H_conf/H0
+# Plot settings
+#Plot setting
+plt.figure(figsize=(16,16))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+
+#*******************
+#SubplotI
+plt.figure(1)
+plt.subplot(221)
+plt.loglog(a,Hubble_conf_Mpc(a),color="red",label="formula")
+plt.loglog(a,bg_Gevolution[:,3]*H0,color="blue",label="Gevolution")
+plt.xlim(8e-3,1)
+plt.ylim(1e-4,2e-2)
+plt.xlabel("a",fontsize=20)
+plt.ylabel(r"$\mathcal{H}(a)$",fontsize=20)
+plt.legend()
+plt.grid(True)
+
+#*******************
+#SubplotII
+# plt.figure(1)
+# Class background is H_phys [1/Mpc] 3d column.
+# H_conf= H_phys * a
+# 0th comun is redshift.
+plt.subplot(222)
+a_class=1./(1.+Class_Bg_newt_cs_e3[:,0]);
+plt.loglog(a_class,Hubble_conf_Mpc(a_class),color="red",label="formula")
+plt.loglog(a_class,Class_Bg_newt_cs_e3[:,3]*a_class,color="blue",label="Class ")
+plt.xlim(8e-3,1)
+plt.ylim(1e-4,2e-2)
+plt.xlabel("a",fontsize=20)
+plt.ylabel(r"$\mathcal{H}(a)$",fontsize=20)
+plt.legend()
+plt.grid(True)
+
+#*******************
+#SubplotIII Difference plots
+#Difference plot
+plt.subplot(223)
+a_class=1./(1.+Class_Bg_newt_cs_e3[:,0]);
+plt.loglog(a,np.abs(bg_Gevolution[:,3]*H0-Hubble_conf_Mpc(a))/bg_Gevolution[:,3]*H0,color="red",label=r"($\mathcal{H}$(Gev)-$\mathcal{H}$(formula))/$\mathcal{H}$(Gev)")
+# plt.xlim(8e-3,1)
+# plt.ylim(1e-4,2e-2)
+plt.xlabel("a",fontsize=20)
+plt.ylabel(r"$|\Delta \mathcal{H}/\mathcal{H}|$",fontsize=20)
+plt.legend()
+plt.grid(True)
+
+#*******************
+#SubplotIV 
+plt.subplot(224)
+a_class=1./(1.+Class_Bg_newt_cs_e3[:,0]);
+plt.loglog(a_class,np.abs((Class_Bg_newt_cs_e3[:,3]*a_class-Hubble_conf_Mpc(a_class))/(Class_Bg_newt_cs_e3[:,3]*a_class)),color="red",label=r"($\mathcal{H}$(Class)-$\mathcal{H}$(formula))/$\mathcal{H}$(class)")
+plt.xlim(8e-4,1)
+# plt.ylim(2e-3,3e-3)
+plt.xlabel("a",fontsize=20)
+# plt.gca().set_ylim(2.e-3, 3.e-3)
+plt.ylabel(r"$|\Delta \mathcal{H}/\mathcal{H}|$",fontsize=20)
+plt.legend()
+plt.grid(True)
+
+# All subplots adjusting
+plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95, hspace=0.25,
+                    wspace=0.25)
+plt.show()
+   \end{lstlisting}
+The part for checking the consistency of class files,
+  \begin{lstlisting}[language=python,
+  basicstyle=\tiny]
+  cs2_e3=0.000001;
+# cs2_e1=1.e-2;
+# cs2_e0=1.e0;
+w=-0.9;
+h=0.67556;
+As=2.215*10.e-9;
+ns=0.96;
+kp=0.05/h;
+# According to the formula it is different, maybe because different comsological parameters!
+# pi' definition is so sensitive to the exact amount of Hconf_zini!!!
+# \pi_conf in Newtonian in class : -(-\theta/k^2) pi here is conformal pi! and there is "-" from the definition of \theta!
+#K=1/Mpc and theta itself is in Mpc-1 so pi is in Mpc unit! and the conversion.
+z_all=[100, 50, 10, 6, 1, 0]
+# List of scale factor
+a100=(1./(1.+100.)); a50=(1./(1.+50.)); a10=(1./(1.+10.)); a6=(1./(1.+6.)); a1=(1./(1.+1.)); a0=(1./(1.+0.));
+a_all=[a100,a50,a10,a6,a1,a0]
+for i in range (6):
+    # i=0
+    pi_class_cs_e3_newt=(class_z_all[i][:,4]/((class_z_all[i][:,0]*h)**2) );
+    #     pi_class_cs_e1_newt_zlist.append(class_cs_e1_newt[i][:,4]/((class_cs_e1_newt[i][:,0]*h)**2));
+    #     pi_class_cs_e0_newt_zlist.append(class_cs_e0_newt[i][:,4]/((class_cs_e0_newt[i][:,0]*h)**2));
+    #*********************************
+    #\pi_v in class
+    # Psi is Class_newt_z100[:,7] and delta=Class_newt_z100[:,4]
+    #pi'_conf in class according to the formula: delta_kess= (1+w/cs2)[-Psi + pi' + Hconf * pi (-3cs2 +1)]
+    pi_prime_class_cs_e3_newt_zlist=(cs2_e3*class_z_all[i][:,3]/(1.+w) + H_confz_list[i]*pi_class_cs_e3_newt*(3.*cs2_e3-1.) + class_z_all[i][:,5]) ;
+    #     pi_prime_class_cs_e1_newt_zlist.append(cs2_e1*class_cs_e1_newt[i][:,3]/(1.+w) + H_confz_list[i]*pi_class_cs_e1_newt_zlist[i]*(3.*cs2_e1-1.) + class_cs_e1_newt[i][:,5]) ;
+    #     pi_prime_class_cs_e0_newt_zlist.append(cs2_e0*class_cs_e0_newt[i][:,3]/(1.+w) + H_confz_list[i]*pi_class_cs_e0_newt_zlist[i]*(3.*cs2_e0-1.) + class_cs_e0_newt[i][:,5]) ;
+    zeta_class_cs_e3_newt_zlist= pi_prime_class_cs_e3_newt_zlist[:] + H_confz_list[i]*pi_class_cs_e3_newt[:] - class_z_all[i][:,5];
+    #*********************************
+    # pi_prime_Class_newt_cs_e3_zall.append(cs2*Class_newt_cs_e3_zall[i][:,4]/(1.+w) + H_conf_zall_list[i] * pi_Class_newt_cs_e3_zall[i]*(3.*cs2-1.) + Class_newt_cs_e3_zall[i][:,8]) ;
+
+    # Some checks!
+    # We expect that \dot{\pi} + \Psi vanish! which we get \pi'+ H \pi -\Psi, cs=1.e-3;
+    pidot_zlist=(pi_prime_class_cs_e3_newt_zlist + H_confz_list[i] * pi_class_cs_e3_newt)
+    Psi_zlist=(class_z_all[i][:,5])
+    #*********************************
+
+    #Plot setting
+    plt.figure(figsize=(30,30))
+    ax = plt.gca()
+    ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+    ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+
+    #*******************
+    #SubplotI Check that the pi and are made correctly with correct H-conf
+    plt.figure(1)
+    plt.subplot(321)
+    plt.loglog(class_z_all[i][:,0],np.abs(class_z_all[i][:,1]),color="red",label=r"$\pi$ in the file, $c_s=10^{-3}$, z="+str(z_list[i]))
+    plt.loglog(class_z_all[i][:,0],np.abs(pi_class_cs_e3_newt[:]),color="blue",label=r"$\pi$, made here by $\theta/k^2$")
+    plt.loglog(class_z_all[i][:,0],np.abs(pi_class_cs_e3_newt[:]-class_z_all[i][:,1])/np.abs(pi_class_cs_e3_newt[:]),color="green",label=r"$|\Delta\pi/\pi|$ ")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    plt.legend(bbox_to_anchor=(0.05, 0.50, 0.46, .102), loc=1,ncol=1,fontsize=12, mode="expand", borderaxespad=0.)
+    # plt.yscale('log')
+    plt.xlabel("k[h/Mpc]",fontsize=11)
+    plt.ylabel(r"$\pi/\mathcal{R}$",fontsize=11)
+    # plt.xlim(0.0001,5)
+    plt.grid(True)
+
+#     # #     #*******************
+#     # #     #SubplotII Check that the pi' are made correctly with correct H-conf
+    plt.subplot(322)
+    plt.loglog(class_z_all[i][:,0],np.abs(class_z_all[i][:,2]),color="red",label=r"$\zeta$ in the file, $c_s=10^{-3}$, z="+str(z_list[i]))
+    plt.loglog(class_z_all[i][:,0],np.abs(zeta_class_cs_e3_newt_zlist[:]),color="blue",label=r"$\zeta$ made here by $|\pi' +  \mathcal{H} \pi - \Psi|$")
+    plt.loglog(class_z_all[i][:,0],np.abs(pidot_zlist[:]-class_z_all[i][:,5]),color="purple",label=r"$\zeta$ made here by $|\dot{\pi} - \Psi|$")
+    plt.loglog(class_z_all[i][:,0],np.abs(zeta_class_cs_e3_newt_zlist[:]-class_z_all[i][:,2])/np.abs(class_z_all[i][:,2]),color="green",label=r"$|\Delta\zeta/\zeta|$")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    # plt.loglog(class_z_all[i][:,0],(zeta_class_cs_e3_newt_zlist[:]-class_z_all[i][:,2])/zeta_class_cs_e3_newt_zlist[:],color="green",label=r"$zeta'$ difference")
+    plt.legend(bbox_to_anchor=(0.05, 0.18, 0.66, .102), loc=1,ncol=1,fontsize=12, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=11)
+    plt.ylabel(r"$\pi'$",fontsize=11)
+    plt.grid(True)
+
+    # #     #*******************
+    # #     #SubplotIII Check that the \dot{pi} and \Psi comparison
+    plt.subplot(323)
+    plt.loglog(class_z_all[i][:,0],pidot_zlist[:],color="red",label=r"$\pi'+ \mathcal{H} \pi =\dot{\pi}$ in the file, z="+str(z_list[i]))
+    plt.loglog(class_z_all[i][:,0],Psi_zlist[:],color="blue",label=r"$\Psi$")
+    plt.loglog(class_z_all[i][:,0],np.abs(pidot_zlist[:]-Psi_zlist[:]),color="green",label=r"$ |\Psi-\dot{\pi}|$")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    plt.legend(bbox_to_anchor=(0.00, 0.50, 0.36, .102), loc=1,ncol=1,fontsize=12, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=11)
+    plt.ylabel(r"$T/{\mathcal{R}}$",fontsize=11)
+    plt.grid(True)
+    # # #     #*******************
+    # # #     #SubplotIV Check that the pi' + Hconf \pi -psi = pi_dot  -Psi , is  comparable with cs2 k^2/H^2 \Psi!
+    # # #     # For cs->0 these plots should be the same! (pi_dot  -Psi) -> cs2 k^2/H^2 \Psi
+    plt.subplot(324)
+    plt.loglog(class_z_all[i][:,0],np.abs(pidot_zlist[:]-Psi_zlist[:]),color="red",label=r"$\pi'+ \mathcal{H} \pi -\Psi$ in the file, z="+str(z_list[i]))
+    plt.loglog(class_z_all[i][:,0],cs2_e3*(class_z_all[i][:,0]*h/(H_confz_list[i]))**2 * Psi_zlist[:],color="blue",label=r"$ c_s^2 k^2/\mathcal{H}^2 \Psi$")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    plt.legend(bbox_to_anchor=(0.25, 0.90, 0.39, .102), loc=1,ncol=1,fontsize=12, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=11)
+    plt.ylabel(r"$|T/{\mathcal{R}}|$",fontsize=11)
+    plt.grid(True)
+
+    # plt.savefig('Class_1.jpg', format='jpg', dpi=500)
+    # All subplots adjusting
+    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95, hspace=0.25,
+                            wspace=0.25)
+    plt.show()
+  \end{lstlisting}
+  Initial condition test,
+  \begin{lstlisting}[language=python,
+  basicstyle=\tiny]
+  plt.figure(figsize=(20,20))
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+# Theta Calculation Theta = pi * k^2
+Gev_lin_theta_z100= Gev_lin_Hpi_z100[:,1] * (Gev_lin_Hpi_z100[:,0]*h)**4/(H_conf_class_z100**2)
+# string=r"$N_{grid} =1920, boxsize= 1600.0 \,, \, nKe_numsteps=10 \, , \, time step limit = 0.04$";
+plt.figure(1)
+#####################
+#####################
+#####################
+#SubplotI Check the pi in class and Gevolution
+# Hconf*pi comparison
+plt.subplot(221)
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 12)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 12)
+#Gev
+plt.loglog(Gev_lin_deltakess_z100[:,0], Gev_lin_deltakess_z100[:,1],color="darkblue",linestyle='solid',lw=1.5, label=r"$\delta_{kess}$, Gevolution-linear,  z=100 ")
+plt.loglog(Gev_lin_delta_m_z100[:,0], Gev_lin_delta_m_z100[:,1],color="crimson",linestyle='solid',lw=1.5,  label=r"$\delta_{m}$, Gevolution-linear,  z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], Gev_lin_phi_z100[:,1],color="y",linestyle='solid',lw=1.5,label=r"$\Phi$ Gevolution-linear z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], Gev_lin_theta_z100[:],color="purple",linestyle='solid',lw=1.5,label=r"$\theta$ Gevolution-linear z=100 ")
+
+# plt.loglog(Gev_lin_phi_prime_z100[:,0], Gev_lin_phi_prime_z100[:,1],color="maroon",linestyle='solid',lw=1.5,label=r"$\Phi'$, Gevolution-linear z=100 ")
+#Class
+plt.loglog(Gev_lin_deltakess_z100[:,0], Class_power_z100[:,3],color="blue",linestyle='dashed',lw=1.5,label=r"$\delta_{kess}$ class z=100 ")
+plt.loglog(Gev_lin_deltakess_z100[:,0], Class_power_z100[:,6],color="red",linestyle='dashed',lw=1.5,label=r"$\delta_{m}$ class z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], Class_power_z100[:,5],color="yellow",linestyle='dashed',lw=1.5,label=r"$\Phi$ class z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], Class_power_z100[:,4],color="plum",linestyle='dashed',lw=1.5,label=r"$\theta$ class z=100 ")
+
+# plt.loglog(Gev_lin_phi_prime_z100[:,0], Class_power_phiprime_z100[:],color="lightcoral",linestyle='dashed',lw=1.5,label=r"$\Phi'$ class z=100 ")
+plt.legend(bbox_to_anchor=(0.1, 0.30, 0.4, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+# plt.ylim(1.e-15,1.e-9)
+plt.grid(True)
+# plt.title(string)
+#####################
+#####################
+#####################
+#SubplotI Check the pi in class and Gevolution
+# Hconf*pi comparison
+plt.subplot(222)
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 12)
+ax.tick_params(axis = 'both', which = 'minor', labelsize = 12)
+#Gev
+plt.loglog(Gev_lin_deltakess_z100[:,0], np.abs(Gev_lin_deltakess_z100[:,1]-Class_power_z100[:,3])/Class_power_z100[:,3]
+           ,color="darkblue",linestyle='solid',lw=1.5, label=r"$ \frac{|\delta_{kess}(Gev) -\delta_{kess}(class)|}{\delta_{kess}(class)}  $, z=100 ")
+plt.loglog(Gev_lin_delta_m_z100[:,0], np.abs(Gev_lin_delta_m_z100[:,1]-Class_power_z100[:,6])/Class_power_z100[:,6],
+           color="crimson",linestyle='solid',lw=1.5,  label=r"$ \frac{|\delta_{m}(Gev) -\delta_{m}(class)|}{delta_{m}(class)}$, z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], np.abs(Gev_lin_phi_z100[:,1]-Class_power_z100[:,5])/Class_power_z100[:,5],
+           color="y",linestyle='solid',lw=1.5,label=r"$\frac{|\Phi(Gev) -\Phi(class)|} {\Phi(class)}$, z=100 ")
+plt.loglog(Gev_lin_phi_z100[:,0], np.abs(Gev_lin_theta_z100[:]-Class_power_z100[:,4])/Class_power_z100[:,4],
+           color="y",linestyle='solid',lw=1.5,label=r"$\frac{|\theta(Gev) -\theta(class)|} {\theta(class)}$, z=100 ")
+
+
+plt.legend(bbox_to_anchor=(0.1, 0.30, 0.5, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+# plt.ylim(1.e-15,1.e-9)
+plt.grid(True)
+#####################
+#####################
+#####################
+plt.subplot(223)
+plt.loglog(Gev_lin_Hpi_z100[:,0], Gev_lin_Hpi_z100[:,1],color="red",linestyle='solid',lw=1.5,  label=r"$\pi \mathcal{H}$, Gevolution-Lin,  z=100 ")
+plt.loglog(Gev_lin_zeta_z100[:,0], Gev_lin_zeta_z100[:,1],color="green",linestyle='solid',lw=1.5, label=r"$\zeta$, Gevolution-Lin,  z=100 ")
+plt.loglog(Gev_lin_Hpi_z10[:,0], Class_power_z100[:,1]*H_conf_class_z100**2,color="crimson",linestyle='dashed',lw=1.5,label=r"$\pi \mathcal{H}$ class z=100 ")
+plt.loglog(Gev_lin_zeta_z10[:,0], Class_power_z100[:,2],color="lime",linestyle='dashed',lw=1.5,label=r"$\zeta$ class z=100 ")
+
+# plt.title(r"$N_{grid} =64, boxsize= 500.0 \,, \, nKe_numsteps=1 \, , \, time step limit = 0.04$")
+plt.legend(bbox_to_anchor=(0.3, 0.20, 0.4, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+# plt.ylim(1.e-15,1.e-9)
+plt.grid(True)
+#####################
+#####################
+#####################
+plt.subplot(224)
+plt.loglog(Gev_lin_Hpi_z100[:,0], np.abs(Gev_lin_Hpi_z100[:,1]-Class_power_z100[:,1]*H_conf_class_z100**2)/np.abs(Class_power_z100[:,1]*H_conf_class_z100**2),color="olivedrab",linestyle='solid',lw=1.5,
+           label=r"|$\frac{|\pi \mathcal{H}(Gev) - \pi \mathcal{H}(class)}{ \pi \mathcal{H}(class)}$|, z=100 ")
+plt.loglog(Gev_lin_zeta_z100[:,0], np.abs(Gev_lin_zeta_z100[:,1]-Class_power_z100[:,2])/np.abs(Class_power_z100[:,2]),color="orchid",linestyle='solid',lw=1.5, 
+           label=r"|$\frac{\zeta(Gev) - \zeta(class)}{\zeta(class)}|$, z=100 ")
+
+# plt.title(r"$N_{grid} =64, boxsize= 500.0 \,, \, nKe_numsteps=1 \, , \, time step limit = 0.04$")
+plt.legend(bbox_to_anchor=(0.1, 0.20, 0.4, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+plt.xlabel("k[h/Mpc]",fontsize=14)
+plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+# plt.xlim(0.01,5.e-1)
+# plt.ylim(1.e-15,1.e-9)
+plt.grid(True)
+#####################
+#####################
+#####################
+
+# plt.savefig('Kessence_Linear_Ngrid_1920_DT_04.jpg', format='jpg', dpi=100)
+plt.show()
+  \end{lstlisting}
+  
+  Making all the interesting plots in the loop,
+  \begin{lstlisting}[language=python,
+  basicstyle=\tiny]
+  # plt.figure(figsize=(30,30))
+# ax = plt.gca()
+# ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+# ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+
+#Class Hubble factor, H in unit 1/Mpc!
+# It is phsyical hubble, to make it conformal need to multiply to a. Hconf = H_phys * a
+H_conf_z100=Hubble_conf_Mpc(1./(1.+100.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z50=Hubble_conf_Mpc(1./(1.+50.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z10=Hubble_conf_Mpc(1./(1.+10.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z6=Hubble_conf_Mpc(1./(1.+6.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z1=Hubble_conf_Mpc(1./(1.+1.)); # Unit=1/Mpc Hconf=a*H
+H_conf_z0=Hubble_conf_Mpc(1./(1.+0.)); # Unit=1/Mpc Hconf=a*H
+H_conf_zall_list=[H_conf_z100, H_conf_z50, H_conf_z10,
+                  H_conf_z6, H_conf_z1, H_conf_z0];
+z_all=[100, 50, 10, 6, 1, 0]
+# List of scale factor
+a100=(1./(1.+100.)); a50=(1./(1.+50.)); a10=(1./(1.+10.)); a6=(1./(1.+6.)); a1=(1./(1.+1.)); a0=(1./(1.+0.));
+a_all=[a100,a50,a10,a6,a1,a0];
+# Theta Calculation Theta = pi * k^2
+Gev_lin_theta_z_all=np.zeros((np.shape(Gev_lin_Hpi_z100)[0],6))
+# Making interpolation, for delta!
+for i in range (0,1):
+    Gev_lin_theta_z_all[:,i] =Gev_lin_Hpi_z_all[i][:,1] * (Gev_lin_Hpi_z_all[i][:,0]*h)**4/(H_conf_zall_list[i]**2)
+
+
+# string=r"$N_{grid} =1920, boxsize= 1600.0 \,, \, nKe_numsteps=10 \, , \, time step limit = 0.04$";
+for i in range (1,6):
+    
+    plt.figure(figsize=(30,30))
+    ax = plt.gca()
+    ax.tick_params(axis = 'both', which = 'major', labelsize = 24)
+    ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
+    plt.figure(1)
+#####################
+#####################
+#####################
+#SubplotI Check the pi in class and Gevolution
+# Hconf*pi comparison
+    plt.subplot(321)
+    ax = plt.gca()
+    ax.tick_params(axis = 'both', which = 'major', labelsize = 12)
+    ax.tick_params(axis = 'both', which = 'minor', labelsize = 12)
+    #Gev
+    plt.loglog(Gev_lin_deltakess_z_all[i][:,0], Gev_lin_deltakess_z_all[i][:,1],color="blue",linestyle='dashed',lw=1.5, label=r"$\delta_{kess}$, Gevolution-linear, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], Gev_lin_delta_m_z_all[i][:,1],color="red",linestyle='dashed',lw=1.5,  label=r"$\delta_{m}$, Gevolution-linear, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_phi_z_all[i][:,0], Gev_lin_phi_z_all[i][:,1],color="purple",linestyle='dashed',lw=1.5,  label=r"$\Phi$, Gevolution-linear, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_phi_prime_z_all[i][:,0], Gev_lin_phi_prime_z_all[i][:,1],color="olivedrab",linestyle='dashed',lw=1.5,  label=r"$\Phi'$, Gevolution-linear, z="+str(z_list[i]))
+
+    #Class
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], Class_power_z_all[i][:,3],color="darkblue",linestyle='solid',lw=1.5,label=r"$\delta_{kess}$ class, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], Class_power_z_all[i][:,6],color="salmon",linestyle='solid',lw=1.5,label=r"$\delta_{m}$ class, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], Class_power_z_all[i][:,5],color="blueviolet",linestyle='solid',lw=1.5,label=r"$\Psi$ class, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], Class_power_phiprime_z_all[i][:],color="yellowgreen",linestyle='solid',lw=1.5,label=r"$\Psi'/\mathcal{H}$ class, z="+str(z_list[i]))
+
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    
+    plt.legend(bbox_to_anchor=(0.0, 0.40, 0.3, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=14)
+    plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+    # plt.xlim(0.01,5.e-1)
+#     plt.ylim(1.e-10,5.e-3)
+    plt.grid(True)
+    plt.title(string+" "+", z="+str(z_list[i]))
+# #####################
+# #####################
+# #####################
+    plt.subplot(322)
+    ax = plt.gca()
+    ax.tick_params(axis = 'both', which = 'major', labelsize = 12)
+    ax.tick_params(axis = 'both', which = 'minor', labelsize = 12)
+    #Gev
+    plt.loglog(Gev_lin_deltakess_z_all[i][:,0],2.* np.abs(( Gev_lin_deltakess_z_all[i][:,1]-Class_power_z_all[i][:,3])/(Gev_lin_deltakess_z_all[i][:,1]+Class_power_z_all[i][:,3]))
+               ,color="blue",linestyle='solid',lw=1.5, label=r"$2 \frac{\delta_{kess}(gev) - \delta_{kess}(class)} {\delta_{kess}(gev) + \delta_{kess}(class)}$, Gevolution-Lin, z="+str(z_list[i]))
+    #matter
+    plt.loglog(Gev_lin_delta_m_z_all[i][:,0], 2.* np.abs(( Gev_lin_delta_m_z_all[i][:,1]-Class_power_z_all[i][:,6])/(Gev_lin_delta_m_z_all[i][:,1]+Class_power_z_all[i][:,6]))
+               ,color="darkslategrey",linestyle='solid',lw=1.5,label=r"$2 \frac{\delta_m(gev) - \delta_m(class)} {\delta_m(gev) + \delta_m(class)}$, Gevolution-Lin, z="+str(z_list[i]))
+    
+    plt.loglog(Gev_lin_phi_z_all[i][:,0], 2.* np.abs(( Gev_lin_phi_z_all[i][:,1]-Class_power_z_all[i][:,5])/(Gev_lin_phi_z_all[i][:,1]+Class_power_z_all[i][:,5])),color="indigo",linestyle='solid',lw=1.5,
+               label=r"$2 \frac{\delta_{\Phi}(gev) - \delta_{\Phi}(class)} {\delta_{\Phi}(gev) + \delta_{\Phi}(class)}$, Gevolution-Lin, z="+str(z_list[i]))
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    
+    plt.legend(bbox_to_anchor=(0.0, 0.40, 0.4, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=14)
+    plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+    # plt.xlim(0.01,5.e-1)
+#     plt.ylim(1.e-10,5.e-3)
+    plt.grid(True)
+    plt.title(string+" "+", z="+str(z_list[i]))
+# #####################
+# #####################
+# #####################
+    plt.subplot(323)
+    plt.loglog(Gev_lin_deltakess_z100[:,0], Gev_lin_deltakess_z_all[i][:,1]/Gev_lin_delta_m_z_all[i][:,1],color="blue",linestyle='dashed',lw=1.5, label=r"$\delta_{kess}/\delta_m$, Gevolution-Lin, z="+str(z_list[i]))
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    
+#     plt.title(string)
+    plt.legend(bbox_to_anchor=(0.0, 0.20, 0.3, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=14)
+    plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+    # plt.xlim(0.01,5.e-1)
+#     plt.ylim(2.e-14,1.e-7)
+    plt.grid(True)
+    # #####################
+# #####################
+# #####################
+    plt.subplot(324)
+    plt.loglog(Gev_lin_deltakess_z100[:,0], Gev_lin_theta_z_all[:,i],color="blue",linestyle='dashed',lw=1.5, label=r"$\theta$, Gevolution-Lin, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_Hpi_z_all[i][:,0], Gev_lin_Hpi_z_all[i][:,1],color="red",linestyle='dashed',lw=1.5,  label=r"$\pi \mathcal{H}$, Gevolution-Lin, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_zeta_z_all[i][:,0], Gev_lin_zeta_z_all[i][:,1],color="purple",linestyle='dashed',lw=1.5, label=r"$\zeta$, Gevolution-Lin, z="+str(z_list[i]))
+
+    # Class 
+    plt.loglog(Gev_lin_deltakess_z0[:,0], Class_power_z_all[i][:,4],color="darkblue",linestyle='solid',lw=1.5,label=r"$\theta$ class z="+str(z_list[i]))
+    plt.loglog(Gev_lin_deltakess_z0[:,0], Class_power_z_all[i][:,1]*H_conf_zall_list[i]**2,color="salmon",linestyle='solid',lw=1.5,label=r"$\pi \mathcal{H}$ class, z="+str(z_list[i]))
+    plt.loglog(Gev_lin_deltakess_z0[:,0], Class_power_z_all[i][:,2],color="blueviolet",linestyle='solid',lw=1.5,label=r"$\zeta$, class z="+str(z_list[i]))
+    #salmon blueviolet
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    
+#     plt.title(string)
+    plt.legend(bbox_to_anchor=(0.0, 0.20, 0.3, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=14)
+    plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+    # plt.xlim(0.01,5.e-1)
+#     plt.ylim(2.e-14,1.e-7)
+    plt.grid(True)
+
+# #####################
+# #####################
+# #####################
+    plt.subplot(325)
+    plt.loglog(Gev_lin_Hpi_z_all[i][:,0], 2.*np.abs(Gev_lin_Hpi_z_all[i][:,1] -Class_power_z_all[i][:,1]*H_conf_zall_list[i]**2)
+               /(Gev_lin_Hpi_z_all[i][:,1]+Class_power_z_all[i][:,1]*H_conf_zall_list[i]**2) ,color="blue",linestyle='dashed',
+               lw=1.5,  label=r"$2 \frac{ \pi \mathcal{H}(gev) - \pi \mathcal{H}(class)} {\pi \mathcal{H}(gev) + \pi \mathcal{H}(class)}$, Gevolution-Lin,  z="+str(z_list[i]))
+    
+    plt.loglog(Gev_lin_zeta_z_all[i][:,0], 2.* np.abs(Gev_lin_zeta_z_all[i][:,1]-Class_power_z_all[i][:,2])/(Gev_lin_zeta_z_all[i][:,1]+Class_power_z_all[i][:,2])
+               ,color="red",linestyle='dashed',lw=1.5, label=r"$2 \frac{ \zeta (gev) - \zeta(class)} {\zeta (gev) + \zeta(class)}$, Gevolution-Lin,  z="+str(z_list[i]))
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/h, color='brown', linestyle='-',label=r"Hubble-horizon")
+    plt.axvline(x=Hubble_conf_Mpc(a_all[i])/np.sqrt(cs2_e3)/h, color='tomato', linestyle='-',label=r"Sound-horizon")
+    
+    #####################
+#     plt.loglog(Gev_lin_Hpi_z0[:,0], 2.*np.abs(Gev_lin_Hpi_z0[:,1] -Class_power_z0[:,1]*H_conf_class_z0**2)
+#                /(Gev_lin_Hpi_z0[:,1]+Class_power_z0[:,1]*H_conf_class_z0**2) ,color="purple",linestyle='dashed',
+#                lw=1.5,  label=r"$2 \frac{ \pi \mathcal{H}(gev) - \pi \mathcal{H}(class)} {\pi \mathcal{H}(gev) + \pi \mathcal{H}(class)}$, Gevolution-Lin,  z=0 ")
+#     plt.loglog(Gev_lin_zeta_z0[:,0], 2.* np.abs(Gev_lin_zeta_z0[:,1]-Class_power_z0[:,2])/(Gev_lin_zeta_z0[:,1]+Class_power_z0[:,2])
+#                ,color="green",linestyle='dashed',lw=1.5, label=r"$2 \frac{ \zeta (gev) - \zeta(class)} {\zeta (gev) + \zeta(class)}$, Gevolution-Lin,  z=0 ")
+    plt.legend(bbox_to_anchor=(0.0, 0.20, 0.3, .102), loc=1,ncol=1,fontsize=10, mode="expand", borderaxespad=0.)
+    plt.xlabel("k[h/Mpc]",fontsize=14)
+    plt.ylabel(r"$\mathcal{P} $",fontsize=14)
+    # plt.xlim(0.01,5.e-1)li
+    # plt.ylim(1.e-15,1.e-9)
+    plt.grid(True)
+
+# plt.savefig('Kessence_Linear_Ngrid_1920_DT_04.jpg', format='jpg', dpi=100)
+    plt.show()ww
+  \end{lstlisting}
+  
+ %{\color{red} If we use pureEFT flag in EFTcamb, what are the related parameters for k-essence case?  since the translation between the standard language with EFTcamb is not trivial according to table 1 of   \url{https://arxiv.org/pdf/1411.3712.pdf} }
+%In the beginning we use minimally coupled quintessence flag in the EFTcamb to check the consistency, then we should try the pureEFT flag. We choose the quintessence flag according to \url{http://www.eftcamb.org/images/EFTCAMB_structure.pdf} in the second part.
+% \end{document}
